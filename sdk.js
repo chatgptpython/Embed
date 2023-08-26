@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: all 0.3s ease-in-out;
             display: none;
             flex-direction: column;
-            z-index: 9999;  /* Toegevoegde z-index */
         }
         
         #chatbot-icon {
@@ -179,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
         border-radius: 0;
         top: auto;
         transform: translateY(0);
+        z-index: 9999;
     }
 
     #chatbot-icon.open {
