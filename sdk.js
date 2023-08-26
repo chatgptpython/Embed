@@ -222,20 +222,52 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(div);
 
     // JavaScript toevoegen
-    let isBotTyping = false;
+        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+        let isBotTyping = false;
 
-    window.toggleChat = function() {
-        const chatbot = document.getElementById("chatbot");
-        const icon = document.getElementById("chatbot-icon");
+        // Nieuwe functie om welkomstbericht te typen
+        window.typeWelcomeMessage = function() {
+            const chatContent = document.getElementById("chatbot-content");
+            chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+            let messageText = "Welkom bij Chatproducties! Hoe kan ik je helpen?";
+            let messageElem = document.createElement("div");
+            messageElem.className = "bot-message";
+            chatContent.appendChild(messageElem);
 
-        if (chatbot.style.display === "none" || chatbot.style.display === "") {
-            chatbot.style.display = "flex";
-            icon.classList.add('open');
-        } else {
-            chatbot.style.display = "none";
-            icon.classList.remove('open');
-        }
-    };
+            let index = 0;
+            let typingInterval = setInterval(() => {
+                if (index < messageText.length) {
+                    messageElem.textContent += messageText[index];
+                    index++;
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                } else {
+                    clearInterval(typingInterval);
+                }
+            }, 50);
+        };
+
+        window.toggleChat = function() {
+            const chatbot = document.getElementById("chatbot");
+            const icon = document.getElementById("chatbot-icon");
+
+            if (chatbot.style.display === "none" || chatbot.style.display === "") {
+                chatbot.style.display = "flex";
+                icon.classList.add('open');
+                if (firstTimeOpen) {
+                    typeWelcomeMessage();  // Roep de nieuwe functie aan
+                    firstTimeOpen = false;
+                }
+            } else {
+                chatbot.style.display = "none";
+                icon.classList.remove('open');
+            }
+        };
+
+        window.handleKeyUp = function(event) {
+            if (event.key === "Enter" && !isBotTyping) {
+                sendMessage();
+            }
+        };
 
     window.handleKeyUp = function(event) {
         if (event.key === "Enter" && !isBotTyping) {
