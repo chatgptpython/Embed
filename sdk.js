@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <span>🤖</span>
+            <span>🗨️</span>
         </div>
     `;
     var div = document.createElement('div');
