@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     (function() {
+        // Definieer een variabele voor de backend URL
+        const backendUrl = "https://chatbot-d7nw.onrender.com";
     // CSS toevoegen
     var css = `
     <style>
@@ -281,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function() {
             chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
 
             setTimeout(() => {
-                fetch('/ask', {
+                fetch(`${backendUrl}/ask`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
