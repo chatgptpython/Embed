@@ -185,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
         top: 10px;
         right: 10px;
         bottom: auto;
+        z-index: 10000;
     }
 
 }
