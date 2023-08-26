@@ -314,8 +314,9 @@ document.addEventListener("DOMContentLoaded", function() {
         handleKeyUp(event);
     };
 
-    // Toon de chatbot-icoon bij het laden van de pagina
+if(window.innerWidth > 768) {
     toggleChat();
+}
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
