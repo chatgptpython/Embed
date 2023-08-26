@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         #chatbot {
             position: fixed;
-            bottom: 100px; /* Aangepast om ruimte te maken voor de grotere widget */
+            bottom: 100px;
             right: 30px;
             width: 420px;
             height: 640px;
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: all 0.3s ease-in-out;
             display: none;
             flex-direction: column;
+            z-index: 9999;  /* Toegevoegde z-index */
         }
         
         #chatbot-icon {
@@ -186,23 +187,6 @@ document.addEventListener("DOMContentLoaded", function() {
         bottom: auto;
     }
 
-    #chatbot header {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5em;
-            text-align: center;
-            background-color: #1a1a1a;
-            color: #00ff00;
-            padding: 20px;
-        }
-        
-
-        /* Subtitel stijlen */
-        #subtitle {
-            text-align: center;
-            font-size: 0.8em;
-            color: #777;
-            margin-top: 10px;
-        }
 }
 
     </style>
