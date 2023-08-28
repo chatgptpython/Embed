@@ -115,9 +115,13 @@
             background-color: #ffffff;
             color: #333;
         }
-        
+
+        #chatbot-input {
+            display: flex;
+            align-items: center;
+        }
         #chatbot-input textarea {
-            flex: 1.5;
+            flex: 1;
             padding: 8px 12px;
             border: 1px solid #8c77db;
             border-radius: 30px;
@@ -152,6 +156,8 @@
             border-radius: 50%;
             cursor: pointer;
             font-size: 1em;
+            flex: 0;
+            
         }
         .user-message, .bot-message {
             margin: 10px 0;
@@ -163,14 +169,15 @@
 
       
         #chatbot-input .send-icon {
-            width: 35px;  /* Vergrootte de grootte van het icoon */
+            width: 35px;
             height: 35px;
-            background-image: url('https://raw.githubusercontent.com/chatgptpython/python/main/static/send_5836606.png'); 
+            background-image: url('https://raw.githubusercontent.com/chatgptpython/python/main/static/send_5836606.png');
             background-size: cover;
             cursor: pointer;
-            background-color: transparent;  /* Maakt de achtergrond transparant */
-            border: none;  /* Verwijdert de rand */
-}
+            background-color: transparent;
+            border: none;
+        }
+
         
         .user-message {
             align-self: flex-end;
@@ -240,8 +247,8 @@
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
-                <textarea id="userInput" rows="1" placeholder="Typ je vraag hier..."></textarea>=
-                <button onclick="sendMessage()" class="send-icon"></button> <!-- Gebruik een klasse of id om te verwijzen naar je nieuwe icoon -->
+                <textarea id="userInput" rows="1" placeholder="Typ je vraag hier..."></textarea>
+                <button onclick="sendMessage()" class="send-icon"></button>
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
