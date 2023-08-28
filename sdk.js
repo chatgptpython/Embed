@@ -203,8 +203,6 @@
         }
     }
 
-
-        
         .message-sender {
             font-size: 0.9em;
             color: #888;
@@ -248,6 +246,25 @@
         z-index: 10000;
     }
 
+    #title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#main-title {
+    font-size: 1.8em;  /* Vergroot het lettertype */
+    font-weight: bold;  /* Maak het vet */
+    color: #333;  /* Kleur naar keuze */
+}
+
+#subtitle {
+    font-size: 0.8em;  /* Kleiner lettertype voor de ondertitel */
+    color: #666;  /* Kleur naar keuze */
+}
+
+
+
 }
          
            
@@ -271,7 +288,9 @@
     var html = `
         <div id="chatbot">
             <header>
+            <div id="title-container">
                 Chatproducties - Proddy 🤖
+                <div id="subtitle">Jouw AI-chatbot</div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
