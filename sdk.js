@@ -1,6 +1,4 @@
-  
-
-    document.addEventListener("DOMContentLoaded", function() {
+   document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-d7nw.onrender.com";
@@ -126,8 +124,8 @@
             background-color: #ffffff;
         }
         
-         #chatbot-input input {
-            flex: 1.5;
+        #chatbot-input textarea {
+            flex: 1;
             padding: 8px 12px;
             border: 1px solid #8c77db;
             border-radius: 30px;
@@ -137,7 +135,7 @@
             resize: none;
             min-height: 20px;
             overflow: auto;
-        }
+}
         
         #chatbot-input button {
             background: #8c77db;
@@ -232,8 +230,8 @@
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
-                <input type="text" id="user-input" placeholder="Typ je vraag...">
-                <button onclick="sendMessage()" class="send-icon"></button> <!-- Gebruik een klasse of id om te verwijzen naar je nieuwe icoon -->
+                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+                <button onclick="sendMessage()" class="send-icon"></button>
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
