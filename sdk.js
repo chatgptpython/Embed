@@ -250,7 +250,13 @@
 
 }
          
-           
+      @media (min-width: 769px) {
+    #chatbot {
+        width: 600px;  /* Vergroot de breedte */
+        height: 800px;  /* Vergroot de hoogte */
+    }
+}
+     
 
 
 
