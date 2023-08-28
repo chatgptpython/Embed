@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+ document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-d7nw.onrender.com";
@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: all 0.3s ease-in-out;
             display: none;
             flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            z-index: 10000;
         }
         
         #chatbot-icon {
@@ -41,6 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
             
         }
+
+        #chatbot.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         
         #chatbot-icon:hover {
             transform: scale(1.1);
@@ -114,27 +124,28 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
         
-        #chatbot-input input {
-            flex: 1.5;
-            padding: 15px;
+        #chatbot-input textarea {
+            flex: 1;
+            padding: 8px 12px;
             border: 1px solid #8c77db;
             border-radius: 30px;
             outline: none;
-            transition: all 0.3s ease-in-out;
             color: #333;
-            margin-right: 10px; /* Verkleinde marge voor kleinere verzendknop */
-        }
+            margin-right: 10px;
+            resize: none;
+            min-height: 20px;
+            overflow: auto;
+         }
         
         #chatbot-input button {
             background: #8c77db;
             color: white;
             border: none;
-            padding: 8px 12px; /* Kleinere padding voor kleinere verzendknop */
-            border-radius: 20px;
+            padding: 8px 12px;
+            border-radius: 50%;
             cursor: pointer;
             font-size: 1em;
         }
-        
         .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
@@ -142,6 +153,16 @@ document.addEventListener("DOMContentLoaded", function() {
             max-width: 80%;
             transition: all 0.3s ease-in-out;
         }
+
+        #chatbot-input .send-icon {
+            width: 35px;
+            height: 35px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
+            background-size: cover;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+       }
         
         .user-message {
             align-self: flex-end;
@@ -189,32 +210,6 @@ document.addEventListener("DOMContentLoaded", function() {
         bottom: auto;
         z-index: 10000;
     }
-
-    
-        #chatbot-input .send-icon {
-            width: 35px;
-            height: 35px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
-            background-size: cover;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-       }
-
-        #chatbot-input textarea {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #8c77db;
-            border-radius: 30px;
-            outline: none;
-            color: #333;
-            margin-right: 10px;
-            resize: none;
-            min-height: 20px;
-            overflow: auto;
-         }
-
-    
 
 }
 
@@ -280,13 +275,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (chatbot.style.display === "none" || chatbot.style.display === "") {
                 chatbot.style.display = "flex";
-                icon.classList.add('open');
+                setTimeout(function() {
+                    chatbot.classList.add("visible");
+                }, 50); 
                 if (firstTimeOpen) {
                     typeWelcomeMessage();  // Roep de nieuwe functie aan
                     firstTimeOpen = false;
                 }
             } else {
-                chatbot.style.display = "none";
+                chatbot.classList.remove("visible");
+                setTimeout(function() {
+                    chatbot.style.display = "none";
+                }, 500);
                 icon.classList.remove('open');
             }
         };
@@ -375,9 +375,10 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 if(window.innerWidth > 768) {
-    toggleChat();
+    setTimeout(function() {
+        toggleChat();
+    }, 3000);  
 }
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
