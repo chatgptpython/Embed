@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: all 0.3s ease-in-out;
             display: none;
             flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
         }
         
@@ -42,6 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
             
         }
+
+        #chatbot.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         
         #chatbot-icon:hover {
             transform: scale(1.1);
@@ -255,13 +264,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (chatbot.style.display === "none" || chatbot.style.display === "") {
                 chatbot.style.display = "flex";
-                icon.classList.add('open');
+                setTimeout(function() {
+                    chatbot.classList.add("visible");
+                }, 50); 
                 if (firstTimeOpen) {
                     typeWelcomeMessage();  // Roep de nieuwe functie aan
                     firstTimeOpen = false;
                 }
             } else {
-                chatbot.style.display = "none";
+                chatbot.classList.remove("visible");
+                setTimeout(function() {
+                    chatbot.style.display = "none";
+                }, 500);
                 icon.classList.remove('open');
             }
         };
