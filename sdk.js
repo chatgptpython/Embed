@@ -156,6 +156,7 @@
             border-radius: 20px;
             max-width: 80%;
             transition: all 0.3s ease-in-out;
+            word-wrap: break-word;  /* Voeg deze regel toe */
         }
 
         #chatbot-input .send-icon {
