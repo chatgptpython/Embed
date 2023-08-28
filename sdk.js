@@ -9,8 +9,7 @@
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
         }
-        
-        #chatbot {
+         #chatbot {
             position: fixed;
             bottom: 100px;
             right: 30px;
@@ -23,9 +22,15 @@
             display: none;
             flex-direction: column;
             opacity: 0;
-            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
+            background: radial-gradient(circle at center, #FFFFFF, #007BFF);
+            box-shadow: 
+                0 0 10px #FFF,
+                0 0 20px #FFF,
+                0 0 30px #007BFF,
+                0 0 40px #007BFF,
+                0 0 55px #007BFF,
+                0 0 75px #007BFF;
         }
             
               
@@ -95,17 +100,17 @@
             opacity: 0;
         }
         
-        #chatbot header {
-            background: linear-gradient(135deg, #ffffff, #9c88ff);
-            color: #333;
-            padding: 15px 25px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
+           #chatbot header {
+             background: radial-gradient(circle at center, #FFFFFF, #007BFF);
+             color: #333;
+             padding: 15px 25px;
+             text-align: left;
+             font-weight: 600;
+             font-size: 1.3em;
+             display: flex;
+             align-items: center;
+             border-bottom: 1px solid #ddd;
+         }
         
         #chatbot header img {
             width: 24px;
@@ -226,20 +231,20 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
         }
                 
-         #close-chat {
-            cursor: pointer;
-            font-size: 48px;  /* Zeer grote font-grootte voor het kruisje */
-            margin-left: auto;
-            padding: 12px;  /* Royale padding voor meer ruimte */
-            border-radius: 16px;  /* Zeer afgeronde hoeken */
-            background-color: rgba(140, 119, 219, 0.8);  /* Halfdoorzichtige achtergrond */
-            color: white;
-            transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;  /* Zachte en langzame overgang */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);  /* Diepere schaduw voor meer nadruk */
-        }
+              #close-chat {
+             cursor: pointer;
+             font-size: 48px;
+             margin-left: auto;
+             padding: 12px;
+             border-radius: 16px;
+             background-color: #007BFF;
+             color: white;
+             box-shadow: 
+                 0 0 5px #007BFF,
+                 0 0 10px #007BFF,
+                 0 0 15px #007BFF,
+                 0 0 20px #007BFF;
+         }
         
         #close-chat:hover {
             background-color: rgba(123, 108, 200, 0.9);  /* Donkerdere en minder doorzichtige achtergrond bij hover */
