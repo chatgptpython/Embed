@@ -209,29 +209,18 @@
             color: #888;
             margin-bottom: 5px;
         }
- #close-chat {
-        cursor: pointer;
-        font-size: 36px;
-        margin-left: auto;
-        padding: 10px;
-        background-color: #8c77db;
-        color: white;
-    }
-                
-              #close-chat {
-             cursor: pointer;
-             font-size: 48px;
-             margin-left: auto;
-             padding: 12px;
-             border-radius: 16px;
-             background-color: #007BFF;
-             color: white;
-             box-shadow: 
-                 0 0 5px #007BFF,
-                 0 0 10px #007BFF,
-                 0 0 15px #007BFF,
-                 0 0 20px #007BFF;
-         }
+
+#close-chat {
+    cursor: pointer;
+    font-size: 36px;
+    margin-left: auto;
+    padding: 10px;
+    background-color: #8c77db; /* Oorspronkelijke paarse kleur */
+    color: white;
+    border: none;  /* Geen rand */
+    box-shadow: none;  /* Geen schaduw */
+}
+
         
         #close-chat:hover {
             background-color: rgba(123, 108, 200, 0.9);  /* Donkerdere en minder doorzichtige achtergrond bij hover */
