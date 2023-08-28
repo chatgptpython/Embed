@@ -42,7 +42,7 @@
             cursor: pointer;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-            z-index: 10000;
+            z-index: 9996;
            
             
         }
