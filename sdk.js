@@ -94,17 +94,16 @@
             opacity: 0;
         }
         
-       #chatbot header {
-            background: linear-gradient(135deg, #ffffff, #9c88ff);
-            color: #333;
-            padding: 15px 25px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
+         #chatbot header {
+          background: linear-gradient(135deg, #ffffff, #9c88ff);
+          color: #333;
+          padding: 15px 25px;
+          display: flex;
+          justify-content: space-between; /* Zorgt ervoor dat de ruimte tussen de titel en het kruisje maximaal is */
+          align-items: center;
+          border-bottom: 1px solid #ddd;
+      }
+
         
         #chatbot header img {
             width: 24px;
