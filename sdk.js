@@ -27,16 +27,23 @@
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
         }
-                
-             #chatbot-icon {
+              #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #007BFF, 0 0 40px #007BFF, 0 0 55px #007BFF, 0 0 75px #007BFF; /* Glimmend effect */
+            background: radial-gradient(circle at center, #FFFFFF, #007BFF); /* Wit naar metallic blauw */
+            box-shadow: 
+                0 0 10px #FFF, /* Inner glow */
+                0 0 20px #FFF, /* Inner glow */
+                0 0 30px #007BFF, /* Outer glow */
+                0 0 40px #007BFF, /* Outer glow */
+                0 0 55px #007BFF, /* Outer glow */
+                0 0 75px #007BFF, /* Outer glow */
+                0 0 100px #007BFF, /* Extra outer glow */
+                0 0 150px #007BFF; /* Extra outer glow */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -44,6 +51,7 @@
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
             z-index: 9996;
         }
+
         
 
 
