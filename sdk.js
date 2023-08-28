@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: all 0.3s ease-in-out;
             display: none;
             flex-direction: column;
+            z-index: 10000;
         }
         
         #chatbot-icon {
