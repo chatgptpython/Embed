@@ -35,17 +35,16 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #9c88ff, #8c77db);
+            background: radial-gradient(circle at 30% 30%, #3a5f8d, #1a2e4a);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
             z-index: 9996;
-           
-            
         }
+
 
         #chatbot.visible {
             opacity: 1;
