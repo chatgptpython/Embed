@@ -252,24 +252,17 @@
          
 @media (min-width: 769px) {
     #chatbot-icon {
-        width: 100px;  /* Vergroot de breedte */
-        height: 100px;  /* Vergroot de hoogte */
+        width: 60px;  /* Verklein de breedte */
+        height: 60px;  /* Verklein de hoogte */
     }
     #chatbot-icon span {
-        font-size: 60px;  /* Vergroot de font-grootte van het icoon */
+        font-size: 35px;  /* Verklein de font-grootte van het icoon */
     }
-}
-
-@media (min-width: 769px) {
     #chatbot {
-        bottom: 200px;  /* Verplaats de chatbot meer naar boven */
+        bottom: 150px;  /* Verplaats de chatbot een beetje meer naar boven */
     }
 }
 
-
-
-
-}
 
     </style>
     `;
