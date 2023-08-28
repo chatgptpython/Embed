@@ -1,3 +1,5 @@
+  
+
     document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Definieer een variabele voor de backend URL
@@ -115,26 +117,15 @@
             background-color: #ffffff;
             color: #333;
         }
-
+        
         #chatbot-input {
+            padding: 15px 20px;
             display: flex;
             align-items: center;
+            border-top: 1px solid rgba(140, 119, 219, 0.1);
+            background-color: #ffffff;
         }
-        #chatbot-input textarea {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #8c77db;
-            border-radius: 30px;
-            outline: none;
-            color: #333;
-            margin-right: 10px;
-            resize: none;
-            min-height: 20px;
-            max-height: 100px;  /* Maximale hoogte */
-            overflow-y: auto;  /* Verticale scrollbalk indien nodig */
-            white-space: pre-wrap; 
-            overflow: hidden;
-}
+        
          #chatbot-input input {
             flex: 1.5;
             padding: 8px 12px;
@@ -156,8 +147,6 @@
             border-radius: 50%;
             cursor: pointer;
             font-size: 1em;
-            flex: 0;
-            
         }
         .user-message, .bot-message {
             margin: 10px 0;
@@ -167,17 +156,13 @@
             transition: all 0.3s ease-in-out;
         }
 
-      
         #chatbot-input .send-icon {
-            width: 35px;
-            height: 35px;
-            background-image: url('https://raw.githubusercontent.com/chatgptpython/python/main/static/send_5836606.png');
+            width: 20px;
+            height: 20px;
+            background-image: url('path/to/your/icon.png');
             background-size: cover;
             cursor: pointer;
-            background-color: transparent;
-            border: none;
         }
-
         
         .user-message {
             align-self: flex-end;
@@ -247,8 +232,8 @@
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
-                <textarea id="userInput" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
+                <input type="text" id="user-input" placeholder="Typ je vraag...">
+                <button onclick="sendMessage()" class="send-icon"></button> <!-- Gebruik een klasse of id om te verwijzen naar je nieuwe icoon -->
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
@@ -394,23 +379,6 @@ if(window.innerWidth > 768) {
         toggleChat();
     }, 3000);  
 }
-
-            document.addEventListener('input', function (e) {
-    if (e.target.tagName.toLowerCase() === 'textarea') {
-        var textarea = e.target;
-        textarea.style.height = 'auto'; // Reset de hoogte
-        textarea.style.height = (textarea.scrollHeight) + 'px'; // Zet de nieuwe hoogte
-
-        // Beperk de maximale hoogte tot bijvoorbeeld 100 pixels
-        if (textarea.scrollHeight > 100) {
-            textarea.style.height = '100px';
-            textarea.style.overflowY = 'auto'; // Schakel verticaal scrollen in
-        } else {
-            textarea.style.overflowY = 'hidden'; // Schakel verticaal scrollen uit
-        }
-    }
-}, false);
-
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
