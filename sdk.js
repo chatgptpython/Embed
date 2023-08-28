@@ -350,7 +350,9 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 if(window.innerWidth > 768) {
-    toggleChat();
+    setTimeout(function() {
+        toggleChat();
+    }, 1000);  // Wacht 1 seconde (1000 milliseconden) voordat de chatbot wordt getoond
 }
 
 })();  // Deze lijn sluit de IIFE correct af
