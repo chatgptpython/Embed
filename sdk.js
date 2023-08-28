@@ -208,23 +208,26 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
         }
         
-        #close-chat:hover {
-            background-color: #7b6cc8;
-            transform: scale(1.1);  /* Laat het kruisje een beetje groter worden bij hover */
+         #close-chat {
+            cursor: pointer;
+            font-size: 48px;  /* Zeer grote font-grootte voor het kruisje */
+            margin-left: auto;
+            padding: 12px;  /* Royale padding voor meer ruimte */
+            border-radius: 16px;  /* Zeer afgeronde hoeken */
+            background-color: rgba(140, 119, 219, 0.8);  /* Halfdoorzichtige achtergrond */
+            color: white;
+            transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;  /* Zachte en langzame overgang */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);  /* Diepere schaduw voor meer nadruk */
         }
-
         
-        @media (max-width: 768px) {
-    #chatbot {
-        width: 100%;
-        height: 80vh;
-        bottom: 5vh;  /* 10vh vanaf de onderkant om de chatbot meer naar het midden te verplaatsen */
-        right: 0;
-        border-radius: 0;
-        top: auto;
-        transform: translateY(0);
-        z-index: 9999;
-    }
+        #close-chat:hover {
+            background-color: rgba(123, 108, 200, 0.9);  /* Donkerdere en minder doorzichtige achtergrond bij hover */
+            transform: scale(1.15);  /* Laat het kruisje nog groter worden bij hover */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);  /* Donkerdere schaduw bij hover */
+        }
 
   
 
