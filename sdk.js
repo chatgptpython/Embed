@@ -28,19 +28,19 @@
             z-index: 10000;
         }
         
-        #chatbot-icon {
+         #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffffff, transparent),
-                        radial-gradient(circle at 70% 70%, #ffffff, transparent),
-                        linear-gradient(to bottom, #3a5f8d, #1a2e4a);
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.5), transparent 50%),
+                linear-gradient(135deg, #ffffff, #1a2e4a); /* Metallic blauw naar wit */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 
-                        inset 0 2px 4px rgba(255, 255, 255, 0.5),
-                        inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+                        inset 0 2px 4px rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
