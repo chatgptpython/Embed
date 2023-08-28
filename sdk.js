@@ -194,23 +194,23 @@
         }
 
          #close-chat {
-            cursor: pointer;
-            font-size: 24px;
-            margin-left: auto;
-            padding: 0 15px;
-            border-radius: 50%;
-            background-color: #8c77db;
-            color: white;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            line-height: 30px;
-            transition: background-color 0.3s ease;
-}
+             cursor: pointer;
+             font-size: 24px; /* Grootte van het kruisje */
+             margin-left: auto; /* Het element naar rechts duwen */
+             padding: 8px; /* Ruimte rondom het kruisje */
+             border-radius: 8px; /* Afgeronde hoeken */
+             background-color: #8c77db; /* Achtergrondkleur van het vierkantje */
+             color: white; /* Kleur van het kruisje */
+             transition: background-color 0.3s ease; /* Zachte overgang voor hover */
+             display: flex; /* Flexbox om het kruisje in het midden te plaatsen */
+             align-items: center; /* Verticaal centreren */
+             justify-content: center; /* Horizontaal centreren */
+         }
 
-         #close-chat:hover {
-            background-color: #7b6cc8;
-}
+            #close-chat:hover {
+                background-color: #7b6cc8; /* Achtergrondkleur bij hover */
+            }
+
         
         @media (max-width: 768px) {
     #chatbot {
