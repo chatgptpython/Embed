@@ -252,14 +252,14 @@
          
 @media (min-width: 769px) {
     #chatbot-icon {
-        width: 60px;  /* Verklein de breedte */
-        height: 60px;  /* Verklein de hoogte */
+        width: 85px;  /* Vergroot de breedte */
+        height: 85px;  /* Vergroot de hoogte */
     }
     #chatbot-icon span {
-        font-size: 35px;  /* Verklein de font-grootte van het icoon */
+        font-size: 52px;  /* Vergroot de font-grootte van het icoon */
     }
     #chatbot {
-        bottom: 150px;  /* Verplaats de chatbot een beetje meer naar boven */
+        bottom: 80px;  /* Verplaats de chatbot een beetje meer naar boven */
     }
 }
 
