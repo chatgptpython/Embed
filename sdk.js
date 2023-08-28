@@ -208,28 +208,28 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
         }
         
-         #close-chat {
-            cursor: pointer;
-            font-size: 48px;  /* Zeer grote font-grootte voor het kruisje */
-            margin-left: auto;
-            padding: 12px;  /* Royale padding voor meer ruimte */
-            border-radius: 16px;  /* Zeer afgeronde hoeken */
-            background-color: rgba(140, 119, 219, 0.8);  /* Halfdoorzichtige achtergrond */
-            color: white;
-            transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;  /* Zachte en langzame overgang */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);  /* Diepere schaduw voor meer nadruk */
-        }
-        
-        #close-chat:hover {
-            background-color: rgba(123, 108, 200, 0.9);  /* Donkerdere en minder doorzichtige achtergrond bij hover */
-            transform: scale(1.15);  /* Laat het kruisje nog groter worden bij hover */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4);  /* Donkerdere schaduw bij hover */
-        }
-
-  
+           #close-chat {
+             cursor: pointer;
+             font-size: 1.8em;  /* Groot genoeg maar niet te groot */
+             margin-left: auto;
+             padding: 5px;  /* Beperkte padding om binnen de header te blijven */
+             border-radius: 50%;  /* Volledig afgeronde hoeken voor een cirkelvorm */
+             background-color: rgba(140, 119, 219, 0.8);
+             color: white;
+             transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+         }
+         
+         #close-chat:hover {
+             background-color: rgba(123, 108, 200, 0.9);
+             transform: scale(1.2);
+             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+         }
+         
+           
 
 
 
