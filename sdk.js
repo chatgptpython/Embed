@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot-input .send-icon {
         width: 35px;  /* Vergrootte de grootte van het icoon */
         height: 35px;
-        background-image: url('file:///C:/Users/Mac/Desktop/si%20sginore/static/send_5836606.png'); /* Jouw lokaal pad */
+        background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png'); /* Jouw lokaal pad */
         background-size: cover;
         cursor: pointer;
         background-color: transparent;  /* Maakt de achtergrond transparant */
