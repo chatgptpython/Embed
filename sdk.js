@@ -177,15 +177,29 @@
             color: #333;
         }
         
-        .typing-dot {
+         .typing-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
             background-color: #333;
             border-radius: 50%;
-            animation: typing 1s infinite;
+            animation: typing 1.5s infinite;
             margin: 0 2px;
         }
+
+            @keyframes typing {
+        0% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.3;
+        }
+    }
+
+
         
         .message-sender {
             font-size: 0.9em;
