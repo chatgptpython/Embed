@@ -250,13 +250,22 @@
 
 }
          
-      @media (min-width: 769px) {
-    #chatbot {
-        width: 600px;  /* Vergroot de breedte */
-        height: 800px;  /* Vergroot de hoogte */
+@media (min-width: 769px) {
+    #chatbot-icon {
+        width: 100px;  /* Vergroot de breedte */
+        height: 100px;  /* Vergroot de hoogte */
+    }
+    #chatbot-icon span {
+        font-size: 60px;  /* Vergroot de font-grootte van het icoon */
     }
 }
-     
+
+@media (min-width: 769px) {
+    #chatbot {
+        bottom: 200px;  /* Verplaats de chatbot meer naar boven */
+    }
+}
+
 
 
 
