@@ -124,33 +124,42 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
         
-        #chatbot-input input {
+         #chatbot-input input {
             flex: 1.5;
-            padding: 15px;
+            padding: 8px 12px;
             border: 1px solid #8c77db;
             border-radius: 30px;
             outline: none;
-            transition: all 0.3s ease-in-out;
             color: #333;
-            margin-right: 10px; /* Verkleinde marge voor kleinere verzendknop */
+            margin-right: 10px;
+            resize: none;
+            min-height: 20px;
+            overflow: auto;
         }
         
         #chatbot-input button {
             background: #8c77db;
             color: white;
             border: none;
-            padding: 8px 12px; /* Kleinere padding voor kleinere verzendknop */
-            border-radius: 20px;
+            padding: 8px 12px;
+            border-radius: 50%;
             cursor: pointer;
             font-size: 1em;
         }
-        
         .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
             border-radius: 20px;
             max-width: 80%;
             transition: all 0.3s ease-in-out;
+        }
+
+        #chatbot-input .send-icon {
+            width: 20px;
+            height: 20px;
+            background-image: url('path/to/your/icon.png');
+            background-size: cover;
+            cursor: pointer;
         }
         
         .user-message {
@@ -222,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
                 <input type="text" id="user-input" placeholder="Typ je vraag...">
-                <button onclick="sendMessage()">Verzenden</button>
+                <button onclick="sendMessage()" class="send-icon"></button> <!-- Gebruik een klasse of id om te verwijzen naar je nieuwe icoon -->
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
