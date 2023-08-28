@@ -228,6 +228,27 @@
              transform: scale(1.2);
              box-shadow: 0 4px 8px rgba(0,0,0,0.3);
          }
+
+                @media (max-width: 768px) {
+    #chatbot {
+        width: 100%;
+        height: 80vh;
+        bottom: 5vh;  /* 10vh vanaf de onderkant om de chatbot meer naar het midden te verplaatsen */
+        right: 0;
+        border-radius: 0;
+        top: auto;
+        transform: translateY(0);
+        z-index: 9999;
+    }
+
+    #chatbot-icon.open {
+        top: 10px;
+        right: 10px;
+        bottom: auto;
+        z-index: 10000;
+    }
+
+}
          
            
 
