@@ -190,6 +190,32 @@ document.addEventListener("DOMContentLoaded", function() {
         z-index: 10000;
     }
 
+    
+        #chatbot-input .send-icon {
+            width: 35px;
+            height: 35px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
+            background-size: cover;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+       }
+
+        #chatbot-input textarea {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #8c77db;
+            border-radius: 30px;
+            outline: none;
+            color: #333;
+            margin-right: 10px;
+            resize: none;
+            min-height: 20px;
+            overflow: auto;
+         }
+
+    
+
 }
 
     </style>
@@ -211,8 +237,8 @@ document.addEventListener("DOMContentLoaded", function() {
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
-                <input type="text" id="user-input" placeholder="Typ je vraag...">
-                <button onclick="sendMessage()">Verzenden</button>
+                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+                <button onclick="sendMessage()" class="send-icon"></button>
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
