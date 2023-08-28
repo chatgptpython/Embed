@@ -192,6 +192,14 @@
             color: #888;
             margin-bottom: 5px;
         }
+
+        #close-chat {
+          cursor: pointer;
+          font-size: 24px;
+          margin-left: auto;
+          padding: 0 15px;
+       }
+
         
         @media (max-width: 768px) {
     #chatbot {
@@ -205,12 +213,15 @@
         z-index: 9999;
     }
 
-    #chatbot-icon.open {
-        top: 10px;
-        right: 10px;
-        bottom: auto;
-        z-index: 10000;
-    }
+  
+
+    #close-chat {
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: auto;
+    padding: 0 15px;
+}
+
 
 }
 
@@ -230,6 +241,7 @@
         <div id="chatbot">
             <header>
                 Chatproducties - Proddy 🤖
+                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
@@ -270,27 +282,38 @@
             }, 50);
         };
 
-        window.toggleChat = function() {
-            const chatbot = document.getElementById("chatbot");
-            const icon = document.getElementById("chatbot-icon");
 
-            if (chatbot.style.display === "none" || chatbot.style.display === "") {
-                chatbot.style.display = "flex";
-                setTimeout(function() {
-                    chatbot.classList.add("visible");
-                }, 50); 
-                if (firstTimeOpen) {
-                    typeWelcomeMessage();  // Roep de nieuwe functie aan
-                    firstTimeOpen = false;
-                }
-            } else {
-                chatbot.classList.remove("visible");
-                setTimeout(function() {
-                    chatbot.style.display = "none";
-                }, 500);
-                icon.classList.remove('open');
-            }
-        };
+window.toggleChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        chatbot.style.display = "flex";
+        setTimeout(function() {
+            chatbot.classList.add("visible");
+        }, 50); 
+        if (firstTimeOpen) {
+            typeWelcomeMessage();  // Roep de nieuwe functie aan
+            firstTimeOpen = false;
+        }
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
+        icon.classList.remove('open');
+    }
+};
+
+// Nieuwe functie om de chat te sluiten
+window.closeChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    chatbot.style.display = "none";
+    icon.classList.remove('open');
+};
+     
 
         window.handleKeyUp = function(event) {
             if (event.key === "Enter" && !isBotTyping) {
