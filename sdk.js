@@ -9,22 +9,23 @@
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
         }
-       #chatbot {
-        position: fixed;
-        bottom: 100px;
-        right: 30px;
-        width: 420px;
-        height: 640px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-        display: none;
-        flex-direction: column;
-        opacity: 0;
-        z-index: 10000;
-        background: radial-gradient(circle at center, #FFFFFF, #007BFF);
-    }
+   #chatbot {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 420px;
+            height: 640px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            z-index: 10000;
+        }
             
               
               
@@ -93,17 +94,17 @@
             opacity: 0;
         }
         
-        #chatbot header {
-        background: radial-gradient(circle at center, #FFFFFF, #007BFF);
-        color: #333;
-        padding: 15px 25px;
-        text-align: left;
-        font-weight: 600;
-        font-size: 1.3em;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-    }
+       #chatbot header {
+            background: linear-gradient(135deg, #ffffff, #9c88ff);
+            color: #333;
+            padding: 15px 25px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
         
         #chatbot header img {
             width: 24px;
