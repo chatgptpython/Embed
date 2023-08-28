@@ -210,15 +210,11 @@
             margin-bottom: 5px;
         }
 
-          #close-chat {
-        cursor: pointer;
-        font-size: 48px;
-        margin-left: auto;
-        padding: 12px;
-        border-radius: 16px;
-        background-color: #007BFF;
-        color: white;
-    }
+       #close-chat:hover {
+    background-color: rgba(123, 108, 200, 0.9);
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
                 
               #close-chat {
              cursor: pointer;
