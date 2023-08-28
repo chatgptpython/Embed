@@ -135,7 +135,7 @@
             resize: none;
             min-height: 20px;
             overflow: auto;
-}
+         }
         
         #chatbot-input button {
             background: #8c77db;
@@ -162,7 +162,7 @@
             cursor: pointer;
             background-color: transparent;
             border: none;
-      }
+       }
         
         .user-message {
             align-self: flex-end;
