@@ -193,23 +193,25 @@
             margin-bottom: 5px;
         }
 
-         #close-chat {
-             cursor: pointer;
-             font-size: 24px; /* Grootte van het kruisje */
-             margin-left: auto; /* Het element naar rechts duwen */
-             padding: 8px; /* Ruimte rondom het kruisje */
-             border-radius: 8px; /* Afgeronde hoeken */
-             background-color: #8c77db; /* Achtergrondkleur van het vierkantje */
-             color: white; /* Kleur van het kruisje */
-             transition: background-color 0.3s ease; /* Zachte overgang voor hover */
-             display: flex; /* Flexbox om het kruisje in het midden te plaatsen */
-             align-items: center; /* Verticaal centreren */
-             justify-content: center; /* Horizontaal centreren */
-         }
-
-            #close-chat:hover {
-                background-color: #7b6cc8; /* Achtergrondkleur bij hover */
-            }
+        #close-chat {
+            cursor: pointer;
+            font-size: 36px;  /* Vergroot de font-grootte */
+            margin-left: auto;
+            padding: 10px;  /* Vergroot de padding */
+            border-radius: 12px;  /* Maak de randen meer afgerond */
+            background-color: #8c77db;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
+        }
+        
+        #close-chat:hover {
+            background-color: #7b6cc8;
+            transform: scale(1.1);  /* Laat het kruisje een beetje groter worden bij hover */
+        }
 
         
         @media (max-width: 768px) {
