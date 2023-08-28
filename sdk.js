@@ -224,11 +224,10 @@
 
         
         #close-chat:hover {
-            background-color: rgba(123, 108, 200, 0.9);  /* Donkerdere en minder doorzichtige achtergrond bij hover */
-            transform: scale(1.15);  /* Laat het kruisje nog groter worden bij hover */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4);  /* Donkerdere schaduw bij hover */
-        }
-
+    background-color: #7b6cc8;  /* Donkerdere paarse kleur bij hover */
+    transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
+}
                 @media (max-width: 768px) {
     #chatbot {
         width: 100%;
