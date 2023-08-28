@@ -124,28 +124,27 @@
             background-color: #ffffff;
         }
         
-        #chatbot-input textarea {
-            flex: 1;
-            padding: 8px 12px;
+        #chatbot-input input {
+            flex: 1.5;
+            padding: 15px;
             border: 1px solid #8c77db;
             border-radius: 30px;
             outline: none;
+            transition: all 0.3s ease-in-out;
             color: #333;
-            margin-right: 10px;
-            resize: none;
-            min-height: 20px;
-            overflow: auto;
-         }
+            margin-right: 10px; /* Verkleinde marge voor kleinere verzendknop */
+        }
         
         #chatbot-input button {
             background: #8c77db;
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 50%;
+            padding: 8px 12px; /* Kleinere padding voor kleinere verzendknop */
+            border-radius: 20px;
             cursor: pointer;
             font-size: 1em;
         }
+        
         .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
@@ -153,16 +152,6 @@
             max-width: 80%;
             transition: all 0.3s ease-in-out;
         }
-
-        #chatbot-input .send-icon {
-            width: 35px;
-            height: 35px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
-            background-size: cover;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-       }
         
         .user-message {
             align-self: flex-end;
@@ -232,8 +221,8 @@
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
+                <input type="text" id="user-input" placeholder="Typ je vraag...">
+                <button onclick="sendMessage()">Verzenden</button>
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
