@@ -155,12 +155,14 @@
         }
 
         #chatbot-input .send-icon {
-            width: 20px;
-            height: 20px;
-            background-image: url('path/to/your/icon.png');
+            width: 35px;
+            height: 35px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
             background-size: cover;
             cursor: pointer;
-        }
+            background-color: transparent;
+            border: none;
+      }
         
         .user-message {
             align-self: flex-end;
