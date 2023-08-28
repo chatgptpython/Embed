@@ -209,12 +209,14 @@
             color: #888;
             margin-bottom: 5px;
         }
-
-       #close-chat:hover {
-    background-color: rgba(123, 108, 200, 0.9);
-    transform: scale(1.2);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
+ #close-chat {
+        cursor: pointer;
+        font-size: 36px;
+        margin-left: auto;
+        padding: 10px;
+        background-color: #8c77db;
+        color: white;
+    }
                 
               #close-chat {
              cursor: pointer;
