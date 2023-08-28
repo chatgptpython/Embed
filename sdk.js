@@ -193,13 +193,24 @@
             margin-bottom: 5px;
         }
 
-        #close-chat {
-          cursor: pointer;
-          font-size: 24px;
-          margin-left: auto;
-          padding: 0 15px;
-       }
+         #close-chat {
+            cursor: pointer;
+            font-size: 24px;
+            margin-left: auto;
+            padding: 0 15px;
+            border-radius: 50%;
+            background-color: #8c77db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            transition: background-color 0.3s ease;
+}
 
+         #close-chat:hover {
+            background-color: #7b6cc8;
+}
         
         @media (max-width: 768px) {
     #chatbot {
@@ -215,12 +226,6 @@
 
   
 
-    #close-chat {
-    cursor: pointer;
-    font-size: 24px;
-    margin-left: auto;
-    padding: 0 15px;
-}
 
 
 }
