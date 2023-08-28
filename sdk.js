@@ -212,13 +212,14 @@
 
 #close-chat {
     cursor: pointer;
-    font-size: 36px;
+    font-size: 36px;  /* Vergroot de font-grootte */
     margin-left: auto;
-    padding: 10px;
-    background-color: #8c77db; /* Oorspronkelijke paarse kleur */
+    padding: 10px;  /* Vergroot de padding */
+    border-radius: 16px;  /* Hogere border-radius */
+    background-color: #8c77db;  /* Oorspronkelijke paarse kleur */
     color: white;
-    border: none;  /* Geen rand */
-    box-shadow: none;  /* Geen schaduw */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
 }
 
         
