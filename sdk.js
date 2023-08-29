@@ -324,7 +324,7 @@
         window.typeWelcomeMessage = function() {
             const chatContent = document.getElementById("chatbot-content");
             chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-            let messageText = "Welkom bij Chatproducties! Hoe kan ik je helpen?";
+            let messageText = "Welkom bij Chatproducties! 👋 Ik ben Proddy, je AI-assistent. Voel je vrij om me alle vragen te stellen over Chatproducties. Waarmee kan ik je vandaag helpen?";
             let messageElem = document.createElement("div");
             messageElem.className = "bot-message";
             chatContent.appendChild(messageElem);
