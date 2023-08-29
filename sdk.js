@@ -259,7 +259,7 @@
         font-size: 52px;  /* Vergroot de font-grootte van het icoon */
     }
     #chatbot {
-        bottom: 110px;  /* Verplaats de chatbot een beetje meer naar boven */
+        bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
     }
 
     @media (min-width: 769px) {
