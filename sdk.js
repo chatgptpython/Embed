@@ -261,6 +261,26 @@
     #chatbot {
         bottom: 110px;  /* Verplaats de chatbot een beetje meer naar boven */
     }
+
+    @media (min-width: 769px) {
+    #chatbot {
+        width: 480px;  /* Vergroot de breedte */
+        height: 720px;  /* Vergroot de hoogte */
+    }
+    
+    #chatbot header {
+        font-size: 1.5em;  /* Vergroot de tekstgrootte in de header */
+    }
+    
+    .user-message, .bot-message {
+        font-size: 1.1em;  /* Vergroot de tekstgrootte in de berichten */
+    }
+    
+    #chatbot-input textarea {
+        font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
+    }
+}
+
 }
 
 
