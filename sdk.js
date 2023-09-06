@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     (function() {
+        // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-d7nw.onrender.com";
-        const customWelcomeMessage = document.currentScript.getAttribute('data-chatbot-welcome-message');
-        
     // CSS toevoegen
     var css = `
     <style>
@@ -321,35 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-  // Nieuwe functie om de grootte van de chatwidget aan te passen
-        window.resizeChatWidget = function(scaleFactor) {
-            document.getElementById("chatbot").style.transform = `scale(${scaleFactor})`;
-            document.getElementById("chatbot-icon").style.transform = `scale(${scaleFactor})`;
-        };
-
-        let firstTimeOpen = true;
-        let isBotTyping = false;
-
-        // Aangepaste functie voor welkomstbericht
-        window.typeWelcomeMessage = function(customMessage) {
-            const chatContent = document.getElementById("chatbot-content");
-            chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-            let messageText = customMessage || "Welkom bij Chatproducties! 👋 ..."; // je bestaande bericht
-            let messageElem = document.createElement("div");
-            messageElem.className = "bot-message";
-            chatContent.appendChild(messageElem);
-
-            let index = 0;
-            let typingInterval = setInterval(() => {
-                if (index < messageText.length) {
-                    messageElem.textContent += messageText[index];
-                    index++;
-                    chatContent.scrollTop = chatContent.scrollHeight;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, 50);
-        };        // Nieuwe functie om welkomstbericht te typen
+        // Nieuwe functie om welkomstbericht te typen
         window.typeWelcomeMessage = function() {
             const chatContent = document.getElementById("chatbot-content");
             chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
@@ -370,28 +341,28 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 50);
         };
 
-        window.toggleChat = function() {
-            const chatbot = document.getElementById("chatbot");
-            const icon = document.getElementById("chatbot-icon");
 
-            if (chatbot.style.display === "none" || chatbot.style.display === "") {
-                chatbot.style.display = "flex";
-                setTimeout(function() {
-                    chatbot.classList.add("visible");
-                }, 50); 
-                if (firstTimeOpen) {
-                    typeWelcomeMessage(customWelcomeMessage);
-                    firstTimeOpen = false;
-                }
-            } else {
-                chatbot.classList.remove("visible");
-                setTimeout(function() {
-                    chatbot.style.display = "none";
-                }, 500);
-                icon.classList.remove('open');
-            }
-        };
-        
+window.toggleChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        chatbot.style.display = "flex";
+        setTimeout(function() {
+            chatbot.classList.add("visible");
+        }, 50); 
+        if (firstTimeOpen) {
+            typeWelcomeMessage();  // Roep de nieuwe functie aan
+            firstTimeOpen = false;
+        }
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
+        icon.classList.remove('open');
+    }
+};
 
 // Nieuwe functie om de chat te sluiten
 window.closeChat = function() {
