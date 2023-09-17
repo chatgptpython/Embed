@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
         #blauwe rondje
         
                 #chatbot-icon {
-            width: 80px !important;
-            height: 80px !important;
+            width: 70px !important;
+            height: 70px !important;
         }
 
    #chatbot {
