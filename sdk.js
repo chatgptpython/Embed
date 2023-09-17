@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot {
             position: fixed;
             bottom: 100px !important;
-            right: 30px !important;
+            right: 0px
             width: 420px;
             height: 640px;
             border-radius: 12px;
