@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     clearInterval(typingInterval);
                 }
-            }, 10);
+            }, 25);
         };
 
 
