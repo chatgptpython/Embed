@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
    #chatbot {
             position: fixed;
-            bottom: 90px !important;
+            bottom: 95px !important;
             right: 30px;
             width: 420px;
             height: 640px;
