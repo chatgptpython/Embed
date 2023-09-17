@@ -26,20 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
         }
-
-                    #chatbot-icon {
-            width: 20px !important;
-            height: 20px !important;
-        }
-
-              
+ 
               
            #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 40px;  /* Verkleind naar 40px */
-            height: 40px;  /* Verkleind naar 40px */
+            width: 25px;  /* Verkleind naar 40px */
+            height: 25px;  /* Verkleind naar 40px */
             border-radius: 50%;
             background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #007BFF, 0 0 40px #007BFF, 0 0 55px #007BFF, 0 0 75px #007BFF; /* Glimmend effect */
