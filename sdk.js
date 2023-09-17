@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
 
-        #blauwe rondje
+
         
                 #chatbot-icon {
-            width: 70px !important;
-            height: 70px !important;
+            width: 60px !important;
+            height: 60px !important;
         }
 
    #chatbot {
