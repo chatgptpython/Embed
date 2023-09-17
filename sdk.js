@@ -451,7 +451,7 @@ window.closeChat = function() {
                     let messageElem = document.createElement("div");
                     messageElem.className = "bot-message";
                     chatContent.appendChild(messageElem);
-
+                
                     let index = 0;
                     let typingInterval = setInterval(() => {
                         if (index < messageText.length) {
@@ -462,9 +462,19 @@ window.closeChat = function() {
                             clearInterval(typingInterval);
                             toggleInputState("enable");
                             isBotTyping = false;
+                
+                            // Na het typen van het bericht, voeg de bronnen toe
+                            if (data.source_urls && data.source_urls.length > 0) {
+                                let sourcesHtml = "<small>Bronnen:</small><ul>";
+                                data.source_urls.forEach(url => {
+                                    sourcesHtml += `<li><a href="${url}" target="_blank">Bron</a></li>`;
+                                });
+                                sourcesHtml += "</ul>";
+                                chatContent.innerHTML += sourcesHtml;
+                            }
                         }
                     }, 25);
-
+                
                     userInput.value = "";
                 })
                 .catch(error => {
