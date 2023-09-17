@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
         }
+
+        #blauwe rondje
         
                 #chatbot-icon {
-            width: 50px !important;
-            height: 50px !important;
+            width: 80px !important;
+            height: 80px !important;
         }
 
    #chatbot {
