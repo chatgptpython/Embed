@@ -438,7 +438,7 @@ window.closeChat = function() {
                             toggleInputState("enable");
                             isBotTyping = false;
                         }
-                    }, 50);
+                    }, 25);
 
                     userInput.value = "";
                 })
