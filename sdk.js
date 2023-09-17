@@ -455,32 +455,33 @@ window.closeChat = function() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                chatContent.lastChild.remove();
-                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-                let messageElem = document.createElement("div");
-                messageElem.className = "bot-message";
-                chatContent.appendChild(messageElem);
-            
-                // Voeg bronnen toe als die er zijn
-                if (data.source_documents && data.source_documents.length > 0) {
-                    let sourcesHTML = data.source_documents.map(doc => {
-                        return `<a href="${doc.source}" target="_blank" class="source-link">${doc.source}</a>`;
-                    }).join(", ");
-                    messageText += `<br/><small>Bronnen: ${sourcesHTML}</small>`;
-                }
-            
-                let index = 0;
-                let typingInterval = setInterval(() => {
-                    if (index < messageText.length) {
-                        messageElem.innerHTML += messageText[index];  // Gebruik innerHTML om HTML-tags te renderen
-                        index++;
-                        chatContent.scrollTop = chatContent.scrollHeight;
-                    } else {
-                        clearInterval(typingInterval);
-                        toggleInputState("enable");
-                        isBotTyping = false;
+                    chatContent.lastChild.remove();
+                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+                    let messageElem = document.createElement("div");
+                    messageElem.className = "bot-message";
+                    chatContent.appendChild(messageElem);
+                
+                    // Voeg bronnen toe als die er zijn
+                    if (data.source_documents && data.source_documents.length > 0) {
+                        let sourcesHTML = data.source_documents.map(doc => {
+                            return `<a href="${doc.source}" target="_blank" class="source-link">${doc.source}</a>`;
+                        }).join(", ");
+                        messageText += `<br/><small>Bronnen: ${sourcesHTML}</small>`;
                     }
-                }, 25);
+                
+                    let index = 0;
+                    let typingInterval = setInterval(() => {
+                        if (index < messageText.length) {
+                            messageElem.innerHTML += messageText[index];  // Gebruik innerHTML om HTML-tags te renderen
+                            index++;
+                            chatContent.scrollTop = chatContent.scrollHeight;
+                        } else {
+                            clearInterval(typingInterval);
+                            toggleInputState("enable");
+                            isBotTyping = false;
+                        }
+                    }, 25);
+                })
 
                     userInput.value = "";
                 })
