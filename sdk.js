@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
         }
-            
+
+                    #chatbot-icon {
+            width: 20px !important;
+            height: 20px !important;
+        }
+
               
               
            #chatbot-icon {
@@ -85,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         #chatbot-icon span {
-            font-size: 20px;
+            font-size: 40px;
             transition: opacity 0.3s ease-in-out;
         }
         
