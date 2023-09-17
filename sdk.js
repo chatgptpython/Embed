@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         #chatbot-icon span {
-            font-size: 40px;
+            font-size: 20px;
             transition: opacity 0.3s ease-in-out;
         }
         
