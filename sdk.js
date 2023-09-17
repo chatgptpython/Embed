@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
             height: 70px !important;
         }
 
-         #chatbot {
+    #chatbot {
             position: fixed;
-            bottom: 150px
-            right: 30px;
+            bottom: 150px !important;
+            right: 30px !important;
             width: 420px;
             height: 640px;
             border-radius: 12px;
