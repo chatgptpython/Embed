@@ -10,18 +10,17 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
 
-
-     
+        
 
                 #chatbot-icon {
             width: 70px !important;
             height: 70px !important;
         }
-
-    #chatbot {
+        
+   #chatbot {
             position: fixed;
-            bottom: 100px !important;
-            right: 0px
+            bottom: 100px;
+            right: 30px;
             width: 420px;
             height: 640px;
             border-radius: 12px;
@@ -35,14 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
         }
- 
+            
               
-           #chatbot-icon {
+              
+          #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 40px;  /* Verkleind naar 40px */
-            height: 40px;  /* Verkleind naar 40px */
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
             box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #007BFF, 0 0 40px #007BFF, 0 0 55px #007BFF, 0 0 75px #007BFF; /* Glimmend effect */
@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
             z-index: 9996;
         }
+
+
         
-                        
 
 
         #chatbot.visible {
@@ -289,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
 
     </style>
     `;
