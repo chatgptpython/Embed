@@ -257,6 +257,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 }
+
+
+#chatbot-icon.cross::before,
+#chatbot-icon.cross::after {
+    background: white;
+}
+
+#chatbot-icon.cross::before {
+    transform: rotate(45deg);
+}
+
+#chatbot-icon.cross::after {
+    transform: rotate(-45deg);
+}
+
+#chatbot-icon.cross span {
+    opacity: 0;
+}
+
          
 @media (min-width: 769px) {
     #chatbot-icon {
@@ -359,27 +378,26 @@ window.toggleChat = function() {
             chatbot.classList.add("visible");
         }, 50); 
         if (firstTimeOpen) {
-            typeWelcomeMessage();  // Roep de nieuwe functie aan
+            typeWelcomeMessage();
             firstTimeOpen = false;
         }
+        icon.classList.add('cross');  // Voeg de 'cross' klasse toe
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
-        icon.classList.remove('open');
+        icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     }
 };
 
-// Nieuwe functie om de chat te sluiten
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
     chatbot.style.display = "none";
-    icon.classList.remove('open');
+    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
 };
-     
 
         window.handleKeyUp = function(event) {
             if (event.key === "Enter" && !isBotTyping) {
