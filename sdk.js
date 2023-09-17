@@ -241,11 +241,11 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot {
         width: 100%;
         height: 80vh;
-        bottom: -10vh;  /* Verlaag deze waarde om de chatbot meer naar beneden te verplaatsen */
+        bottom: 5vh;
         right: 0;
         border-radius: 0;
         top: auto;
-        transform: translateY(0);
+        transform: translateY(20px);  /* Verplaats de chatbot 20 pixels naar beneden */
         z-index: 9999;
     }
 
