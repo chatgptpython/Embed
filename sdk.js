@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot {
         width: 100%;
         height: 80vh;
-        bottom: 0vh;  /* 10vh vanaf de onderkant om de chatbot meer naar het midden te verplaatsen */
+        bottom: -10vh;  /* Verlaag deze waarde om de chatbot meer naar beneden te verplaatsen */
         right: 0;
         border-radius: 0;
         top: auto;
