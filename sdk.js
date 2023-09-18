@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
 }
-                @media (max-width: 768px) {
+ @media (max-width: 768px) {
     #chatbot {
         width: 100%;
         height: 100%;
@@ -258,9 +258,9 @@ document.addEventListener("DOMContentLoaded", function() {
         left: 0;
         z-index: 10000;
     }
-    
+
     #close-chat {
-        display: none;  /* Verberg het sluitknopje op mobiele apparaten */
+        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
     }
 }
 #chatbot-icon.cross::before,
