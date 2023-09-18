@@ -462,20 +462,10 @@ window.closeChat = function() {
                             chatContent.scrollTop = chatContent.scrollHeight;
                         } else {
                             clearInterval(typingInterval);
+                            toggleInputState("enable");
                             isBotTyping = false;
-                    
-                            // Verwerk de bronnen
-                            if (data.source_links && data.source_links.length > 0) {
-                                let sourcesHtml = "<small>Bronnen:</small><ul>";
-                                data.source_links.forEach(source => {
-                                    sourcesHtml += `<li><a href="${source.url}" target="_blank">${source.title || 'Onbekende bron'}</a></li>`;
-                                });
-                                sourcesHtml += "</ul>";
-                                chatContent.innerHTML += sourcesHtml;
-                            }
                         }
                     }, 25);
-
 
                     userInput.value = "";
                 })
