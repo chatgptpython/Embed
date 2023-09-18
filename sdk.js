@@ -242,25 +242,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 @media (max-width: 768px) {
     #chatbot {
         width: 100%;
-        height: 80vh;
-        bottom: 5vh;
+        height: 100%;
+        bottom: 0;
         right: 0;
         border-radius: 0;
-        top: auto;
-        transform: translateY(20px);  /* Verplaats de chatbot 20 pixels naar beneden */
+        top: 0;
+        transform: translateY(0);
         z-index: 9999;
     }
 
     #chatbot-icon.open {
-        top: 10px;
-        right: 10px;
-        bottom: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         z-index: 10000;
     }
-
+    
+    #close-chat {
+        display: none;  /* Verberg het sluitknopje op mobiele apparaten */
+    }
 }
-
-
 #chatbot-icon.cross::before,
 #chatbot-icon.cross::after {
     background: white;
