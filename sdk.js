@@ -239,8 +239,9 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
 }
- @media (max-width: 768px) {
+@media (max-width: 768px) {
     #chatbot {
+        position: fixed;
         width: 100%;
         height: 100%;
         bottom: 0;
@@ -263,6 +264,7 @@ document.addEventListener("DOMContentLoaded", function() {
         display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
     }
 }
+
 #chatbot-icon.cross::before,
 #chatbot-icon.cross::after {
     background: white;
@@ -280,7 +282,6 @@ document.addEventListener("DOMContentLoaded", function() {
     opacity: 0;
 }
 
-         
 @media (min-width: 769px) {
     #chatbot-icon {
         width: 85px;  /* Vergroot de breedte */
@@ -292,8 +293,9 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot {
         bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
     }
+}
 
-    @media (min-width: 769px) {
+@media (min-width: 769px) {
     #chatbot {
         width: 480px;  /* Vergroot de breedte */
         height: 720px;  /* Vergroot de hoogte */
@@ -310,8 +312,6 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot-input textarea {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
-}
-
 }
 
     </style>
