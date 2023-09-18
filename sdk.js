@@ -427,7 +427,7 @@ window.closeChat = function() {
         }
     };
 
-    window.sendMessage = function() {
+window.sendMessage = function() {
     if (isBotTyping) return;
 
     const userInput = document.getElementById("user-input");
@@ -436,12 +436,12 @@ window.closeChat = function() {
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
         toggleInputState("disable");
-        chatContent.innerHTML += `<div class="message-sender">U:</div><div class="user-message">${userInput.value}</div>`;
+
+        // Aangepaste structuur om bericht en spinner naast elkaar te zetten
+        chatContent.innerHTML += `<div class="message-row"><div class="message-sender">U:</div><div class="user-message">${userInput.value}</div><div class="bot-typing"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>`;
 
         // Automatisch scrollen naar het laatst toegevoegde bericht
         chatContent.scrollTop = chatContent.scrollHeight;
-
-        chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
 
         setTimeout(() => {
             fetch(`${backendUrl}/ask`, {
