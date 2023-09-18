@@ -427,66 +427,59 @@ window.closeChat = function() {
         }
     };
 
-   window.sendMessage = function() {
-    if (isBotTyping) return;
+    window.sendMessage = function() {
+        if (isBotTyping) return;
 
-    const userInput = document.getElementById("user-input");
-    const chatContent = document.getElementById("chatbot-content");
-    const chatbotInput = document.getElementById("chatbot-input");
+        const userInput = document.getElementById("user-input");
+        const chatContent = document.getElementById("chatbot-content");
 
-    if (userInput.value.trim() !== "") {
-        isBotTyping = true;
-        toggleInputState("disable");
-        chatContent.innerHTML += `<div class="message-sender">U:</div><div class="user-message">${userInput.value}</div>`;
-        scrollChatToBottom(); // Scroll de chat naar beneden
+        if (userInput.value.trim() !== "") {
+            isBotTyping = true;
+            toggleInputState("disable");
+            chatContent.innerHTML += `<div class="message-sender">U:</div><div class="user-message">${userInput.value}</div>`;
+            chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
 
-        setTimeout(() => {
-            fetch(`${backendUrl}/ask`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question: userInput.value })
-            })
-            .then(response => response.json())
-            .then(data => {
-                chatContent.lastChild.remove();
-                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-                let messageText = data.answer;
-                let messageElem = document.createElement("div");
-                messageElem.className = "bot-message";
-                chatContent.appendChild(messageElem);
+            setTimeout(() => {
+                fetch(`${backendUrl}/ask`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: userInput.value })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatContent.lastChild.remove();
+                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+                    let messageText = data.answer;
+                    let messageElem = document.createElement("div");
+                    messageElem.className = "bot-message";
+                    chatContent.appendChild(messageElem);
 
-                let index = 0;
-                let typingInterval = setInterval(() => {
-                    if (index < messageText.length) {
-                        messageElem.textContent += messageText[index];
-                        index++;
-                        chatContent.scrollTop = chatContent.scrollHeight;
-                    } else {
-                        clearInterval(typingInterval);
-                        toggleInputState("enable");
-                        isBotTyping = false;
+                    let index = 0;
+                    let typingInterval = setInterval(() => {
+                        if (index < messageText.length) {
+                            messageElem.textContent += messageText[index];
+                            index++;
+                            chatContent.scrollTop = chatContent.scrollHeight;
+                        } else {
+                            clearInterval(typingInterval);
+                            toggleInputState("enable");
+                            isBotTyping = false;
+                        }
+                    }, 25);
 
-                        // Verberg het typscherm
-                        chatbotInput.style.display = "none";
-                    }
-                }, 25);
-
-                userInput.value = "";
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
-                toggleInputState("enable");
-                isBotTyping = false;
-
-                // Verberg het typscherm
-                chatbotInput.style.display = "none";
-            });
-        }, 500);
-    }
-};
+                    userInput.value = "";
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
+                    toggleInputState("enable");
+                    isBotTyping = false;
+                });
+            }, 500);
+        }
+    };
 
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
@@ -501,5 +494,6 @@ if(window.innerWidth > 768) {
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
 
 
