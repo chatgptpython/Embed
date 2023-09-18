@@ -239,59 +239,30 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
 }
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
     #chatbot {
-        position: fixed;
         width: 100%;
-        height: auto;
+        height: 100%;
         bottom: 0;
         right: 0;
-        left: 0;
-        top: auto;
+        border-radius: 0;
+        top: 0;
         transform: translateY(0);
         z-index: 9999;
     }
 
-    #chatbot-input {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        border-top: 1px solid rgba(140, 119, 219, 0.1);
-        background-color: #ffffff;
-        position: fixed;
+    #chatbot-icon.open {
+        top: 0;
+        right: 0;
         bottom: 0;
         left: 0;
-    }
-
-    #chatbot-input textarea {
-        flex: 1;
-        padding: 8px 12px;
-        border: 1px solid #8c77db;
-        border-radius: 30px;
-        outline: none;
-        color: #333;
-        margin-right: 10px;
-        resize: none;
-        min-height: 20px;
-        overflow: auto;
-        width: 100%;
-    }
-
-    #chatbot-input button {
-        background: #8c77db;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1em;
+        z-index: 10000;
     }
 
     #close-chat {
-        display: block; /* Toon het bovenste sluitknopje op mobiele apparaten */
+        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
     }
 }
-
 #chatbot-icon.cross::before,
 #chatbot-icon.cross::after {
     background: white;
@@ -309,6 +280,7 @@ document.addEventListener("DOMContentLoaded", function() {
     opacity: 0;
 }
 
+         
 @media (min-width: 769px) {
     #chatbot-icon {
         width: 85px;  /* Vergroot de breedte */
@@ -320,9 +292,8 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot {
         bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
     }
-}
 
-@media (min-width: 769px) {
+    @media (min-width: 769px) {
     #chatbot {
         width: 480px;  /* Vergroot de breedte */
         height: 720px;  /* Vergroot de hoogte */
@@ -339,6 +310,8 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot-input textarea {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
+}
+
 }
 
     </style>
