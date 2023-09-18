@@ -355,7 +355,6 @@ document.addEventListener("DOMContentLoaded", function() {
             let messageElem = document.createElement("div");
             messageElem.className = "bot-message";
             chatContent.appendChild(messageElem);
-
             let index = 0;
             let typingInterval = setInterval(() => {
                 if (index < messageText.length) {
@@ -364,10 +363,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     chatContent.scrollTop = chatContent.scrollHeight;
                 } else {
                     clearInterval(typingInterval);
+                    toggleInputState("enable");
+                    isBotTyping = false;
+            
+                    // Voeg hier de bronnen toe als die er zijn
+                    if (data.source_info && data.source_info.length > 0) {
+                        let sourcesHtml = "<small>Bronnen:</small><ul>";
+                        data.source_info.forEach(source => {
+                            sourcesHtml += `<li><a href="${source.url}" target="_blank">${source.description || 'Onbekende bron'}</a></li>`;
+                        });
+                        sourcesHtml += "</ul>";
+                        chatContent.innerHTML += sourcesHtml;
+                    }
                 }
             }, 25);
-        };
-
+            
 
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
