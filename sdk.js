@@ -243,25 +243,52 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot {
         position: fixed;
         width: 100%;
-        height: 100%;
+        height: auto;
         bottom: 0;
         right: 0;
-        border-radius: 0;
-        top: 0;
+        left: 0;
+        top: auto;
         transform: translateY(0);
         z-index: 9999;
     }
 
-    #chatbot-icon.open {
-        top: 0;
-        right: 0;
+    #chatbot-input {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid rgba(140, 119, 219, 0.1);
+        background-color: #ffffff;
+        position: fixed;
         bottom: 0;
         left: 0;
-        z-index: 10000;
+    }
+
+    #chatbot-input textarea {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid #8c77db;
+        border-radius: 30px;
+        outline: none;
+        color: #333;
+        margin-right: 10px;
+        resize: none;
+        min-height: 20px;
+        overflow: auto;
+        width: 100%;
+    }
+
+    #chatbot-input button {
+        background: #8c77db;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1em;
     }
 
     #close-chat {
-        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
+        display: block; /* Toon het bovenste sluitknopje op mobiele apparaten */
     }
 }
 
