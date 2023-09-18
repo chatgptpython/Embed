@@ -158,14 +158,16 @@ document.addEventListener("DOMContentLoaded", function() {
             cursor: pointer;
             font-size: 1em;
         }
-        .user-message, .bot-message {
+          .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
             border-radius: 20px;
             max-width: 80%;
             transition: all 0.3s ease-in-out;
             word-wrap: break-word;  /* Voeg deze regel toe */
+            white-space: pre-wrap;  /* Nieuwe regel */
         }
+
 
         #chatbot-input .send-icon {
             width: 35px;
