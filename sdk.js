@@ -276,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function() {
     opacity: 0;
 }
 
+
          
 @media (min-width: 769px) {
     #chatbot-icon {
@@ -463,15 +464,15 @@ window.closeChat = function() {
                             toggleInputState("enable");
                             isBotTyping = false;
                 
-                            // Na het typen van het bericht, voeg de bronnen toe
-                            if (data.source_urls && data.source_urls.length > 0) {
+                            if (data.source_info && data.source_info.length > 0) {
                                 let sourcesHtml = "<small>Bronnen:</small><ul>";
-                                data.source_urls.forEach(url => {
-                                    sourcesHtml += `<li><a href="${url}" target="_blank">Bron</a></li>`;
+                                data.source_info.forEach(source => {
+                                    sourcesHtml += `<li><a href="${source.url}" target="_blank">${source.description || 'Onbekende bron'}</a></li>`;
                                 });
                                 sourcesHtml += "</ul>";
                                 chatContent.innerHTML += sourcesHtml;
                             }
+
                         }
                     }, 25);
                 
