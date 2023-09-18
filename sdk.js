@@ -346,31 +346,38 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-    // JavaScript toevoegen
-        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+        let firstTimeOpen = true;
         let isBotTyping = false;
+        let settings = {};
+        
+        async function fetchSettings() {
+            try {
+                const response = await fetch(`${backendUrl}/settings`);
+                settings = await response.json();
+            } catch (error) {
+                console.error("Kon instellingen niet ophalen", error);
+            }
+        }
+window.typeWelcomeMessage = async function() {
+    await fetchSettings();  // Haal de instellingen op
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+    let messageText = settings.welcomeMessage || "Standaard welkomstbericht";  // Gebruik het opgehaalde bericht
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    chatContent.appendChild(messageElem);
 
-        // Nieuwe functie om welkomstbericht te typen
-        window.typeWelcomeMessage = function() {
-            const chatContent = document.getElementById("chatbot-content");
-            chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-            let messageText = "Welkom bij Chatproducties! 👋 Ik ben Proddy, je AI-assistent. Voel je vrij om me alle vragen te stellen over Chatproducties. Waarmee kan ik je vandaag helpen?";
-            let messageElem = document.createElement("div");
-            messageElem.className = "bot-message";
-            chatContent.appendChild(messageElem);
-
-            let index = 0;
-            let typingInterval = setInterval(() => {
-                if (index < messageText.length) {
-                    messageElem.textContent += messageText[index];
-                    index++;
-                    chatContent.scrollTop = chatContent.scrollHeight;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, 25);
-        };
-
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 25);
+};
 
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
