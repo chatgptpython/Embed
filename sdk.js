@@ -379,7 +379,7 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
 
-window.toggleChat = function() {
+async function toggleChat() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
@@ -388,11 +388,13 @@ window.toggleChat = function() {
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50); 
+
         if (firstTimeOpen) {
-            typeWelcomeMessage();
+            await typeWelcomeMessage();  // Wacht tot het welkomstbericht is getypt
             firstTimeOpen = false;
         }
-        icon.classList.add('cross');  // Voeg de 'cross' klasse toe
+        
+        icon.classList.add('cross');
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
