@@ -437,8 +437,21 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Aangepaste structuur om bericht en spinner naast elkaar te zetten
-        chatContent.innerHTML += `<div class="message-row"><div class="message-sender">U:</div><div class="user-message">${userInput.value}</div><div class="bot-typing"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>`;
+        // Creëer een nieuwe rij voor het bericht en de spinner
+        let messageRow = document.createElement('div');
+        messageRow.className = 'message-row';
+
+        // Voeg de verzender en het bericht toe
+        messageRow.innerHTML = `<div class="message-sender">U:</div><div class="user-message">${userInput.value}</div>`;
+        
+        // Voeg de rij toe aan de chat
+        chatContent.appendChild(messageRow);
+
+        // Creëer en voeg de spinner toe aan de rij
+        let botTypingDiv = document.createElement('div');
+        botTypingDiv.className = 'bot-typing';
+        botTypingDiv.innerHTML = `<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>`;
+        messageRow.appendChild(botTypingDiv);
 
         // Automatisch scrollen naar het laatst toegevoegde bericht
         chatContent.scrollTop = chatContent.scrollHeight;
