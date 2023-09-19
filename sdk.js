@@ -281,6 +281,48 @@
     opacity: 0;
 }
 
+}
+ @media (max-width: 768px) {
+    #chatbot {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        top: 0;
+        transform: translateY(0);
+        z-index: 9999;
+    }
+
+    #chatbot-icon.open {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10000;
+    }
+
+    #close-chat {
+        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
+    }
+}
+#chatbot-icon.cross::before,
+#chatbot-icon.cross::after {
+    background: white;
+}
+
+#chatbot-icon.cross::before {
+    transform: rotate(45deg);
+}
+
+#chatbot-icon.cross::after {
+    transform: rotate(-45deg);
+}
+
+#chatbot-icon.cross span {
+    opacity: 0;
+}
+
          
 @media (min-width: 769px) {
     #chatbot-icon {
@@ -311,8 +353,6 @@
     #chatbot-input textarea {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
-}
-
 }
     </style>
     `;
