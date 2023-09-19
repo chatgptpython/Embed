@@ -395,34 +395,47 @@ async function fetchTitleMessage() {
 }
 
 
+async function initializeChat() {
+    const timeout = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Standaardnaam als fallback");
+        }, 10000); // 10 seconden timeout
+    });
+
+    const fetchTitle = fetch(`${backendUrl}/get_title_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Standaardnaam als fallback");
+
+    const title = await Promise.race([timeout, fetchTitle]);
+    document.querySelector("#chatbot-title").innerText = title;
+
+    if (firstTimeOpen) {
+        await typeWelcomeMessage();
+        firstTimeOpen = false;
+    }
+}
+
 window.toggleChat = async function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        await initializeChat(); // Hier roepen we de nieuwe functie aan
         chatbot.style.display = "flex";
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
 
-        // Ophalen en instellen van het titelbericht
-        await fetchTitleMessage();
-
-        if (firstTimeOpen) {
-            await typeWelcomeMessage(); // Nu kan 'await' hier gebruikt worden
-            firstTimeOpen = false;
-        }
-        
-        icon.classList.add('cross');  // Voeg de 'cross' klasse toe
+        icon.classList.add('cross');
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
-        icon.classList.remove('cross');  // Verwijder de 'cross' klasse
+        icon.classList.remove('cross');
     }
 };
-
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
