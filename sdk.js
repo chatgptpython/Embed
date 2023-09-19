@@ -397,10 +397,7 @@ window.toggleChat = async function() {
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
-
-        // Ophalen en instellen van het titelbericht
-        await fetchTitleMessage();
-
+        
         if (firstTimeOpen) {
             await typeWelcomeMessage(); // Nu kan 'await' hier gebruikt worden
             firstTimeOpen = false;
@@ -415,7 +412,6 @@ window.toggleChat = async function() {
         icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     }
 };
-
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
