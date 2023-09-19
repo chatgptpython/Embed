@@ -242,8 +242,8 @@ document.addEventListener("DOMContentLoaded", function() {
  @media (max-width: 768px) {
     #chatbot {
         width: 100%;
-        height: 100%;
-        bottom: 0;
+        height: 80%;
+        bottom: 20%;
         right: 0;
         border-radius: 0;
         top: 0;
