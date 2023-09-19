@@ -261,6 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     #close-chat {
         display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
+        z-index: 10000;
     }
 }
 #chatbot-icon.cross::before,
