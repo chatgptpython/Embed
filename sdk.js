@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var html = `
         <div id="chatbot">
             <header>
-                Chatproducties - Proddy 🤖
+                <span id="chatbot-title">Chatproducties - Proddy 🤖</span>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
@@ -383,12 +383,13 @@ async function fetchTitleMessage() {
         const response = await fetch(`${backendUrl}/get_title_message`);
         const data = await response.json();
         if (data.message) {
-            document.querySelector("#chatbot header").innerText = data.message;
+            document.querySelector("#chatbot-title").innerText = data.message;
         }
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
 }
+
 
 window.toggleChat = async function() {
     const chatbot = document.getElementById("chatbot");
