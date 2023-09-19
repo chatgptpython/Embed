@@ -1,4 +1,4 @@
-Alleen nu staat het sluit knopje rechts boven niet meer in beeld op mijn telefoonscherm. Die moet er natuurlijk wel in document.addEventListener("DOMContentLoaded", function() {
+ Alleen nu staat het sluit knopje rechts boven niet meer in beeld op mijn telefoonscherm. Die moet er natuurlijk wel in document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
@@ -239,17 +239,18 @@ Alleen nu staat het sluit knopje rechts boven niet meer in beeld op mijn telefoo
     transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
 }
- @media (max-width: 768px) {
+@media (max-width: 768px) {
     #chatbot {
         width: 100%;
-        height: 100%;
-        bottom: 0;
+        height: 80%;  /* Verander naar de gewenste hoogte */
+        bottom: 20%;  /* Verander naar de gewenste bodempositie */
         right: 0;
         border-radius: 0;
         top: 0;
         transform: translateY(0);
         z-index: 9999;
     }
+   
 
     #chatbot-icon.open {
         top: 0;
