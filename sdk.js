@@ -415,6 +415,7 @@ async function initializeChat() {
     }
 }
 
+        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -547,6 +548,16 @@ if(window.innerWidth > 768) {
         toggleChat();
     }, 3000);  
 }
+
+        // Functie om afbeeldingen vooraf te laden
+function preloadImages() {
+    const sendIcon = new Image();
+    sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
+}
+
+// Aanroepen wanneer de pagina laadt
+preloadImages();
+
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
