@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const backendUrl = "https://chatbot-1k97.onrender.com";
     // CSS toevoegen
     var css = `
+    <style>
             body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
@@ -312,24 +313,23 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-    `;
-var style = document.createElement('style');
-style.type = 'text/css';
-if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-} else {
-    style.appendChild(document.createTextNode(css));
-}
-document.head.appendChild(style);
 
-// Gewijzigde HTML toevoegen
-async function buildChatHTML() {
-    let headerMessage = await getHeaderMessage();
-    
+    </style>
+    `;
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+    document.head.appendChild(style);
+
+    // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
-                ${headerMessage}  <!-- Gebruik van het dynamische headerbericht -->
+                Chatproducties - Proddy 🤖
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
@@ -345,11 +345,7 @@ async function buildChatHTML() {
     var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
-}
 
-// Roept de functie aan om de HTML op te bouwen
-buildChatHTML().then(() => {
-    
     // JavaScript toevoegen
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
@@ -379,6 +375,20 @@ buildChatHTML().then(() => {
     }, 25);
 };
 
+        // Functie om de header dynamisch te laden
+async function loadDynamicHeader() {
+    const headerElement = document.querySelector("#chatbot header");
+
+    let headerMessage = await fetch(`${backendUrl}/get_header_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Chatproducties - Proddy 🤖");
+
+    headerElement.innerHTML = `
+        ${headerMessage}
+        <span id="close-chat" onclick="closeChat()">×</span>
+    `;
+}
 
 window.toggleChat = async function() {
     const chatbot = document.getElementById("chatbot");
@@ -391,7 +401,8 @@ window.toggleChat = async function() {
         }, 50);
         
         if (firstTimeOpen) {
-            await typeWelcomeMessage(); // Nu kan 'await' hier gebruikt worden
+            await loadDynamicHeader();  // Dynamische header laden
+            await typeWelcomeMessage(); // Dynamisch welkomstbericht laden
             firstTimeOpen = false;
         }
         
@@ -405,15 +416,6 @@ window.toggleChat = async function() {
     }
 };
 
-        // Nieuwe functie om de header message op te halen
-window.getHeaderMessage = async function() {
-    let headerMessage = await fetch(`${backendUrl}/get_messages`)
-        .then(response => response.json())
-        .then(data => data.header_message)
-        .catch(() => "Standaard headerbericht als backup");
-    
-    return headerMessage;
-};
 
 
 window.closeChat = function() {
