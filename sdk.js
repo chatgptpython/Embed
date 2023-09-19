@@ -1,10 +1,14 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
+    // Dynamisch toevoegen van de viewport meta tag
+    var metaTag = document.createElement('meta');
+    metaTag.name = "viewport";
+    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.getElementsByTagName('head')[0].appendChild(metaTag);
+
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
-    // CSS toevoegen
+        
     var css = `
     <style>
             body {
