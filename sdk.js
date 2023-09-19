@@ -541,13 +541,20 @@ window.sendMessage = function() {
     document.getElementById("user-input").onkeyup = function(event) {
         handleKeyUp(event);
     };
-        
-if(window.innerWidth > 768) {
+
+        // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
+const chatbotStatus = localStorage.getItem("chatbotStatus");
+
+if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
     setTimeout(async function() {
         await fetchTitleMessage();
         toggleChat();
-    }, 3000);  
+        
+        // Markeer de chatbot als geopend in localStorage
+        localStorage.setItem("chatbotStatus", "geopend");
+    }, 3000);
 }
+
 
         // Functie om afbeeldingen vooraf te laden
 function preloadImages() {
