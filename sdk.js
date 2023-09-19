@@ -239,11 +239,11 @@
     transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
 }
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
     #chatbot {
         width: 100%;
-        height: 80%;  /* Verander naar de gewenste hoogte */
-        bottom: 20%;  /* Verander naar de gewenste bodempositie */
+        height: 80%;
+        bottom: 0;
         right: 0;
         border-radius: 0;
         top: 0;
