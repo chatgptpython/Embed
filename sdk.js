@@ -316,14 +316,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </style>
     `;
-    var style = document.createElement('style');
-    style.type = 'text/css';
-    if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-    } else {
-        style.appendChild(document.createTextNode(css));
-    }
-    document.head.appendChild(style);
+var style = document.createElement('style');
+style.type = 'text/css';
+if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+} else {
+    style.appendChild(document.createTextNode(css));
+}
+document.head.appendChild(style);
 
 // Gewijzigde HTML toevoegen
 async function buildChatHTML() {
@@ -350,7 +350,7 @@ async function buildChatHTML() {
     document.body.appendChild(div);
 }
 
-        // Roept de functie aan om de HTML op te bouwen
+// Roept de functie aan om de HTML op te bouwen
 buildChatHTML().then(() => {
     
     // JavaScript toevoegen
