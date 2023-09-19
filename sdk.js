@@ -350,26 +350,30 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-        // Nieuwe functie om welkomstbericht te typen
-        window.typeWelcomeMessage = function() {
-            const chatContent = document.getElementById("chatbot-content");
-            chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-            let messageText = "Welkom bij Chatproducties! 👋 Ik ben Proddy, je AI-assistent. Voel je vrij om me alle vragen te stellen over Chatproducties. Waarmee kan ik je vandaag helpen?";
-            let messageElem = document.createElement("div");
-            messageElem.className = "bot-message";
-            chatContent.appendChild(messageElem);
+ window.typeWelcomeMessage = async function() {
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    chatContent.appendChild(messageElem);
 
-            let index = 0;
-            let typingInterval = setInterval(() => {
-                if (index < messageText.length) {
-                    messageElem.textContent += messageText[index];
-                    index++;
-                    chatContent.scrollTop = chatContent.scrollHeight;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, 25);
-        };
+    // Haal het welkomstbericht op van de server
+    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Standaard welkomstbericht als backup");
+
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 25);
+};
 
 
 window.toggleChat = function() {
@@ -381,10 +385,10 @@ window.toggleChat = function() {
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50); 
-        if (firstTimeOpen) {
-            typeWelcomeMessage();
-            firstTimeOpen = false;
-        }
+    if (firstTimeOpen) {
+        await typeWelcomeMessage(); // Maak deze functie asynchroon
+        firstTimeOpen = false;
+    }
         icon.classList.add('cross');  // Voeg de 'cross' klasse toe
     } else {
         chatbot.classList.remove("visible");
