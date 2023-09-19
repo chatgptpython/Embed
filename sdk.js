@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+Alleen nu staat het sluit knopje rechts boven niet meer in beeld op mijn telefoonscherm. Die moet er natuurlijk wel in document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
@@ -223,21 +223,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 36px;
+    font-size: 36px;  /* Vergroot de font-grootte */
     margin-left: auto;
-    padding: 10px;
-    border-radius: 16px;
-    background-color: #8c77db;
+    padding: 10px;  /* Vergroot de padding */
+    border-radius: 16px;  /* Hogere border-radius */
+    background-color: #8c77db;  /* Oorspronkelijke paarse kleur */
     color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    z-index: 9999; /* Verhoog de z-index-waarde hier */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
 }
 
-#close-chat:hover {
-    background-color: #7b6cc8;
-    transform: scale(1.1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        
+        #close-chat:hover {
+    background-color: #7b6cc8;  /* Donkerdere paarse kleur bij hover */
+    transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
 }
  @media (max-width: 768px) {
     #chatbot {
@@ -261,7 +261,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     #close-chat {
         display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
-        z-index: 10000;
     }
 }
 #chatbot-icon.cross::before,
@@ -314,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
     </style>
     `;
     var style = document.createElement('style');
