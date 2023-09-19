@@ -223,14 +223,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 36px;  /* Vergroot de font-grootte */
+    font-size: 36px;
     margin-left: auto;
-    padding: 10px;  /* Vergroot de padding */
-    border-radius: 16px;  /* Hogere border-radius */
-    background-color: #8c77db;  /* Oorspronkelijke paarse kleur */
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #8c77db;
     color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    z-index: 10001;  /* Zorg ervoor dat het kruisje boven andere elementen staat */
 }
 
         
@@ -416,20 +417,17 @@ window.toggleChat = async function() {
     }
 };
 
-
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
+    const closeChat = document.getElementById("close-chat");  // Voeg deze regel toe
 
     chatbot.style.display = "none";
-    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
+    icon.classList.remove('cross');
+
+    closeChat.style.display = "block";  // Zorg ervoor dat het kruisje altijd zichtbaar is
 };
 
-        window.handleKeyUp = function(event) {
-            if (event.key === "Enter" && !isBotTyping) {
-                sendMessage();
-            }
-        };
 
     window.handleKeyUp = function(event) {
         if (event.key === "Enter" && !isBotTyping) {
