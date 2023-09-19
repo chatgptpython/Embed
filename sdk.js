@@ -325,11 +325,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-    // HTML toevoegen
+// Gewijzigde HTML toevoegen
+async function buildChatHTML() {
+    let headerMessage = await getHeaderMessage();
+    
     var html = `
         <div id="chatbot">
             <header>
-                Chatproducties - Proddy 🤖
+                ${headerMessage}  <!-- Gebruik van het dynamische headerbericht -->
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
@@ -345,7 +348,11 @@ document.addEventListener("DOMContentLoaded", function() {
     var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
+}
 
+        // Roept de functie aan om de HTML op te bouwen
+buildChatHTML().then(() => {
+    
     // JavaScript toevoegen
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
@@ -399,6 +406,16 @@ window.toggleChat = async function() {
         }, 500);
         icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     }
+};
+
+        // Nieuwe functie om de header message op te halen
+window.getHeaderMessage = async function() {
+    let headerMessage = await fetch(`${backendUrl}/get_messages`)
+        .then(response => response.json())
+        .then(data => data.header_message)
+        .catch(() => "Standaard headerbericht als backup");
+    
+    return headerMessage;
 };
 
 
