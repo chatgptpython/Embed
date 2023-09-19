@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
             margin: 10px 0;
             padding: 12px 18px;
             border-radius: 20px;
-            max-width: 80%;
+            max-width: 100%;
             transition: all 0.3s ease-in-out;
             word-wrap: break-word;  /* Voeg deze regel toe */
             white-space: pre-wrap;  /* Nieuwe regel */
@@ -242,8 +242,8 @@ document.addEventListener("DOMContentLoaded", function() {
  @media (max-width: 768px) {
     #chatbot {
         width: 100%;
-        height: 85%;
-        bottom: 15%;
+        height: 100%;
+        bottom: 0;
         right: 0;
         border-radius: 0;
         top: 0;
