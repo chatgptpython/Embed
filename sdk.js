@@ -394,34 +394,37 @@ async function fetchTitleMessage() {
     }
 }
 
+let cachedTitle = "Standaardnaam als fallback";
+let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
 
 async function initializeChat() {
-    const timeout = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Standaardnaam als fallback");
-        }, 10000); // 10 seconden timeout
-    });
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        cachedTitle = data.message || cachedTitle;
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
 
-    const fetchTitle = fetch(`${backendUrl}/get_title_message`)
-        .then(response => response.json())
-        .then(data => data.message)
-        .catch(() => "Standaardnaam als fallback");
-
-    const title = await Promise.race([timeout, fetchTitle]);
-    document.querySelector("#chatbot-title").innerText = title;
-
-    if (firstTimeOpen) {
-        await typeWelcomeMessage();
-        firstTimeOpen = false;
+    try {
+        const response = await fetch(`${backendUrl}/get_welcome_message`);
+        const data = await response.json();
+        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
     }
 }
 
-window.toggleChat = async function() {
+window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
-        await initializeChat(); // Hier roepen we de nieuwe functie aan
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
         chatbot.style.display = "flex";
         setTimeout(function() {
             chatbot.classList.add("visible");
@@ -436,6 +439,9 @@ window.toggleChat = async function() {
         icon.classList.remove('cross');
     }
 };
+
+// Aanroepen wanneer de pagina laadt
+initializeChat();
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
