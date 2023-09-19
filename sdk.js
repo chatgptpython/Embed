@@ -1,4 +1,4 @@
- Alleen nu staat het sluit knopje rechts boven niet meer in beeld op mijn telefoonscherm. Die moet er natuurlijk wel in document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
@@ -250,49 +250,6 @@
         transform: translateY(0);
         z-index: 9999;
     }
-   
-
-    #chatbot-icon.open {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 10000;
-    }
-
-    #close-chat {
-        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
-    }
-}
-#chatbot-icon.cross::before,
-#chatbot-icon.cross::after {
-    background: white;
-}
-
-#chatbot-icon.cross::before {
-    transform: rotate(45deg);
-}
-
-#chatbot-icon.cross::after {
-    transform: rotate(-45deg);
-}
-
-#chatbot-icon.cross span {
-    opacity: 0;
-}
-
-}
- @media (max-width: 768px) {
-    #chatbot {
-        width: 100%;
-        height: 100%;
-        bottom: 0;
-        right: 0;
-        border-radius: 0;
-        top: 0;
-        transform: translateY(0);
-        z-index: 9999;
-    }
 
     #chatbot-icon.open {
         top: 0;
@@ -354,6 +311,9 @@
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
 }
+
+}
+
     </style>
     `;
     var style = document.createElement('style');
