@@ -376,18 +376,6 @@ document.addEventListener("DOMContentLoaded", function() {
 };
 
 
-async function fetchTitleMessage() {
-    try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
-        const data = await response.json();
-        if (data.message) {
-            document.querySelector("#chatbot header").innerText = data.message;
-        }
-    } catch (error) {
-        console.error("Failed to fetch title message:", error);
-    }
-}
-
 window.toggleChat = async function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -412,6 +400,7 @@ window.toggleChat = async function() {
         icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     }
 };
+
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
@@ -510,16 +499,18 @@ window.sendMessage = function() {
     document.getElementById("user-input").onkeyup = function(event) {
         handleKeyUp(event);
     };
-        
+
 if(window.innerWidth > 768) {
-    setTimeout(async function() {
-        await fetchTitleMessage();
+    setTimeout(function() {
         toggleChat();
     }, 3000);  
 }
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
+
+  
 
 
 
