@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const backendUrl = "https://chatbot-1k97.onrender.com";
     // CSS toevoegen
     var css = `
-    <style>
             body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
@@ -313,8 +312,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
-    </style>
     `;
 var style = document.createElement('style');
 style.type = 'text/css';
