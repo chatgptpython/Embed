@@ -407,15 +407,15 @@ window.toggleChat = async function() {
             firstTimeOpen = false;
         }
         
-        icon.classList.add('cross');  // Voeg de 'cross' klasse toe
-    } else {
-        chatbot.classList.remove("visible");
-        setTimeout(function() {
-            chatbot.style.display = "none";
-        }, 500);
-        icon.classList.remove('cross');  // Verwijder de 'cross' klasse
-    }
-};
+      icon.classList.add('cross');
+              } else {
+                chatbot.classList.remove("visible");
+                setTimeout(function() {
+                  chatbot.style.display = "none";
+                }, 500);
+                icon.classList.remove('cross');
+              }
+            };
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
