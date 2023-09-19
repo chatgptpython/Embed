@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
             margin: 10px 0;
             padding: 12px 18px;
             border-radius: 20px;
-            max-width: 100%;
+            max-width: 80%;
             transition: all 0.3s ease-in-out;
             word-wrap: break-word;  /* Voeg deze regel toe */
             white-space: pre-wrap;  /* Nieuwe regel */
@@ -223,15 +223,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 36px;
+    font-size: 36px;  /* Vergroot de font-grootte */
     margin-left: auto;
-    padding: 10px;
-    border-radius: 16px;
-    background-color: #8c77db;
+    padding: 10px;  /* Vergroot de padding */
+    border-radius: 16px;  /* Hogere border-radius */
+    background-color: #8c77db;  /* Oorspronkelijke paarse kleur */
     color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    z-index: 10001;  /* Zorg ervoor dat het kruisje boven andere elementen staat */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
 }
 
         
@@ -407,23 +406,30 @@ window.toggleChat = async function() {
             firstTimeOpen = false;
         }
         
-      icon.classList.add('cross');
-              } else {
-                chatbot.classList.remove("visible");
-                setTimeout(function() {
-                  chatbot.style.display = "none";
-                }, 500);
-                icon.classList.remove('cross');
-              }
-            };
+        icon.classList.add('cross');  // Voeg de 'cross' klasse toe
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
+        icon.classList.remove('cross');  // Verwijder de 'cross' klasse
+    }
+};
+
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
+
     chatbot.style.display = "none";
-    icon.classList.remove('cross');
+    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
 };
 
+        window.handleKeyUp = function(event) {
+            if (event.key === "Enter" && !isBotTyping) {
+                sendMessage();
+            }
+        };
 
     window.handleKeyUp = function(event) {
         if (event.key === "Enter" && !isBotTyping) {
@@ -518,6 +524,7 @@ if(window.innerWidth > 768) {
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
 
 
 
