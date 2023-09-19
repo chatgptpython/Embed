@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function() {
 };
 
 
-window.toggleChat = function() {
+window.toggleChat = async function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
@@ -384,11 +384,13 @@ window.toggleChat = function() {
         chatbot.style.display = "flex";
         setTimeout(function() {
             chatbot.classList.add("visible");
-        }, 50); 
-    if (firstTimeOpen) {
-        await typeWelcomeMessage(); // Maak deze functie asynchroon
-        firstTimeOpen = false;
-    }
+        }, 50);
+        
+        if (firstTimeOpen) {
+            await typeWelcomeMessage(); // Nu kan 'await' hier gebruikt worden
+            firstTimeOpen = false;
+        }
+        
         icon.classList.add('cross');  // Voeg de 'cross' klasse toe
     } else {
         chatbot.classList.remove("visible");
@@ -398,6 +400,7 @@ window.toggleChat = function() {
         icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     }
 };
+
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
