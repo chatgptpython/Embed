@@ -375,20 +375,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 25);
 };
 
-        // Functie om de header dynamisch te laden
-async function loadDynamicHeader() {
-    const headerElement = document.querySelector("#chatbot header");
-
-    let headerMessage = await fetch(`${backendUrl}/get_header_message`)
-        .then(response => response.json())
-        .then(data => data.message)
-        .catch(() => "Chatproducties - Proddy 🤖");
-
-    headerElement.innerHTML = `
-        ${headerMessage}
-        <span id="close-chat" onclick="closeChat()">×</span>
-    `;
-}
 
 window.toggleChat = async function() {
     const chatbot = document.getElementById("chatbot");
@@ -401,8 +387,7 @@ window.toggleChat = async function() {
         }, 50);
         
         if (firstTimeOpen) {
-            await loadDynamicHeader();  // Dynamische header laden
-            await typeWelcomeMessage(); // Dynamisch welkomstbericht laden
+            await typeWelcomeMessage(); // Nu kan 'await' hier gebruikt worden
             firstTimeOpen = false;
         }
         
@@ -415,7 +400,6 @@ window.toggleChat = async function() {
         icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     }
 };
-
 
 
 window.closeChat = function() {
@@ -524,6 +508,7 @@ if(window.innerWidth > 768) {
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
 
 
 
