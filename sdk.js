@@ -420,12 +420,8 @@ window.toggleChat = async function() {
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
-    const closeChat = document.getElementById("close-chat");  // Voeg deze regel toe
-
     chatbot.style.display = "none";
     icon.classList.remove('cross');
-
-    closeChat.style.display = "block";  // Zorg ervoor dat het kruisje altijd zichtbaar is
 };
 
 
