@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <span>💬</span>
         </div>
     `;
-    var div = document.createElement('div');
+            var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
 
@@ -428,6 +428,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 25);
 };
+
+async function fetchAndApplyColor() {
+    try {
+        const response = await fetch(`${backendUrl}/get_color`);
+        const data = await response.json();
+        if (data.color) {
+            updateColor(data.color);
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
+    }
+}
+
+function updateColor(color) {
+    const chatHeader = document.querySelector("#chatbot header");
+    chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
+}
+
+// Oproepen wanneer de pagina laadt
+fetchAndApplyColor();
 
 
 async function fetchTitleMessage() {
@@ -616,7 +636,6 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
 
 
 
