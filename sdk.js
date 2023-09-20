@@ -194,15 +194,27 @@ document.addEventListener("DOMContentLoaded", function() {
         
         
         
-     /* Stijlen voor berichten van de gebruiker */
+        /* Stijlen voor berichten van de gebruiker */
         .user-message {
             align-self: flex-end;  /* Verschuift de container naar de linkerkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #F7F7F7;
-            color: #333;
-            text-align: rightt;  /* Tekst begint aan de linkerkant */
+            background-color: #2C3E50;  /* Lichter metallic blauw */
+            color: #FFFFFF;  /* Witte tekst voor leesbaarheid */
+            text-align: right;  /* Tekst begint aan de rechterkant */
+            /* ... eventuele andere stijlen ... */
         }
         
+        /* Stijlen voor berichten van de bot */
+        .bot-message {
+            align-self: flex-start;  /* Verschuift de container naar de rechterkant */
+            max-width: 85%;  /* Maximale breedte van de berichtencontainer */
+            background-color: #AAB7B8;  /* Grijsblauw */
+            color: #333;  /* Donkergrijze tekst */
+            text-align: left;  /* Tekst begint aan de linkerkant */
+            /* ... eventuele andere stijlen ... */
+        }
+        
+                
 
         #chatbot-input .send-icon {
             width: 35px;
@@ -213,14 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: transparent;
             border: none;
        }
-               .bot-message {
-            align-self: flex-start;  /* Verschuift de container naar de rechterkant */
-            max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #E9E9E9;
-            color: #333;
-            text-align: left;  /* Tekst begint aan de linkerkant */
-        }
-        
+   
            .user-container {
             align-items: flex-end;
             display: flex;
