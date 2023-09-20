@@ -138,8 +138,8 @@ document.addEventListener("DOMContentLoaded", function() {
             /* align-items: center;  Verwijder dit om de berichten niet te centreren */
         }
                       /* Algemene bericht-container stijlen */
+    
         .message-container {
-            max-width: 100%;  
             width: 100%;  
             display: flex;
             flex-direction: column;
@@ -148,19 +148,19 @@ document.addEventListener("DOMContentLoaded", function() {
         /* Stijlen voor berichten van de bot */
         .bot-message {
             align-self: flex-start;  /* Verschuift de container naar de linkerkant */
-            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
             background-color: rgba(140, 119, 219, 0.1);
             color: #333;
             text-align: left;  /* Tekst begint aan de linkerkant */
+            display: inline-block; /* Maakt de container zo klein mogelijk */
         }
         
         /* Stijlen voor berichten van de gebruiker */
         .user-message {
             align-self: flex-end;  /* Verschuift de container naar de rechterkant */
-            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
             background-color: #f0f0f0;
             color: #333;
-            text-align: left;  /* Tekst begint aan de linkerkant */
+            text-align: right;  /* Tekst begint aan de rechterkant */
+            display: inline-block; /* Maakt de container zo klein mogelijk */
         }
                 
         #chatbot-input {
