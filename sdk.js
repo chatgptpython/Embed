@@ -171,8 +171,11 @@ document.addEventListener("DOMContentLoaded", function() {
             border-radius: 20px;
             max-width: 80%;
             transition: all 0.3s ease-in-out;
-            word-wrap: break-word;  /* Voeg deze regel toe */
-            white-space: pre-wrap;  /* Nieuwe regel */
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            display: flex;
+            justify-content: center; /* Centreren van de tekst */
+            position: relative; /* Nodig voor de absolute positionering van de emoji */
         }
 
 
@@ -198,16 +201,20 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #333;
         }
 
-                /* Iconen voor chatbot en gebruiker */
-        .bot-message::before {
+               .bot-message::before {
             content: '🤖';
-            margin-right: 10px;
+            position: absolute; /* Absolute positionering */
+            left: -25px; /* Plaats het aan de linkerkant, buiten het tekstvak */
+            top: 50%;
+            transform: translateY(-50%);
         }
         
         .user-message::before {
             content: '👤';
-            margin-right: 10px;
-            float: right;
+            position: absolute; /* Absolute positionering */
+            right: -25px; /* Plaats het aan de rechterkant, buiten het tekstvak */
+            top: 50%;
+            transform: translateY(-50%);
         }
         
         /* Om de tekst en het icoon naast elkaar te zetten */
