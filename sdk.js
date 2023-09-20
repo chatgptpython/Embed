@@ -137,13 +137,31 @@ document.addEventListener("DOMContentLoaded", function() {
             flex-direction: column;
             /* align-items: center;  Verwijder dit om de berichten niet te centreren */
         }
-                      .message-container {
+                      /* Algemene bericht-container stijlen */
+        .message-container {
             max-width: 100%;  
             width: 100%;  
             display: flex;
             flex-direction: column;
         }
-
+        
+        /* Stijlen voor berichten van de bot */
+        .bot-message {
+            align-self: flex-start;  /* Verschuift de container naar de linkerkant */
+            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
+            background-color: rgba(140, 119, 219, 0.1);
+            color: #333;
+            text-align: left;  /* Tekst begint aan de linkerkant */
+        }
+        
+        /* Stijlen voor berichten van de gebruiker */
+        .user-message {
+            align-self: flex-end;  /* Verschuift de container naar de rechterkant */
+            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: left;  /* Tekst begint aan de linkerkant */
+        }
                 
         #chatbot-input {
             padding: 15px 20px;
@@ -188,14 +206,7 @@ document.addEventListener("DOMContentLoaded", function() {
             position: relative;
         }
         
-     /* Stijlen voor berichten van de gebruiker */
-        .user-message {
-            align-self: flex-start;  /* Verschuift de container naar de linkerkant */
-            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: left;  /* Tekst begint aan de linkerkant */
-        }
+
         
 
         #chatbot-input .send-icon {
@@ -207,13 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: transparent;
             border: none;
        }
-               .bot-message {
-            align-self: flex-end;  /* Verschuift de container naar de rechterkant */
-            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
-            background-color: rgba(140, 119, 219, 0.1);
-            color: #333;
-            text-align: left;  /* Tekst begint aan de linkerkant */
-        }
+         
         
            .user-container {
             align-items: flex-end;
