@@ -277,18 +277,18 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-left: auto;
     padding: 10px;  /* Vergroot de padding */
     border-radius: 16px;  /* Hogere border-radius */
-    background-color: #8c77db;  /* Oorspronkelijke paarse kleur */
+    background-color: transparent;  /* Geen achtergrondkleur */
     color: white;
     transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);  /* Voeg een lichte schaduw toe voor diepte */
+    box-shadow: none;  /* Geen schaduw */
 }
 
-        
-        #close-chat:hover {
-    background-color: #7b6cc8;  /* Donkerdere paarse kleur bij hover */
+#close-chat:hover {
+    background-color: transparent;  /* Geen achtergrondkleur bij hover */
     transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
-    box-shadow: 0 5px 10px rgba(0,0,0,0.3);  /* Donkerdere schaduw bij hover */
+    box-shadow: none;  /* Geen schaduw bij hover */
 }
+
  @media (max-width: 768px) {
     #chatbot {
         width: 100%;
