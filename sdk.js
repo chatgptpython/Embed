@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
                .bot-message {
             align-self: flex-start;  /* Verschuift de container naar de rechterkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: rgba(140, 119, 219, 0.1);
+            background-color: #d4d4d4; 
             color: #333;
             text-align: left;  /* Tekst begint aan de linkerkant */
         }
