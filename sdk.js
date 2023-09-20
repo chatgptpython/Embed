@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
      /* Stijlen voor berichten van de gebruiker */
         .user-message {
-            align-self: flex-start;  /* Verschuift de container naar de linkerkant */
+            align-self: flex-end;  /* Verschuift de container naar de linkerkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
             background-color: #f0f0f0;
             color: #333;
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
             border: none;
        }
                .bot-message {
-            align-self: flex-end;  /* Verschuift de container naar de rechterkant */
+            align-self: flex-start;  /* Verschuift de container naar de rechterkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
             background-color: rgba(140, 119, 219, 0.1);
             color: #333;
