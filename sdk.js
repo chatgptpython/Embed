@@ -108,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function() {
         #chatbot-icon.open span {
             opacity: 0;
         }
+
+        #belangrijk
         
             #chatbot header {
             background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
@@ -216,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
             align-self: flex-start;  /* Verschuift de container naar de rechterkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
             background-color: rgba(140, 119, 219, 0.1);
-            color: #333;
+            color: #d4d4d4;
             text-align: left;  /* Tekst begint aan de linkerkant */
         }
         
