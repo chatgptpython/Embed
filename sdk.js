@@ -137,14 +137,13 @@ document.addEventListener("DOMContentLoaded", function() {
             flex-direction: column;
             /* align-items: center;  Verwijder dit om de berichten niet te centreren */
         }
-                .message-container {
-            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
-            width: 100%;  /* Neemt alle beschikbare ruimte in tot de maximale breedte */
+                   .message-container {
+            width: 100%;  /* Verander van max-width naar width en zet deze op 100% */
             display: flex;
             flex-direction: column;
             align-items: flex-end;  /* Berichten van de gebruiker aan de rechterkant */
         }
-        
+                
         #chatbot-input {
             padding: 15px 20px;
             display: flex;
@@ -175,17 +174,23 @@ document.addEventListener("DOMContentLoaded", function() {
             cursor: pointer;
             font-size: 1em;
         }
-          .user-message, .bot-message {
+              .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
             border-radius: 20px;
-            max-width: 80%;
+            width: 100%;  /* Verander van max-width naar width en zet deze op 100% */
             transition: all 0.3s ease-in-out;
             word-wrap: break-word;
             white-space: pre-wrap;
             display: flex;
-            justify-content: center; /* Centreren van de tekst */
-            position: relative; /* Nodig voor de absolute positionering van de emoji */
+            justify-content: center;
+            position: relative;
+        }
+        
+        .user-message {
+            align-self: flex-end;  /* Berichten van de gebruiker aan de rechterkant */
+            background-color: #f0f0f0;
+            color: #333;
         }
 
 
@@ -205,11 +210,6 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #333;
         }
         
-        .user-message {
-            align-self: flex-end;  /* Berichten van de gebruiker aan de rechterkant */
-            background-color: #f0f0f0;
-            color: #333;
-        }
         
            .user-container {
             align-items: flex-end;
