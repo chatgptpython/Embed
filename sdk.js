@@ -193,27 +193,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         
-        
-        /* Stijlen voor berichten van de gebruiker */
-        .user-message {
-            align-self: flex-end;  /* Verschuift de container naar de linkerkant */
-            max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #2C3E50;  /* Lichter metallic blauw */
-            color: #FFFFFF;  /* Witte tekst voor leesbaarheid */
-            text-align: right;  /* Tekst begint aan de rechterkant */
-            /* ... eventuele andere stijlen ... */
-        }
-        
-        /* Stijlen voor berichten van de bot */
-        .bot-message {
-            align-self: flex-start;  /* Verschuift de container naar de rechterkant */
-            max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #AAB7B8;  /* Grijsblauw */
-            color: #333;  /* Donkergrijze tekst */
-            text-align: left;  /* Tekst begint aan de linkerkant */
-            /* ... eventuele andere stijlen ... */
-        }
-        
+/* Stijlen voor berichten van de gebruiker */
+.user-message {
+    align-self: flex-end;
+    max-width: 85%;
+    background-color: #3498DB;  /* Mooi blauw */
+    color: #FFFFFF;  /* Witte tekst */
+    text-align: right;
+    /* ... eventuele andere stijlen ... */
+}
+
+/* Stijlen voor berichten van de bot */
+.bot-message {
+    align-self: flex-start;
+    max-width: 85%;
+    background-color: #F0F3F4;  /* Hemel-lichtgrijs */
+    color: #333;  /* Donkere tekst voor betere leesbaarheid */
+    text-align: left;
+    /* ... eventuele andere stijlen ... */
+}
+
                 
 
         #chatbot-input .send-icon {
