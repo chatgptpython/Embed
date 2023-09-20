@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
             flex-direction: column;
         }
         
-        /* Stijlen voor berichten van de bot */
+            /* Stijlen voor berichten van de bot */
         .bot-message {
             align-self: flex-start;
             background-color: rgba(140, 119, 219, 0.1);
