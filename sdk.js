@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+
+Bij de user chat:
+Ik wil graag in deze code hebben dat de chat wrapper rechts begint en alleen de lengte heeft van de tekst tot een maximum van 70%
+ 
+Bij de chatbot chat:
+
+Ik wil graag in deze code hebben dat de chat wrapper links begint en alleen de lengte heeft van de tekst document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
@@ -188,7 +194,15 @@ document.addEventListener("DOMContentLoaded", function() {
             position: relative;
         }
         
-     
+     /* Stijlen voor berichten van de gebruiker */
+        .user-message {
+            align-self: flex-start;  /* Verschuift de container naar de linkerkant */
+            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: left;  /* Tekst begint aan de linkerkant */
+        }
+        
 
         #chatbot-input .send-icon {
             width: 35px;
@@ -199,20 +213,12 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: transparent;
             border: none;
        }
-                     .user-message {
-            align-self: flex-end;
-            max-width: 70%;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: left;
-        }
-        
-        .bot-message {
-            align-self: flex-start;
-            max-width: 70%;
+               .bot-message {
+            align-self: flex-end;  /* Verschuift de container naar de rechterkant */
+            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
             background-color: rgba(140, 119, 219, 0.1);
             color: #333;
-            text-align: left;
+            text-align: left;  /* Tekst begint aan de linkerkant */
         }
         
            .user-container {
@@ -413,49 +419,12 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-window.sendMessage = function() {
-    if (isBotTyping) return;
-
-    const userInput = document.getElementById("user-input");
+ window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
-
-    if (userInput.value.trim() !== "") {
-        isBotTyping = true;
-        toggleInputState("disable");
-
-        // Maak een container voor het bericht van de gebruiker
-        let userMessageContainer = document.createElement("div");
-        userMessageContainer.className = "message-container user-container";
-
-        // Voeg de zenderinformatie toe
-        let userSenderElem = document.createElement("div");
-        userSenderElem.className = "message-sender user";
-        userSenderElem.textContent = "U:";
-        userMessageContainer.appendChild(userSenderElem);
-
-        // Maak het bericht element
-        let messageElem = document.createElement("div");
-        messageElem.className = "user-message";
-
-        // Maak een span voor de tekst
-        let spanElem = document.createElement("span");
-        spanElem.textContent = userInput.value;
-        messageElem.appendChild(spanElem);
-
-        // Voeg het berichtelement toe aan de container
-        userMessageContainer.appendChild(messageElem);
-
-        // Voeg de container toe aan de chatcontent
-        chatContent.appendChild(userMessageContainer);
-
-        // Stel de breedte van het bericht in op basis van de span breedte
-        messageElem.style.width = spanElem.offsetWidth + "px";
-
-        // Voeg de denk-spinner toe
-        let botThinkingElem = document.createElement("div");
-        botThinkingElem.className = "bot-message";
-        botThinkingElem.innerHTML = `<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>`;
-        chatContent.appendChild(botThinkingElem);
+    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    chatContent.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
     let messageText = await fetch(`${backendUrl}/get_welcome_message`)
@@ -665,6 +634,13 @@ preloadImages();
 
 
   
+
+
+
+
+
+
+
 
 
 
