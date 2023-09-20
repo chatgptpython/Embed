@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const backendUrl = "https://chatbot-1k97.onrender.com";
         
     var css = `
-    <style>
+ <style>
             body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
             align-self: flex-start;  /* Verschuift de container naar de rechterkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
             background-color: rgba(140, 119, 219, 0.1);
-            color: #d4d4d4;
+            color: #333;
             text-align: left;  /* Tekst begint aan de linkerkant */
         }
         
@@ -365,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
 
     </style>
     `;
