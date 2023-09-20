@@ -210,23 +210,27 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #f0f0f0;
             color: #333;
         }
-
-               .bot-message::before {
+        .bot-message::before {
             content: '🤖';
-            position: absolute; /* Absolute positionering */
-            left: -25px; /* Plaats het aan de linkerkant, buiten het tekstvak */
+            position: absolute; 
+            left: -35px;  /* Aangepaste positie */
             top: 50%;
             transform: translateY(-50%);
         }
         
         .user-message::before {
             content: '👤';
-            position: absolute; /* Absolute positionering */
-            right: -25px; /* Plaats het aan de rechterkant, buiten het tekstvak */
+            position: absolute; 
+            right: -35px;  /* Aangepaste positie */
             top: 50%;
             transform: translateY(-50%);
         }
         
+        .message-sender.user {
+            align-self: flex-end;
+            color: #888;
+            margin-bottom: 5px;
+        }
         /* Om de tekst en het icoon naast elkaar te zetten */
         .bot-message, .user-message {
             display: flex;
