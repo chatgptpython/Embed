@@ -175,11 +175,12 @@ document.addEventListener("DOMContentLoaded", function() {
             cursor: pointer;
             font-size: 1em;
         }
-              .user-message, .bot-message {
+        .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
             border-radius: 20px;
-            width: 100%;  /* Verander van max-width naar width en zet deze op 100% */
+            width: auto;  /* Verander van 100% naar auto */
+            min-width: 40%;  /* Stel een minimum breedte in */
             transition: all 0.3s ease-in-out;
             word-wrap: break-word;
             white-space: pre-wrap;
@@ -187,8 +188,9 @@ document.addEventListener("DOMContentLoaded", function() {
             justify-content: center;
             position: relative;
             white-space: pre-wrap;
-            
         }
+        
+        
         
      /* Stijlen voor berichten van de gebruiker */
         .user-message {
