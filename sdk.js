@@ -284,7 +284,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #close-chat:hover {
-    color: #ff4081;  /* Verander de kleur bij hover */
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
     border: 2px solid white;  /* Witte rand bij hover */
 }
