@@ -210,10 +210,24 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #f0f0f0;
             color: #333;
         }
+        
+           .user-container {
+            align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message-sender.user {
+            align-self: flex-end;
+            text-align: right;  /* Tekst uitlijnen naar rechts */
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
         .bot-message::before {
             content: '🤖';
             position: absolute; 
-            left: -35px;  /* Aangepaste positie */
+            left: -35px; 
             top: 50%;
             transform: translateY(-50%);
         }
@@ -221,16 +235,11 @@ document.addEventListener("DOMContentLoaded", function() {
         .user-message::before {
             content: '👤';
             position: absolute; 
-            right: -35px;  /* Aangepaste positie */
+            right: -35px; 
             top: 50%;
             transform: translateY(-50%);
         }
-        
-        .message-sender.user {
-            align-self: flex-end;
-            color: #888;
-            margin-bottom: 5px;
-        }
+
         /* Om de tekst en het icoon naast elkaar te zetten */
         .bot-message, .user-message {
             display: flex;
@@ -529,10 +538,10 @@ window.sendMessage = function() {
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
         toggleInputState("disable");
-
+     
         // Voeg het bericht van de gebruiker toe
-        chatContent.innerHTML += `<div class="message-sender">U:</div><div class="user-message">${userInput.value}</div>`;
-        
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+
         // Voeg de denk-spinner toe
         chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
 
