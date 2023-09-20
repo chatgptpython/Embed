@@ -109,8 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
             opacity: 0;
         }
 
-        #belangrijk
-        
+    
             #chatbot header {
             background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
             color: #333;
