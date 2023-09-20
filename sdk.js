@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
                       /* Algemene bericht-container stijlen */
     
+        /* Algemene bericht-container stijlen */
         .message-container {
             width: 100%;  
             display: flex;
@@ -147,19 +148,21 @@ document.addEventListener("DOMContentLoaded", function() {
         
         /* Stijlen voor berichten van de bot */
         .bot-message {
-            align-self: flex-start;  /* Verschuift de container naar de linkerkant */
+            align-self: flex-start;
             background-color: rgba(140, 119, 219, 0.1);
             color: #333;
-            text-align: left;  /* Tekst begint aan de linkerkant */
+            text-align: left;
+            max-width: 70%;  /* Maximale breedte ingesteld op 70% */
             display: inline-block; /* Maakt de container zo klein mogelijk */
         }
         
         /* Stijlen voor berichten van de gebruiker */
         .user-message {
-            align-self: flex-end;  /* Verschuift de container naar de rechterkant */
+            align-self: flex-end;
             background-color: #f0f0f0;
             color: #333;
-            text-align: right;  /* Tekst begint aan de rechterkant */
+            text-align: right;
+            max-width: 70%;  /* Maximale breedte ingesteld op 70% */
             display: inline-block; /* Maakt de container zo klein mogelijk */
         }
                 
