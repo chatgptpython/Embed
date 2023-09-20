@@ -1,10 +1,4 @@
-
-Bij de user chat:
-Ik wil graag in deze code hebben dat de chat wrapper rechts begint en alleen de lengte heeft van de tekst tot een maximum van 70%
- 
-Bij de chatbot chat:
-
-Ik wil graag in deze code hebben dat de chat wrapper links begint en alleen de lengte heeft van de tekst document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
