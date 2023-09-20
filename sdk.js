@@ -186,6 +186,8 @@ document.addEventListener("DOMContentLoaded", function() {
             display: flex;
             justify-content: center;
             position: relative;
+            white-space: pre-wrap;
+            
         }
         
      /* Stijlen voor berichten van de gebruiker */
