@@ -273,21 +273,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 36px;  /* Vergroot de font-grootte */
+    font-size: 36px;
     margin-left: auto;
-    padding: 10px;  /* Vergroot de padding */
-    border-radius: 16px;  /* Hogere border-radius */
+    padding: 10px;
+    border-radius: 50%;  /* Maakt het rond */
     background-color: transparent;  /* Geen achtergrondkleur */
     color: white;
-    transition: background-color 0.3s ease, transform 0.3s ease;  /* Voeg een transform transitie toe */
-    box-shadow: none;  /* Geen schaduw */
+    transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent;  /* Transparante rand */
 }
 
 #close-chat:hover {
-    background-color: transparent;  /* Geen achtergrondkleur bij hover */
-    transform: scale(1.1);  /* Laat het kruisje nog groter worden bij hover */
-    box-shadow: none;  /* Geen schaduw bij hover */
+    color: #ff4081;  /* Verander de kleur bij hover */
+    transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
+    border: 2px solid white;  /* Witte rand bij hover */
 }
+
 
  @media (max-width: 768px) {
     #chatbot {
