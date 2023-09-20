@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-right: 10px;
         }
         
-        #chatbot-content {
+            #chatbot-content {
             flex: 1;
             overflow-y: auto;
             padding: 15px;
@@ -135,9 +135,8 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #333;
             display: flex;
             flex-direction: column;
-            align-items: center;  /* Centreert de berichtencontainer */
+            /* align-items: center;  Verwijder dit om de berichten niet te centreren */
         }
-
                 .message-container {
             max-width: 80%;  /* Maximale breedte van de berichtencontainer */
             width: 100%;  /* Neemt alle beschikbare ruimte in tot de maximale breedte */
@@ -199,17 +198,16 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: transparent;
             border: none;
        }
-        
-        .user-message {
-            align-self: flex-end;
-            background-color: #f0f0f0;
+       
+        .bot-message {
+            align-self: flex-start;  /* Berichten van de bot aan de linkerkant */
+            background-color: rgba(140, 119, 219, 0.1);
             color: #333;
         }
         
-        .bot-message {
+        .user-message {
             align-self: flex-end;  /* Berichten van de gebruiker aan de rechterkant */
-            text-align: left; 
-            background-color: rgba(140, 119, 219, 0.1);
+            background-color: #f0f0f0;
             color: #333;
         }
 
