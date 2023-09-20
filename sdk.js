@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
             background-color: #f0f0f0;
             color: #333;
-            text-align: left;  /* Tekst begint aan de linkerkant */
+            text-align: rightt;  /* Tekst begint aan de linkerkant */
         }
         
 
@@ -230,21 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
         
-        .bot-message::before {
-            content: '🤖';
-            position: absolute; 
-            left: -35px; 
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .user-message::before {
-            content: '👤';
-            position: absolute; 
-            right: -35px; 
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    
 
         /* Om de tekst en het icoon naast elkaar te zetten */
         .bot-message, .user-message {
