@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .user-message {
             align-self: flex-end;  /* Verschuift de container naar de linkerkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #f0f0f0;
+            background-color: #FFFFFF;
             color: #333;
             text-align: rightt;  /* Tekst begint aan de linkerkant */
         }
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
                .bot-message {
             align-self: flex-start;  /* Verschuift de container naar de rechterkant */
             max-width: 85%;  /* Maximale breedte van de berichtencontainer */
-            background-color: #d4d4d4; 
+            background-color: #F1F1F1; 
             color: #333;
             text-align: left;  /* Tekst begint aan de linkerkant */
         }
