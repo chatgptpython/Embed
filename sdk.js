@@ -36,12 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
             display: none;
             flex-direction: column;
             opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) translateY(30px);
             z-index: 10000;
         }
+            
             
               
               
