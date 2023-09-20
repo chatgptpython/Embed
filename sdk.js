@@ -36,8 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
             display: none;
             flex-direction: column;
             opacity: 0;
-            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) translateY(30px);
             z-index: 10000;
         }
             
@@ -196,6 +198,24 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: rgba(140, 119, 219, 0.1);
             color: #333;
         }
+
+                /* Iconen voor chatbot en gebruiker */
+        .bot-message::before {
+            content: '🤖';
+            margin-right: 10px;
+        }
+        
+        .user-message::before {
+            content: '👤';
+            margin-right: 10px;
+            float: right;
+        }
+        
+        /* Om de tekst en het icoon naast elkaar te zetten */
+        .bot-message, .user-message {
+            display: flex;
+            align-items: center;
+        }
         
          .typing-dot {
             display: inline-block;
@@ -335,7 +355,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var html = `
         <div id="chatbot">
             <header>
-                <span id="chatbot-title">Chatproducties - Proddy 🤖</span>
+                <span id="chatbot-title">
+                    <span role="img" aria-label="bot">🤖</span> 
+                    Chatproducties - Proddy
+                </span>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
