@@ -133,6 +133,17 @@ document.addEventListener("DOMContentLoaded", function() {
             padding: 15px;
             background-color: #ffffff;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* Centreert de berichtencontainer */
+        }
+
+                .message-container {
+            max-width: 80%;  /* Maximale breedte van de berichtencontainer */
+            width: 100%;  /* Neemt alle beschikbare ruimte in tot de maximale breedte */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;  /* Berichten van de gebruiker aan de rechterkant */
         }
         
         #chatbot-input {
@@ -196,7 +207,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         .bot-message {
-            align-self: flex-start;
+            align-self: flex-end;  /* Berichten van de gebruiker aan de rechterkant */
+            text-align: left; 
             background-color: rgba(140, 119, 219, 0.1);
             color: #333;
         }
