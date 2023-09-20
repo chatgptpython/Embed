@@ -198,22 +198,22 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #333;
         }
 
-        .bot-message, .user-message {
-            display: flex;
-            align-items: center;
-            justify-content: center;  /* Berichten in het midden uitlijnen */
-        }
-        
+                /* Iconen voor chatbot en gebruiker */
         .bot-message::before {
             content: '🤖';
             margin-right: 10px;
-            order: -1;  /* Icon aan de linkerkant van het bericht plaatsen */
         }
         
         .user-message::before {
             content: '👤';
-            margin-left: 10px;  /* Gebruik margin-left in plaats van margin-right */
-            order: 1;  /* Icon aan de rechterkant van het bericht plaatsen */
+            margin-right: 10px;
+            float: right;
+        }
+        
+        /* Om de tekst en het icoon naast elkaar te zetten */
+        .bot-message, .user-message {
+            display: flex;
+            align-items: center;
         }
         
          .typing-dot {
@@ -338,6 +338,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
+
 
     </style>
     `;
