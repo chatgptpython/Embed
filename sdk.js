@@ -405,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
  window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     chatContent.appendChild(messageElem);
@@ -534,7 +534,7 @@ window.sendMessage = function() {
         toggleInputState("disable");
      
         // Voeg het bericht van de gebruiker toe
-        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">👤</div><div class="user-message">${userInput.value}</div></div>`;
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
 
         // Voeg de denk-spinner toe
         chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
@@ -553,7 +553,7 @@ window.sendMessage = function() {
             .then(response => response.json())
             .then(data => {
                 chatContent.lastChild.remove();
-                chatContent.innerHTML += `<div class="message-sender">🤖</div>`;
+                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
                 let messageText = data.answer;
                 let messageElem = document.createElement("div");
                 messageElem.className = "bot-message";
@@ -576,7 +576,7 @@ window.sendMessage = function() {
             })
             .catch(error => {
                 console.error("Error:", error);
-                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
+                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
                 toggleInputState("enable");
                 isBotTyping = false;
             });
