@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
         #chatbot-input textarea {
             flex: 1;
             padding: 8px 12px;
-            border: 1px solid #8c77db;
+            border: 1px solid #4A90E2;
             border-radius: 30px;
             outline: none;
             color: #333;
