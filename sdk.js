@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 
-/* Bestaande stijlen ... */
+/* Bestaande stijlen */
+/* ... (hier kunnen andere regels staan die je al had) ... */
 
 /* Aangepaste stijlen voor berichten van de gebruiker */
 .user-message {
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
     border-bottom: 15px solid transparent;
 }
 
-/* ... Rest van de bestaande stijlen ... */
+/* ... (hier kunnen andere regels staan die je al had) ... */
 
 
 
