@@ -62,31 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 
-/* Bestaande stijlen ... */
+        
 
-        /* Aangepaste stijlen voor berichten van de gebruiker */
-        .user-message {
-            align-self: flex-end;
-            max-width: 85%;
-            background-color: #4A90E2;
-            color: #FFFFFF;
-            text-align: right;
-            border-radius: 7px 0px 7px 7px;
-            position: relative;
-        }
-        
-        
-        /* Aangepaste stijlen voor berichten van de bot */
-        .bot-message {
-            align-self: flex-start;
-            max-width: 85%;
-            background-color: #F0F3F4;
-            color: #333;
-            text-align: left;
-            border-radius: 0px 7px 7px 7px;
-            position: relative;
-        }
-        
 
         #chatbot.visible {
             opacity: 1;
@@ -216,9 +193,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         
+/* Stijlen voor berichten van de gebruiker */
+.user-message {
+    align-self: flex-end;
+    max-width: 85%;
+    background-color: #4A90E2;  /* Mooi blauw */
+    color: #FFFFFF;  /* Witte tekst */
+    text-align: right;
+    /* ... eventuele andere stijlen ... */
+}
 
-
-
+/* Stijlen voor berichten van de bot */
+.bot-message {
+    align-self: flex-start;
+    max-width: 85%;
+    background-color: #F0F3F4;  /* Hemel-lichtgrijs */
+    color: #333;  /* Donkere tekst voor betere leesbaarheid */
+    text-align: left;
+    /* ... eventuele andere stijlen ... */
+}
 
                 
 
