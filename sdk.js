@@ -75,15 +75,6 @@ document.addEventListener("DOMContentLoaded", function() {
             position: relative;
         }
         
-        .user-message::after {
-            content: "";
-            position: absolute;
-            right: 0;  /* Geen witruimte */
-            top: 10px;
-            border-left: 10px solid #4A90E2;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
         
         /* Aangepaste stijlen voor berichten van de bot */
         .bot-message {
@@ -96,16 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
             position: relative;
         }
         
-        .bot-message::before {
-            content: "";
-            position: absolute;
-            left: 0;  /* Geen witruimte */
-            top: 10px;
-            border-right: 10px solid #F0F3F4;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
-
 
         #chatbot.visible {
             opacity: 1;
