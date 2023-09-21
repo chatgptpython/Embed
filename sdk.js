@@ -61,58 +61,52 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
 
+/* Bestaande stijlen ... */
 
-                /* Aangepaste stijlen voor berichten van de gebruiker */
-        .user-message {
-            align-self: flex-end;
-            max-width: 85%;
-            background-color: #4A90E2;
-            color: #FFFFFF;
-            text-align: right;
-            border-radius: 7px 0px 7px 7px;  /* Minder afgeronde hoeken */
-            position: relative;
-        }
-        
-        .user-message::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 0;
-            height: 0;
-            border: 10px solid transparent;
-            border-left-color: #4A90E2;
-            border-right: 0;
-            border-bottom: 0;
-            margin-top: -5px;
-            margin-right: -10px;
-        }
-        
-        /* Aangepaste stijlen voor berichten van de bot */
-        .bot-message {
-            align-self: flex-start;
-            max-width: 85%;
-            background-color: #F0F3F4;
-            color: #333;
-            text-align: left;
-            border-radius: 0px 7px 7px 7px;  /* Minder afgeronde hoeken */
-            position: relative;
-        }
-        
-        .bot-message::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 0;
-            height: 0;
-            border: 10px solid transparent;
-            border-right-color: #F0F3F4;
-            border-left: 0;
-            border-bottom: 0;
-            margin-top: -5px;
-            margin-left: -10px;
-        }
+/* Aangepaste stijlen voor berichten van de gebruiker */
+.user-message {
+    align-self: flex-end;
+    max-width: 85%;
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    text-align: right;
+    border-radius: 7px 0px 7px 7px;
+    position: relative;
+}
+
+.user-message::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    border-left: 10px solid #4A90E2;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+/* Aangepaste stijlen voor berichten van de bot */
+.bot-message {
+    align-self: flex-start;
+    max-width: 85%;
+    background-color: #F0F3F4;
+    color: #333;
+    text-align: left;
+    border-radius: 0px 7px 7px 7px;
+    position: relative;
+}
+
+.bot-message::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    border-right: 10px solid #F0F3F4;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+/* ... Rest van de bestaande stijlen ... */
+
 
 
 
