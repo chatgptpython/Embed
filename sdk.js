@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: #3498DB;  /* Mooi blauw */
+    background-color: #4A90E2;  /* Mooi blauw */
     color: #FFFFFF;  /* Witte tekst */
     text-align: right;
     /* ... eventuele andere stijlen ... */
