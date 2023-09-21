@@ -62,51 +62,49 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 
-/* Bestaande stijlen */
-/* ... (hier kunnen andere regels staan die je al had) ... */
+/* Bestaande stijlen ... */
 
-/* Aangepaste stijlen voor berichten van de gebruiker */
-.user-message {
-    align-self: flex-end;
-    max-width: 85%;
-    background-color: #4A90E2;
-    color: #FFFFFF;
-    text-align: right;
-    border-radius: 0px 15px 15px 15px;
-    position: relative;
-}
-
-.user-message::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border-left: 15px solid #4A90E2;
-    border-bottom: 15px solid transparent;
-}
-
-/* Aangepaste stijlen voor berichten van de bot */
-.bot-message {
-    align-self: flex-start;
-    max-width: 85%;
-    background-color: #F0F3F4;
-    color: #333;
-    text-align: left;
-    border-radius: 15px 0px 15px 15px;
-    position: relative;
-}
-
-.bot-message::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    border-right: 15px solid #F0F3F4;
-    border-bottom: 15px solid transparent;
-}
-
-/* ... (hier kunnen andere regels staan die je al had) ... */
-
+        /* Aangepaste stijlen voor berichten van de gebruiker */
+        .user-message {
+            align-self: flex-end;
+            max-width: 85%;
+            background-color: #4A90E2;
+            color: #FFFFFF;
+            text-align: right;
+            border-radius: 7px 0px 7px 7px;
+            position: relative;
+        }
+        
+        .user-message::after {
+            content: "";
+            position: absolute;
+            right: 0;  /* Geen witruimte */
+            top: 10px;
+            border-left: 10px solid #4A90E2;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        
+        /* Aangepaste stijlen voor berichten van de bot */
+        .bot-message {
+            align-self: flex-start;
+            max-width: 85%;
+            background-color: #F0F3F4;
+            color: #333;
+            text-align: left;
+            border-radius: 0px 7px 7px 7px;
+            position: relative;
+        }
+        
+        .bot-message::before {
+            content: "";
+            position: absolute;
+            left: 0;  /* Geen witruimte */
+            top: 10px;
+            border-right: 10px solid #F0F3F4;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
 
 
         #chatbot.visible {
