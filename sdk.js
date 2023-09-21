@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
 
+
 /* Bestaande stijlen ... */
 
 /* Aangepaste stijlen voor berichten van de gebruiker */
@@ -70,18 +71,17 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: #4A90E2;
     color: #FFFFFF;
     text-align: right;
-    border-radius: 7px 0px 7px 7px;
+    border-radius: 0px 15px 15px 15px;
     position: relative;
 }
 
 .user-message::after {
     content: "";
     position: absolute;
-    right: -10px;
-    top: 10px;
-    border-left: 10px solid #4A90E2;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    right: 0;
+    bottom: 0;
+    border-left: 15px solid #4A90E2;
+    border-bottom: 15px solid transparent;
 }
 
 /* Aangepaste stijlen voor berichten van de bot */
@@ -91,22 +91,20 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: #F0F3F4;
     color: #333;
     text-align: left;
-    border-radius: 0px 7px 7px 7px;
+    border-radius: 15px 0px 15px 15px;
     position: relative;
 }
 
 .bot-message::before {
     content: "";
     position: absolute;
-    left: -10px;
-    top: 10px;
-    border-right: 10px solid #F0F3F4;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    left: 0;
+    bottom: 0;
+    border-right: 15px solid #F0F3F4;
+    border-bottom: 15px solid transparent;
 }
 
 /* ... Rest van de bestaande stijlen ... */
-
 
 
 
