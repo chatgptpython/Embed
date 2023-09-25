@@ -404,41 +404,23 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-// JavaScript toevoegen
-let firstTimeOpen = true;
-let isBotTyping = false;
+    // JavaScript toevoegen
+        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+        let isBotTyping = false;
 
-let cachedTitle = "Standaardnaam als fallback";
-let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
-let cachedColor = "#ffffff"; // Standaardkleur als fallback
-
-async function fetchSettings() {
-    try {
-        const response = await fetch(`${backendUrl}/get_settings`);
-        const data = await response.json();
-        cachedTitle = data.title || cachedTitle;
-        cachedWelcomeMessage = data.welcomeMessage || cachedWelcomeMessage;
-        cachedColor = data.color || cachedColor;
-        updateColor(cachedColor);
-        document.querySelector("#chatbot-title").innerText = cachedTitle;
-    } catch (error) {
-        console.error("Failed to fetch settings:", error);
-    }
-}
-
-function updateColor(color) {
-    const chatHeader = document.querySelector("#chatbot header");
-    chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
-}
-
-window.typeWelcomeMessage = function() {
+ window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     chatContent.appendChild(messageElem);
 
-    let messageText = cachedWelcomeMessage;
+    // Haal het welkomstbericht op van de server
+    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Standaard welkomstbericht als backup");
+
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -451,19 +433,76 @@ window.typeWelcomeMessage = function() {
     }, 25);
 };
 
+    async function fetchAndApplyColor() {
+        try {
+            const response = await fetch(`${backendUrl}/get_color`);
+            const data = await response.json();
+            if (data.color) {
+                updateColor(data.color);
+            }
+        } catch (error) {
+            console.error("Failed to fetch color:", error);
+        }
+    }
+
+    function updateColor(color) {
+        const chatHeader = document.querySelector("#chatbot header");
+        chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
+    }
+
+    // Oproepen wanneer de pagina laadt
+    fetchAndApplyColor();
+
+
+async function fetchTitleMessage() {
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        if (data.message) {
+            document.querySelector("#chatbot-title").innerText = data.message;
+        }
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+}
+
+let cachedTitle = "Standaardnaam als fallback";
+let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
+
+async function initializeChat() {
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        cachedTitle = data.message || cachedTitle;
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+
+    try {
+        const response = await fetch(`${backendUrl}/get_welcome_message`);
+        const data = await response.json();
+        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
+    }
+}
+
+        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
         if (firstTimeOpen) {
-            typeWelcomeMessage();
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
             firstTimeOpen = false;
         }
         chatbot.style.display = "flex";
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
+
         icon.classList.add('cross');
     } else {
         chatbot.classList.remove("visible");
@@ -475,8 +514,7 @@ window.toggleChat = function() {
 };
 
 // Aanroepen wanneer de pagina laadt
-fetchSettings();
-
+initializeChat();
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
