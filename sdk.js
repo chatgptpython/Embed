@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             height: 70px;
             border-radius: 50%;
             background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #007BFF, 0 0 40px #007BFF, 0 0 55px #007BFF, 0 0 75px #007BFF; /* Glimmend effect */
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px ${color}, 0 0 40px ${color}, 0 0 55px ${color}, 0 0 75px ${color}; /* Glimmend effect
             display: flex;
             align-items: center;
             justify-content: center;
