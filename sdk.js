@@ -434,21 +434,29 @@ document.addEventListener("DOMContentLoaded", function() {
 };
 
     async function fetchAndApplyColor() {
-        try {
-            const response = await fetch(`${backendUrl}/get_color`);
-            const data = await response.json();
-            if (data.color) {
-                updateColor(data.color);
-            }
-        } catch (error) {
-            console.error("Failed to fetch color:", error);
+    try {
+        const response = await fetch(`${backendUrl}/get_color`);
+        const data = await response.json();
+        if (data.color) {
+            updateColor(data.color);
+            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
         }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
     }
+}
+
 
     function updateColor(color) {
         const chatHeader = document.querySelector("#chatbot header");
         chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
     }
+    
+    function updateChatIconColor(color) {
+        const chatIcon = document.getElementById("chatbot-icon");
+        chatIcon.style.background = `radial-gradient(circle at center, #007BFF, ${color})`;
+    }
+
 
     // Oproepen wanneer de pagina laadt
     fetchAndApplyColor();
