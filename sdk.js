@@ -403,84 +403,139 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-    (function() {
-    // Globale cache-instellingen
-    window.CACHED_TITLE = "Standaardnaam als fallback";
-    window.CACHED_WELCOME_MESSAGE = "Standaard welkomstbericht als backup";
-    window.CACHED_COLOR = "#FFFFFF"; // Of wat je standaard kleur ook is
+    // JavaScript toevoegen
+        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+        let isBotTyping = false;
 
-    // Functie om afbeeldingen vooraf te laden
-    function preloadImages() {
-        const sendIcon = new Image();
-        sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
+ window.typeWelcomeMessage = async function() {
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    chatContent.appendChild(messageElem);
+
+    // Haal het welkomstbericht op van de server
+    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Standaard welkomstbericht als backup");
+
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 25);
+};
+
+    async function fetchAndApplyColor() {
+    try {
+        const response = await fetch(`${backendUrl}/get_color`);
+        const data = await response.json();
+        if (data.color) {
+            updateColor(data.color);
+            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
     }
-    preloadImages();
+}
 
-    // Functies om de kleur bij te werken
+
     function updateColor(color) {
         const chatHeader = document.querySelector("#chatbot header");
         chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
     }
-
+    
     function updateChatIconColor(color) {
         const chatIcon = document.getElementById("chatbot-icon");
         chatIcon.style.background = `radial-gradient(circle at center, #007BFF, ${color})`;
     }
 
-    // Functie om welkomstbericht te typen
-    window.typeWelcomeMessage = function() {
-        const chatContent = document.getElementById("chatbot-content");
-        chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
-        let messageElem = document.createElement("div");
-        messageElem.className = "bot-message";
-        chatContent.appendChild(messageElem);
 
-        let messageText = window.CACHED_WELCOME_MESSAGE;
-        let index = 0;
-        let typingInterval = setInterval(() => {
-            if (index < messageText.length) {
-                messageElem.textContent += messageText[index];
-                index++;
-                chatContent.scrollTop = chatContent.scrollHeight;
-            } else {
-                clearInterval(typingInterval);
-            }
-        }, 25);
-    };
+    // Oproepen wanneer de pagina laadt
+    fetchAndApplyColor();
 
-    let firstTimeOpen = true; 
-    let isBotTyping = false;
 
-    window.toggleChat = function() {
-        const chatbot = document.getElementById("chatbot");
-        const icon = document.getElementById("chatbot-icon");
-
-        if (chatbot.style.display === "none" || chatbot.style.display === "") {
-            document.querySelector("#chatbot-title").innerText = window.CACHED_TITLE;
-            if (firstTimeOpen) {
-                typeWelcomeMessage();
-                firstTimeOpen = false;
-            }
-            chatbot.style.display = "flex";
-            setTimeout(function() {
-                chatbot.classList.add("visible");
-            }, 50);
-            icon.classList.add('cross');
-        } else {
-            chatbot.classList.remove("visible");
-            setTimeout(function() {
-                chatbot.style.display = "none";
-            }, 500);
-            icon.classList.remove('cross');
+async function fetchTitleMessage() {
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        if (data.message) {
+            document.querySelector("#chatbot-title").innerText = data.message;
         }
-    };
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+}
 
-    window.closeChat = function() {
-        const chatbot = document.getElementById("chatbot");
-        const icon = document.getElementById("chatbot-icon");
-        chatbot.style.display = "none";
+let cachedTitle = "Standaardnaam als fallback";
+let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
+
+async function initializeChat() {
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        cachedTitle = data.message || cachedTitle;
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+
+    try {
+        const response = await fetch(`${backendUrl}/get_welcome_message`);
+        const data = await response.json();
+        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
+    }
+}
+
+        
+window.toggleChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
+        chatbot.style.display = "flex";
+        setTimeout(function() {
+            chatbot.classList.add("visible");
+        }, 50);
+
+        icon.classList.add('cross');
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
         icon.classList.remove('cross');
-    };
+    }
+};
+
+// Aanroepen wanneer de pagina laadt
+initializeChat();
+
+window.closeChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    chatbot.style.display = "none";
+    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
+};
+
+        window.handleKeyUp = function(event) {
+            if (event.key === "Enter" && !isBotTyping) {
+                sendMessage();
+            }
+        };
 
     window.handleKeyUp = function(event) {
         if (event.key === "Enter" && !isBotTyping) {
@@ -500,103 +555,95 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    window.sendMessage = function() {
-        if (isBotTyping) return;
+window.sendMessage = function() {
+    if (isBotTyping) return;
 
-        const userInput = document.getElementById("user-input");
-        const chatContent = document.getElementById("chatbot-content");
+    const userInput = document.getElementById("user-input");
+    const chatContent = document.getElementById("chatbot-content");
 
-        if (userInput.value.trim() !== "") {
-            isBotTyping = true;
-            toggleInputState("disable");
+    if (userInput.value.trim() !== "") {
+        isBotTyping = true;
+        toggleInputState("disable");
      
-            chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
-            chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
-            chatContent.scrollTop = chatContent.scrollHeight;
+        // Voeg het bericht van de gebruiker toe
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
 
-            setTimeout(() => {
-                fetch(`${backendUrl}/ask`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ question: userInput.value })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    chatContent.lastChild.remove();
-                    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
-                    let messageText = data.answer;
-                    let messageElem = document.createElement("div");
-                    messageElem.className = "bot-message";
-                    chatContent.appendChild(messageElem);
+        // Voeg de denk-spinner toe
+        chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
 
-                    let index = 0;
-                    let typingInterval = setInterval(() => {
-                        if (index < messageText.length) {
-                            messageElem.textContent += messageText[index];
-                            index++;
-                            chatContent.scrollTop = chatContent.scrollHeight;
-                        } else {
-                            clearInterval(typingInterval);
-                            toggleInputState("enable");
-                            isBotTyping = false;
-                        }
-                    }, 25);
+        // Automatisch scrollen naar het laatst toegevoegde bericht
+        chatContent.scrollTop = chatContent.scrollHeight;
 
-                    userInput.value = "";
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
-                    toggleInputState("enable");
-                    isBotTyping = false;
-                });
-            }, 500);
-        }
-    };
+        setTimeout(() => {
+            fetch(`${backendUrl}/ask`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: userInput.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatContent.lastChild.remove();
+                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+                let messageText = data.answer;
+                let messageElem = document.createElement("div");
+                messageElem.className = "bot-message";
+                chatContent.appendChild(messageElem);
 
+                let index = 0;
+                let typingInterval = setInterval(() => {
+                    if (index < messageText.length) {
+                        messageElem.textContent += messageText[index];
+                        index++;
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    } else {
+                        clearInterval(typingInterval);
+                        toggleInputState("enable");
+                        isBotTyping = false;
+                    }
+                }, 25);
+
+                userInput.value = "";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
+                toggleInputState("enable");
+                isBotTyping = false;
+            });
+        }, 500);
+    }
+};
+
+    // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
         handleKeyUp(event);
     };
 
-    const chatbotStatus = localStorage.getItem("chatbotStatus");
-    if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
-        setTimeout(function() {
-            toggleChat();
-            localStorage.setItem("chatbotStatus", "geopend");
-        }, 3000);
-    }
+        // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
+const chatbotStatus = localStorage.getItem("chatbotStatus");
 
-    // Functie om instellingen in de cache te laden
-    async function loadSettingsIntoCache() {
-        try {
-            const response = await fetch(`${backendUrl}/get-settings`);
-            const data = await response.json();
-            window.CACHED_TITLE = data.title;
-            window.CACHED_WELCOME_MESSAGE = data.welcome_message;
-            window.CACHED_COLOR = data.color;
+if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
+    setTimeout(async function() {
+        await fetchTitleMessage();
+        toggleChat();
+        
+        // Markeer de chatbot als geopend in localStorage
+        localStorage.setItem("chatbotStatus", "geopend");
+    }, 3000);
+}
 
-            // Update de kleur op basis van de cache
-            updateColor(window.CACHED_COLOR);
-            updateChatIconColor(window.CACHED_COLOR);
-        } catch (error) {
-            console.error("Failed to load settings into cache:", error);
-        }
-    }
 
-    // Aanroepen wanneer de pagina laadt
-    loadSettingsIntoCache();
-})();
+        // Functie om afbeeldingen vooraf te laden
+function preloadImages() {
+    const sendIcon = new Image();
+    sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
+}
+
+// Aanroepen wanneer de pagina laadt
+preloadImages();
+
+
+})();  // Deze lijn sluit de IIFE correct af
 });  
-
-
-
-
-
-
-
-
-
-
-
