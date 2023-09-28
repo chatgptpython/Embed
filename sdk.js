@@ -379,130 +379,51 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
- // HTML toevoegen
-    var html = `
-        <div id="chatbot">
-            <header>
-                <span id="chatbot-title">
-                    <span role="img" aria-label="bot">🤖</span> 
-                    Chatproducties - Proddy
-                </span>
-                <span id="close-chat" onclick="closeChat()">×</span>
-            </header>
-            <div id="chatbot-content"></div>
-            <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
-            </div>
+// HTML toevoegen
+var html = `
+    <div id="chatbot">
+        <header>
+            <span id="chatbot-title">
+                <span role="img" aria-label="bot">🤖</span> 
+                Chatproducties - Proddy
+            </span>
+            <span id="close-chat" onclick="closeChat()">×</span>
+        </header>
+        <div id="chatbot-content"></div>
+        <div id="chatbot-input">
+            <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+            <button onclick="sendMessage()" class="send-icon"></button>
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
-            <span>💬</span>
-        </div>
-    `;
-            var div = document.createElement('div');
-    div.innerHTML = html;
-    document.body.appendChild(div);
+    </div>
+    <div id="chatbot-icon" onclick="toggleChat()">
+        <span>💬</span>
+    </div>
+`;
+var div = document.createElement('div');
+div.innerHTML = html;
+document.body.appendChild(div);
 
-    // JavaScript toevoegen
-        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
-        let isBotTyping = false;
+let firstTimeOpen = true;
+let isBotTyping = false;
 
- window.typeWelcomeMessage = async function() {
-    const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
-    let messageElem = document.createElement("div");
-    messageElem.className = "bot-message";
-    chatContent.appendChild(messageElem);
-
-    // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
-        .then(response => response.json())
-        .then(data => data.message)
-        .catch(() => "Standaard welkomstbericht als backup");
-
-    let index = 0;
-    let typingInterval = setInterval(() => {
-        if (index < messageText.length) {
-            messageElem.textContent += messageText[index];
-            index++;
-            chatContent.scrollTop = chatContent.scrollHeight;
-        } else {
-            clearInterval(typingInterval);
-        }
-    }, 25);
-};
-
-    async function fetchAndApplyColor() {
-    try {
-        const response = await fetch(`${backendUrl}/get_color`);
-        const data = await response.json();
-        if (data.color) {
-            updateColor(data.color);
-            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
-        }
-    } catch (error) {
-        console.error("Failed to fetch color:", error);
-    }
+function updateColor(color) {
+    const chatHeader = document.querySelector("#chatbot header");
+    chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
 }
 
-
-    function updateColor(color) {
-        const chatHeader = document.querySelector("#chatbot header");
-        chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
-    }
-    
-    function updateChatIconColor(color) {
-        const chatIcon = document.getElementById("chatbot-icon");
-        chatIcon.style.background = `radial-gradient(circle at center, #007BFF, ${color})`;
-    }
-
-
-    // Oproepen wanneer de pagina laadt
-    fetchAndApplyColor();
-
-
-async function fetchTitleMessage() {
-    try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
-        const data = await response.json();
-        if (data.message) {
-            document.querySelector("#chatbot-title").innerText = data.message;
-        }
-    } catch (error) {
-        console.error("Failed to fetch title message:", error);
-    }
+function updateChatIconColor(color) {
+    const chatIcon = document.getElementById("chatbot-icon");
+    chatIcon.style.background = `radial-gradient(circle at center, #007BFF, ${color})`;
 }
 
-let cachedTitle = "Standaardnaam als fallback";
-let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
-
-async function initializeChat() {
-    try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
-        const data = await response.json();
-        cachedTitle = data.message || cachedTitle;
-    } catch (error) {
-        console.error("Failed to fetch title message:", error);
-    }
-
-    try {
-        const response = await fetch(`${backendUrl}/get_welcome_message`);
-        const data = await response.json();
-        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
-    } catch (error) {
-        console.error("Failed to fetch welcome message:", error);
-    }
-}
-
-        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
 
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
-        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        document.querySelector("#chatbot-title").innerText = window.CACHED_TITLE || "Standaardnaam als fallback";
         if (firstTimeOpen) {
-            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            typeWelcomeMessage(window.CACHED_WELCOME_MESSAGE || "Standaard welkomstbericht als backup");
             firstTimeOpen = false;
         }
         chatbot.style.display = "flex";
@@ -520,40 +441,31 @@ window.toggleChat = function() {
     }
 };
 
-// Aanroepen wanneer de pagina laadt
-initializeChat();
-
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
-
     chatbot.style.display = "none";
-    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
+    icon.classList.remove('cross');
 };
 
-        window.handleKeyUp = function(event) {
-            if (event.key === "Enter" && !isBotTyping) {
-                sendMessage();
-            }
-        };
+window.handleKeyUp = function(event) {
+    if (event.key === "Enter" && !isBotTyping) {
+        sendMessage();
+    }
+};
 
-    window.handleKeyUp = function(event) {
-        if (event.key === "Enter" && !isBotTyping) {
-            sendMessage();
-        }
-    };
+window.toggleInputState = function(state) {
+    const userInput = document.getElementById("user-input");
+    const sendButton = document.querySelector("#chatbot-input button");
+    if (state === "disable") {
+        userInput.disabled = true;
+        sendButton.disabled = true;
+    } else {
+        userInput.disabled = false;
+        sendButton.disabled = false;
+    }
+};
 
-    window.toggleInputState = function(state) {
-        const userInput = document.getElementById("user-input");
-        const sendButton = document.querySelector("#chatbot-input button");
-        if (state === "disable") {
-            userInput.disabled = true;
-            sendButton.disabled = true;
-        } else {
-            userInput.disabled = false;
-            sendButton.disabled = false;
-        }
-    };
 
 window.sendMessage = function() {
     if (isBotTyping) return;
@@ -616,33 +528,52 @@ window.sendMessage = function() {
     }
 };
 
+
+    async function loadSettingsIntoCache() {
+        try {
+            const response = await fetch(`${backendUrl}/get-settings`);
+            const data = await response.json();
+            window.CACHED_TITLE = data.title;
+            window.CACHED_WELCOME_MESSAGE = data.welcome_message;
+            window.CACHED_COLOR = data.color;
+
+            updateColor(window.CACHED_COLOR);
+            updateChatIconColor(window.CACHED_COLOR);
+        } catch (error) {
+            console.error("Failed to load settings into cache:", error);
+        }
+    }
+
+    // Aanroepen wanneer de pagina laadt
+    loadSettingsIntoCache();
+
     // De input-elementen activeren voor event-handling
-    document.getElementById("user-input").onkeyup = function(event) {
-        handleKeyUp(event);
-    };
+    document.getElementById("user-input").addEventListener("keyup", function(event) {
+        if (event.key === "Enter" && !isBotTyping) {
+            sendMessage();
+        }
+    });
 
-        // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
-const chatbotStatus = localStorage.getItem("chatbotStatus");
+    document.getElementById("chatbot-icon").addEventListener("click", toggleChat);
+    document.getElementById("close-chat").addEventListener("click", closeChat);
 
-if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
-    setTimeout(async function() {
-        await fetchTitleMessage();
-        toggleChat();
-        
-        // Markeer de chatbot als geopend in localStorage
-        localStorage.setItem("chatbotStatus", "geopend");
-    }, 3000);
-}
+    // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
+    const chatbotStatus = localStorage.getItem("chatbotStatus");
 
+    if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
+        setTimeout(() => {
+            toggleChat();
+            localStorage.setItem("chatbotStatus", "geopend");
+        }, 3000);
+    }
 
-        // Functie om afbeeldingen vooraf te laden
-function preloadImages() {
-    const sendIcon = new Image();
-    sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
-}
+    function preloadImages() {
+        const sendIcon = new Image();
+        sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
+    }
 
-// Aanroepen wanneer de pagina laadt
-preloadImages();
+    // Aanroepen wanneer de pagina laadt
+    preloadImages();
 
 
 })();  // Deze lijn sluit de IIFE correct af
