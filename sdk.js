@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-                <img src="https://github.com/chatgptpython/embed/blob/main/chat_319084%20(1).png?raw=true" alt="Chat">
+                <img src="https://github.com/chatgptpython/embed/blob/main/fff-removebg-preview.png?raw=true" alt="Chat">
         </div>
 
     `;
