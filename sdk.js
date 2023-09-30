@@ -461,7 +461,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function updateChatIconColor(color) {
         const chatIcon = document.getElementById("chatbot-icon");
-        chatIcon.style.background = `radial-gradient(circle at center, #007BFF, ${color})`;
+        chatIcon.style.background = color;
     }
 
 
