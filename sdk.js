@@ -313,13 +313,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         #chatbot-icon {
-            width: 50px;  /* Maak het blauwe bolletje kleiner op mobiele apparaten */
-            height: 50px;
+            width: 60px;  /* Maak het blauwe bolletje kleiner op mobiele apparaten */
+            height: 60px;
         }
 
         #chatbot-icon img {
-            width: 35%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
-            height: 35%;
+            width: 80%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
+            height: 80%;
         }
 
         #chatbot-icon.open {
