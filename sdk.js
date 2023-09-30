@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
 
                 #chatbot-icon {
-            width: 70px !important;
-            height: 70px !important;
+            width: 70px;
+            height: 70px;
         }
         
    #chatbot {
