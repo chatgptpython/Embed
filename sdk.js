@@ -104,12 +104,12 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: rotate(-45deg);
         }
         
-        #chatbot-icon span {
+        #chatbot-icon img {
             font-size: 40px;
             transition: opacity 0.3s ease-in-out;
         }
         
-        #chatbot-icon.open span {
+        #chatbot-icon.open img {
             opacity: 0;
         }
 
@@ -401,8 +401,9 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <span>💬</span>
+                <img src="https://github.com/chatgptpython/embed/blob/main/chat_319084%20(1).png?raw=true" alt="Chat">
         </div>
+
     `;
             var div = document.createElement('div');
     div.innerHTML = html;
