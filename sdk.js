@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             height: 85px;
             border-radius: 50%;
             background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
-            background-image: url('https://raw.githubusercontent.com/chatgptpython/embed/main/chat_319084%20(1).png');
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
