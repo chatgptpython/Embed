@@ -318,8 +318,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         #chatbot-icon img {
-            width: 80%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
-            height: 80%;
+            width: 70%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
+            height: 70%;
         }
         
     #chatbot-icon.open {
