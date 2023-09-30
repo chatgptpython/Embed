@@ -348,13 +348,16 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
          
-@media (min-width: 769px) {
-    #chatbot-icon {
-        width: 85px;  /* Vergroot de breedte */
-        height: 85px;  /* Vergroot de hoogte */
-    }
-    #chatbot-icon span {
-        font-size: 52px;  /* Vergroot de font-grootte van het icoon */
+ @media (max-width: 768px) {
+        #chatbot-icon {
+            width: 50px;  
+            height: 50px;
+        }
+        
+        #chatbot-icon img {
+            width: 35%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
+            height: 35%;
+        }
     }
     #chatbot {
         bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
