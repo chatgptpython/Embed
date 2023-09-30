@@ -43,76 +43,56 @@ document.addEventListener("DOMContentLoaded", function() {
             
             
               
-              
-               #chatbot-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            width: 85px;
-            height: 85px;
-            border-radius: 50%;
-            background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-            z-index: 9996;
-        }
-
-
-
-        
-
-
-        #chatbot.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        
-        #chatbot-icon:hover {
-            transform: scale(1.1);
-        }
-        
-        #chatbot-icon::before, 
-        #chatbot-icon::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            width: 60%;
-            height: 3px;
-            background: transparent;
-            transition: background 0.3s, transform 0.3s;
-        }
-        
-        #chatbot-icon.open::before, 
-        #chatbot-icon.open::after {
-            background: white;
-        }
-        
-        #chatbot-icon::before {
-            transform: rotate(45deg);
-        }
-        
-        #chatbot-icon::after {
-            transform: rotate(-45deg);
-        }
-        
-        #chatbot-icon span {
-            font-size: 40px;
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        #chatbot-icon.open span {
-            opacity: 0;
-        }
-
+    #chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
+    background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    z-index: 9996;
+}
+#chatbot-icon:hover {
+    transform: scale(1.1);
+}
+#chatbot-icon::before, 
+#chatbot-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 60%;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s, transform 0.3s;
+}
+#chatbot-icon.open::before, 
+#chatbot-icon.open::after {
+    background: white;
+}
+#chatbot-icon::before {
+    transform: rotate(45deg);
+}
+#chatbot-icon::after {
+    transform: rotate(-45deg);
+}
+#chatbot-icon span {
+    font-size: 40px;
+    transition: opacity 0.3s ease-in-out;
+}
+#chatbot-icon.open span {
+    opacity: 0;
+}
     
             #chatbot header {
             background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
@@ -375,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </style>
     `;
-    var style = document.createElement('style');
+   var style = document.createElement('style');
     style.type = 'text/css';
     if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -384,8 +364,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
- // HTML toevoegen
-            var html = `
+    // HTML toevoegen
+    var html = `
         <div id="chatbot">
             <header>
                 <span id="chatbot-title">
@@ -400,18 +380,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
-            <!-- Geen span hier omdat we de afbeelding nu als achtergrond gebruiken -->
-        </div>
-
+        <div id="chatbot-icon" onclick="toggleChat()">Icon</div>
     `;
-            var div = document.createElement('div');
+
+    var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
 
     // JavaScript toevoegen
-        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
-        let isBotTyping = false;
+    let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+    let isBotTyping = false;
 
  window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
