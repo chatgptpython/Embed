@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
     #chatbot {
         width: 100%;
         height: 100%;
@@ -312,7 +312,13 @@ document.addEventListener("DOMContentLoaded", function() {
         z-index: 9999;
     }
 
-    #chatbot-icon.open {
+ #chatbot-icon {
+        width: 50px;  /* Maak het chatbot-icoon kleiner op mobiele apparaten */
+        height: 50px;
+    }
+
+
+  #chatbot-icon.open {
         top: 0;
         right: 0;
         bottom: 0;
@@ -320,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function() {
         z-index: 10000;
     }
 
-    #close-chat {
+  #close-chat {
         display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
     }
 }
