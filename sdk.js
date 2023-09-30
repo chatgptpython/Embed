@@ -44,14 +44,14 @@ document.addEventListener("DOMContentLoaded", function() {
             
               
               
-          #chatbot-icon {
+           #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: radial-gradient(circle at center, white, #1a2e4a);
+            background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
             display: flex;
             align-items: center;
             justify-content: center;
