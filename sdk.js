@@ -42,18 +42,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
             
             
-        #chatbot-icon {
+              
+              
+          #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 85px;
-            height: 85px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: radial-gradient(circle at center, #007BFF, #1a2e4a);
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
+            background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -61,10 +59,21 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
             z-index: 9996;
         }
-    
+
+
+        
+
+
+        #chatbot.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
         #chatbot-icon:hover {
             transform: scale(1.1);
         }
+        
         #chatbot-icon::before, 
         #chatbot-icon::after {
             content: '';
@@ -76,23 +85,29 @@ document.addEventListener("DOMContentLoaded", function() {
             background: transparent;
             transition: background 0.3s, transform 0.3s;
         }
+        
         #chatbot-icon.open::before, 
         #chatbot-icon.open::after {
             background: white;
         }
+        
         #chatbot-icon::before {
             transform: rotate(45deg);
         }
+        
         #chatbot-icon::after {
             transform: rotate(-45deg);
         }
+        
         #chatbot-icon span {
             font-size: 40px;
             transition: opacity 0.3s ease-in-out;
         }
+        
         #chatbot-icon.open span {
             opacity: 0;
         }
+
     
             #chatbot header {
             background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
@@ -353,19 +368,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 }
 
-</style>
-        `;
-        var style = document.createElement('style');
-        style.type = 'text/css';
-        if (style.styleSheet) {
-            style.styleSheet.cssText = css;
-        } else {
-            style.appendChild(document.createTextNode(css));
-        }
-        document.head.appendChild(style);
+    </style>
+    `;
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+    document.head.appendChild(style);
 
-        // HTML toevoegen
-        var html = `
+ // HTML toevoegen
+    var html = `
         <div id="chatbot">
             <header>
                 <span id="chatbot-title">
@@ -380,7 +395,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()"></div>
+        <div id="chatbot-icon" onclick="toggleChat()">
+            <span>💬</span>
+        </div>
         `;
 
         var div = document.createElement('div');
