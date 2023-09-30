@@ -300,88 +300,77 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-@media (max-width: 768px) {
-    #chatbot {
-        width: 100%;
-        height: 100%;
-        bottom: 0;
-        right: 0;
-        border-radius: 0;
-        top: 0;
-        transform: translateY(0);
-        z-index: 9999;
-    }
+    @media (max-width: 768px) {
+        #chatbot {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+            top: 0;
+            transform: translateY(0);
+            z-index: 9999;
+        }
 
- #chatbot-icon {
-        width: 50px;  /* Maak het chatbot-icoon kleiner op mobiele apparaten */
-        height: 50px;
-    }
-
-
-  #chatbot-icon.open {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 10000;
-    }
-
-  #close-chat {
-        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
-    }
-}
-#chatbot-icon.cross::before,
-#chatbot-icon.cross::after {
-    background: white;
-}
-
-#chatbot-icon.cross::before {
-    transform: rotate(45deg);
-}
-
-#chatbot-icon.cross::after {
-    transform: rotate(-45deg);
-}
-
-#chatbot-icon.cross span {
-    opacity: 0;
-}
-
-         
- @media (max-width: 768px) {
         #chatbot-icon {
-            width: 50px;  
+            width: 50px;  /* Maak het blauwe bolletje kleiner op mobiele apparaten */
             height: 50px;
         }
-        
+
         #chatbot-icon img {
             width: 35%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
             height: 35%;
         }
-    }
-    #chatbot {
-        bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
+
+        #chatbot-icon.open {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10000;
+        }
+
+        #close-chat {
+            display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
+        }
+
+        #chatbot-icon.cross::before,
+        #chatbot-icon.cross::after {
+            background: white;
+        }
+
+        #chatbot-icon.cross::before {
+            transform: rotate(45deg);
+        }
+
+        #chatbot-icon.cross::after {
+            transform: rotate(-45deg);
+        }
+
+        #chatbot-icon.cross span {
+            opacity: 0;
+        }
     }
 
     @media (min-width: 769px) {
-    #chatbot {
-        width: 480px;  /* Vergroot de breedte */
-        height: 720px;  /* Vergroot de hoogte */
-    }
-    
-    #chatbot header {
-        font-size: 1.5em;  /* Vergroot de tekstgrootte in de header */
-    }
-    
-    .user-message, .bot-message {
-        font-size: 1.1em;  /* Vergroot de tekstgrootte in de berichten */
-    }
-    
-    #chatbot-input textarea {
-        font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
-    }
-}
+        #chatbot {
+            width: 480px;  /* Vergroot de breedte */
+            height: 720px;  /* Vergroot de hoogte */
+            bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
+        }
 
+        #chatbot header {
+            font-size: 1.5em;  /* Vergroot de tekstgrootte in de header */
+        }
+
+        .user-message, .bot-message {
+            font-size: 1.1em;  /* Vergroot de tekstgrootte in de berichten */
+        }
+
+        #chatbot-input textarea {
+            font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
+        }
+    }
 }
 
     </style>
