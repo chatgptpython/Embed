@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
+            background-color: #1a2e4a; /* Enkelvoudige donkerblauwe kleur */
             display: flex;
             align-items: center;
             justify-content: center;
