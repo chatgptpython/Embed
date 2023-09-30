@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: rotate(-45deg);
         }
         
-        #chatbot-icon span {
+        #chatbot-icon img {
             font-size: 40px;
             transition: opacity 0.3s ease-in-out;
         }
         
-        #chatbot-icon.open span {
+        #chatbot-icon.open img {
             opacity: 0;
         }
 
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(-45deg);
 }
 
-#chatbot-icon.cross span {
+#chatbot-icon.cross img {
     opacity: 0;
 }
 
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function() {
         width: 85px;  /* Vergroot de breedte */
         height: 85px;  /* Vergroot de hoogte */
     }
-    #chatbot-icon span {
+    #chatbot-icon img {
         font-size: 52px;  /* Vergroot de font-grootte van het icoon */
     }
     #chatbot {
