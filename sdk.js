@@ -62,37 +62,37 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
     
-#chatbot-icon:hover {
-    transform: scale(1.1);
-}
-#chatbot-icon::before, 
-#chatbot-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    width: 60%;
-    height: 3px;
-    background: transparent;
-    transition: background 0.3s, transform 0.3s;
-}
-#chatbot-icon.open::before, 
-#chatbot-icon.open::after {
-    background: white;
-}
-#chatbot-icon::before {
-    transform: rotate(45deg);
-}
-#chatbot-icon::after {
-    transform: rotate(-45deg);
-}
-#chatbot-icon span {
-    font-size: 40px;
-    transition: opacity 0.3s ease-in-out;
-}
-#chatbot-icon.open span {
-    opacity: 0;
-}
+        #chatbot-icon:hover {
+            transform: scale(1.1);
+        }
+        #chatbot-icon::before, 
+        #chatbot-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            width: 60%;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s, transform 0.3s;
+        }
+        #chatbot-icon.open::before, 
+        #chatbot-icon.open::after {
+            background: white;
+        }
+        #chatbot-icon::before {
+            transform: rotate(45deg);
+        }
+        #chatbot-icon::after {
+            transform: rotate(-45deg);
+        }
+        #chatbot-icon span {
+            font-size: 40px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #chatbot-icon.open span {
+            opacity: 0;
+        }
     
             #chatbot header {
             background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
