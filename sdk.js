@@ -61,11 +61,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         
-                #chatbot-icon img {
-            width: 100%;
-            height: 100%;
+              #chatbot-icon img {
+            width: 50%;      /* Verminder naar de gewenste breedte */
+            height: 50%;     /* Verminder naar de gewenste hoogte */
             display: block;
+            margin: auto;    /* Centreert de afbeelding in de container */
         }
+
 
 
 
