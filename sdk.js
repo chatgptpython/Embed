@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <span>💬</span>
+            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat_319084%20(1).png" alt="Chat" style="width: 100%; height: 100%;" />
         </div>
     `;
             var div = document.createElement('div');
