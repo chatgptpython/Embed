@@ -5,6 +5,12 @@ document.addEventListener("DOMContentLoaded", function() {
     metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
+    // Voeg de FontAwesome-bibliotheek toe aan de head
+    var faLink = document.createElement("link");
+    faLink.rel = "stylesheet";
+    faLink.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+    document.head.appendChild(faLink);
+
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
@@ -370,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </style>
     `;
-    var style = document.createElement('style');
+     var style = document.createElement('style');
     style.type = 'text/css';
     if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -379,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
- // HTML toevoegen
+    // HTML toevoegen met het FontAwesome-icoon voor de chat
     var html = `
         <div id="chatbot">
             <header>
@@ -396,14 +402,15 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <span>💬</span>
+            <i class="fas fa-comments"></i>
         </div>
-        `;
+    `;
 
-        var div = document.createElement('div');
-        div.innerHTML = html;
-        document.body.appendChild(div);
-
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    document.body.appendChild(div);
+});
+    
         // JavaScript toevoegen
         let firstTimeOpen = true;
         let isBotTyping = false;
