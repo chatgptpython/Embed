@@ -44,14 +44,18 @@ document.addEventListener("DOMContentLoaded", function() {
             
               
               
-          #chatbot-icon {
+               #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 70px;
-            height: 70px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
             background: radial-gradient(circle at center, #007BFF, #1a2e4a); /* Metallic blauw naar donkerblauw */
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/chat_319084%20(1).png?raw=true');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -59,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
             z-index: 9996;
         }
+
 
 
         
@@ -380,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
  // HTML toevoegen
-    var html = `
+            var html = `
         <div id="chatbot">
             <header>
                 <span id="chatbot-title">
@@ -396,8 +401,9 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <span>💬</span>
+            <!-- Geen span hier omdat we de afbeelding nu als achtergrond gebruiken -->
         </div>
+
     `;
             var div = document.createElement('div');
     div.innerHTML = html;
