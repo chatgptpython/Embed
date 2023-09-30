@@ -364,6 +364,13 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot-input textarea {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
+
+    #chatbot-icon img {
+    width: 60%;  /* of een andere gewenste percentage of pixelwaarde */
+    height: 60%; /* idem */
+    margin: auto; /* om het icoon te centreren */
+    display: block;
+
 }
 
 }
@@ -510,15 +517,17 @@ window.toggleChat = function() {
             chatbot.classList.add("visible");
         }, 50);
 
-        icon.classList.add('cross');
+        icon.style.display = "none"; // Verberg het chat-icoon
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
-        icon.classList.remove('cross');
+
+        icon.style.display = "block"; // Toon het chat-icoon terug
     }
 };
+
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
