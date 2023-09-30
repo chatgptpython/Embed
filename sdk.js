@@ -5,12 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
-    // Voeg de FontAwesome-bibliotheek toe aan de head
-    var faLink = document.createElement("link");
-    faLink.rel = "stylesheet";
-    faLink.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
-    document.head.appendChild(faLink);
-
     (function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
@@ -376,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </style>
     `;
-     var style = document.createElement('style');
+    var style = document.createElement('style');
     style.type = 'text/css';
     if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -385,7 +379,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-    // HTML toevoegen met het FontAwesome-icoon voor de chat
+ // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -402,19 +396,17 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <i class="fas fa-comments"></i>
+            <span>💬</span>
         </div>
     `;
-
-    var div = document.createElement('div');
+            var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
-});
-    
-        // JavaScript toevoegen
-        let firstTimeOpen = true;
+
+    // JavaScript toevoegen
+        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
-        
+
  window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
