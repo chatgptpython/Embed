@@ -60,8 +60,13 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
 
-
         
+                #chatbot-icon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
 
 
         #chatbot.visible {
@@ -364,13 +369,6 @@ document.addEventListener("DOMContentLoaded", function() {
     #chatbot-input textarea {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
-
-    #chatbot-icon img {
-    width: 60%;  /* of een andere gewenste percentage of pixelwaarde */
-    height: 60%; /* idem */
-    margin: auto; /* om het icoon te centreren */
-    display: block;
-
 }
 
 }
@@ -403,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat_319084%20(1).png" alt="Chat" style="width: 100%; height: 100%;" />
+            <span>💬</span>
         </div>
     `;
             var div = document.createElement('div');
@@ -517,17 +515,15 @@ window.toggleChat = function() {
             chatbot.classList.add("visible");
         }, 50);
 
-        icon.style.display = "none"; // Verberg het chat-icoon
+        icon.classList.add('cross');
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
-
-        icon.style.display = "block"; // Toon het chat-icoon terug
+        icon.classList.remove('cross');
     }
 };
-
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
@@ -656,3 +652,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
