@@ -22,26 +22,26 @@ document.addEventListener("DOMContentLoaded", function() {
             width: 70px;
             height: 70px;
         }
+                
+        #chatbot header {
+            background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
+            color: #333;
+            padding: 20px 30px;   /* Vergroot padding */
+            text-align: left;
+            font-weight: 700;     /* Zwaarder lettertype */
+            font-size: 1.6em;    /* Vergrote tekstgrootte */
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
+        }
         
-#chatbot header {
-    background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
-    color: #333;
-    padding: 20px 30px;   /* Vergroot padding */
-    text-align: left;
-    font-weight: 700;     /* Zwaarder lettertype */
-    font-size: 1.6em;    /* Vergrote tekstgrootte */
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
-}
-
-#chatbot header img {
-    width: 30px;          /* Vergrote breedte */
-    height: 30px;         /* Vergrote hoogte */
-    margin-right: 15px;   /* Vergrote marge */
-}
-            
+        #chatbot header img {
+            width: 30px;          /* Vergrote breedte */
+            height: 30px;         /* Vergrote hoogte */
+            margin-right: 15px;   /* Vergrote marge */
+        }
+                    
               
            #chatbot-icon {
             position: fixed;
