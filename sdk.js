@@ -23,25 +23,23 @@ document.addEventListener("DOMContentLoaded", function() {
             height: 70px;
         }
                 
-        #chatbot header {
-            background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
-            color: #333;
-            padding: 20px 30px;   /* Vergroot padding */
-            text-align: left;
-            font-weight: 700;     /* Zwaarder lettertype */
-            font-size: 1.6em;    /* Vergrote tekstgrootte */
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
+       #chatbot {
+            position: fixed;
+            bottom: 95px !important;
+            right: 30px;
+            width: 420px;
+            height: 640px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            z-index: 10000;
         }
-        
-        #chatbot header img {
-            width: 30px;          /* Vergrote breedte */
-            height: 30px;         /* Vergrote hoogte */
-            margin-right: 15px;   /* Vergrote marge */
-        }
-                    
               
            #chatbot-icon {
             position: fixed;
@@ -116,23 +114,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
             #chatbot header {
-            background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
-            color: #333;
-            padding: 15px 25px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
+    background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
+    color: #333;
+    padding: 20px 30px;   /* Vergroot padding */
+    text-align: left;
+    font-weight: 700;     /* Zwaarder lettertype */
+    font-size: 1.6em;    /* Vergrote tekstgrootte */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
+}
 
-        
-        #chatbot header img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
+#chatbot header img {
+    width: 30px;          /* Vergrote breedte */
+    height: 30px;         /* Vergrote hoogte */
+    margin-right: 15px;   /* Vergrote marge */
+}
+
         
             #chatbot-content {
             flex: 1;
