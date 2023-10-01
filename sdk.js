@@ -346,8 +346,8 @@ document.addEventListener("DOMContentLoaded", function() {
          
 @media (min-width: 769px) {
     #chatbot-icon {
-        width: 85px;  /* Vergroot de breedte */
-        height: 85px;  /* Vergroot de hoogte */
+        width: 50px;  /* Vergroot de breedte */
+        height: 50px;  /* Vergroot de hoogte */
     }
     #chatbot-icon img {
         font-size: 52px;  /* Vergroot de font-grootte van het icoon */
