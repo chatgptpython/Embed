@@ -107,8 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
             opacity: 0;
         }
 
-    
-            #chatbot header {
+#chatbot header {
     background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
     color: #333;
     padding: 20px 30px;   /* Vergroot padding */
@@ -119,7 +118,10 @@ document.addEventListener("DOMContentLoaded", function() {
     align-items: center;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
+    height: 70px;   /* Vergroot de hoogte */
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);  /* Voeg een schuin effect toe */
 }
+
 
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
