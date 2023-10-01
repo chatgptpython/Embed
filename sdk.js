@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: transparent;  /* Geen achtergrondkleur */
     color: white;
     transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease;
-    border: 2px solid transparent;  /* Transparante rand */
+    border: none
 }
 
 #close-chat:hover {
