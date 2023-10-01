@@ -118,9 +118,10 @@ document.addEventListener("DOMContentLoaded", function() {
     align-items: center;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
-    height: 70px;   /* Vergroot de hoogte */
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);  /* Voeg een schuin effect toe */
+    height: 120px;   /* Aanzienlijk vergroot in hoogte */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);  /* Schuin effect aan de onderkant */
 }
+
 
 
 #chatbot header img {
