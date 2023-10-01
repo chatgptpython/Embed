@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
 
-        
                 
-       #chatbot {
+        #chatbot {
             position: fixed;
             bottom: 95px !important;
             right: 30px;
@@ -34,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
+            background-color: #ffffff;  /* Achtergrondkleur toegevoegd */
         }
+
               
            #chatbot-icon {
             position: fixed;
