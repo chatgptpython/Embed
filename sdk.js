@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 60px; 
-            height: 60px;
+            width: 50px important; 
+            height: 50px important;
             border-radius: 50%;
             background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
             display: flex;
