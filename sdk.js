@@ -284,17 +284,15 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 36px;
     margin-left: auto;
     padding: 10px;
-    border-radius: 50%;  /* Maakt het rond */
     background-color: transparent;  /* Geen achtergrondkleur */
     color: white;
-    transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease;
-    border: none
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #close-chat:hover {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
-    border: 2px solid white;  /* Witte rand bij hover */
 }
+
 
  @media (max-width: 768px) {
         #chatbot {
