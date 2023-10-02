@@ -312,8 +312,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         #chatbot-icon img {
-            width: 70%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
-            height: 70%;
+            width: 60%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
+            height: 60%;
         }
         
     #chatbot-icon.open {
