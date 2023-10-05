@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Definieer een variabele voor de backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com";
         
-        // De rest van je code komt hier
         var css = `
         // De rest van je code komt hier
         var css = `
