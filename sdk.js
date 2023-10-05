@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
+    // IIFE (Immediately Invoked Function Expression)
     (function() {
         // Zoek het huidige script element
         const scriptTag = document.currentScript || Array.from(document.getElementsByTagName("script")).pop();
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Lees de data-* attributen voor configuratie
         const backendUrl = scriptTag.getAttribute("data-backend-url");
         
+        // Als er geen backend URL is gespecificeerd, log dan een fout en stop de uitvoering
         if (!backendUrl) {
             console.error("Geen backend URL gespecificeerd. Voeg een 'data-backend-url' attribuut toe aan het script element.");
             return;
