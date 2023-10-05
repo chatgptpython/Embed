@@ -5,18 +5,20 @@ document.addEventListener("DOMContentLoaded", function() {
     metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
+    // Binnen een functie om scope te isoleren
     (function() {
-        // Zoek het huidige script element
-        const scriptTag = document.currentScript || Array.from(document.getElementsByTagName("script")).pop();
-        
-        // Lees de data-* attributen voor configuratie
-        const backendUrl = scriptTag.getAttribute("data-backend-url");
-        
+        // Haal het scriptelement op dat dit script heeft ingevoegd
+        const scripts = document.getElementsByTagName('script');
+        const currentScript = scripts[scripts.length - 1];
+
+        // Haal de backend URL op uit de data attributen
+        const backendUrl = currentScript.getAttribute('data-backend-url');
+
         if (!backendUrl) {
             console.error("Geen backend URL gespecificeerd. Voeg een 'data-backend-url' attribuut toe aan het script element.");
             return;
         }
-        
+
         // De rest van je code komt hier
         var css = `
  <style>
