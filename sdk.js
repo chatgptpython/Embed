@@ -6,8 +6,16 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
     (function() {
-        // Definieer een variabele voor de backend URL
-        const backendUrl = "https://chatbot-1k97.onrender.com";
+        // Zoek het huidige script element
+        const scriptTag = document.currentScript || Array.from(document.getElementsByTagName("script")).pop();
+        
+        // Lees de data-* attributen voor configuratie
+        const backendUrl = scriptTag.getAttribute("data-backend-url");
+        
+        if (!backendUrl) {
+            console.error("Geen backend URL gespecificeerd. Voeg een 'data-backend-url' attribuut toe aan het script element.");
+            return;
+        }
         
     var css = `
  <style>
