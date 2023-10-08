@@ -6,14 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
     (function() {
-        // Haal de backend URL op van het script tag
-        const currentScript = document.currentScript || (function() {
-            const scripts = document.getElementsByTagName('script');
-            return scripts[scripts.length - 1];
-        })();
-        
-        const backendUrl = currentScript.getAttribute('data-backend-url');
+        // Haal de backend URL op van het script tag met de data-backend-url attribuut
+        const scriptElement = document.querySelector('script[data-backend-url]');
+        const backendUrl = scriptElement.getAttribute('data-backend-url');
 
+        // Hier kan je de backendUrl verder gebruiken
+        console.log(backendUrl); // Dit zal de URL loggen naar de console, om te verifiëren of het correct werkt
 
     var css = `
 <style>
