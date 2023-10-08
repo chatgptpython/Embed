@@ -1,24 +1,22 @@
-(function() {
-    // Haal de backend URL op van het script tag
-    const currentScript = document.currentScript || (function() {
-        const scripts = document.getElementsByTagName('script');
-        return scripts[scripts.length - 1];
-    })();
-    
-    const backendUrl = currentScript.getAttribute('data-backend-url');
-    
-    // Log de opgehaalde backendUrl naar de console
-    console.log('Opgenomen Backend URL:', backendUrl);
+document.addEventListener("DOMContentLoaded", function() {
+    // Dynamisch toevoegen van de viewport meta tag
+    var metaTag = document.createElement('meta');
+    metaTag.name = "viewport";
+    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.getElementsByTagName('head')[0].appendChild(metaTag);
 
-    // Verifieer of backendUrl is opgegeven
-    if (!backendUrl) {
-        console.error('Backend URL niet opgegeven. Voeg het toe met het data-backend-url attribuut in je script tag.');
-        return;  // Stop de uitvoering van de rest van het script
-    }
+    (function() {
+        // Haal de backend URL op van het script tag
+        const currentScript = document.currentScript || (function() {
+            const scripts = document.getElementsByTagName('script');
+            return scripts[scripts.length - 1];
+        })();
+        
+        const backendUrl = currentScript.getAttribute('data-backend-url');
 
 
-        var css = `
-        <style>
+    var css = `
+<style>
             body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
