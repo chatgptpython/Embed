@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const scripts = document.getElementsByTagName('script');
             return scripts[scripts.length - 1];
         })();
+        
         const backendUrl = currentScript.getAttribute('data-backend-url');
 
         // Verifieer of backendUrl is opgegeven
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Voeg hier je overige code toe die de backendUrl variabele gebruikt...
-        
+
         var css = `
         <style>
             body {
@@ -672,27 +673,5 @@ preloadImages();
 })();  // Deze lijn sluit de IIFE correct af
 });  
 
-
-
-
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
-The syntax of the command is incorrect.
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>javascript-obfuscator "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js" --output "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\obfuscated-sdk.js"
-
-[javascript-obfuscator-cli] Obfuscating file: C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js...
-
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>javascript-obfuscator "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js" --output "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\obfuscated-sdk.js"
-
-[javascript-obfuscator-cli] Obfuscating file: C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js...
-
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>javascript-obfuscator "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js" --output "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\obfuscated-sdk.js"
-
-[javascript-obfuscator-cli] Obfuscating file: C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js...
-
-C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
 
 
