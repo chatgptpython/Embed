@@ -1,1 +1,698 @@
-function a0_0x3b96(_0x19c2e1,_0x3646ca){const _0x461cee=a0_0x461c();return a0_0x3b96=function(_0x3b96a5,_0x3e9efe){_0x3b96a5=_0x3b96a5-0x89;let _0x1da095=_0x461cee[_0x3b96a5];return _0x1da095;},a0_0x3b96(_0x19c2e1,_0x3646ca);}const a0_0x2b71d8=a0_0x3b96;(function(_0x269aa3,_0x373de2){const _0x31fd4e=a0_0x3b96,_0x52234c=_0x269aa3();while(!![]){try{const _0x5796fb=-parseInt(_0x31fd4e(0x9c))/0x1*(parseInt(_0x31fd4e(0xcf))/0x2)+parseInt(_0x31fd4e(0xd4))/0x3*(parseInt(_0x31fd4e(0xb9))/0x4)+parseInt(_0x31fd4e(0xd2))/0x5*(parseInt(_0x31fd4e(0xb3))/0x6)+parseInt(_0x31fd4e(0xa4))/0x7+-parseInt(_0x31fd4e(0xa0))/0x8+parseInt(_0x31fd4e(0xc2))/0x9+-parseInt(_0x31fd4e(0xbe))/0xa*(-parseInt(_0x31fd4e(0x8d))/0xb);if(_0x5796fb===_0x373de2)break;else _0x52234c['push'](_0x52234c['shift']());}catch(_0x25ec3a){_0x52234c['push'](_0x52234c['shift']());}}}(a0_0x461c,0x60333),document[a0_0x2b71d8(0xd7)](a0_0x2b71d8(0xd5),function(){const _0x47283e=a0_0x2b71d8;var _0x13831b=document[_0x47283e(0xe4)](_0x47283e(0xa2));_0x13831b['name']=_0x47283e(0x8b),_0x13831b[_0x47283e(0xe8)]=_0x47283e(0xbd),document[_0x47283e(0xcd)](_0x47283e(0xe3))[0x0][_0x47283e(0x89)](_0x13831b),(function(){const _0x1e5c0c=_0x47283e,_0xe9315a=_0x1e5c0c(0x8a);var _0x2d8417=_0x1e5c0c(0xdd),_0xf1f2ef=document[_0x1e5c0c(0xe4)](_0x1e5c0c(0xaa));_0xf1f2ef[_0x1e5c0c(0xbf)]=_0x1e5c0c(0xd8);_0xf1f2ef[_0x1e5c0c(0xe1)]?_0xf1f2ef[_0x1e5c0c(0xe1)][_0x1e5c0c(0x8e)]=_0x2d8417:_0xf1f2ef[_0x1e5c0c(0x89)](document[_0x1e5c0c(0x97)](_0x2d8417));document[_0x1e5c0c(0xe3)]['appendChild'](_0xf1f2ef);var _0x2ef0ad=_0x1e5c0c(0xc8),_0x3a2b75=document['createElement'](_0x1e5c0c(0xc3));_0x3a2b75[_0x1e5c0c(0x8c)]=_0x2ef0ad,document['body'][_0x1e5c0c(0x89)](_0x3a2b75);let _0x4693a3=!![],_0x47fee1=![];window[_0x1e5c0c(0xc6)]=async function(){const _0x4fa8bc=_0x1e5c0c,_0x51680d=document[_0x4fa8bc(0xd9)](_0x4fa8bc(0x9e));_0x51680d[_0x4fa8bc(0x8c)]+=_0x4fa8bc(0xc7);let _0xe140b6=document['createElement']('div');_0xe140b6['className']=_0x4fa8bc(0xaf),_0x51680d[_0x4fa8bc(0x89)](_0xe140b6);let _0x36ed5c=await fetch(_0xe9315a+_0x4fa8bc(0x90))[_0x4fa8bc(0xc1)](_0x7d6432=>_0x7d6432[_0x4fa8bc(0xe6)]())[_0x4fa8bc(0xc1)](_0x5b584c=>_0x5b584c[_0x4fa8bc(0xb8)])[_0x4fa8bc(0xd1)](()=>_0x4fa8bc(0xa7)),_0x1a9026=0x0,_0x70236f=setInterval(()=>{const _0xf57b37=_0x4fa8bc;_0x1a9026<_0x36ed5c[_0xf57b37(0xac)]?(_0xe140b6[_0xf57b37(0xe9)]+=_0x36ed5c[_0x1a9026],_0x1a9026++,_0x51680d[_0xf57b37(0xa9)]=_0x51680d[_0xf57b37(0xb4)]):clearInterval(_0x70236f);},0x19);};async function _0x5b3751(){const _0x2334c9=_0x1e5c0c;try{const _0x1f1f46=await fetch(_0xe9315a+_0x2334c9(0xb6)),_0x18e4b4=await _0x1f1f46[_0x2334c9(0xe6)]();_0x18e4b4[_0x2334c9(0xde)]&&(_0x593c57(_0x18e4b4[_0x2334c9(0xde)]),_0x41f2a4(_0x18e4b4[_0x2334c9(0xde)]));}catch(_0xc6adb1){console[_0x2334c9(0xc4)](_0x2334c9(0xcb),_0xc6adb1);}}function _0x593c57(_0x44dca9){const _0x10c848=_0x1e5c0c,_0x3425fb=document['querySelector'](_0x10c848(0xbb));_0x3425fb[_0x10c848(0xaa)]['background']=_0x10c848(0xce)+_0x44dca9+')';}function _0x41f2a4(_0x5083d5){const _0x5531e5=_0x1e5c0c,_0x801c05=document[_0x5531e5(0xd9)]('chatbot-icon');_0x801c05[_0x5531e5(0xaa)][_0x5531e5(0x96)]=_0x5083d5;}_0x5b3751();async function _0x2915cd(){const _0x42f365=_0x1e5c0c;try{const _0x59e44e=await fetch(_0xe9315a+_0x42f365(0xb1)),_0x599a4e=await _0x59e44e[_0x42f365(0xe6)]();_0x599a4e[_0x42f365(0xb8)]&&(document[_0x42f365(0xe5)](_0x42f365(0x92))[_0x42f365(0xab)]=_0x599a4e['message']);}catch(_0x22d945){console[_0x42f365(0xc4)](_0x42f365(0xad),_0x22d945);}}let _0x181b98=_0x1e5c0c(0x9a),_0x260e45=_0x1e5c0c(0xa7);async function _0xd639e7(){const _0x48d112=_0x1e5c0c;try{const _0xd198c4=await fetch(_0xe9315a+'/get_title_message'),_0x2adb51=await _0xd198c4[_0x48d112(0xe6)]();_0x181b98=_0x2adb51[_0x48d112(0xb8)]||_0x181b98;}catch(_0x894fc2){console['error'](_0x48d112(0xad),_0x894fc2);}try{const _0x3d0e03=await fetch(_0xe9315a+_0x48d112(0x90)),_0x5ec663=await _0x3d0e03[_0x48d112(0xe6)]();_0x260e45=_0x5ec663[_0x48d112(0xb8)]||_0x260e45;}catch(_0x229a15){console[_0x48d112(0xc4)](_0x48d112(0xb7),_0x229a15);}}window[_0x1e5c0c(0xbc)]=function(){const _0x4da4b1=_0x1e5c0c,_0x523d63=document[_0x4da4b1(0xd9)](_0x4da4b1(0xd3)),_0x47fd56=document[_0x4da4b1(0xd9)](_0x4da4b1(0x94));_0x523d63[_0x4da4b1(0xaa)][_0x4da4b1(0xe0)]===_0x4da4b1(0xd6)||_0x523d63['style'][_0x4da4b1(0xe0)]===''?(document[_0x4da4b1(0xe5)](_0x4da4b1(0x92))[_0x4da4b1(0xab)]=_0x181b98,_0x4693a3&&(typeWelcomeMessage(_0x260e45),_0x4693a3=![]),_0x523d63['style']['display']=_0x4da4b1(0x9f),setTimeout(function(){const _0x1dca24=_0x4da4b1;_0x523d63[_0x1dca24(0x98)][_0x1dca24(0xc9)](_0x1dca24(0xa3));},0x32),_0x47fd56[_0x4da4b1(0x98)][_0x4da4b1(0xc9)](_0x4da4b1(0xe2))):(_0x523d63[_0x4da4b1(0x98)][_0x4da4b1(0x91)]('visible'),setTimeout(function(){const _0x5549e2=_0x4da4b1;_0x523d63[_0x5549e2(0xaa)]['display']=_0x5549e2(0xd6);},0x1f4),_0x47fd56[_0x4da4b1(0x98)][_0x4da4b1(0x91)](_0x4da4b1(0xe2)));},_0xd639e7(),window[_0x1e5c0c(0xba)]=function(){const _0x10ee34=_0x1e5c0c,_0x10d9b6=document[_0x10ee34(0xd9)](_0x10ee34(0xd3)),_0x2b3678=document['getElementById']('chatbot-icon');_0x10d9b6[_0x10ee34(0xaa)][_0x10ee34(0xe0)]=_0x10ee34(0xd6),_0x2b3678[_0x10ee34(0x98)]['remove'](_0x10ee34(0xe2));},window[_0x1e5c0c(0xda)]=function(_0x519478){const _0x4edbec=_0x1e5c0c;_0x519478[_0x4edbec(0xdf)]===_0x4edbec(0xa6)&&!_0x47fee1&&sendMessage();},window[_0x1e5c0c(0xda)]=function(_0x670ed8){const _0x537b74=_0x1e5c0c;_0x670ed8[_0x537b74(0xdf)]==='Enter'&&!_0x47fee1&&sendMessage();},window[_0x1e5c0c(0xb2)]=function(_0x1640ca){const _0x55a3fb=_0x1e5c0c,_0x385933=document['getElementById'](_0x55a3fb(0xe7)),_0x1f6110=document['querySelector'](_0x55a3fb(0xdc));_0x1640ca===_0x55a3fb(0x9d)?(_0x385933[_0x55a3fb(0xcc)]=!![],_0x1f6110['disabled']=!![]):(_0x385933['disabled']=![],_0x1f6110['disabled']=![]);},window[_0x1e5c0c(0xae)]=function(){const _0x2ab318=_0x1e5c0c;if(_0x47fee1)return;const _0x265bf3=document['getElementById'](_0x2ab318(0xe7)),_0x284e82=document[_0x2ab318(0xd9)](_0x2ab318(0x9e));_0x265bf3[_0x2ab318(0xb0)][_0x2ab318(0x99)]()!==''&&(_0x47fee1=!![],toggleInputState(_0x2ab318(0x9d)),_0x284e82[_0x2ab318(0x8c)]+='<div\x20class=\x22message-container\x20user-container\x22><div\x20class=\x22message-sender\x20user\x22>U:</div><div\x20class=\x22user-message\x22>'+_0x265bf3['value']+_0x2ab318(0x93),_0x284e82[_0x2ab318(0x8c)]+='<div\x20class=\x22bot-message\x22><span\x20class=\x22typing-dot\x22></span><span\x20class=\x22typing-dot\x22></span><span\x20class=\x22typing-dot\x22></span></div>',_0x284e82['scrollTop']=_0x284e82['scrollHeight'],setTimeout(()=>{const _0x1df043=_0x2ab318;fetch(_0xe9315a+_0x1df043(0xa8),{'method':_0x1df043(0xd0),'headers':{'Content-Type':_0x1df043(0xa5)},'body':JSON['stringify']({'question':_0x265bf3['value']})})['then'](_0x3a87a=>_0x3a87a[_0x1df043(0xe6)]())['then'](_0x367ebd=>{const _0x5b3407=_0x1df043;_0x284e82['lastChild'][_0x5b3407(0x91)](),_0x284e82['innerHTML']+=_0x5b3407(0xc7);let _0x953e1f=_0x367ebd[_0x5b3407(0xc0)],_0x9ae38d=document[_0x5b3407(0xe4)]('div');_0x9ae38d['className']=_0x5b3407(0xaf),_0x284e82[_0x5b3407(0x89)](_0x9ae38d);let _0x308d1b=0x0,_0x1eb377=setInterval(()=>{const _0x306082=_0x5b3407;_0x308d1b<_0x953e1f[_0x306082(0xac)]?(_0x9ae38d[_0x306082(0xe9)]+=_0x953e1f[_0x308d1b],_0x308d1b++,_0x284e82[_0x306082(0xa9)]=_0x284e82[_0x306082(0xb4)]):(clearInterval(_0x1eb377),toggleInputState(_0x306082(0xc5)),_0x47fee1=![]);},0x19);_0x265bf3['value']='';})['catch'](_0x39ea11=>{const _0x10d6ff=_0x1df043;console[_0x10d6ff(0xc4)]('Error:',_0x39ea11),_0x284e82[_0x10d6ff(0x8c)]+=_0x10d6ff(0x8f),toggleInputState(_0x10d6ff(0xc5)),_0x47fee1=![];});},0x1f4));},document[_0x1e5c0c(0xd9)](_0x1e5c0c(0xe7))['onkeyup']=function(_0x29c8ad){handleKeyUp(_0x29c8ad);};const _0x29f7cc=localStorage[_0x1e5c0c(0x95)](_0x1e5c0c(0xca));window[_0x1e5c0c(0xdb)]>0x300&&_0x29f7cc!==_0x1e5c0c(0xb5)&&setTimeout(async function(){const _0x13b983=_0x1e5c0c;await _0x2915cd(),toggleChat(),localStorage[_0x13b983(0xa1)](_0x13b983(0xca),'geopend');},0xbb8);function _0x39935c(){const _0x50708f=_0x1e5c0c,_0x5c6fd3=new Image();_0x5c6fd3['src']=_0x50708f(0x9b);}_0x39935c();}());}));function a0_0x461c(){const _0x114986=['/get_welcome_message','remove','#chatbot-title','</div></div>','chatbot-icon','getItem','background','createTextNode','classList','trim','Standaardnaam\x20als\x20fallback','https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true','350054ftXkMB','disable','chatbot-content','flex','2270224mgeAPz','setItem','meta','visible','130907yyYsbE','application/json','Enter','Standaard\x20welkomstbericht\x20als\x20backup','/ask','scrollTop','style','innerText','length','Failed\x20to\x20fetch\x20title\x20message:','sendMessage','bot-message','value','/get_title_message','toggleInputState','42xKTFAb','scrollHeight','geopend','/get_color','Failed\x20to\x20fetch\x20welcome\x20message:','message','908XyDClK','closeChat','#chatbot\x20header','toggleChat','width=device-width,\x20initial-scale=1.0,\x20maximum-scale=1.0,\x20user-scalable=no','40uawDam','type','answer','then','3021453FszVTp','div','error','enable','typeWelcomeMessage','<div\x20class=\x22message-sender\x22>Wizzy:</div>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22chatbot\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<header>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22chatbot-title\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20role=\x22img\x22\x20aria-label=\x22bot\x22>🤖</span>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Chatproducties\x20-\x20Proddy\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22close-chat\x22\x20onclick=\x22closeChat()\x22>×</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</header>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22chatbot-content\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22chatbot-input\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22user-input\x22\x20rows=\x221\x22\x20placeholder=\x22Typ\x20je\x20vraag\x20hier...\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22sendMessage()\x22\x20class=\x22send-icon\x22></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22chatbot-icon\x22\x20onclick=\x22toggleChat()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png\x22\x20alt=\x22Chat\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','add','chatbotStatus','Failed\x20to\x20fetch\x20color:','disabled','getElementsByTagName','linear-gradient(135deg,\x20#ffffff,\x20','4rLkuUl','POST','catch','168760ehTlzG','chatbot','7359DwzDMt','DOMContentLoaded','none','addEventListener','text/css','getElementById','handleKeyUp','innerWidth','#chatbot-input\x20button','\x0a<style>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20\x27Arial\x27,\x20sans-serif;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#ffffff;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20bottom:\x2095px\x20!important;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20right:\x2030px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20420px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x20640px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow:\x20hidden;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box-shadow:\x200\x2010px\x2020px\x20rgba(0,\x200,\x200,\x200.1);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.3s\x20ease-in-out;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translateY(30px);\x20\x20/*\x20Chatbot\x20begint\x2030\x20pixels\x20onder\x20de\x20eindpositie\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20opacity\x200.5s\x20ease-out,\x20transform\x200.5s\x20ease-out;\x20\x20/*\x200.5\x20seconden\x20animatie\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x2010000;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#ffffff;\x20\x20/*\x20Achtergrondkleur\x20toegevoegd\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20bottom:\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20right:\x2030px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2050px\x20important;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2050px\x20important;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20#1a2e4a;\x20/*\x20Gemaakt\x20tot\x20een\x20solide\x20blauwe\x20kleur\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20transform\x200.3s\x20ease-in-out,\x20background\x200.3s\x20ease-in-out;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x209996;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon\x20img\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2060%;\x20\x20\x20\x20\x20\x20/*\x20Verminder\x20naar\x20de\x20gewenste\x20breedte\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2060%;\x20\x20\x20\x20\x20/*\x20Verminder\x20naar\x20de\x20gewenste\x20hoogte\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20block;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x20auto;\x20\x20\x20\x20/*\x20Centreert\x20de\x20afbeelding\x20in\x20de\x20container\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot.visible\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translateY(0);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon:hover\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20scale(1.1);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon::before,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon::after\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20content:\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20absolute;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20left:\x2020%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2060%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x203px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20transparent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20background\x200.3s,\x20transform\x200.3s;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon.open::before,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon.open::after\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20white;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon::before\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20rotate(45deg);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon::after\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20rotate(-45deg);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon\x20img\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20opacity\x200.3s\x20ease-in-out;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon.open\x20img\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a#chatbot\x20header\x20{\x0a\x20\x20\x20\x20background:\x20linear-gradient(135deg,\x20#ffffff,\x20#1a237e);\x20\x20/*\x20#1a237e\x20is\x20een\x20donkerblauwe\x20metallic\x20tint\x20*/\x0a\x20\x20\x20\x20color:\x20#333;\x0a\x20\x20\x20\x20padding:\x2020px\x2030px;\x20\x20\x20/*\x20Vergroot\x20padding\x20*/\x0a\x20\x20\x20\x20text-align:\x20left;\x0a\x20\x20\x20\x20font-weight:\x20700;\x20\x20\x20\x20\x20/*\x20Zwaarder\x20lettertype\x20*/\x0a\x20\x20\x20\x20font-size:\x201.6em;\x20\x20\x20\x20/*\x20Vergrote\x20tekstgrootte\x20*/\x0a\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20border-bottom:\x201px\x20solid\x20#ddd;\x0a\x20\x20\x20\x20box-shadow:\x200\x202px\x2015px\x20rgba(0,\x200,\x200,\x200.1);\x20\x20\x20/*\x20Voeg\x20schaduw\x20toe\x20*/\x0a\x20\x20\x20\x20height:\x20120px;\x20\x20\x20/*\x20Aanzienlijk\x20vergroot\x20in\x20hoogte\x20*/\x0a\x20\x20\x20\x20clip-path:\x20polygon(0\x200,\x20100%\x200,\x20100%\x2095%,\x200%\x20100%);\x20\x20/*\x20Schuin\x20effect\x20aan\x20de\x20onderkant\x20*/\x0a}\x0a\x0a\x0a\x0a#chatbot\x20header\x20img\x20{\x0a\x20\x20\x20\x20width:\x2030px;\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20/*\x20Vergrote\x20breedte\x20*/\x0a\x20\x20\x20\x20height:\x2030px;\x20\x20\x20\x20\x20\x20\x20\x20\x20/*\x20Vergrote\x20hoogte\x20*/\x0a\x20\x20\x20\x20margin-right:\x2015px;\x20\x20\x20/*\x20Vergrote\x20marge\x20*/\x0a}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-content\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow-y:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2015px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#ffffff;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#333;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20/*\x20align-items:\x20center;\x20\x20Verwijder\x20dit\x20om\x20de\x20berichten\x20niet\x20te\x20centreren\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20.message-container\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20max-width:\x20100%;\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-input\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2015px\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-top:\x201px\x20solid\x20rgba(140,\x20119,\x20219,\x200.1);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#ffffff;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-input\x20textarea\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x208px\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20#4A90E2;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2030px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20outline:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#333;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-right:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20resize:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20min-height:\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-input\x20button\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20#8c77db;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x208px\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201em;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.user-message,\x20.bot-message\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x2010px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2012px\x2018px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20auto;\x20\x20/*\x20Verander\x20van\x20100%\x20naar\x20auto\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20min-width:\x2040%;\x20\x20/*\x20Stel\x20een\x20minimum\x20breedte\x20in\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.3s\x20ease-in-out;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20word-wrap:\x20break-word;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20white-space:\x20pre-wrap;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20relative;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20white-space:\x20pre-wrap;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a/*\x20Stijlen\x20voor\x20berichten\x20van\x20de\x20gebruiker\x20*/\x0a.user-message\x20{\x0a\x20\x20\x20\x20align-self:\x20flex-end;\x0a\x20\x20\x20\x20max-width:\x2085%;\x0a\x20\x20\x20\x20background-color:\x20#4A90E2;\x20\x20/*\x20Mooi\x20blauw\x20*/\x0a\x20\x20\x20\x20color:\x20#FFFFFF;\x20\x20/*\x20Witte\x20tekst\x20*/\x0a\x20\x20\x20\x20text-align:\x20right;\x0a\x20\x20\x20\x20/*\x20...\x20eventuele\x20andere\x20stijlen\x20...\x20*/\x0a}\x0a\x0a/*\x20Stijlen\x20voor\x20berichten\x20van\x20de\x20bot\x20*/\x0a.bot-message\x20{\x0a\x20\x20\x20\x20align-self:\x20flex-start;\x0a\x20\x20\x20\x20max-width:\x2085%;\x0a\x20\x20\x20\x20background-color:\x20#F0F3F4;\x20\x20/*\x20Hemel-lichtgrijs\x20*/\x0a\x20\x20\x20\x20color:\x20#333;\x20\x20/*\x20Donkere\x20tekst\x20voor\x20betere\x20leesbaarheid\x20*/\x0a\x20\x20\x20\x20text-align:\x20left;\x0a\x20\x20\x20\x20/*\x20...\x20eventuele\x20andere\x20stijlen\x20...\x20*/\x0a}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-input\x20.send-icon\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2035px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2035px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-image:\x20url(\x27https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-size:\x20cover;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20transparent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20.user-container\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20flex-end;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20.message-sender.user\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-self:\x20flex-end;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20right;\x20\x20/*\x20Tekst\x20uitlijnen\x20naar\x20rechts\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#888;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x205px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20/*\x20Om\x20de\x20tekst\x20en\x20het\x20icoon\x20naast\x20elkaar\x20te\x20zetten\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20.bot-message,\x20.user-message\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20.typing-dot\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20inline-block;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x208px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x208px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#333;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20typing\x201.5s\x20infinite;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x202px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20typing\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x200%\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200.3;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x2050%\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20100%\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200.3;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20}\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20.message-sender\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.9em;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#888;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x205px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a#close-chat\x20{\x0a\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20font-size:\x2036px;\x0a\x20\x20\x20\x20margin-left:\x20auto;\x0a\x20\x20\x20\x20padding:\x2010px;\x0a\x20\x20\x20\x20background-color:\x20transparent;\x20\x20/*\x20Geen\x20achtergrondkleur\x20*/\x0a\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20transition:\x20color\x200.3s\x20ease,\x20transform\x200.3s\x20ease;\x0a}\x0a\x0a#close-chat:hover\x20{\x0a\x20\x20\x20\x20transform:\x20rotate(90deg)\x20scale(1.1);\x20\x20/*\x20Draai\x20en\x20schaal\x20bij\x20hover\x20*/\x0a}\x0a\x0a\x0a\x20@media\x20(max-width:\x20768px)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20bottom:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20right:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translateY(0);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x209999;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2060px;\x20\x20/*\x20Maak\x20het\x20blauwe\x20bolletje\x20kleiner\x20op\x20mobiele\x20apparaten\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2060px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20#chatbot-icon\x20img\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2060%;\x20/*\x20Aangepaste\x20grootte\x20voor\x20het\x20icoontje\x20binnen\x20de\x20cirkel\x20op\x20mobiele\x20apparaten\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2060%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20#chatbot-icon.open\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20right:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20bottom:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x2010000;\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20#close-chat\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20display:\x20block;\x20\x20/*\x20Toon\x20het\x20bovenste\x20sluitknopje\x20op\x20mobiele\x20apparaten\x20*/\x0a\x20\x20\x20\x20}\x0a}\x0a#chatbot-icon.cross::before,\x0a#chatbot-icon.cross::after\x20{\x0a\x20\x20\x20\x20background:\x20white;\x0a}\x0a\x0a#chatbot-icon.cross::before\x20{\x0a\x20\x20\x20\x20transform:\x20rotate(45deg);\x0a}\x0a\x0a#chatbot-icon.cross::after\x20{\x0a\x20\x20\x20\x20transform:\x20rotate(-45deg);\x0a}\x0a\x0a#chatbot-icon.cross\x20img\x20{\x0a\x20\x20\x20\x20opacity:\x200;\x0a}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a@media\x20(min-width:\x20769px)\x20{\x0a\x20\x20\x20\x20#chatbot-icon\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20width:\x2070px;\x20\x20/*\x20Vergroot\x20de\x20breedte\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20height:\x2070px;\x20\x20/*\x20Vergroot\x20de\x20hoogte\x20*/\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20#chatbot-icon\x20img\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x2052px;\x20\x20/*\x20Vergroot\x20de\x20font-grootte\x20van\x20het\x20icoon\x20*/\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20#chatbot\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20bottom:\x20125px;\x20\x20/*\x20Verplaats\x20de\x20chatbot\x20een\x20beetje\x20meer\x20naar\x20boven\x20*/\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20@media\x20(min-width:\x20769px)\x20{\x0a\x20\x20\x20\x20#chatbot\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20width:\x20480px;\x20\x20/*\x20Vergroot\x20de\x20breedte\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20height:\x20720px;\x20\x20/*\x20Vergroot\x20de\x20hoogte\x20*/\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20#chatbot\x20header\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.5em;\x20\x20/*\x20Vergroot\x20de\x20tekstgrootte\x20in\x20de\x20header\x20*/\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.user-message,\x20.bot-message\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.1em;\x20\x20/*\x20Vergroot\x20de\x20tekstgrootte\x20in\x20de\x20berichten\x20*/\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20#chatbot-input\x20textarea\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.1em;\x20\x20/*\x20Vergroot\x20de\x20tekstgrootte\x20in\x20het\x20invoerveld\x20*/\x0a\x20\x20\x20\x20}\x0a}\x0a\x0a}\x0a\x0a\x20\x20\x20\x20</style>\x0a\x20\x20\x20\x20','color','key','display','styleSheet','cross','head','createElement','querySelector','json','user-input','content','textContent','appendChild','https://chatbot-1k97.onrender.com','viewport','innerHTML','633622TkhySB','cssText','<div\x20class=\x22message-sender\x22>Wizzy:</div><div\x20class=\x22bot-message\x22>Sorry,\x20er\x20is\x20een\x20fout\x20opgetreden.</div>'];a0_0x461c=function(){return _0x114986;};return a0_0x461c();}
+document.addEventListener("DOMContentLoaded", function() {
+    // Dynamisch toevoegen van de viewport meta tag
+    var metaTag = document.createElement('meta');
+    metaTag.name = "viewport";
+    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.getElementsByTagName('head')[0].appendChild(metaTag);
+
+    (function() {
+        // Haal de backend URL op van het script tag
+        const currentScript = document.currentScript || (function() {
+            const scripts = document.getElementsByTagName('script');
+            return scripts[scripts.length - 1];
+        })();
+        const backendUrl = currentScript.getAttribute('data-backend-url');
+
+        // Verifieer of backendUrl is opgegeven
+        if (!backendUrl) {
+            console.error('Backend URL niet opgegeven. Voeg het toe met het data-backend-url attribuut in je script tag.');
+            return;  // Stop de uitvoering van de rest van het script
+        }
+
+        // Voeg hier je overige code toe die de backendUrl variabele gebruikt...
+        
+        var css = `
+        <style>
+            body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+        }
+
+                
+        #chatbot {
+            position: fixed;
+            bottom: 95px !important;
+            right: 30px;
+            width: 420px;
+            height: 640px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            z-index: 10000;
+            background-color: #ffffff;  /* Achtergrondkleur toegevoegd */
+        }
+
+              
+           #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            width: 50px important; 
+            height: 50px important;
+            border-radius: 50%;
+            background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            z-index: 9996;
+        }
+
+        
+              #chatbot-icon img {
+            width: 60%;      /* Verminder naar de gewenste breedte */
+            height: 60%;     /* Verminder naar de gewenste hoogte */
+            display: block;
+            margin: auto;    /* Centreert de afbeelding in de container */
+        }
+
+        
+
+
+        #chatbot.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+        #chatbot-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        #chatbot-icon::before, 
+        #chatbot-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            width: 60%;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        #chatbot-icon.open::before, 
+        #chatbot-icon.open::after {
+            background: white;
+        }
+        
+        #chatbot-icon::before {
+            transform: rotate(45deg);
+        }
+        
+        #chatbot-icon::after {
+            transform: rotate(-45deg);
+        }
+        
+        #chatbot-icon img {
+            font-size: 40px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        #chatbot-icon.open img {
+            opacity: 0;
+        }
+
+#chatbot header {
+    background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
+    color: #333;
+    padding: 20px 30px;   /* Vergroot padding */
+    text-align: left;
+    font-weight: 700;     /* Zwaarder lettertype */
+    font-size: 1.6em;    /* Vergrote tekstgrootte */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
+    height: 120px;   /* Aanzienlijk vergroot in hoogte */
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);  /* Schuin effect aan de onderkant */
+}
+
+
+
+#chatbot header img {
+    width: 30px;          /* Vergrote breedte */
+    height: 30px;         /* Vergrote hoogte */
+    margin-right: 15px;   /* Vergrote marge */
+}
+
+        
+            #chatbot-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center;  Verwijder dit om de berichten niet te centreren */
+        }
+                      .message-container {
+            max-width: 100%;  
+            width: 100%;  
+            display: flex;
+            flex-direction: column;
+        }
+
+                
+        #chatbot-input {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid rgba(140, 119, 219, 0.1);
+            background-color: #ffffff;
+        }
+        
+        #chatbot-input textarea {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #4A90E2;
+            border-radius: 30px;
+            outline: none;
+            color: #333;
+            margin-right: 10px;
+            resize: none;
+            min-height: 20px;
+            overflow: auto;
+         }
+        
+        #chatbot-input button {
+            background: #8c77db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .user-message, .bot-message {
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 20px;
+            width: auto;  /* Verander van 100% naar auto */
+            min-width: 40%;  /* Stel een minimum breedte in */
+            transition: all 0.3s ease-in-out;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            white-space: pre-wrap;
+        }
+        
+        
+/* Stijlen voor berichten van de gebruiker */
+.user-message {
+    align-self: flex-end;
+    max-width: 85%;
+    background-color: #4A90E2;  /* Mooi blauw */
+    color: #FFFFFF;  /* Witte tekst */
+    text-align: right;
+    /* ... eventuele andere stijlen ... */
+}
+
+/* Stijlen voor berichten van de bot */
+.bot-message {
+    align-self: flex-start;
+    max-width: 85%;
+    background-color: #F0F3F4;  /* Hemel-lichtgrijs */
+    color: #333;  /* Donkere tekst voor betere leesbaarheid */
+    text-align: left;
+    /* ... eventuele andere stijlen ... */
+}
+
+                
+
+        #chatbot-input .send-icon {
+            width: 35px;
+            height: 35px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
+            background-size: cover;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+       }
+   
+           .user-container {
+            align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message-sender.user {
+            align-self: flex-end;
+            text-align: right;  /* Tekst uitlijnen naar rechts */
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+    
+
+        /* Om de tekst en het icoon naast elkaar te zetten */
+        .bot-message, .user-message {
+            display: flex;
+            align-items: center;
+        }
+        
+         .typing-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+            animation: typing 1.5s infinite;
+            margin: 0 2px;
+        }
+
+            @keyframes typing {
+        0% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.3;
+        }
+    }
+
+
+        
+        .message-sender {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+#close-chat {
+    cursor: pointer;
+    font-size: 36px;
+    margin-left: auto;
+    padding: 10px;
+    background-color: transparent;  /* Geen achtergrondkleur */
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#close-chat:hover {
+    transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
+}
+
+
+ @media (max-width: 768px) {
+        #chatbot {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+            top: 0;
+            transform: translateY(0);
+            z-index: 9999;
+        }
+
+        #chatbot-icon {
+            width: 60px;  /* Maak het blauwe bolletje kleiner op mobiele apparaten */
+            height: 60px;
+        }
+
+        #chatbot-icon img {
+            width: 60%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
+            height: 60%;
+        }
+        
+    #chatbot-icon.open {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10000;
+    }
+
+    #close-chat {
+        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
+    }
+}
+#chatbot-icon.cross::before,
+#chatbot-icon.cross::after {
+    background: white;
+}
+
+#chatbot-icon.cross::before {
+    transform: rotate(45deg);
+}
+
+#chatbot-icon.cross::after {
+    transform: rotate(-45deg);
+}
+
+#chatbot-icon.cross img {
+    opacity: 0;
+}
+
+         
+@media (min-width: 769px) {
+    #chatbot-icon {
+        width: 70px;  /* Vergroot de breedte */
+        height: 70px;  /* Vergroot de hoogte */
+    }
+    #chatbot-icon img {
+        font-size: 52px;  /* Vergroot de font-grootte van het icoon */
+    }
+    #chatbot {
+        bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
+    }
+
+    @media (min-width: 769px) {
+    #chatbot {
+        width: 480px;  /* Vergroot de breedte */
+        height: 720px;  /* Vergroot de hoogte */
+    }
+    
+    #chatbot header {
+        font-size: 1.5em;  /* Vergroot de tekstgrootte in de header */
+    }
+    
+    .user-message, .bot-message {
+        font-size: 1.1em;  /* Vergroot de tekstgrootte in de berichten */
+    }
+    
+    #chatbot-input textarea {
+        font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
+    }
+}
+
+}
+
+    </style>
+    `;
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+    document.head.appendChild(style);
+
+
+ // HTML toevoegen
+    var html = `
+        <div id="chatbot">
+            <header>
+                <span id="chatbot-title">
+                    <span role="img" aria-label="bot">🤖</span> 
+                    Chatproducties - Proddy
+                </span>
+                <span id="close-chat" onclick="closeChat()">×</span>
+            </header>
+            <div id="chatbot-content"></div>
+            <div id="chatbot-input">
+                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+                <button onclick="sendMessage()" class="send-icon"></button>
+            </div>
+        </div>
+        <div id="chatbot-icon" onclick="toggleChat()">
+                <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+        </div>
+    `;
+            var div = document.createElement('div');
+    div.innerHTML = html;
+    document.body.appendChild(div);
+
+    // JavaScript toevoegen
+        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+        let isBotTyping = false;
+
+ window.typeWelcomeMessage = async function() {
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    chatContent.appendChild(messageElem);
+
+    // Haal het welkomstbericht op van de server
+    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Standaard welkomstbericht als backup");
+
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 25);
+};
+
+    async function fetchAndApplyColor() {
+    try {
+        const response = await fetch(`${backendUrl}/get_color`);
+        const data = await response.json();
+        if (data.color) {
+            updateColor(data.color);
+            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
+    }
+}
+
+
+    function updateColor(color) {
+        const chatHeader = document.querySelector("#chatbot header");
+        chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
+    }
+    
+    function updateChatIconColor(color) {
+        const chatIcon = document.getElementById("chatbot-icon");
+        chatIcon.style.background = color;
+    }
+
+
+    // Oproepen wanneer de pagina laadt
+    fetchAndApplyColor();
+
+
+async function fetchTitleMessage() {
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        if (data.message) {
+            document.querySelector("#chatbot-title").innerText = data.message;
+        }
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+}
+
+let cachedTitle = "Standaardnaam als fallback";
+let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
+
+async function initializeChat() {
+    try {
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        cachedTitle = data.message || cachedTitle;
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+
+    try {
+        const response = await fetch(`${backendUrl}/get_welcome_message`);
+        const data = await response.json();
+        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
+    }
+}
+
+        
+window.toggleChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
+        chatbot.style.display = "flex";
+        setTimeout(function() {
+            chatbot.classList.add("visible");
+        }, 50);
+
+        icon.classList.add('cross');
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
+        icon.classList.remove('cross');
+    }
+};
+
+// Aanroepen wanneer de pagina laadt
+initializeChat();
+
+window.closeChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    chatbot.style.display = "none";
+    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
+};
+
+        window.handleKeyUp = function(event) {
+            if (event.key === "Enter" && !isBotTyping) {
+                sendMessage();
+            }
+        };
+
+    window.handleKeyUp = function(event) {
+        if (event.key === "Enter" && !isBotTyping) {
+            sendMessage();
+        }
+    };
+
+    window.toggleInputState = function(state) {
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.querySelector("#chatbot-input button");
+        if (state === "disable") {
+            userInput.disabled = true;
+            sendButton.disabled = true;
+        } else {
+            userInput.disabled = false;
+            sendButton.disabled = false;
+        }
+    };
+
+window.sendMessage = function() {
+    if (isBotTyping) return;
+
+    const userInput = document.getElementById("user-input");
+    const chatContent = document.getElementById("chatbot-content");
+
+    if (userInput.value.trim() !== "") {
+        isBotTyping = true;
+        toggleInputState("disable");
+     
+        // Voeg het bericht van de gebruiker toe
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+
+        // Voeg de denk-spinner toe
+        chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+
+        // Automatisch scrollen naar het laatst toegevoegde bericht
+        chatContent.scrollTop = chatContent.scrollHeight;
+
+        setTimeout(() => {
+            fetch(`${backendUrl}/ask`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: userInput.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatContent.lastChild.remove();
+                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+                let messageText = data.answer;
+                let messageElem = document.createElement("div");
+                messageElem.className = "bot-message";
+                chatContent.appendChild(messageElem);
+
+                let index = 0;
+                let typingInterval = setInterval(() => {
+                    if (index < messageText.length) {
+                        messageElem.textContent += messageText[index];
+                        index++;
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    } else {
+                        clearInterval(typingInterval);
+                        toggleInputState("enable");
+                        isBotTyping = false;
+                    }
+                }, 25);
+
+                userInput.value = "";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
+                toggleInputState("enable");
+                isBotTyping = false;
+            });
+        }, 500);
+    }
+};
+
+    // De input-elementen activeren voor event-handling
+    document.getElementById("user-input").onkeyup = function(event) {
+        handleKeyUp(event);
+    };
+
+        // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
+const chatbotStatus = localStorage.getItem("chatbotStatus");
+
+if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
+    setTimeout(async function() {
+        await fetchTitleMessage();
+        toggleChat();
+        
+        // Markeer de chatbot als geopend in localStorage
+        localStorage.setItem("chatbotStatus", "geopend");
+    }, 3000);
+}
+
+
+        // Functie om afbeeldingen vooraf te laden
+function preloadImages() {
+    const sendIcon = new Image();
+    sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
+}
+
+// Aanroepen wanneer de pagina laadt
+preloadImages();
+
+
+})();  // Deze lijn sluit de IIFE correct af
+});  
+
+
+
+
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
+The syntax of the command is incorrect.
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>javascript-obfuscator "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js" --output "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\obfuscated-sdk.js"
+
+[javascript-obfuscator-cli] Obfuscating file: C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js...
+
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>javascript-obfuscator "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js" --output "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\obfuscated-sdk.js"
+
+[javascript-obfuscator-cli] Obfuscating file: C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js...
+
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>javascript-obfuscator "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js" --output "C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\obfuscated-sdk.js"
+
+[javascript-obfuscator-cli] Obfuscating file: C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas\sdk.js...
+
+C:\Users\Mac\Desktop\backup\backup24-9 met web scraper voor meerdere subpaginas>
+
+
