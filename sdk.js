@@ -425,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
  window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     chatContent.appendChild(messageElem);
@@ -601,7 +601,7 @@ window.sendMessage = function() {
             .then(response => response.json())
             .then(data => {
                 chatContent.lastChild.remove();
-                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
                 let messageText = data.answer;
                 let messageElem = document.createElement("div");
                 messageElem.className = "bot-message";
@@ -624,7 +624,7 @@ window.sendMessage = function() {
             })
             .catch(error => {
                 console.error("Error:", error);
-                chatContent.innerHTML += `<div class="message-sender">Wizzy:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
+                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
                 toggleInputState("enable");
                 isBotTyping = false;
             });
