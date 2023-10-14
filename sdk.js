@@ -425,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
  window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-sender">Wizzy:</div>`;
+    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     chatContent.appendChild(messageElem);
