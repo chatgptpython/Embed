@@ -419,16 +419,9 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-// JavaScript toevoegen
-let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
-let isBotTyping = false;
-
-// Sessie-ID genereren of ophalen uit de lokale opslag
-let sessionId = localStorage.getItem("chatbotSessionId");
-if (!sessionId) {
-    sessionId = 'chat_' + new Date().getTime() + '_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem("chatbotSessionId", sessionId);
-}
+    // JavaScript toevoegen
+        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+        let isBotTyping = false;
 
  window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
