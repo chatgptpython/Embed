@@ -297,7 +297,6 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
 }
 
-/* --- BEGIN TOEVOEGING --- */
 #follow-up-options button {
     margin: 5px;
     padding: 5px 10px;
@@ -312,7 +311,6 @@ document.addEventListener("DOMContentLoaded", function() {
 #follow-up-options button:hover {
     background-color: #1a2e4a;
 }
-/* --- EINDE TOEVOEGING --- */
 
 
  @media (max-width: 768px) {
@@ -553,6 +551,20 @@ window.toggleChat = function() {
     }
 };
 
+window.askAnotherQuestion = function() {
+    const chatContent = document.getElementById("chatbot-content");
+    removeFollowUpOptions();
+    chatContent.innerHTML += `<div class="bot-message">Wat wil je nog meer weten?</div>`;
+};
+
+window.removeFollowUpOptions = function() {
+    const followUpOptions = document.getElementById("follow-up-options");
+    if (followUpOptions) {
+        followUpOptions.remove();
+    }
+};
+
+
 // Aanroepen wanneer de pagina laadt
 initializeChat();
 
@@ -588,82 +600,75 @@ window.closeChat = function() {
         }
     };
 
-window.sendMessage = function() {
-    if (isBotTyping) return;
-
-    const userInput = document.getElementById("user-input");
-    const chatContent = document.getElementById("chatbot-content");
-
-    if (userInput.value.trim() !== "") {
-        isBotTyping = true;
-        toggleInputState("disable");
-     
-        // Voeg het bericht van de gebruiker toe
-        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
-
-        // Voeg de denk-spinner toe
-        chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
-
-        // Automatisch scrollen naar het laatst toegevoegde bericht
-        chatContent.scrollTop = chatContent.scrollHeight;
-
-        setTimeout(() => {
-            fetch(`${backendUrl}/ask`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question: userInput.value })
-            })
-            .then(response => response.json())
-            .then(data => {
-                chatContent.lastChild.remove();
-                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-                let messageText = data.answer;
-                let messageElem = document.createElement("div");
-                messageElem.className = "bot-message";
-                chatContent.appendChild(messageElem);
-
-                let index = 0;
-                let typingInterval = setInterval(() => {
-                    if (index < messageText.length) {
-                        messageElem.textContent += messageText[index];
-                        index++;
-                        chatContent.scrollTop = chatContent.scrollHeight;
-                    } else {
-                        clearInterval(typingInterval);
-                        toggleInputState("enable");
-                        isBotTyping = false;
-                    }
-                }, 25);
-
-           userInput.value = "";
+    window.sendMessage = function() {
+        if (isBotTyping) return;
     
-            // TOEVOEGING
-            chatContent.innerHTML += `
-            <div class="bot-message" id="follow-up-options">
-                <button onclick="askAnotherQuestion()">Nog een vraag stellen?</button> 
-                of 
-                <button onclick="closeChat()">Afsluiten</button>
-            </div>`;
-    
-        }, 500);
-    };
-    
-    // TOEVOEGING
-    window.askAnotherQuestion = function() {
+        const userInput = document.getElementById("user-input");
         const chatContent = document.getElementById("chatbot-content");
-        removeFollowUpOptions();
-        chatContent.innerHTML += `<div class="bot-message">Wat wil je nog meer weten?</div>`;
-    };
     
-    window.removeFollowUpOptions = function() {
-        const followUpOptions = document.getElementById("follow-up-options");
-        if (followUpOptions) {
-            followUpOptions.remove();
+        if (userInput.value.trim() !== "") {
+            isBotTyping = true;
+            toggleInputState("disable");
+         
+            // Voeg het bericht van de gebruiker toe
+            chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+    
+            // Voeg de denk-spinner toe
+            chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+    
+            // Automatisch scrollen naar het laatst toegevoegde bericht
+            chatContent.scrollTop = chatContent.scrollHeight;
+    
+            setTimeout(() => {
+                fetch(`${backendUrl}/ask`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: userInput.value })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatContent.lastChild.remove();
+                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+                    let messageText = data.answer;
+                    let messageElem = document.createElement("div");
+                    messageElem.className = "bot-message";
+                    chatContent.appendChild(messageElem);
+    
+                    let index = 0;
+                    let typingInterval = setInterval(() => {
+                        if (index < messageText.length) {
+                            messageElem.textContent += messageText[index];
+                            index++;
+                            chatContent.scrollTop = chatContent.scrollHeight;
+                        } else {
+                            clearInterval(typingInterval);
+                            toggleInputState("enable");
+                            isBotTyping = false;
+                            
+                            // toevoegen van de extra opties
+                            chatContent.innerHTML += `
+                            <div class="bot-message" id="follow-up-options">
+                                <button onclick="askAnotherQuestion()">Nog een vraag stellen?</button> 
+                                of 
+                                <button onclick="closeChat()">Afsluiten</button>
+                            </div>`;
+                        }
+                    }, 25);
+    
+                    userInput.value = "";
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
+                    toggleInputState("enable");
+                    isBotTyping = false;
+                });
+            }, 500);
         }
     };
-
+    
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
         handleKeyUp(event);
@@ -695,6 +700,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
-
 
