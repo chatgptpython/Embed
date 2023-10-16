@@ -525,7 +525,6 @@ async function initializeChat() {
     }
 }
 
-        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -540,14 +539,16 @@ window.toggleChat = function() {
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
-
         icon.classList.add('cross');
+        disableChatInput(); // Deactiveer de chat-input wanneer de chat wordt geopend
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
         icon.classList.remove('cross');
+        removeFollowUpOptions(); // Verwijder de follow-up opties wanneer de chat wordt gesloten
+        enableChatInput(); // Activeer de chat-input wanneer de chat wordt gesloten
     }
 };
 
@@ -568,8 +569,8 @@ window.enableChatInput = function() {
 window.askAnotherQuestion = function() {
     const chatContent = document.getElementById("chatbot-content");
     removeFollowUpOptions();
-    enableChatInput(); // Activeer de chatinput opnieuw
     chatContent.innerHTML += `<div class="bot-message">Wat wil je nog meer weten?</div>`;
+    enableChatInput(); // Activeer de chat-input
 };
 
 window.closeChat = function() {
@@ -579,9 +580,8 @@ window.closeChat = function() {
     chatbot.style.display = "none";
     icon.classList.remove('cross');
     removeFollowUpOptions();
-    enableChatInput(); // Activeer de chatinput opnieuw
+    enableChatInput(); // Activeer de chat-input
 };
-
 
 
 // Aanroepen wanneer de pagina laadt
