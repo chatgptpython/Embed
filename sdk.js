@@ -311,42 +311,19 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
 }
 
-#follow-up-options {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-
 #follow-up-options button {
-    margin: 0 10px;
-    padding: 10px 20px;
+    margin: 5px;
+    padding: 5px 10px;
     border: none;
-    border-radius: 30px; 
+    border-radius: 5px;
     cursor: pointer;
     background-color: #4A90E2;
     color: white;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
 }
 
 #follow-up-options button:hover {
     background-color: #1a2e4a;
-    transform: scale(1.05);
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-#follow-up-options {
-    animation: slideUp 0.4s forwards;
 }
 
 
@@ -726,13 +703,12 @@ window.sendMessage = function() {
 
                         // Vertraging voor het tonen van de extra opties
                         setTimeout(() => {
-                            let followUpOptions = `
+                            chatContent.innerHTML += `
                             <div class="bot-message" id="follow-up-options">
                                 <button onclick="askAnotherQuestion()">Nog een vraag stellen?</button> 
                                 of 
                                 <button onclick="closeChat()">Afsluiten</button>
                             </div>`;
-                            chatContent.lastElementChild.appendChild(followUpOptions); // Voeg de follow-up-opties toe onder het laatste bericht van de bot
                             disableChatInput(); // Deactiveer de chatinput wanneer de follow-up opties worden getoond
                         }, 3000);
                     }
@@ -785,6 +761,9 @@ function preloadImages() {
 // Aanroepen wanneer de pagina laadt
 preloadImages();
 
+
+})();  // Deze lijn sluit de IIFE correct af
+});  
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
