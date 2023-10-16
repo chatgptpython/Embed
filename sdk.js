@@ -551,18 +551,37 @@ window.toggleChat = function() {
     }
 };
 
+window.disableChatInput = function() {
+    const userInput = document.getElementById("user-input");
+    const sendButton = document.querySelector("#chatbot-input button");
+    userInput.disabled = true;
+    sendButton.disabled = true;
+};
+
+window.enableChatInput = function() {
+    const userInput = document.getElementById("user-input");
+    const sendButton = document.querySelector("#chatbot-input button");
+    userInput.disabled = false;
+    sendButton.disabled = false;
+};
+
 window.askAnotherQuestion = function() {
     const chatContent = document.getElementById("chatbot-content");
     removeFollowUpOptions();
+    enableChatInput(); // Activeer de chatinput opnieuw
     chatContent.innerHTML += `<div class="bot-message">Wat wil je nog meer weten?</div>`;
 };
 
-window.removeFollowUpOptions = function() {
-    const followUpOptions = document.getElementById("follow-up-options");
-    if (followUpOptions) {
-        followUpOptions.remove();
-    }
+window.closeChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+
+    chatbot.style.display = "none";
+    icon.classList.remove('cross');
+    removeFollowUpOptions();
+    enableChatInput(); // Activeer de chatinput opnieuw
 };
+
 
 
 // Aanroepen wanneer de pagina laadt
@@ -600,7 +619,7 @@ window.closeChat = function() {
         }
     };
 
-    window.sendMessage = function() {
+     window.sendMessage = function() {
         if (isBotTyping) return;
     
         const userInput = document.getElementById("user-input");
@@ -654,6 +673,7 @@ window.closeChat = function() {
                                 of 
                                 <button onclick="closeChat()">Afsluiten</button>
                             </div>`;
+                            disableChatInput(); // Deactiveer de chatinput wanneer de follow-up opties worden getoond
                         }
                     }, 25);
     
@@ -668,6 +688,7 @@ window.closeChat = function() {
             }, 500);
         }
     };
+
     
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
