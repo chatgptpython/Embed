@@ -532,7 +532,7 @@ window.toggleChat = function() {
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
         document.querySelector("#chatbot-title").innerText = cachedTitle;
         if (firstTimeOpen) {
-            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            typeWelcomeMessage(cachedWelcomeMessage);
             firstTimeOpen = false;
         }
         chatbot.style.display = "flex";
@@ -540,15 +540,15 @@ window.toggleChat = function() {
             chatbot.classList.add("visible");
         }, 50);
         icon.classList.add('cross');
-        disableChatInput(); // Deactiveer de chat-input wanneer de chat wordt geopend
+        enableChatInput(); // Zorg ervoor dat de gebruiker kan typen wanneer de chat wordt geopend
     } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
         icon.classList.remove('cross');
-        removeFollowUpOptions(); // Verwijder de follow-up opties wanneer de chat wordt gesloten
-        enableChatInput(); // Activeer de chat-input wanneer de chat wordt gesloten
+        removeFollowUpOptions();
+        enableChatInput();
     }
 };
 
@@ -583,6 +583,17 @@ window.closeChat = function() {
     enableChatInput(); // Activeer de chat-input
 };
 
+// Zorg ervoor dat de chat-input wordt gedeactiveerd wanneer de volgopties worden getoond
+window.displayFollowUpOptions = function() {
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `
+    <div class="bot-message" id="follow-up-options">
+        <button onclick="askAnotherQuestion()">Nog een vraag stellen?</button> 
+        of 
+        <button onclick="closeChat()">Afsluiten</button>
+    </div>`;
+    disableChatInput(); // Deactiveer de chat-input
+};
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
