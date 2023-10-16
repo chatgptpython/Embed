@@ -569,7 +569,7 @@ window.enableChatInput = function() {
 window.askAnotherQuestion = function() {
     const chatContent = document.getElementById("chatbot-content");
     removeFollowUpOptions();
-    chatContent.innerHTML += `<div class="bot-message">Wat wil je nog meer weten?</div>`;
+    chatContent.innerHTML += `<div class="bot-message">Heb je nog iets anders in gedachten om te vragen? Stel gerust je volgende vraag!</div>`;
     enableChatInput(); // Activeer de chat-input
 };
 
