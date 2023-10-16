@@ -578,11 +578,21 @@ window.closeChat = function() {
     const icon = document.getElementById("chatbot-icon");
 
     chatbot.style.display = "none";
-    icon.classList.remove('cross');
+    icon.classList.remove('cross');  // Verwijder de 'cross' klasse
     removeFollowUpOptions();
     enableChatInput(); // Activeer de chat-input
 };
 
+// Functie om de follow-up opties te verwijderen
+window.removeFollowUpOptions = function() {
+    const followUpOptions = document.getElementById("follow-up-options");
+    if (followUpOptions) {
+        followUpOptions.remove();
+    }
+};
+
+     // Functie om de follow-up opties te verwijderen
+               
 // Zorg ervoor dat de chat-input wordt gedeactiveerd wanneer de volgopties worden getoond
 window.displayFollowUpOptions = function() {
     const chatContent = document.getElementById("chatbot-content");
