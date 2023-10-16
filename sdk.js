@@ -297,6 +297,23 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
 }
 
+/* --- BEGIN TOEVOEGING --- */
+#follow-up-options button {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4A90E2;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#follow-up-options button:hover {
+    background-color: #1a2e4a;
+}
+/* --- EINDE TOEVOEGING --- */
+
 
  @media (max-width: 768px) {
         #chatbot {
@@ -620,17 +637,32 @@ window.sendMessage = function() {
                     }
                 }, 25);
 
-                userInput.value = "";
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
-                toggleInputState("enable");
-                isBotTyping = false;
-            });
+           userInput.value = "";
+    
+            // TOEVOEGING
+            chatContent.innerHTML += `
+            <div class="bot-message" id="follow-up-options">
+                <button onclick="askAnotherQuestion()">Nog een vraag stellen?</button> 
+                of 
+                <button onclick="closeChat()">Afsluiten</button>
+            </div>`;
+    
         }, 500);
-    }
-};
+    };
+    
+    // TOEVOEGING
+    window.askAnotherQuestion = function() {
+        const chatContent = document.getElementById("chatbot-content");
+        removeFollowUpOptions();
+        chatContent.innerHTML += `<div class="bot-message">Wat wil je nog meer weten?</div>`;
+    };
+    
+    window.removeFollowUpOptions = function() {
+        const followUpOptions = document.getElementById("follow-up-options");
+        if (followUpOptions) {
+            followUpOptions.remove();
+        }
+    };
 
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
