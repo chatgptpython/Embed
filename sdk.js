@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
-            border-radius: 20px;
+            border-radius: 10px;
             width: auto;  /* Verander van 100% naar auto */
             min-width: 40%;  /* Stel een minimum breedte in */
             transition: all 0.3s ease-in-out;
