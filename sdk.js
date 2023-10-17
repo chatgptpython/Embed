@@ -113,18 +113,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 #chatbot header {
-    background: linear-gradient(135deg, #ffffff, #1a237e);
+    background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
     color: #333;
-    padding: 20px 30px;
-    font-weight: 700;
-    font-size: 1.6em;
+    padding: 20px 30px;   /* Vergroot padding */
+    text-align: left;
+    font-weight: 700;     /* Zwaarder lettertype */
+    font-size: 1.6em;    /* Vergrote tekstgrootte */
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* Deze regel toevoegen */
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    height: 120px;
-    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
+    height: 120px;   /* Aanzienlijk vergroot in hoogte */
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);  /* Schuin effect aan de onderkant */
 }
 
 
@@ -339,18 +339,15 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
-        #close-chat {
-            cursor: pointer;
-            font-size: 36px;
-            padding: 10px;
-            background-color: transparent;  /* Geen achtergrondkleur */
-            color: white;
-            transition: color 0.3s ease, transform 0.3s ease;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        
+#close-chat {
+    cursor: pointer;
+    font-size: 36px;
+    margin-left: auto;
+    padding: 10px;
+    background-color: transparent;  /* Geen achtergrondkleur */
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
 #close-chat:hover {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
@@ -842,4 +839,5 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
 
