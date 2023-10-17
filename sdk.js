@@ -776,6 +776,7 @@ function preloadImages() {
 
 // Functie om een bericht te simuleren dat door de chatbot wordt getypt
 function typeBotMessage(messageText, callback) {
+    toggleInputState("disable"); 
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
@@ -799,12 +800,14 @@ function typeBotMessage(messageText, callback) {
 
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
+    toggleInputState("enable");
     const choiceBalloons = document.getElementById("choice-balloons");
     choiceBalloons.style.display = "flex";
 }
 
 // Functie om de keuzeballonnetjes te verbergen
 function hideChoiceBalloons() {
+    toggleInputState("disable"); 
     const choiceBalloons = document.getElementById("choice-balloons");
     choiceBalloons.style.display = "none";
 }
@@ -826,8 +829,9 @@ document.getElementById("ask-another-question").addEventListener("click", functi
     chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">Ik wil nog een vraag stellen</div></div>`;
     chatContent.scrollTop = chatContent.scrollHeight;
 
-    // Stuur na een seconde een bericht namens de chatbot
+    // Stuur na een seconde een bericht namens de chatbot en schakel de invoer in voordat de chatbot de volgende vraag stelt
     setTimeout(() => {
+        toggleInputState("enable");
         typeBotMessage("Wat is je nieuwe vraag?");
     }, 1000);
 });
