@@ -243,21 +243,20 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ... eventuele andere stijlen ... */
 }
 
-                
-      #chatbot-input .send-icon {
-            width: 30px;  /* Icoontje iets groter */
-            height: 30px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-            background-size: cover;
-            cursor: pointer;
-            background-color: #F2F2F2;  /* Zachtere grijstint */
-            border-radius: 8px;  /* Ronder maken van hoeken */
-            border: none;
-            padding: 6px;  /* Iets meer padding voor balans */
-            box-sizing: border-box;
-            margin-right: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);  /* Subtiele schaduw voor diepte */
-        }
+                    
+    #chatbot-input .send-icon {
+        width: 30px;
+        height: 30px;
+        background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+        background-size: cover;
+        cursor: pointer;
+        border-radius: 8px;
+        border: none;
+        padding: 6px;
+        box-sizing: border-box;
+        margin-right: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
 
    
