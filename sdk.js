@@ -244,16 +244,20 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
                 
-
         #chatbot-input .send-icon {
-            width: 35px;
-            height: 35px;
+            width: 25px;
+            height: 25px;
             background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
             background-size: cover;
             cursor: pointer;
-            background-color: transparent;
+            background-color: #E0E0E0;  
+            border-radius: 5px;  
             border: none;
+            padding: 5px;  
+            box-sizing: border-box;
+            margin-right: 10px;  /* zet het icoontje 10 pixels meer naar links */
         }
+
 
    
            .user-container {
