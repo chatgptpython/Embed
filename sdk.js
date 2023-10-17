@@ -653,7 +653,7 @@ window.sendMessage = function() {
                         clearInterval(typingInterval);
                         toggleInputState("enable");
                         isBotTyping = false;
-                        showChoiceBalloons();
+                        typeBotMessage(data.answer, showChoiceBalloons);
                     }
                 }, 25);
 
@@ -695,7 +695,7 @@ function preloadImages() {
 }
 
 // Functie om een bericht te simuleren dat door de chatbot wordt getypt
-function typeBotMessage(messageText) {
+function typeBotMessage(messageText, callback) {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
@@ -711,7 +711,7 @@ function typeBotMessage(messageText) {
             clearInterval(typingInterval);
             toggleInputState("enable");
             isBotTyping = false;
-            showChoiceBalloons();
+            if (callback) callback();
         }
     }, 25);
 }
@@ -759,5 +759,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
 
