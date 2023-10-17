@@ -248,12 +248,13 @@ document.addEventListener("DOMContentLoaded", function() {
         #chatbot-input .send-icon {
             width: 35px;
             height: 35px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
             background-size: cover;
             cursor: pointer;
             background-color: transparent;
             border: none;
-       }
+        }
+
    
            .user-container {
             align-items: flex-end;
@@ -837,3 +838,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
