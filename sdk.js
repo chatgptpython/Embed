@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 8px;  /* Verplaats het kruisje een beetje naar boven voor balans */
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
-    font-weight: 600;  /* Maak het kruisje dikker */
+    font-weight: 500;  /* Maak het kruisje iets minder dik */
 }
 
 #close-chat:hover {
