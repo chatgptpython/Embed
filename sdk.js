@@ -113,18 +113,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 #chatbot header {
-    background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
+    background: linear-gradient(135deg, #ffffff, #1a237e);
     color: #333;
-    padding: 20px 30px;   /* Vergroot padding */
-    text-align: center;
-    font-weight: 700;     /* Zwaarder lettertype */
-    font-size: 1.6em;    /* Vergrote tekstgrootte */
+    padding: 20px 30px;
+    font-weight: 700;
+    font-size: 1.6em;
     display: flex;
     align-items: center;
+    justify-content: space-between;  /* Deze regel toevoegen */
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
-    height: 120px;   /* Aanzienlijk vergroot in hoogte */
-    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);  /* Schuin effect aan de onderkant */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    height: 120px;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
 }
 
 
