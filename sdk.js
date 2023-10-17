@@ -332,16 +332,39 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .loader {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #1a2e4a;  /* dezelfde kleur als de header */
+    position: relative;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite, pulse 1.5s infinite;
+    animation: pulse 2s infinite;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #1a2e4a;  /* dezelfde kleur als de header */
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+.loader::after {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    animation-direction: reverse;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-top-color: rgba(26, 46, 74, 0.5);  /* lichtere versie van de header kleur */
 }
 
 @keyframes spin {
@@ -350,10 +373,11 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(0.95); }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
+
 
 
  @media (max-width: 768px) {
