@@ -153,6 +153,12 @@ document.addEventListener("DOMContentLoaded", function() {
             flex-direction: column;
         }
 
+        #chatbot-input button.send-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
                 
         #chatbot-input {
             padding: 15px 20px;
@@ -160,20 +166,22 @@ document.addEventListener("DOMContentLoaded", function() {
             align-items: center;
             border-top: 1px solid rgba(140, 119, 219, 0.1);
             background-color: #ffffff;
+            position: relative; /* Nieuw toegevoegd */
         }
         
         #chatbot-input textarea {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #4A90E2;
-            border-radius: 30px;
+            padding: 12px 16px;
+            border: 1px solid gray;
+            border-radius: 5px;
             outline: none;
             color: #333;
-            margin-right: 10px;
+            margin-right: 0;
             resize: none;
-            min-height: 20px;
+            min-height: 30px; /* Vergroot de hoogte een beetje */
             overflow: auto;
-         }
+            font-size: 1.2em;    /* Vergroot de font-grootte een beetje */
+        }
         
         #chatbot-input button {
             background: #8c77db;
