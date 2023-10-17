@@ -425,7 +425,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-
     // HTML toevoegen
     var html = `
         <div id="chatbot">
@@ -437,11 +436,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Nog een vraag stellen</button>
-                <button id="close-chatbot">Afsluiten</button>
-            </div>
             <div id="chatbot-input">
+                <div id="choice-balloons" style="display: none;">
+                    <button id="ask-another-question">Nog een vraag stellen</button>
+                    <button id="close-chatbot">Afsluiten</button>
+                </div>
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
