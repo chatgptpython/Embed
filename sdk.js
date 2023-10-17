@@ -694,6 +694,29 @@ function preloadImages() {
     sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
 }
 
+// Functie om een bericht te simuleren dat door de chatbot wordt getypt
+function typeBotMessage(messageText) {
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    chatContent.appendChild(messageElem);
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+            toggleInputState("enable");
+            isBotTyping = false;
+            showChoiceBalloons();
+        }
+    }, 25);
+}
+
+
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
     const choiceBalloons = document.getElementById("choice-balloons");
@@ -715,6 +738,19 @@ document.getElementById("close-chatbot").addEventListener("click", function() {
     closeChat();
 });
 
+document.getElementById("ask-another-question").addEventListener("click", function() {
+    hideChoiceBalloons();
+    
+    // Stuur automatisch een bericht namens de gebruiker
+    const chatContent = document.getElementById("chatbot-content");
+    chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">Ik wil nog een vraag stellen</div></div>`;
+    chatContent.scrollTop = chatContent.scrollHeight;
+
+    // Stuur na een seconde een bericht namens de chatbot
+    setTimeout(() => {
+        typeBotMessage("Wat is je nieuwe vraag?");
+    }, 1000);
+});
 
 
 // Aanroepen wanneer de pagina laadt
@@ -723,6 +759,5 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
 
 
