@@ -800,27 +800,19 @@ function typeBotMessage(messageText, callback) {
 
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
-    toggleInputState("enable");
+    toggleInputState("disable"); // Uitschakelen wanneer de keuzeballonnen worden getoond
     const choiceBalloons = document.getElementById("choice-balloons");
     choiceBalloons.style.display = "flex";
 }
 
 // Functie om de keuzeballonnetjes te verbergen
 function hideChoiceBalloons() {
-    toggleInputState("disable"); 
+    toggleInputState("disable"); // Invoer uitschakelen wanneer de keuzeballonnen worden verborgen
     const choiceBalloons = document.getElementById("choice-balloons");
     choiceBalloons.style.display = "none";
 }
 
 // Event Listeners voor de keuzeballonnetjes
-document.getElementById("ask-another-question").addEventListener("click", function() {
-    hideChoiceBalloons();
-});
-
-document.getElementById("close-chatbot").addEventListener("click", function() {
-    closeChat();
-});
-
 document.getElementById("ask-another-question").addEventListener("click", function() {
     hideChoiceBalloons();
     
@@ -834,6 +826,10 @@ document.getElementById("ask-another-question").addEventListener("click", functi
         toggleInputState("enable");
         typeBotMessage("Wat is je nieuwe vraag?");
     }, 1000);
+});
+
+document.getElementById("close-chatbot").addEventListener("click", function() {
+    closeChat();
 });
 
 
