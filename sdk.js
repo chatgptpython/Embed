@@ -242,21 +242,16 @@ document.addEventListener("DOMContentLoaded", function() {
     text-align: left;
     /* ... eventuele andere stijlen ... */
 }
-
-                    
-    #chatbot-input .send-icon {
-        width: 30px;
-        height: 30px;
-        background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-        background-size: cover;
-        cursor: pointer;
-        border-radius: 8px;
-        border: none;
-        padding: 6px;
-        box-sizing: border-box;
-        margin-right: 10px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        
+        #chatbot-input .send-icon {
+            width: 30px;
+            height: 30px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+            background-size: cover;
+            cursor: pointer;
+            border: none;
+            margin-right: 10px;
+        }
 
 
    
