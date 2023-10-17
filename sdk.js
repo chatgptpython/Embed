@@ -343,14 +343,18 @@ document.addEventListener("DOMContentLoaded", function() {
     cursor: pointer;
     font-size: 48px;  /* Vergroot de grootte van het kruisje */
     margin-left: auto;
-    margin-right: 20px;  /* Verplaats het kruisje iets naar links */
-    margin-top: 10px;  /* Verplaats het kruisje iets naar beneden */
-    padding: 10px;
-    background-color: transparent;
+    margin-right: 10px;  /* Verplaats het kruisje dichter naar de rechterrand */
+    margin-top: 10px;  /* Verplaats het kruisje iets naar boven */
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
-    font-weight: 300;  /* Maak het kruisje dunner */
+    font-weight: 200;  /* Maak het kruisje dunner */
 }
+
+#close-chat:hover {
+    color: rgba(255, 255, 255, 0.8);  /* Maak het kruisje lichter bij hover */
+    transform: scale(1.1);  /* Laat het kruisje iets groter worden bij hover */
+}
+
 
 #close-chat:hover {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
