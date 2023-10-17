@@ -244,6 +244,37 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #888;
             margin-bottom: 5px;
         }
+
+        #choice-balloons {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-top: 1px solid rgba(140, 119, 219, 0.1);
+        }
+        
+        #choice-balloons button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        #ask-another-question {
+            background-color: #4A90E2;
+            color: #FFFFFF;
+        }
+        
+        #close-chatbot {
+            background-color: #F0F3F4;
+            color: #333;
+        }
+        
+        #choice-balloons button:hover {
+            opacity: 0.9;
+        }
+        
         
     
 
@@ -395,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
 
- // HTML toevoegen
+    // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -406,15 +437,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
+            <div id="choice-balloons" style="display: none;">
+                <button id="ask-another-question">Nog een vraag stellen</button>
+                <button id="close-chatbot">Afsluiten</button>
+            </div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-                <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+
             var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
@@ -617,6 +653,7 @@ window.sendMessage = function() {
                         clearInterval(typingInterval);
                         toggleInputState("enable");
                         isBotTyping = false;
+                        showChoiceBalloons();
                     }
                 }, 25);
 
@@ -656,6 +693,29 @@ function preloadImages() {
     const sendIcon = new Image();
     sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
 }
+
+// Functie om de keuzeballonnetjes te tonen
+function showChoiceBalloons() {
+    const choiceBalloons = document.getElementById("choice-balloons");
+    choiceBalloons.style.display = "flex";
+}
+
+// Functie om de keuzeballonnetjes te verbergen
+function hideChoiceBalloons() {
+    const choiceBalloons = document.getElementById("choice-balloons");
+    choiceBalloons.style.display = "none";
+}
+
+// Event Listeners voor de keuzeballonnetjes
+document.getElementById("ask-another-question").addEventListener("click", function() {
+    hideChoiceBalloons();
+});
+
+document.getElementById("close-chatbot").addEventListener("click", function() {
+    closeChat();
+});
+
+
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
