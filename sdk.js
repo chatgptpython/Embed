@@ -251,12 +251,10 @@ document.addEventListener("DOMContentLoaded", function() {
             background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
             background-size: cover;
             cursor: pointer;
-            background-color: #f0f0f0; /* Dit maakt de achtergrond grijs */
+            background-color: transparent;
             border: none;
-            border-radius: 4px; /* Dit rondt de hoeken een beetje af */
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Dit voegt een zachte schaduw toe voor diepte */
-        }
-
+       }
+   
            .user-container {
             align-items: flex-end;
             display: flex;
