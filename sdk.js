@@ -243,15 +243,17 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ... eventuele andere stijlen ... */
 }
         
-        #chatbot-input .send-icon {
+             #chatbot-input .send-icon {
             width: 30px;
             height: 30px;
             background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
             background-size: cover;
             cursor: pointer;
+            background-color: transparent;  /* Verzekert dat er geen achtergrondkleur is */
             border: none;
             margin-right: 10px;
         }
+
 
 
    
