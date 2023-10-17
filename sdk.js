@@ -332,42 +332,16 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .loader {
-    position: relative;
-    width: 60px;
-    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #1a2e4a;  /* dezelfde kleur als de header */
     border-radius: 50%;
-    animation: pulseShadow 2s infinite;
-    background: linear-gradient(white, white, white, transparent);
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(26, 46, 74, 0.2);
-}
-
-.loader::before,
-.loader::after {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border: 6px solid transparent;
-    border-top: 6px solid #1a2e4a;  /* dezelfde kleur als de header */
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-}
-
-.loader::after {
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    animation: spinGradient 3s linear infinite, spin 2.5s linear infinite reverse;
-    border-top-color: transparent;
-    background: linear-gradient(90deg, #1a2e4a, #8c77db, #1a2e4a, #1a2e4a);
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite, pulse 1.5s infinite;
 }
 
 @keyframes spin {
@@ -375,17 +349,11 @@ document.addEventListener("DOMContentLoaded", function() {
     100% { transform: rotate(360deg); }
 }
 
-@keyframes spinGradient {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+@keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(0.95); }
 }
-
-@keyframes pulseShadow {
-    0% { box-shadow: 0 0 10px rgba(26, 46, 74, 0.1); }
-    50% { box-shadow: 0 0 20px rgba(26, 46, 74, 0.3); }
-    100% { box-shadow: 0 0 10px rgba(26, 46, 74, 0.1); }
-}
-
 
 
  @media (max-width: 768px) {
@@ -673,7 +641,6 @@ window.closeChat = function() {
         const chatContent = document.getElementById("chatbot-content");
     
         if (userInput.value.trim() !== "") {
-            userInput.value = "";  // Verplaats deze regel naar hier
             isBotTyping = true;
             toggleInputState("disable");
     
