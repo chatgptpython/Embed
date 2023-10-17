@@ -341,13 +341,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 58px;  /* Verhoog de grootte van het kruisje */
+    font-size: 36px;
     margin-left: auto;
-    margin-right: 10px;  /* Verplaats het kruisje dichter naar de rechterrand */
-    margin-top: 8px;  /* Verplaats het kruisje een beetje naar boven voor balans */
+    padding: 10px;
+    background-color: transparent;  /* Geen achtergrondkleur */
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
-    font-weight: 500;  /* Maak het kruisje iets minder dik */
 }
 
 #close-chat:hover {
