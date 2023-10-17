@@ -347,13 +347,14 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 8px;  /* Verplaats het kruisje een beetje naar boven voor balans */
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
-    font-weight: 200;  /* Maak het kruisje dunner */
+    font-weight: 600;  /* Maak het kruisje dikker */
 }
 
 #close-chat:hover {
     color: rgba(255, 255, 255, 0.8);  /* Maak het kruisje lichter bij hover */
     transform: scale(1.1);  /* Laat het kruisje iets groter worden bij hover */
 }
+
 
 
 
