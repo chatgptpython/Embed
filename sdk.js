@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
         #chatbot-input .send-icon {
             width: 35px;
             height: 35px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true');
             background-size: cover;
             cursor: pointer;
             background-color: transparent;
@@ -500,9 +500,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
 
-    <div id="chatbot-powered">Powered by Chatwize</div>
-
-
     // HTML toevoegen
     var html = `
         <div id="chatbot">
@@ -522,6 +519,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
+            <div id="chatbot-powered">Powered by Chatwize</div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
