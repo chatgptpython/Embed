@@ -522,8 +522,10 @@ document.addEventListener("DOMContentLoaded", function() {
             <div id="chatbot-powered">Powered by Chatwize</div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
-        </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="currentColor"/>
+            </svg>
+    </div>
     `;
 
 
