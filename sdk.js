@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
     background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
     color: #333;
     padding: 20px 30px;   /* Vergroot padding */
-    text-align: left;
+    #chatbot-title {
     font-weight: 700;     /* Zwaarder lettertype */
     font-size: 1.6em;    /* Vergrote tekstgrootte */
     display: flex;
