@@ -337,34 +337,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
 .loader {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    animation: pulse 2s infinite;
+    animation: pulseShadow 2s infinite;
+    background: linear-gradient(white, white, white, transparent);
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(26, 46, 74, 0.2);
 }
 
 .loader::before,
 .loader::after {
     content: "";
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 8px solid rgba(255, 255, 255, 0.3);
-    border-top: 8px solid #1a2e4a;  /* dezelfde kleur als de header */
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 6px solid transparent;
+    border-top: 6px solid #1a2e4a;  /* dezelfde kleur als de header */
     border-radius: 50%;
-    animation: spin 1.5s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
 .loader::after {
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    animation-direction: reverse;
-    border-color: rgba(255, 255, 255, 0.2);
-    border-top-color: rgba(26, 46, 74, 0.5);  /* lichtere versie van de header kleur */
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    animation: spinGradient 3s linear infinite, spin 2.5s linear infinite reverse;
+    border-top-color: transparent;
+    background: linear-gradient(90deg, #1a2e4a, #8c77db, #1a2e4a, #1a2e4a);
 }
 
 @keyframes spin {
@@ -372,10 +375,15 @@ document.addEventListener("DOMContentLoaded", function() {
     100% { transform: rotate(360deg); }
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+@keyframes spinGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes pulseShadow {
+    0% { box-shadow: 0 0 10px rgba(26, 46, 74, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(26, 46, 74, 0.3); }
+    100% { box-shadow: 0 0 10px rgba(26, 46, 74, 0.1); }
 }
 
 
@@ -665,6 +673,7 @@ window.closeChat = function() {
         const chatContent = document.getElementById("chatbot-content");
     
         if (userInput.value.trim() !== "") {
+            userInput.value = "";  // Verplaats deze regel naar hier
             isBotTyping = true;
             toggleInputState("disable");
     
