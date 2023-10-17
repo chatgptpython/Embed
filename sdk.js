@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
     background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
     color: #333;
     padding: 20px 30px;   /* Vergroot padding */
-    #chatbot-title {
+    text-align: center;
     font-weight: 700;     /* Zwaarder lettertype */
     font-size: 1.6em;    /* Vergrote tekstgrootte */
     display: flex;
@@ -339,15 +339,18 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
-#close-chat {
-    cursor: pointer;
-    font-size: 36px;
-    margin-left: auto;
-    padding: 10px;
-    background-color: transparent;  /* Geen achtergrondkleur */
-    color: white;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+        #close-chat {
+            cursor: pointer;
+            font-size: 36px;
+            padding: 10px;
+            background-color: transparent;  /* Geen achtergrondkleur */
+            color: white;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
 
 #close-chat:hover {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
