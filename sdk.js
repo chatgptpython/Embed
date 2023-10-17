@@ -328,6 +328,33 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
 }
 
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #1a2e4a;  /* dezelfde kleur als de header */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite, pulse 1.5s infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(0.95); }
+}
+
 
  @media (max-width: 768px) {
         #chatbot {
@@ -616,12 +643,12 @@ window.closeChat = function() {
         if (userInput.value.trim() !== "") {
             isBotTyping = true;
             toggleInputState("disable");
-         
+    
             // Voeg het bericht van de gebruiker toe
             chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
     
-            // Voeg de denk-spinner toe
-            chatContent.innerHTML += `<div class="bot-message"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+            // Voeg de professionele laadbalk toe
+            chatContent.innerHTML += '<div class="loader-container"><div class="loader"></div></div>';
     
             // Automatisch scrollen naar het laatst toegevoegde bericht
             chatContent.scrollTop = chatContent.scrollHeight;
@@ -636,7 +663,7 @@ window.closeChat = function() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    chatContent.lastChild.remove();
+                    chatContent.lastChild.remove();  // Verwijder de loader
                     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
                     let messageText = data.answer;
                     let messageElem = document.createElement("div");
@@ -653,7 +680,7 @@ window.closeChat = function() {
                             clearInterval(typingInterval);
                             toggleInputState("enable");
                             isBotTyping = false;
-                            if (showChoiceBalloons) showChoiceBalloons();  // Voer de callback direct uit in plaats van typeBotMessage aan te roepen
+                            if (showChoiceBalloons) showChoiceBalloons();
                         }
                     }, 25);
     
@@ -668,6 +695,7 @@ window.closeChat = function() {
             }, 500);
         }
     };
+    
     
 
     // De input-elementen activeren voor event-handling
