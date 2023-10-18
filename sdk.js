@@ -642,7 +642,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updateColor(color) {
         const chatHeader = document.querySelector("#chatbot header");
-        chatHeader.style.background = `linear-gradient(135deg, #ffffff, ${color})`;
+        chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
     }
     
     function updateChatIconColor(color) {
