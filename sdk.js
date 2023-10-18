@@ -200,6 +200,11 @@ document.addEventListener("DOMContentLoaded", function() {
     position: relative;
 }
 
+#chatbot-input, #chatbot-input * {
+    background-color: transparent !important;
+}
+
+
 
 #chatbot-input textarea {
     flex: 1;
