@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(270deg, var(--header-color), #FFFFFF);  /* Kleurverloop van dynamische kleur naar wit 
+    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
     color: #333;
     padding: 20px 30px;
     text-align: left;
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot header .subtitle {
     display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
-    font-size: 0.8em;
+    font-size: 1.5em;  /* Aanzienlijk vergrote tekstgrootte voor de ondertitel */
     color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
     margin-top: 5px;
 }
@@ -152,10 +152,11 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     flex-direction: column;
     align-items: start;
+    font-size: 2.5em;    /* Aanzienlijk vergrote tekstgrootte voor de titel */
 }
 
 .subtitle {
-    font-size: 1em; /* Vergrote tekstgrootte voor de subtitel */
+    font-size: 1.5em; /* Vergrote tekstgrootte voor de ondertitel */
     margin-top: 5px;
 }
 
