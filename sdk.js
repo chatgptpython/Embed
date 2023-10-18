@@ -192,17 +192,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     
 #chatbot-input {
-    padding: 15px 20px;
+    padding: 10px 10px; /* Verklein de padding */
+    background-color: transparent; /* Maak de achtergrond van de container transparant */
     display: flex;
     align-items: center;
-    border-top: none; /* Verwijder de bovenste rand */
-    background-color: transparent !important; /* Maak de achtergrond transparant met voorrang */
+    border-top: none;
     position: relative;
 }
-
-
-
-
 
 #chatbot-input textarea {
     flex: 1;
@@ -211,13 +207,15 @@ document.addEventListener("DOMContentLoaded", function() {
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin: 0 2px; /* Lichtjes verminderde zijmarge */
+    margin: 0 10px 0 0; /* Voeg wat marge toe aan de rechterkant */
+    background-color: #ffffff; /* Witte achtergrond voor het tekstveld */
     resize: none;
     min-height: 28px;
     overflow: auto;
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+
 
            #chatbot-powered {
         text-align: center;
