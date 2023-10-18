@@ -155,17 +155,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        
-            #chatbot-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px;
-            background-color: #ffffff;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            /* align-items: center;  Verwijder dit om de berichten niet te centreren */
-        }
+#chatbot-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Zachte en subtiele gradiënt */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
                       .message-container {
             max-width: 100%;  
             width: 100%;  
