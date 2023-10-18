@@ -191,41 +191,57 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: translateY(-50%) scale(1.1); /* Hover-effect */
         }
     
-    #chatbot-input {
-        padding: 5px; /* Voeg een kleine padding toe voor wat ademruimte */
-        display: flex;
-        align-items: center;
-        border-top: 1px solid rgba(140, 119, 219, 0.1);
-        background-color: rgba(250, 250, 255, 0.5); /* Geef het dezelfde kleur als de achtergrond van chatbot-content */
-        position: relative;
-        border-radius: 10px; /* Behoud de afgeronde hoeken */
-        overflow: hidden; /* Zorgt ervoor dat niets buiten het invoerveld steekt */
-    }
+#chatbot-input {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-top: none; /* Verwijder de bovenste rand */
+    background-color: transparent; /* Maak de achtergrond transparant */
+    position: relative;
+}
 
-       #chatbot-input textarea {
+          #chatbot-input textarea {
         flex: 1;
-        padding: 10px 14px; /* Verklein de padding voor een kleiner tekstgebied */
-        border: 1px solid #ddd; 
-        border-radius: 8px; /* Aangepaste border-radius om de scherpe hoekjes te verwijderen */
+        padding: 10px 14px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
         outline: none;
         color: #333;
-        margin: 0 5px; /* Voeg wat marge toe zodat het niet tegen de randen aankomt */
+        margin: 0 5px;
         resize: none;
-        min-height: 28px; /* Verklein de hoogte */
+        min-height: 28px;
         overflow: auto;
         font-size: 1.1em;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+           #chatbot-powered {
+        text-align: center;
+        font-size: 0.8em;
+        color: #888;
+        padding: 10px 0;
+        background-color: #f9f9f9;
+        border-top: 1px solid rgba(140, 119, 219, 0.1);
+        cursor: pointer; /* Maakt het element klikbaar */
+        transition: color 0.3s ease; /* Voegt een overgangseffect toe voor een soepele kleurverandering */
+    }
+    
+    #chatbot-powered:hover {
+        color: #666; /* Donkere kleur bij hover */
+        text-decoration: underline; /* Onderstreping bij hover */
     }
 
-        #chatbot-powered {
-            text-align: center;
-            font-size: 0.8em;
-            color: #888;
-            padding: 10px 0;
-            background-color: #f9f9f9; /* Een lichte achtergrondkleur om onderscheid te maken */
-            border-top: 1px solid rgba(140, 119, 219, 0.1);
-        }
-        
+        #chatbot-powered a {
+        color: inherit; /* Neemt de kleur van de ouder over */
+        text-decoration: none; /* Verwijdert de standaard onderstreping */
+        transition: color 0.3s ease; /* Voegt een overgangseffect toe voor een soepele kleurverandering */
+    }
+    
+    #chatbot-powered a:hover {
+        color: #666; /* Donkere kleur bij hover */
+        text-decoration: underline; /* Onderstreping bij hover */
+    }
+
+
         .user-message, .bot-message {
             margin: 10px 0;
             padding: 12px 18px;
@@ -551,12 +567,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
-            <div id="chatbot-powered">Powered by Chatwize</div>
+            <div id="chatbot-powered">
+                <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
+            </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+    
+
 
     var div = document.createElement('div');
     div.innerHTML = html;
