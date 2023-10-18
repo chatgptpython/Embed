@@ -119,18 +119,17 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(90deg, var(--header-color), #FFFFFF);
+    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
     color: #333;
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
-    font-size: 1.8em;    /* Vergrote tekstgrootte voor de titel */
+    font-size: 1.8em;  
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
-    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
 }
 
 
