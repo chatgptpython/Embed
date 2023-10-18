@@ -201,20 +201,21 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-          #chatbot-input textarea {
-        flex: 1;
-        padding: 10px 14px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        outline: none;
-        color: #333;
-        margin: 0 5px;
-        resize: none;
-        min-height: 28px;
-        overflow: auto;
-        font-size: 1.1em;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
+#chatbot-input textarea {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    color: #333;
+    margin: 0 2px; /* Lichtjes verminderde zijmarge */
+    resize: none;
+    min-height: 28px;
+    overflow: auto;
+    font-size: 1.1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
            #chatbot-powered {
         text-align: center;
         font-size: 0.8em;
