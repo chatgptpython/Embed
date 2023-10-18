@@ -190,32 +190,32 @@ document.addEventListener("DOMContentLoaded", function() {
         #chatbot-input button.send-icon:hover {
             transform: translateY(-50%) scale(1.1); /* Hover-effect */
         }
-
+    
     #chatbot-input {
-        padding: 0; /* Verwijder padding */
+        padding: 5px; /* Voeg een kleine padding toe voor wat ademruimte */
         display: flex;
         align-items: center;
         border-top: 1px solid rgba(140, 119, 219, 0.1);
-        background-color: transparent; /* Transparante achtergrond */
+        background-color: rgba(250, 250, 255, 0.5); /* Geef het dezelfde kleur als de achtergrond van chatbot-content */
         position: relative;
         border-radius: 10px; /* Behoud de afgeronde hoeken */
+        overflow: hidden; /* Zorgt ervoor dat niets buiten het invoerveld steekt */
     }
 
-
-        #chatbot-input textarea {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid #ddd; /* Lichtere randkleur */
-            border-radius: 10px; /* Maakt de hoeken iets ronder */
-            outline: none;
-            color: #333;
-            margin-right: 0;
-            resize: none;
-            min-height: 30px;
-            overflow: auto;
-            font-size: 1.2em;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Voegt een subtiele schaduw toe */
-        }
+       #chatbot-input textarea {
+        flex: 1;
+        padding: 10px 14px; /* Verklein de padding voor een kleiner tekstgebied */
+        border: 1px solid #ddd; 
+        border-radius: 8px; /* Aangepaste border-radius om de scherpe hoekjes te verwijderen */
+        outline: none;
+        color: #333;
+        margin: 0 5px; /* Voeg wat marge toe zodat het niet tegen de randen aankomt */
+        resize: none;
+        min-height: 28px; /* Verklein de hoogte */
+        overflow: auto;
+        font-size: 1.1em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
+    }
 
         #chatbot-powered {
             text-align: center;
