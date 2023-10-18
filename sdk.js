@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot header .subtitle {
     display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
-    font-size: 1.2em;  /* Gematigd vergrote tekstgrootte voor de ondertitel */
+    font-size: 0.9em;  /* Aanpassing voor de ondertitel */
     color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
     margin-top: 5px;
 }
@@ -152,11 +152,11 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 2em;    /* Gematigd vergrote tekstgrootte voor de titel */
+    font-size: 1.4em;    /* Aanpassing voor de titel */
 }
 
 .subtitle {
-    font-size: 1.2em; /* Gematigd vergrote tekstgrootte voor de ondertitel */
+    font-size: 0.9em; /* Aanpassing voor de ondertitel */
     margin-top: 5px;
 }
 
