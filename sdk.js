@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #888;
             margin-bottom: 5px;
         }
-
+        
 #choice-balloons {
     display: flex;
     justify-content: space-between;
@@ -324,15 +324,15 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #choice-balloons button {
-    font-size: 15px; /* Vergrote lettergrootte voor meer aanwezigheid */
-    padding: 8px 15px; /* Vergrote padding voor een grotere uitstraling */
+    font-size: 14.5px; /* Licht vergrote lettergrootte */
+    padding: 7px 14px; /* Licht vergrote padding */
     border-radius: 15px;
     border: 1px solid #999;
     background-color: #FFFFFF;
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-weight: bold; /* Maakt de tekst vetter */
+    font-weight: 600; /* Licht vetter dan normaal, maar niet te vet */
 }
 
 #ask-another-question {
