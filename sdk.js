@@ -324,14 +324,15 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #choice-balloons button {
-    font-size: 14px; /* Verkleinde lettergrootte voor een compactere uitstraling */
-    padding: 6px 12px; /* Verminderde padding om de knop kleiner te maken */
-    border-radius: 15px; /* Licht verminderde border-radius */
-    border: 1px solid #999; /* Dunne rand toegevoegd voor een professionele touch */
+    font-size: 15px; /* Vergrote lettergrootte voor meer aanwezigheid */
+    padding: 8px 15px; /* Vergrote padding voor een grotere uitstraling */
+    border-radius: 15px;
+    border: 1px solid #999;
     background-color: #FFFFFF;
     color: #333;
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* 'all' zorgt ervoor dat alle veranderingen vloeiend verlopen */
+    transition: all 0.3s ease-in-out;
+    font-weight: bold; /* Maakt de tekst vetter */
 }
 
 #ask-another-question {
@@ -349,7 +350,6 @@ document.addEventListener("DOMContentLoaded", function() {
     border-color: #666; /* Maakt de rand iets donkerder bij hover voor een subtiel effect */
 }
 
-        
     
 
         /* Om de tekst en het icoon naast elkaar te zetten */
