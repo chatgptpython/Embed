@@ -315,25 +315,24 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
         
-
 #choice-balloons {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #ffffff;
+    background-color: transparent; /* Achtergrond verwijderd */
     border-top: 1px solid rgba(140, 119, 219, 0.1);
 }
 
 #choice-balloons button {
-    font-size: 14.2px; /* Minimaal vergrote lettergrootte */
-    padding: 6.5px 13px; /* Minimaal vergrote padding */
+    font-size: 14.2px; 
+    padding: 6.5px 13px;
     border-radius: 15px;
     border: 1px solid #999;
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.8); /* Licht doorschijnende witte achtergrond voor betere leesbaarheid */
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-weight: 500; /* Slechts een tikje vetter */
+    font-weight: 500;
 }
 
 #ask-another-question {
@@ -348,10 +347,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #choice-balloons button:hover {
     opacity: 0.92;
-    border-color: #777; /* Licht aangepaste randkleur bij hover */
+    border-color: #777;
 }
 
-    
 
         /* Om de tekst en het icoon naast elkaar te zetten */
         .bot-message, .user-message {
