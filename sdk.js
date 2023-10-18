@@ -200,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
     position: relative;
 }
 
+
           #chatbot-input textarea {
         flex: 1;
         padding: 10px 14px;
