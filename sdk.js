@@ -314,21 +314,21 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #888;
             margin-bottom: 5px;
         }
-        
 #choice-balloons {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: transparent; /* Achtergrond verwijderd */
-    border-top: 1px solid rgba(140, 119, 219, 0.1);
+    background-color: transparent;
+    border-top: none; /* Verwijdert de bovenste rand */
 }
 
 #choice-balloons button {
     font-size: 14.2px; 
     padding: 6.5px 13px;
     border-radius: 15px;
-    border: 1px solid #999;
-    background-color: rgba(255, 255, 255, 0.8); /* Licht doorschijnende witte achtergrond voor betere leesbaarheid */
+    border: none; /* Verwijdert de rand */
+    outline: none; /* Verwijdert de focusrand */
+    background-color: rgba(255, 255, 255, 0.8);
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -347,7 +347,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #choice-balloons button:hover {
     opacity: 0.92;
-    border-color: #777;
 }
 
 
