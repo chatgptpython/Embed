@@ -315,6 +315,7 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
         
+
 #choice-balloons {
     display: flex;
     justify-content: space-between;
@@ -324,15 +325,15 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #choice-balloons button {
-    font-size: 14.5px; /* Licht vergrote lettergrootte */
-    padding: 7px 14px; /* Licht vergrote padding */
+    font-size: 14.2px; /* Minimaal vergrote lettergrootte */
+    padding: 6.5px 13px; /* Minimaal vergrote padding */
     border-radius: 15px;
     border: 1px solid #999;
     background-color: #FFFFFF;
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-weight: 600; /* Licht vetter dan normaal, maar niet te vet */
+    font-weight: 500; /* Slechts een tikje vetter */
 }
 
 #ask-another-question {
@@ -346,8 +347,8 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #choice-balloons button:hover {
-    opacity: 0.9;
-    border-color: #666; /* Maakt de rand iets donkerder bij hover voor een subtiel effect */
+    opacity: 0.92;
+    border-color: #777; /* Licht aangepaste randkleur bij hover */
 }
 
     
