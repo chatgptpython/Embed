@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot header .subtitle {
     display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
     font-size: 0.8em;
-    color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
+    color:  #000; /* Subtitel zwart gemaakt */
     margin-top: 5px;
 }
 
@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1em; /* Vergrote tekstgrootte voor de subtitel */
     margin-top: 5px;
 }
+
 
 
 
@@ -389,19 +390,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 36px;
+    font-size: 32px;  /* Iets kleiner gemaakt */
     margin-left: auto;
     padding: 10px;
     background-color: transparent;
-    color: #000;  /* Zwart kruisje */
+    color: #444;  /* Gemaakt tot een donkergrijze kleur voor een subtiele uitstraling */
     transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 200;  /* Maakt het kruisje nog dunner */
 }
 
 #close-chat:hover {
-    transform: rotate(90deg) scale(1.1);
-    color: rgba(0, 0, 0, 0.8);  /* Maak het kruisje lichter bij hover */
+    color: #222;  /* Donkerder bij hover voor interactie */
+    transform: scale(1.1);  /* Licht vergroot bij hover */
 }
-
 
 
 
