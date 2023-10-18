@@ -314,36 +314,40 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
-        #choice-balloons {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            border-top: 1px solid rgba(140, 119, 219, 0.1);
-        }
-        
-        #choice-balloons button {
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-        
-        #ask-another-question {
-            background-color: #4A90E2;
-            color: #FFFFFF;
-        }
-        
-        #close-chatbot {
-            background-color: #F0F3F4;
-            color: #333;
-        }
-        
-        #choice-balloons button:hover {
-            opacity: 0.9;
-        }
-        
+#choice-balloons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid rgba(140, 119, 219, 0.1);
+}
+
+#choice-balloons button {
+    font-size: 14px; /* Verkleinde lettergrootte voor een compactere uitstraling */
+    padding: 6px 12px; /* Verminderde padding om de knop kleiner te maken */
+    border-radius: 15px; /* Licht verminderde border-radius */
+    border: 1px solid #999; /* Dunne rand toegevoegd voor een professionele touch */
+    background-color: #FFFFFF;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* 'all' zorgt ervoor dat alle veranderingen vloeiend verlopen */
+}
+
+#ask-another-question {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+}
+
+#close-chatbot {
+    background-color: #F0F3F4;
+    color: #333;
+}
+
+#choice-balloons button:hover {
+    opacity: 0.9;
+    border-color: #666; /* Maakt de rand iets donkerder bij hover voor een subtiel effect */
+}
+
         
     
 
@@ -570,8 +574,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div id="chatbot-content"></div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Nog een vraag stellen</button>
-                <button id="close-chatbot">Afsluiten</button>
                 <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
+                <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
