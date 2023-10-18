@@ -142,6 +142,18 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 5px;
 }
 
+#chatbot-title {
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    align-items: start; /* align items to the start, so they won't be centered */
+}
+
+.subtitle {
+    font-size: 0.7em; /* adjust as per your need */
+    margin-top: 5px; /* give it a little space from the title */
+}
+
+
 
         
             #chatbot-content {
@@ -517,15 +529,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
+        
     // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
-                <span id="chatbot-title">
-                    <span role="img" aria-label="bot">🤖</span> 
-                    Chatproducties - Proddy
-                </span>
-                <span class="subtitle">Jouw virtuele assistent</span>  <!-- Hier voegen we de ondertitel toe -->
+                <div id="chatbot-title-container">
+                    <span id="chatbot-title">
+                        <span role="img" aria-label="bot">🤖</span> 
+                        Chatproducties - Proddy
+                    </span>
+                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+                </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
