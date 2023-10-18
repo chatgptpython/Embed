@@ -112,6 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
             opacity: 0;
         }
 
+#make-appointment {
+    background-color: #4A90E2;  /* dezelfde kleur als de 'Nog een vraag stellen' knop */
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
 #chatbot header {
     background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
     color: #333;
@@ -275,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .bot-message {
     align-self: flex-start;
     max-width: 85%;
-    background-color: #F0F3F4;  /* Hemel-lichtgrijs */
+    background-color: #FFFFFF; 
     color: #333;  /* Donkere tekst voor betere leesbaarheid */
     text-align: left;
     /* ... eventuele andere stijlen ... */
@@ -565,6 +571,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Nog een vraag stellen</button>
                 <button id="close-chatbot">Afsluiten</button>
+                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
             </div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
