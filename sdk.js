@@ -135,6 +135,14 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;   /* Vergrote marge */
 }
 
+#chatbot header .subtitle {
+    display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
+    margin-top: 5px;
+}
+
+
         
             #chatbot-content {
             flex: 1;
@@ -510,31 +518,29 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
 
-    // HTML toevoegen
-    var html = `
-        <div id="chatbot">
-            <header>
-                <span id="chatbot-title">
-                    <span role="img" aria-label="bot">🤖</span> 
-                    Chatproducties - Proddy
-                </span>
-                <span id="close-chat" onclick="closeChat()">×</span>
-            </header>
-            <div id="chatbot-content"></div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Nog een vraag stellen</button>
-                <button id="close-chatbot">Afsluiten</button>
-            </div>
-            <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
-            </div>
-            <div id="chatbot-powered">Powered by Chatwize</div>
+    <div id="chatbot">
+        <header>
+            <span id="chatbot-title">
+                <span role="img" aria-label="bot">🤖</span> 
+                Chatproducties - Proddy
+            </span>
+            <span class="subtitle">Jouw virtuele assistent</span>  <!-- Hier voegen we de ondertitel toe -->
+            <span id="close-chat" onclick="closeChat()">×</span>
+        </header>
+        <div id="chatbot-content"></div>
+        <div id="choice-balloons" style="display: none;">
+            <button id="ask-another-question">Nog een vraag stellen</button>
+            <button id="close-chatbot">Afsluiten</button>
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
-            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+        <div id="chatbot-input">
+            <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+            <button onclick="sendMessage()" class="send-icon"></button>
         </div>
-    `;
+        <div id="chatbot-powered">Powered by Chatwize</div>
+    </div>
+    <div id="chatbot-icon" onclick="toggleChat()">
+        <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+    </div>
 
 
             var div = document.createElement('div');
