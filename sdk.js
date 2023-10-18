@@ -391,23 +391,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 40px;  /* Grotere font-grootte */
+    font-size: 40px;  
     margin-left: auto;
     padding: 10px;
     background-color: transparent;
-    color: #444;  /* Gemaakt tot een donkergrijze kleur voor een subtiele uitstraling */
-    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    font-weight: 300;  /* Maakt het kruisje dunner, maar niet te dun */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Voegt een zachte schaduw toe voor diepte */
-    border-radius: 50%;  /* Maakt het kruisje rond */
+    color: #444; 
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 300; 
     line-height: 1;  /* Zorgt ervoor dat het kruisje gecentreerd blijft */
 }
 
 #close-chat:hover {
-    color: #222;  /* Donkerder bij hover voor interactie */
+    color: #222;  
     transform: scale(1.1);  /* Licht vergroot bij hover */
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);  /* Diepere schaduw bij hover */
 }
+
 
 
 .loader-container {
