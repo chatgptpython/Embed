@@ -191,16 +191,16 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: translateY(-50%) scale(1.1); /* Hover-effect */
         }
 
-        #chatbot-input {
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            border-top: 1px solid rgba(140, 119, 219, 0.1);
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Voegt een subtiele schaduw toe */
-            background-color: #ffffff;
-            position: relative;
-            border-radius: 10px; /* Maakt de hoeken iets ronder */
-        }
+    #chatbot-input {
+        padding: 0; /* Verwijder padding */
+        display: flex;
+        align-items: center;
+        border-top: 1px solid rgba(140, 119, 219, 0.1);
+        background-color: transparent; /* Transparante achtergrond */
+        position: relative;
+        border-radius: 10px; /* Behoud de afgeronde hoeken */
+    }
+
 
         #chatbot-input textarea {
             flex: 1;
