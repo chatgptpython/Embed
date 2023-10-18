@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(90deg, var(--header-color), #FFFFFF);  /* Kleurverloop van dynamische kleur naar wit */
+    background: linear-gradient(270deg, var(--header-color), #FFFFFF);  /* Kleurverloop van dynamische kleur naar wit 
     color: #333;
     padding: 20px 30px;
     text-align: left;
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot header .subtitle {
     display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
     font-size: 0.8em;
-    color:  #000; /* Subtitel zwart gemaakt */
+    color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
     margin-top: 5px;
 }
 
@@ -390,25 +390,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-chat {
     cursor: pointer;
-    font-size: 32px;  /* Iets kleiner gemaakt */
+    font-size: 40px;  /* Grotere font-grootte */
     margin-left: auto;
     padding: 10px;
     background-color: transparent;
     color: #444;  /* Gemaakt tot een donkergrijze kleur voor een subtiele uitstraling */
-    transition: color 0.3s ease, transform 0.3s ease;
-    font-weight: 200;  /* Maakt het kruisje nog dunner */
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 300;  /* Maakt het kruisje dunner, maar niet te dun */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Voegt een zachte schaduw toe voor diepte */
+    border-radius: 50%;  /* Maakt het kruisje rond */
+    line-height: 1;  /* Zorgt ervoor dat het kruisje gecentreerd blijft */
 }
 
 #close-chat:hover {
     color: #222;  /* Donkerder bij hover voor interactie */
     transform: scale(1.1);  /* Licht vergroot bij hover */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);  /* Diepere schaduw bij hover */
 }
 
-
-
-#close-chat:hover {
-    transform: rotate(90deg) scale(1.1);  /* Draai en schaal bij hover */
-}
 
 .loader-container {
     display: flex;
