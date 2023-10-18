@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
             z-index: 10000;
-            background-color: transparent;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
         }
 
               
