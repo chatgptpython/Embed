@@ -196,13 +196,11 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     align-items: center;
     border-top: none; /* Verwijder de bovenste rand */
-    background-color: transparent; /* Maak de achtergrond transparant */
+    background-color: transparent !important; /* Maak de achtergrond transparant met voorrang */
     position: relative;
 }
 
-#chatbot-input, #chatbot-input * {
-    background-color: transparent !important;
-}
+
 
 
 
