@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
+    background: linear-gradient(90deg, var(--header-color), #FFFFFF);
     color: #333;
     padding: 20px 30px;
     text-align: left;
