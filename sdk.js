@@ -119,18 +119,18 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(135deg, #ffffff, #1a237e);  /* #1a237e is een donkerblauwe metallic tint */
+    background: linear-gradient(90deg, var(--header-color), #FFFFFF);  /* Kleurverloop van dynamische kleur naar wit */
     color: #333;
-    padding: 20px 30px;   /* Vergroot padding */
+    padding: 20px 30px;
     text-align: left;
-    font-weight: 700;     /* Zwaarder lettertype */
-    font-size: 1.6em;    /* Vergrote tekstgrootte */
+    font-weight: 700;
+    font-size: 1.8em;    /* Vergrote tekstgrootte voor de titel */
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);   /* Voeg schaduw toe */
-    height: 120px;   /* Aanzienlijk vergroot in hoogte */
-    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);  /* Schuin effect aan de onderkant */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    height: 120px;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
 }
 
 
@@ -150,13 +150,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-title {
     display: flex;
-    flex-direction: column; /* stack children vertically */
-    align-items: start; /* align items to the start, so they won't be centered */
+    flex-direction: column;
+    align-items: start;
 }
 
 .subtitle {
-    font-size: 0.7em; /* adjust as per your need */
-    margin-top: 5px; /* give it a little space from the title */
+    font-size: 1em; /* Vergrote tekstgrootte voor de subtitel */
+    margin-top: 5px;
 }
 
 
@@ -392,14 +392,14 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 36px;
     margin-left: auto;
     padding: 10px;
-    background-color: transparent;  /* Geen achtergrondkleur */
-    color: white;
+    background-color: transparent;
+    color: #000;  /* Zwart kruisje */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #close-chat:hover {
-    color: rgba(255, 255, 255, 0.8);  /* Maak het kruisje lichter bij hover */
-    transform: scale(1.1);  /* Laat het kruisje iets groter worden bij hover */
+    transform: rotate(90deg) scale(1.1);
+    color: rgba(0, 0, 0, 0.8);  /* Maak het kruisje lichter bij hover */
 }
 
 
