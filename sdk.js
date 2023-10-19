@@ -151,11 +151,11 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 1.4em;    /* Aanpassing voor de titel */
+    font-size: 1.2em;    /* Verkleinde grootte voor de titel */
 }
 
 .subtitle {
-    font-size: 0.9em; /* Aanpassing voor de ondertitel */
+    font-size: 0.8em; /* Verkleinde grootte voor de ondertitel */
     margin-top: 5px;
 }
 
