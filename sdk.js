@@ -57,44 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
 
-        #notification-balloon {
-            position: fixed;
-            bottom: 60px; /* Afstand van de chatwidget op desktop */
-            right: 20px; /* Rechter marge op desktop */
-            padding: 10px 20px;
-            border-radius: 15px;
-            background-color: #4A90E2;
-            color: white;
-            max-width: 200px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-            z-index: 9997; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease; /* Voor een vloeiende overgang bij veranderingen */
-        }
-        
-        #close-notification {
-            cursor: pointer;
-            font-size: 18px;
-            margin-left: 10px;
-        }
-        
-        #notification-text {
-            white-space: nowrap;
-            overflow: hidden;
-            max-width: 160px;
-        }
-        
-        /* Responsieve stijlen voor kleinere schermen (minder dan 600px breed) */
-        @media (max-width: 600px) {
-            #notification-balloon {
-                bottom: 80px; /* Meer ruimte aan de onderkant op mobiele apparaten */
-                right: 10px; /* Kleinere rechter marge op mobiel */
-                max-width: 180px; /* Iets breder op mobiele apparaten */
-            
-        }
-
         
               #chatbot-icon img {
             width: 60%;      /* Verminder naar de gewenste breedte */
@@ -382,6 +344,27 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #888;
             margin-bottom: 5px;
         }
+
+        #chat-indicator {
+    position: fixed;
+    bottom: 90px;
+    right: 60px;
+    background-color: rgba(26, 46, 74, 0.9); /* De achtergrondkleur van de indicator */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 9995;
+    display: none; /* initieel verborgen */
+}
+
+#chat-indicator span {
+    cursor: pointer;
+    float: right;
+    margin-left: 10px;
+}
+
+
 #choice-balloons {
     display: flex;
     justify-content: space-between;
@@ -569,48 +552,44 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
         
-    // HTML toevoegen
-       var html = `
-        <div id="chatbot">
-            <header>
-                <div id="chatbot-title-container">
-                    <span id="chatbot-title">
-                        <span role="img" aria-label="bot">🤖</span> 
-                        Chatproducties - Proddy
-                    </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
-                </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
-            </header>
-            <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
-                <button id="close-chatbot">Afsluiten</button>
-            </div>
-            <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
-            </div>
-            <div id="chatbot-powered">
-                <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
-            </div>
+ // HTML toevoegen
+    var html = `
+    <header>
+        <div id="chatbot-title-container">
+            <span id="chatbot-title">
+                <span role="img" aria-label="bot">🤖</span> 
+                Chatproducties - Proddy
+            </span>
+            <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
-            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
-        </div>
-        <!-- Meldingsballon toegevoegd hier -->
-        <div id="notification-balloon">
-            <span id="notification-text">Stel hier je vraag</span>
-            <span id="close-notification" onclick="closeNotification()">×</span>
-        </div>
+        <span id="close-chat" onclick="closeChat()">×</span>
+    </header>
+    <div id="chatbot-content"></div>
+    <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <div id="choice-balloons" style="display: none;">
+        <button id="ask-another-question">Vraag stellen</button>
+        <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
+        <button id="close-chatbot">Afsluiten</button>
+    </div>
+    <div id="chatbot-input">
+        <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+        <button onclick="sendMessage()" class="send-icon"></button>
+    </div>
+    <div id="chatbot-powered">
+        <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
+    </div>
+    <div id="chat-indicator">
+        Heb je een vraag? Chat nu! 
+        <span onclick="hideChatIndicator()">×</span>
+    </div>
+    <div id="chatbot-icon" onclick="toggleChat()">
+        <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+    </div>
     `;
-
 
 
 
@@ -674,6 +653,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Oproepen wanneer de pagina laadt
     fetchAndApplyColor();
+
+        function showChatIndicator() {
+    const chatIndicator = document.getElementById("chat-indicator");
+    chatIndicator.style.display = "block";
+    
+    // Verberg automatisch na 30 seconden
+    setTimeout(() => {
+        hideChatIndicator();
+    }, 30000);
+}
+
+function hideChatIndicator() {
+    const chatIndicator = document.getElementById("chat-indicator");
+    chatIndicator.style.display = "none";
+}
+
+// Toon de chat-indicator wanneer de pagina laadt
+document.addEventListener("DOMContentLoaded", function() {
+    showChatIndicator();
+});
 
 
 async function fetchTitleMessage() {
