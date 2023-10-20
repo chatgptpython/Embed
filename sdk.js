@@ -412,46 +412,46 @@ document.addEventListener("DOMContentLoaded", function() {
 
 .loader {
     position: relative;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-    background: conic-gradient(#1a2e4a, #4A90E2, #1a2e4a);
+    width: 100px; /* Breedte van de laadbalk */
+    height: 10px; /* Hoogte van de laadbalk */
+    background: rgba(26, 46, 74, 0.2); /* Achtergrondkleur van de laadbalk, lichtere versie van de header kleur */
+    border-radius: 5px;
+    overflow: hidden; /* Verbergt het deel van de pulse buiten de laadbalk */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Voegt een zachte schaduw toe */
+    transform: scale(1);
+    animation: pulseEffect 1.5s infinite alternate; /* Animeren van de hele laadbalk */
 }
 
-.loader::before,
-.loader::after {
+.loader::before {
     content: "";
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 8px solid rgba(255, 255, 255, 0.3);
-    border-top: 8px solid #1a2e4a;  /* dezelfde kleur als de header */
-    border-radius: 50%;
-    animation: spin 1.5s linear infinite;
+    top: 0;
+    left: -50%; /* Beginpositie van de pulse */
+    width: 50%; /* Breedte van de pulse */
+    height: 100%;
+    background: linear-gradient(90deg, rgba(26, 46, 74, 0.5), #1a2e4a); /* Gradient effect voor de pulse */
+    animation: loading 1.5s infinite;
 }
 
-.loader::after {
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    animation-direction: reverse;
-    border-color: rgba(255, 255, 255, 0.2);
-    border-top-color: rgba(26, 46, 74, 0.5);  /* lichtere versie van de header kleur */
+@keyframes loading {
+    0% {
+        left: -50%;
+    }
+    50% {
+        left: 150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+@keyframes pulseEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
 }
 
 
