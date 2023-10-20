@@ -752,7 +752,7 @@ initializeChat();
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Klik hier om te chatten lalalalalallalalalalalalalalalalalalalalalal";
+    const messageText = "Stel hier je vraag!";
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
