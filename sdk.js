@@ -118,6 +118,36 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-left: 10px;
 }
 
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    animation: pulse 1.4s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
 #chatbot header {
     background: linear-gradient(90deg, #FFFFFF, var(--header-color));
     color: #333;
@@ -404,58 +434,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-  @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.3); }
-    }
-
-    .loader-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px 0; /* Aanpassing van de marges */
-    }
-
-    .loader {
-        position: relative;
-        width: 70px; /* Aanpassing van de breedte */
-        height: 70px; /* Aanpassing van de hoogte */
-        border-radius: 50%;
-        animation: pulse 1.4s infinite;
-        animation-timing-function: ease-in-out;
-        background-color: transparent; /* Zorg ervoor dat de achtergrond transparant is */
-    }
-
-    .loader::before,
-    .loader::after {
-        content: "";
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        border: 8px solid rgba(255, 255, 255, 0.3);
-        border-top: 8px solid #1a2e4a; /* Dezelfde kleur als de header */
-        border-radius: 50%;
-        animation: spin 1.5s linear infinite;
-    }
-
-    .loader::after {
-        top: -8px;
-        left: -8px;
-        right: -8px;
-        bottom: -8px;
-        animation-direction: reverse;
-        border-color: rgba(255, 255, 255, 0.2);
-        border-top-color: rgba(26, 46, 74, 0.5); /* Lichtere versie van de headerkleur */
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-
  @media (max-width: 768px) {
         #chatbot {
             width: 100%;
@@ -567,6 +545,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
+            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Nog een vraag stellen</button>
                 <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
@@ -584,7 +567,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-    
+
 
 
     var div = document.createElement('div');
