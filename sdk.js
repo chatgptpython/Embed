@@ -403,31 +403,43 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Licht vergroot bij hover */
 }
 
-@keyframes loading {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
 .loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
-    width: 120px;
-    position: relative;
-    overflow: hidden; 
 }
 
 .loader {
-    display: inline-block;
-    width: 100%;
+    position: relative;
+    width: 100px; /* Breedte van de laadbalk */
+    height: 10px; /* Hoogte van de laadbalk */
+    background: rgba(26, 46, 74, 0.2); /* Achtergrondkleur van de laadbalk, lichtere versie van de header kleur */
+    border-radius: 5px;
+    overflow: hidden; /* Verbergt het deel van de pulse buiten de laadbalk */
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%; /* Beginpositie van de pulse */
+    width: 50%; /* Breedte van de pulse */
     height: 100%;
-    background: linear-gradient(to right, transparent, #1a2e4a, transparent); /* kleur van het laad balkje */
-    animation: loading 1.5s infinite; /* animatie toepassen */
+    background: #1a2e4a; /* dezelfde kleur als de header */
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -50%;
+    }
+    50% {
+        left: 150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
  @media (max-width: 768px) {
