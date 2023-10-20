@@ -412,24 +412,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 .loader {
     position: relative;
-    width: 100px; /* Breedte van de laadbalk */
-    height: 10px; /* Hoogte van de laadbalk */
-    background: rgba(26, 46, 74, 0.2); /* Achtergrondkleur van de laadbalk, lichtere versie van de header kleur */
-    border-radius: 5px;
-    overflow: hidden; /* Verbergt het deel van de pulse buiten de laadbalk */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Voegt een zachte schaduw toe */
+    width: 100px;
+    height: 10px;
+    background: rgba(26, 46, 74, 0.2);
+    border-radius: 10px; /* Rondere randen */
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     transform: scale(1);
-    animation: pulseEffect 1.5s infinite alternate; /* Animeren van de hele laadbalk */
+    animation: pulseEffect 1.5s infinite alternate, shadowEffect 1.5s infinite alternate; /* Extra animatie voor schaduw */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transitie voor hover effect */
+}
+
+.loader:hover {
+    transform: scale(1.1); /* Zweefeffect */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Duidelijkere schaduw bij hover */
 }
 
 .loader::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -50%; /* Beginpositie van de pulse */
-    width: 50%; /* Breedte van de pulse */
+    left: -50%;
+    width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(26, 46, 74, 0.5), #1a2e4a); /* Gradient effect voor de pulse */
+    background: linear-gradient(90deg, rgba(26, 46, 74, 0.6), #1a2e4a, rgba(26, 46, 74, 0.6)); /* Zachtere gradient */
     animation: loading 1.5s infinite;
 }
 
@@ -453,6 +459,16 @@ document.addEventListener("DOMContentLoaded", function() {
         transform: scale(1.05);
     }
 }
+
+@keyframes shadowEffect {
+    0% {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
 
 
 
