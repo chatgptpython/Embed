@@ -412,47 +412,45 @@ document.addEventListener("DOMContentLoaded", function() {
     margin: 20px 0;
 }
 
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
 .loader {
     position: relative;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+    width: 100px; /* Breedte van de laadbalk */
+    height: 10px; /* Hoogte van de laadbalk */
+    background: rgba(26, 46, 74, 0.2); /* Achtergrondkleur van de laadbalk, lichtere versie van de header kleur */
+    border-radius: 5px;
+    overflow: hidden; /* Verbergt het deel van de pulse buiten de laadbalk */
 }
 
-.loader::before,
-.loader::after {
+.loader::before {
     content: "";
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 8px solid rgba(255, 255, 255, 0.3);
-    border-top: 8px solid #1a2e4a;  /* dezelfde kleur als de header */
-    border-radius: 50%;
-    animation: spin 1.5s linear infinite;
+    top: 0;
+    left: -50%; /* Beginpositie van de pulse */
+    width: 50%; /* Breedte van de pulse */
+    height: 100%;
+    background: #1a2e4a; /* dezelfde kleur als de header */
+    animation: loading 1.5s infinite;
 }
 
-.loader::after {
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    animation-direction: reverse;
-    border-color: rgba(255, 255, 255, 0.2);
-    border-top-color: rgba(26, 46, 74, 0.5);  /* lichtere versie van de header kleur */
+@keyframes loading {
+    0% {
+        left: -50%;
+    }
+    50% {
+        left: 150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
 }
 
 
@@ -596,7 +594,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
- window.typeWelcomeMessage = async function() {
+function scrollToLatestMessage() {
+    chatContent.scrollTop = chatContent.scrollHeight;
+}
+
+window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
@@ -614,7 +616,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index < messageText.length) {
             messageElem.textContent += messageText[index];
             index++;
-            chatContent.scrollTop = chatContent.scrollHeight;
+            scrollToLatestMessage();
         } else {
             clearInterval(typingInterval);
         }
