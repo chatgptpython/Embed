@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: -20px;
+    top: -25px; /* Vergroot de afstand tussen het kruisje en de tekst */
     right: 0;
     background-color: #ffffff;
     color: #000000;
@@ -199,7 +199,14 @@ document.addEventListener("DOMContentLoaded", function() {
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 9996; /* Zorg ervoor dat het kruisje boven de tekst staat */
+    font-weight: bold; /* Maakt het kruisje iets dikker */
+    transition: background-color 0.3s ease; /* Voegt een soepele overgang toe */
 }
+
+#chatbot-text-close:hover {
+    background-color: #f0f0f0; /* Een lichtgrijze achtergrond bij hover */
+}
+
 
 
 
