@@ -402,6 +402,16 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #222;  
     transform: scale(1.1);  /* Licht vergroot bij hover */
 }
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 .loader-container {
     display: flex;
     justify-content: center;
@@ -413,27 +423,12 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 .loader {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #1a2e4a;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: bounce 1.5s infinite alternate;
-    box-shadow: 0 0 10px rgba(26, 46, 74, 0.3);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #1a2e4a, transparent); /* kleur van het laad balkje */
+    animation: loading 1.5s infinite; /* animatie toepassen */
 }
-
-@keyframes bounce {
-    0% {
-        left: 0;
-    }
-    100% {
-        left: 100px;
-    }
-}
-
-
 
  @media (max-width: 768px) {
         #chatbot {
