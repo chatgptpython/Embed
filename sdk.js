@@ -402,7 +402,6 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #222;  
     transform: scale(1.1);  /* Licht vergroot bij hover */
 }
-
 .loader-container {
     display: flex;
     justify-content: center;
@@ -412,60 +411,60 @@ document.addEventListener("DOMContentLoaded", function() {
 
 .loader {
     position: relative;
-    width: 100px;
-    height: 10px;
-    background: rgba(26, 46, 74, 0.2);
-    border-radius: 10px; /* Rondere randen */
+    width: 300px;
+    height: 20px;
+    background: rgba(173, 216, 230, 0.2); /* Lichtblauwe achtergrondkleur */
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    transform: scale(1);
-    animation: pulseEffect 1.5s infinite alternate, shadowEffect 1.5s infinite alternate; /* Extra animatie voor schaduw */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transitie voor hover effect */
+    box-shadow: 0px 0px 20px rgba(135, 206, 235, 0.1); /* Lichtblauwe schaduw */
 }
 
-.loader:hover {
-    transform: scale(1.1); /* Zweefeffect */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Duidelijkere schaduw bij hover */
+.loader::before, .loader::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(100, 149, 237, 0.5),  /* CornflowerBlue */
+      rgba(100, 149, 237, 0.5) 10px,
+      #1E90FF 10px,  /* DodgerBlue */
+      #1E90FF 20px
+    );
 }
 
 .loader::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(26, 46, 74, 0.6), #1a2e4a, rgba(26, 46, 74, 0.6)); /* Zachtere gradient */
-    animation: loading 1.5s infinite;
+    animation: wave 3s infinite, slide 1.5s infinite;
 }
 
-@keyframes loading {
+.loader::after {
+    animation: wave 3s infinite reverse, slide 1.5s infinite reverse 0.5s;
+    opacity: 0.6;
+}
+
+@keyframes wave {
     0% {
-        left: -50%;
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide {
+    0% {
+        left: -150%;
     }
     50% {
         left: 150%;
     }
     100% {
         left: 150%;
-    }
-}
-
-@keyframes pulseEffect {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.05);
-    }
-}
-
-@keyframes shadowEffect {
-    0% {
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    100% {
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     }
 }
 
