@@ -57,6 +57,44 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
 
+        #notification-balloon {
+            position: fixed;
+            bottom: 60px; /* Afstand van de chatwidget op desktop */
+            right: 20px; /* Rechter marge op desktop */
+            padding: 10px 20px;
+            border-radius: 15px;
+            background-color: #4A90E2;
+            color: white;
+            max-width: 200px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            z-index: 9997; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease; /* Voor een vloeiende overgang bij veranderingen */
+        }
+        
+        #close-notification {
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        
+        #notification-text {
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 160px;
+        }
+        
+        /* Responsieve stijlen voor kleinere schermen (minder dan 600px breed) */
+        @media (max-width: 600px) {
+            #notification-balloon {
+                bottom: 80px; /* Meer ruimte aan de onderkant op mobiele apparaten */
+                right: 10px; /* Kleinere rechter marge op mobiel */
+                max-width: 180px; /* Iets breder op mobiele apparaten */
+            
+        }
+
         
               #chatbot-icon img {
             width: 60%;      /* Verminder naar de gewenste breedte */
@@ -532,7 +570,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
     // HTML toevoegen
-    var html = `
+       var html = `
         <div id="chatbot">
             <header>
                 <div id="chatbot-title-container">
@@ -566,7 +604,13 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
+        <!-- Meldingsballon toegevoegd hier -->
+        <div id="notification-balloon">
+            <span id="notification-text">Stel hier je vraag</span>
+            <span id="close-notification" onclick="closeNotification()">×</span>
+        </div>
     `;
+
 
 
 
