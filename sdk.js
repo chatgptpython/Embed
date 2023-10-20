@@ -588,13 +588,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
-        <div id="chatbot-text">Klik hier om te chatten</div>
+        <div id="chatbot-text">
+            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
+            Klik hier om te chatten
+        </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-
-
+    
 
     var div = document.createElement('div');
     div.innerHTML = html;
