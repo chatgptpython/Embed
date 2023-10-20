@@ -164,25 +164,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text {
     position: fixed;
-    bottom: 100px; /* Een beetje ruimte van de chatwidget */
+    bottom: 105px; /* Iets meer afstand van de chatwidget */
     right: 30px;
-    font-size: 15px;
-    background-color: #ffffff; /* Zuiver witte achtergrond */
-    color: #000000; /* Zuiver zwarte tekst */
-    padding: 8px 12px; /* Een beetje meer padding voor een ruimer gevoel */
-    border-radius: 15px; /* Verhoogde ronding voor een moderner gevoel */
+    font-size: 16px;
+    background: linear-gradient(145deg, #f6f7fa, #e1e5eb); /* Gradient achtergrond */
+    color: #000;
+    padding: 10px 15px; 
+    border-radius: 20px; /* Meer afgeronde hoeken */
     text-align: center;
     z-index: 9995;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Voeg een overgang toe voor zowel de opacity als de transform */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Zachtere, grotere schaduw voor een zwevend effect */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Een subtiele rand toevoegen */
-    letter-spacing: 0.5px; /* Wat ruimte tussen de letters voor betere leesbaarheid */
-    font-weight: 500; /* Halve vetgedrukt voor een beter onderscheid */
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Diepere schaduw */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Zeer subtiele rand */
+    letter-spacing: 0.7px;
+    font-weight: 600; /* Vetgedrukt */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Tekstschaduw voor scherpte */
 }
 
 #chatbot-text:hover {
-    transform: translateY(-3px); /* Een klein "lift" effect wanneer erover gehoverd wordt */
+    transform: translateY(-5px) scale(1.02); /* Verhoogd "lift" effect en lichte schaalvergroting */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); /* Diepere schaduw bij hover */
+    background: linear-gradient(135deg, #e1e5eb, #f6f7fa); /* Omgedraaide gradient voor een glanzend effect */
 }
+
 
 
 #chatbot header img {
