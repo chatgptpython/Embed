@@ -407,58 +407,31 @@ document.addEventListener("DOMContentLoaded", function() {
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+    width: 120px;
+    position: relative;
+    overflow: hidden; 
 }
 
 .loader {
-    position: relative;
-    width: 300px;
-    height: 20px;
-    background: rgba(173, 216, 230, 0.2); /* Lichtblauwe achtergrondkleur */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 0px 20px rgba(135, 206, 235, 0.1); /* Lichtblauwe schaduw */
-}
-
-.loader::before, .loader::after {
-    content: "";
     position: absolute;
-    top: -25%;
-    left: -100%;
-    width: 200%;
-    height: 150%;
-    background: rgba(100, 149, 237, 0.5);  /* CornflowerBlue */
+    width: 20px;
+    height: 20px;
+    background-color: #1a2e4a;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: bounce 1.5s infinite alternate;
+    box-shadow: 0 0 10px rgba(26, 46, 74, 0.3);
 }
 
-.loader::before {
-    animation: wave 7s infinite, slide 4s infinite;
-}
-
-.loader::after {
-    animation: wave 7s infinite reverse, slide 4s infinite reverse 2s;
-    opacity: 0.6;
-}
-
-@keyframes wave {
+@keyframes bounce {
     0% {
-        transform: rotate(0);
-    }
-    50% {
-        transform: rotate(7deg);
+        left: 0;
     }
     100% {
-        transform: rotate(0);
+        left: 100px;
     }
 }
-
-@keyframes slide {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
 
 
 
