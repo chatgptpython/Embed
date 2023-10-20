@@ -749,9 +749,10 @@ window.toggleChat = function() {
 // Aanroepen wanneer de pagina laadt
 initializeChat();
 
+// Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Klik hier om te chatten";
+    const messageText = "Klik hier om te chatten lalalalalallalalalalalalalalalalalalalalalal";
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -763,8 +764,9 @@ function typeChatTextMessage() {
     }, 50);
 }
 
-// Aanroepen wanneer de pagina laadt
-typeChatTextMessage();
+// Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
+setTimeout(typeChatTextMessage, 3000);
+
 
 
 window.closeChatText = function() {
