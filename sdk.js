@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: -15px;
+    top: -20px;
     right: 0;
     background-color: #ffffff;
     color: #000000;
@@ -740,6 +740,12 @@ window.toggleChat = function() {
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
+
+window.closeChatText = function() {
+    const chatText = document.getElementById("chatbot-text");
+    chatText.style.display = "none";  // Verberg de chattekst
+};
+
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
