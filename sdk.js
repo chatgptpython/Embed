@@ -551,7 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="dot"></div>
             </div>
             <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Nog een vraag stellen</button>
+                <button id="ask-another-question">Vraag stellen</button>
                 <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
                 <button id="close-chatbot">Afsluiten</button>
             </div>
