@@ -690,6 +690,16 @@ async function initializeChat() {
     }
 }
 
+
+window.hideChatIndicator = function() {
+    const chatIndicator = document.getElementById("chat-indicator");
+    chatIndicator.style.display = "none";
+};
+
+window.showChatIndicator = function() {
+    const chatIndicator = document.getElementById("chat-indicator");
+    chatIndicator.style.display = "block";
+};
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
@@ -715,6 +725,21 @@ window.toggleChat = function() {
         icon.classList.remove('cross');
     }
 };
+
+        // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
+const chatbotStatus = localStorage.getItem("chatbotStatus");
+
+if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
+    setTimeout(async function() {
+        await fetchTitleMessage();
+        toggleChat();
+        
+        // Markeer de chatbot als geopend in localStorage
+        localStorage.setItem("chatbotStatus", "geopend");
+    }, 3000);
+} else {
+    showChatIndicator();
+}
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
