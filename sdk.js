@@ -164,16 +164,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text {
     position: fixed;
-    bottom: 90px; /* Je moet de exacte positie aanpassen zodat deze goed boven de chatwidget staat */
+    bottom: 100px; /* Een beetje ruimte van de chatwidget */
     right: 30px;
-    font-size: 14px;
-    background-color: #1a2e4a; /* Dezelfde kleur als je chatwidget-icoon voor consistentie */
-    color: #fff; /* Witte tekst */
-    padding: 5px 10px;
-    border-radius: 5px;
+    font-size: 15px;
+    background-color: #ffffff; /* Zuiver witte achtergrond */
+    color: #000000; /* Zuiver zwarte tekst */
+    padding: 8px 12px; /* Een beetje meer padding voor een ruimer gevoel */
+    border-radius: 15px; /* Verhoogde ronding voor een moderner gevoel */
     text-align: center;
-    z-index: 9995; /* Een z-index net onder de chatwidget zodat het erachter zit */
-    transition: opacity 0.3s ease; /* Voeg een overgang toe voor een soepel fade-effect */
+    z-index: 9995;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Voeg een overgang toe voor zowel de opacity als de transform */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Zachtere, grotere schaduw voor een zwevend effect */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Een subtiele rand toevoegen */
+    letter-spacing: 0.5px; /* Wat ruimte tussen de letters voor betere leesbaarheid */
+    font-weight: 500; /* Halve vetgedrukt voor een beter onderscheid */
+}
+
+#chatbot-text:hover {
+    transform: translateY(-3px); /* Een klein "lift" effect wanneer erover gehoverd wordt */
 }
 
 
