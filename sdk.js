@@ -422,25 +422,19 @@ document.addEventListener("DOMContentLoaded", function() {
 .loader::before, .loader::after {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -150%;
+    top: -25%;
+    left: -100%;
     width: 200%;
-    height: 200%;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(100, 149, 237, 0.5),  /* CornflowerBlue */
-      rgba(100, 149, 237, 0.5) 10px,
-      #1E90FF 10px,  /* DodgerBlue */
-      #1E90FF 20px
-    );
+    height: 150%;
+    background: rgba(100, 149, 237, 0.5);  /* CornflowerBlue */
 }
 
 .loader::before {
-    animation: wave 3s infinite, slide 1.5s infinite;
+    animation: wave 7s infinite, slide 4s infinite;
 }
 
 .loader::after {
-    animation: wave 3s infinite reverse, slide 1.5s infinite reverse 0.5s;
+    animation: wave 7s infinite reverse, slide 4s infinite reverse 2s;
     opacity: 0.6;
 }
 
@@ -449,25 +443,21 @@ document.addEventListener("DOMContentLoaded", function() {
         transform: rotate(0);
     }
     50% {
-        transform: rotate(180deg);
+        transform: rotate(7deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(0);
     }
 }
 
 @keyframes slide {
     0% {
-        left: -150%;
-    }
-    50% {
-        left: 150%;
+        left: -100%;
     }
     100% {
-        left: 150%;
+        left: 100%;
     }
 }
-
 
 
 
