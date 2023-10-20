@@ -740,7 +740,8 @@ window.closeChat = function() {
             chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
     
             // Voeg de professionele laadbalk toe
-            chatContent.innerHTML += '<div class="loader-container"><div class="loader"></div></div>';
+            chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+
     
             // Automatisch scrollen naar het laatst toegevoegde bericht
             chatContent.scrollTop = chatContent.scrollHeight;
