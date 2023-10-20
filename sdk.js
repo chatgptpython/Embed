@@ -344,27 +344,6 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #888;
             margin-bottom: 5px;
         }
-
-        #chat-indicator {
-    position: fixed;
-    bottom: 90px;
-    right: 60px;
-    background-color: rgba(26, 46, 74, 0.9); /* De achtergrondkleur van de indicator */
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    z-index: 9995;
-    display: none; /* initieel verborgen */
-}
-
-#chat-indicator span {
-    cursor: pointer;
-    float: right;
-    margin-left: 10px;
-}
-
-
 #choice-balloons {
     display: flex;
     justify-content: space-between;
@@ -551,47 +530,43 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-
-        // HTML toevoegen
-var html = `
-<div id="chat-indicator">
-    Heb je een vraag? Chat nu! 
-    <span onclick="hideChatIndicator()">×</span>
-</div>
-<div id="chatbot">
-    <header>
-        <div id="chatbot-title-container">
-            <span id="chatbot-title">
-                <span role="img" aria-label="bot">🤖</span> 
-                Chatproducties - Proddy
-            </span>
-            <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+        
+    // HTML toevoegen
+    var html = `
+        <div id="chatbot">
+            <header>
+                <div id="chatbot-title-container">
+                    <span id="chatbot-title">
+                        <span role="img" aria-label="bot">🤖</span> 
+                        Chatproducties - Proddy
+                    </span>
+                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+                </div>
+                <span id="close-chat" onclick="closeChat()">×</span>
+            </header>
+            <div id="chatbot-content"></div>
+            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div id="choice-balloons" style="display: none;">
+                <button id="ask-another-question">Vraag stellen</button>
+                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
+                <button id="close-chatbot">Afsluiten</button>
+            </div>
+            <div id="chatbot-input">
+                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+                <button onclick="sendMessage()" class="send-icon"></button>
+            </div>
+            <div id="chatbot-powered">
+                <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
+            </div>
         </div>
-        <span id="close-chat" onclick="closeChat()">×</span>
-    </header>
-    <div id="chatbot-content"></div>
-    <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
-    <div id="choice-balloons" style="display: none;">
-        <button id="ask-another-question">Vraag stellen</button>
-        <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
-        <button id="close-chatbot">Afsluiten</button>
-    </div>
-    <div id="chatbot-input">
-        <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-        <button onclick="sendMessage()" class="send-icon"></button>
-    </div>
-    <div id="chatbot-powered">
-        <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
-    </div>
-</div>
-<div id="chatbot-icon" onclick="toggleChat()">
-    <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
-</div>
-`;
+        <div id="chatbot-icon" onclick="toggleChat()">
+            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+        </div>
+    `;
 
 
 
@@ -690,16 +665,6 @@ async function initializeChat() {
     }
 }
 
-
-window.hideChatIndicator = function() {
-    const chatIndicator = document.getElementById("chat-indicator");
-    chatIndicator.style.display = "none";
-};
-
-window.showChatIndicator = function() {
-    const chatIndicator = document.getElementById("chat-indicator");
-    chatIndicator.style.display = "block";
-};
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
@@ -725,21 +690,6 @@ window.toggleChat = function() {
         icon.classList.remove('cross');
     }
 };
-
-        // Controleer of de chatbot al eerder is geopend (gebruik localStorage als voorbeeld)
-const chatbotStatus = localStorage.getItem("chatbotStatus");
-
-if (window.innerWidth > 768 && chatbotStatus !== "geopend") {
-    setTimeout(async function() {
-        await fetchTitleMessage();
-        toggleChat();
-        
-        // Markeer de chatbot als geopend in localStorage
-        localStorage.setItem("chatbotStatus", "geopend");
-    }, 3000);
-} else {
-    showChatIndicator();
-}
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
