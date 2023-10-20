@@ -162,6 +162,19 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 120px;
 }
 
+#chatbot-text {
+    position: fixed;
+    bottom: 90px; /* Je moet de exacte positie aanpassen zodat deze goed boven de chatwidget staat */
+    right: 30px;
+    font-size: 14px;
+    background-color: #1a2e4a; /* Dezelfde kleur als je chatwidget-icoon voor consistentie */
+    color: #fff; /* Witte tekst */
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 9995; /* Een z-index net onder de chatwidget zodat het erachter zit */
+    transition: opacity 0.3s ease; /* Voeg een overgang toe voor een soepel fade-effect */
+}
 
 
 #chatbot header img {
@@ -560,9 +573,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
-                <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
+                <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
+        <div id="chatbot-text">Klik hier om te chatten</div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
@@ -669,6 +683,7 @@ async function initializeChat() {
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
+    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
 
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
         document.querySelector("#chatbot-title").innerText = cachedTitle;
@@ -677,6 +692,8 @@ window.toggleChat = function() {
             firstTimeOpen = false;
         }
         chatbot.style.display = "flex";
+        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
+
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
@@ -688,8 +705,10 @@ window.toggleChat = function() {
             chatbot.style.display = "none";
         }, 500);
         icon.classList.remove('cross');
+        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
     }
 };
+
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
