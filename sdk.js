@@ -551,9 +551,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-        
- // HTML toevoegen
-    var html = `
+
+        // HTML toevoegen
+var html = `
+<div id="chat-indicator">
+    Heb je een vraag? Chat nu! 
+    <span onclick="hideChatIndicator()">×</span>
+</div>
+<div id="chatbot">
     <header>
         <div id="chatbot-title-container">
             <span id="chatbot-title">
@@ -582,14 +587,11 @@ document.addEventListener("DOMContentLoaded", function() {
     <div id="chatbot-powered">
         <a href="https://www.chatwize.com" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
     </div>
-    <div id="chat-indicator">
-        Heb je een vraag? Chat nu! 
-        <span onclick="hideChatIndicator()">×</span>
-    </div>
-    <div id="chatbot-icon" onclick="toggleChat()">
-        <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
-    </div>
-    `;
+</div>
+<div id="chatbot-icon" onclick="toggleChat()">
+    <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+</div>
+`;
 
 
 
