@@ -407,40 +407,42 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin-top: 10px;
 }
 
-.loader {
-    position: relative;
-    width: 100px; /* Breedte van de laadbalk */
-    height: 10px; /* Hoogte van de laadbalk */
-    background: rgba(26, 46, 74, 0.2); /* Achtergrondkleur van de laadbalk, lichtere versie van de header kleur */
-    border-radius: 5px;
-    overflow: hidden; /* Verbergt het deel van de pulse buiten de laadbalk */
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #333;  /* Kleur van de dot. Je kunt deze aanpassen naar wens. */
+    border-radius: 50%;      /* Maakt de dot rond. */
+    animation: dotBounce 1.2s infinite ease-in-out;
 }
 
-.loader::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -50%; /* Beginpositie van de pulse */
-    width: 50%; /* Breedte van de pulse */
-    height: 100%;
-    background: #1a2e4a; /* dezelfde kleur als de header */
-    animation: loading 1.5s infinite;
+.dot:nth-child(1) {
+    animation-delay: 0.2s;
 }
 
-@keyframes loading {
-    0% {
-        left: -50%;
+.dot:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes dotBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
     }
-    50% {
-        left: 150%;
+    40% {
+        transform: translateY(-10px);
     }
-    100% {
-        left: 150%;
+    60% {
+        transform: translateY(-5px);
     }
 }
+
 
  @media (max-width: 768px) {
         #chatbot {
@@ -552,6 +554,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
+
+            <!-- Toegevoegde loader -->
+            <div class="loader-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
             <div id="chatbot-content"></div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Nog een vraag stellen</button>
@@ -748,7 +758,7 @@ window.closeChat = function() {
     
             // Voeg de professionele laadbalk toe
             chatContent.innerHTML += '<div class="loader-container"><div class="loader"></div></div>';
-    
+
             // Automatisch scrollen naar het laatst toegevoegde bericht
             chatContent.scrollTop = chatContent.scrollHeight;
     
