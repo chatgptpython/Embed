@@ -403,45 +403,60 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Licht vergroot bij hover */
 }
 
+
+
+/* Plak de nieuwe CSS-code hieronder */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
 .loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin: 20px 0; /* Aanpassing van de marges */
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #333;  /* Kleur van de dot. Je kunt deze aanpassen naar wens. */
-    border-radius: 50%;      /* Maakt de dot rond. */
-    animation: dotBounce 1.2s infinite ease-in-out;
+.loader {
+    position: relative;
+    width: 70px; /* Aanpassing van de breedte */
+    height: 70px; /* Aanpassing van de hoogte */
+    border-radius: 50%;
+    animation: pulse 1.4s infinite;
+    animation-timing-function: ease-in-out;
+    background-color: transparent; /* Zorg ervoor dat de achtergrond transparant is */
 }
 
-.dot:nth-child(1) {
-    animation-delay: 0.2s;
+.loader::before,
+.loader::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #1a2e4a; /* Dezelfde kleur als de header */
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
 }
 
-.dot:nth-child(2) {
-    animation-delay: 0.4s;
+.loader::after {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    animation-direction: reverse;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-top-color: rgba(26, 46, 74, 0.5); /* Lichtere versie van de headerkleur */
 }
 
-.dot:nth-child(3) {
-    animation-delay: 0.6s;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-@keyframes dotBounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
 
 
  @media (max-width: 768px) {
@@ -554,14 +569,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
-
-            <!-- Toegevoegde loader -->
-            <div class="loader-container">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-
             <div id="chatbot-content"></div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Nog een vraag stellen</button>
@@ -591,11 +598,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-function scrollToLatestMessage() {
-    chatContent.scrollTop = chatContent.scrollHeight;
-}
-
-window.typeWelcomeMessage = async function() {
+ window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
@@ -613,7 +616,7 @@ window.typeWelcomeMessage = async function() {
         if (index < messageText.length) {
             messageElem.textContent += messageText[index];
             index++;
-            scrollToLatestMessage();
+            chatContent.scrollTop = chatContent.scrollHeight;
         } else {
             clearInterval(typingInterval);
         }
@@ -758,7 +761,7 @@ window.closeChat = function() {
     
             // Voeg de professionele laadbalk toe
             chatContent.innerHTML += '<div class="loader-container"><div class="loader"></div></div>';
-
+    
             // Automatisch scrollen naar het laatst toegevoegde bericht
             chatContent.scrollTop = chatContent.scrollHeight;
     
@@ -897,5 +900,3 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
-
