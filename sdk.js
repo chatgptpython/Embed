@@ -186,25 +186,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: -25px; /* Vergroot de afstand tussen het kruisje en de tekst */
-    right: 0;
+    top: -30px; /* Meer ruimte tussen het kruisje en de tekst */
+    right: -5px; /* Iets naar rechts verplaatst voor een betere uitlijning */
     background-color: #ffffff;
     color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 25px; /* Groter kruisje */
+    height: 25px; /* Groter kruisje */
     text-align: center;
-    line-height: 18px;
+    line-height: 23px; /* Aangepast om het kruisje in het midden van de cirkel te plaatsen */
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 9996; /* Zorg ervoor dat het kruisje boven de tekst staat */
-    font-weight: bold; /* Maakt het kruisje iets dikker */
-    transition: background-color 0.3s ease; /* Voegt een soepele overgang toe */
+    z-index: 9996; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease; 
 }
 
 #chatbot-text-close:hover {
-    background-color: #f0f0f0; /* Een lichtgrijze achtergrond bij hover */
+    background-color: #f0f0f0; 
 }
 
 
@@ -610,8 +610,8 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-text">
+            <span id="chatbot-text-content"></span>
             <span id="chatbot-text-close" onclick="closeChatText()">×</span>
-            Klik hier om te chatten
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
@@ -715,6 +715,7 @@ async function initializeChat() {
 }
 
         
+        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -747,6 +748,24 @@ window.toggleChat = function() {
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
+
+function typeChatTextMessage() {
+    const chatTextContent = document.getElementById("chatbot-text-content");
+    const messageText = "Klik hier om te chatten";
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            chatTextContent.textContent += messageText[index];
+            index++;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 50);
+}
+
+// Aanroepen wanneer de pagina laadt
+typeChatTextMessage();
+
 
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
