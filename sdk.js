@@ -164,27 +164,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text {
     position: fixed;
-    bottom: 105px; /* Iets meer afstand van de chatwidget */
+    bottom: 100px;
     right: 30px;
-    font-size: 16px;
-    background: linear-gradient(145deg, #f6f7fa, #e1e5eb); /* Gradient achtergrond */
-    color: #000;
-    padding: 10px 15px; 
-    border-radius: 20px; /* Meer afgeronde hoeken */
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 12px;
+    border-radius: 15px;
     text-align: center;
     z-index: 9995;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Diepere schaduw */
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Zeer subtiele rand */
-    letter-spacing: 0.7px;
-    font-weight: 600; /* Vetgedrukt */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Tekstschaduw voor scherpte */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 #chatbot-text:hover {
-    transform: translateY(-5px) scale(1.02); /* Verhoogd "lift" effect en lichte schaalvergroting */
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); /* Diepere schaduw bij hover */
-    background: linear-gradient(135deg, #e1e5eb, #f6f7fa); /* Omgedraaide gradient voor een glanzend effect */
+    transform: translateY(-3px);
+}
+
+#chatbot-text-close {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9996; /* Zorg ervoor dat het kruisje boven de tekst staat */
 }
 
 
