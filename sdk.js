@@ -654,26 +654,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Oproepen wanneer de pagina laadt
     fetchAndApplyColor();
 
-        function showChatIndicator() {
-    const chatIndicator = document.getElementById("chat-indicator");
-    chatIndicator.style.display = "block";
-    
-    // Verberg automatisch na 30 seconden
-    setTimeout(() => {
-        hideChatIndicator();
-    }, 30000);
-}
-
-function hideChatIndicator() {
-    const chatIndicator = document.getElementById("chat-indicator");
-    chatIndicator.style.display = "none";
-}
-
-// Toon de chat-indicator wanneer de pagina laadt
-document.addEventListener("DOMContentLoaded", function() {
-    showChatIndicator();
-});
-
 
 async function fetchTitleMessage() {
     try {
