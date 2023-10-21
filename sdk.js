@@ -746,6 +746,19 @@ window.toggleChat = function() {
 // Aanroepen wanneer de pagina laadt
 initializeChat();
         
+function adjustCloseButtonPosition() {
+    const chatText = document.getElementById("chatbot-text-content");
+    const closeButton = document.getElementById("close-text-chat");
+
+    if (chatText && closeButton) {
+        // Haal de huidige hoogte van het chattekstvenster op
+        const chatTextHeight = chatText.offsetHeight;
+        
+        // Plaats de sluitknop bovenaan het chattekstvenster
+        closeButton.style.top = `${chatTextHeight}px`;
+    }
+}
+
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
     const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Stel hier je vraag!";
@@ -778,6 +791,7 @@ window.closeTextChat = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";
 }
+
         
 
 window.closeChat = function() {
