@@ -195,6 +195,20 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: translateY(-3px);
 }
 
+#close-text-chat {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    z-index: 9996;
+}
+
+
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
     height: 30px;         /* Vergrote hoogte */
@@ -595,6 +609,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
+            <span id="close-text-chat" onclick="closeTextChat()">×</span>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
@@ -758,6 +773,12 @@ setTimeout(typeChatTextMessage, 3000);
 
 // Voeg een event listener toe voor wanneer de pagina wordt geladen
 window.addEventListener("load", adjustCloseButtonPosition);
+
+function closeTextChat() {
+    const chatText = document.getElementById("chatbot-text");
+    chatText.style.display = "none";
+}
+        
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
