@@ -958,9 +958,13 @@ function adjustFooterPosition() {
 
     if (chatText && footer) {
         const chatTextHeight = chatText.offsetHeight;
-        footer.style.bottom = `${chatTextHeight + 10}px`;  // 10px is een kleine marge tussen de tekst en de footer
+        const footerHeight = footer.offsetHeight;
+        
+        // Plaats de footer boven de chat tekst
+        footer.style.bottom = `${chatTextHeight + footerHeight + 10}px`;  // 10px is een kleine marge tussen de tekst en de footer
     }
 }
+
 
 document.getElementById("chatbot-text-content").addEventListener("DOMSubtreeModified", function(){
     adjustFooterPosition();
