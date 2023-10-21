@@ -161,11 +161,10 @@ document.addEventListener("DOMContentLoaded", function() {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
 }
-
 #chatbot-text {
     position: fixed;
     bottom: 100px;
-    right: 50%; /* Gecentreerd op de x-as */
+    right: 10px;
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
@@ -179,21 +178,20 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     width: auto;
-    max-width: 70vw;  /* Je kunt deze waarde aanpassen naar je eigen voorkeur. */
+    max-width: 90vw; 
     height: auto; 
-    max-height: 300px;  /* Dit beperkt de maximale hoogte van de chatbox. */
-    overflow-y: auto;  /* Toont een scrollbar als de inhoud te lang is. */
-    transform: translateX(50%); /* Verschuif het element terug naar zijn oorspronkelijke positie */
+    max-height: 300px;  
+    overflow-y: auto;  
 }
 
 #chatbot-text:hover {
-    transform: translateX(50%) translateY(-3px);
+    transform: translateY(-3px);
 }
 
 #chatbot-text-close {
     position: absolute;
-    top: -30px;
-    right: -5px;
+    top: -20px; 
+    right: 10px;
     background-color: #ffffff;
     color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -212,9 +210,6 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-text-close:hover {
     background-color: #f0f0f0;
 }
-
-
-
 
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
