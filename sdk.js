@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text {
-    position: fixed;
+    position: relative;
     bottom: 100px;
     right: 10px;
     font-size: 15px;
@@ -783,8 +783,19 @@ function typeChatTextMessage() {
         } else {
             // Als het hele bericht is getypt, stop dan het interval
             clearInterval(typingInterval);
+            
+            // Roep de functie aan om de positie van het kruisje aan te passen nadat het hele bericht is getypt
+            adjustCloseButtonPosition();
         }
     }, 50);
+}
+
+function closeChatText() {
+    const chatText = document.getElementById("chatbot-text");
+    const chatTextContent = document.getElementById("chatbot-text-content");
+    const closeButton = document.getElementById("chatbot-text-close");
+    chatTextContent.style.opacity = "0";  // Maak de tekstinhoud onzichtbaar
+    closeButton.style.display = "block";   // Zorg ervoor dat het kruisje zichtbaar blijft
 }
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
@@ -795,13 +806,6 @@ window.addEventListener("load", adjustCloseButtonPosition);
 
 // Optioneel: Voeg een event listener toe voor wanneer de grootte van het venster verandert, voor responsiviteit
 window.addEventListener("resize", adjustCloseButtonPosition);
-
-// Functie om de chattekst te sluiten
-function closeChatText() {
-    const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none";
-}
-
 
 
 window.closeChat = function() {
