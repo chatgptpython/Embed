@@ -169,9 +169,9 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 8px 20px; 
+    padding: 8px 20px;
     border-radius: 15px;
-    text-align: left; 
+    text-align: left;
     z-index: 9995;
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     width: auto;
-    max-width: 60vw; /* Limiteer de breedte tot 50% van de viewport */
+    max-width: 60vw;
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
@@ -196,10 +196,9 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text-close {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    top: -30px; 
+    right: 10px;
     background-color: #ffffff;
     color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
