@@ -580,6 +580,7 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     cursor: pointer;
+    top: 10px; /*
 }
 
 
