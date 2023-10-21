@@ -197,8 +197,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-text-chat {
     position: absolute;
-    top: -20px;  /* Verplaats het kruisje boven de witte balk */
-    right: 10px;
+    top: -30px; /* Deze waarde kan worden overschreven door JavaScript */
+    left: 10px;
     cursor: pointer;
     font-size: 20px;
     color: #000;
@@ -207,8 +207,10 @@ document.addEventListener("DOMContentLoaded", function() {
     padding: 6px 10px;  
     z-index: 9996;
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Verhoog de schaduw voor een verhoogde look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s ease; /* Toegevoegd voor een soepele overgang */
 }
+
 
 
 #chatbot header img {
@@ -749,17 +751,17 @@ window.toggleChat = function() {
 initializeChat();
         
 function adjustCloseButtonPosition() {
-    const chatText = document.getElementById("chatbot-text-content");
+    const chatText = document.getElementById("chatbot-text");
     const closeButton = document.getElementById("close-text-chat");
+    
+    // De negatieve waarde van de hoogte van de chattekst + een beetje extra ruimte
+    const newPosition = -(chatText.offsetHeight + 10) + "px"; 
 
-    if (chatText && closeButton) {
-        // Haal de huidige hoogte van het chattekstvenster op
-        const chatTextHeight = chatText.offsetHeight;
-        
-        // Plaats de sluitknop bovenaan het chattekstvenster
-        closeButton.style.top = `${chatTextHeight}px`;
-    }
+    closeButton.style.top = newPosition;
 }
+
+// Roep de functie aan telkens wanneer de inhoud van #chatbot-text verandert
+adjustCloseButtonPosition();
 
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
