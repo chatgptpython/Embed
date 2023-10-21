@@ -632,9 +632,9 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
-            <div id="chatbot-text-footer">
-                <span id="close-text-chat" onclick="closeTextChat()">Afsluiten</span>
-            </div>
+        </div>
+        <div id="chatbot-text-footer">
+            <span id="close-text-chat" onclick="closeTextChat()">Afsluiten</span>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
