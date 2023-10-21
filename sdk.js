@@ -162,55 +162,6 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 120px;
 }
 
-#chatbot-text {
-    position: fixed;
-    bottom: 100px;
-    right: 10px;
-    font-size: 15px;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 12px 30px 12px 12px;  /* Aangepaste padding */
-    border-radius: 15px;
-    text-align: left;
-    z-index: 9995;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    letter-spacing: 0.5px;
-    font-weight: 500;
-    width: auto;
-    max-width: 60vw;
-    height: auto; 
-    max-height: 300px;  
-    overflow-y: hidden;
-}
-
-@media screen and (min-width: 768px) {
-    #chatbot-text {
-        max-width: 25vw;
-    }
-}
-
-#chatbot-text:hover {
-    transform: translateY(-3px);
-}
-
-#close-text-chat {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #000;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 4px 8px;  /* Aangepaste padding */
-    z-index: 9996;
-    border: 1px solid #ccc;  /* Rand toevoegen voor betere zichtbaarheid */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toevoegen voor diepte */
-}
-
-
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
     height: 30px;         /* Vergrote hoogte */
@@ -563,6 +514,77 @@ document.addEventListener("DOMContentLoaded", function() {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
 }
+#chatbot-text {
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 12px 30px 12px 12px;  /* Aangepaste padding */
+    border-radius: 15px;
+    text-align: left;
+    z-index: 9995;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    width: auto;
+    max-width: 60vw;
+    height: auto; 
+    max-height: 300px;  
+    overflow-y: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    #chatbot-text {
+        max-width: 25vw;
+    }
+}
+
+#chatbot-text:hover {
+    transform: translateY(-3px);
+}
+
+#close-text-chat {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 4px 8px;  /* Aangepaste padding */
+    z-index: 9996;
+    border: 1px solid #ccc;  /* Rand toevoegen voor betere zichtbaarheid */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toevoegen voor diepte */
+}
+
+#chatbot-text-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #f4f4f4;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#close-text-chat {
+    cursor: pointer;
+    font-size: 14px;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#close-text-chat:hover {
+    background-color: #e4e4e4;
+}
+
+
 
 }
 
@@ -577,7 +599,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-       // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -611,12 +632,15 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
-            <span id="close-text-chat" onclick="closeTextChat()">×</span>
+            <div id="chatbot-text-footer">
+                <span id="close-text-chat" onclick="closeTextChat()">Afsluiten</span>
+            </div>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+
 
 
     var div = document.createElement('div');
