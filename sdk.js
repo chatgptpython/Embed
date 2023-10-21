@@ -514,6 +514,7 @@ document.addEventListener("DOMContentLoaded", function() {
         font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
     }
 }
+
 #chatbot-text {
     position: fixed;
     bottom: 100px;
@@ -521,7 +522,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 12px 30px 12px 12px;  /* Aangepaste padding */
+    padding: 12px 30px 12px 12px;
     border-radius: 15px;
     text-align: left;
     z-index: 9995;
@@ -534,8 +535,9 @@ document.addEventListener("DOMContentLoaded", function() {
     max-width: 60vw;
     height: auto; 
     max-height: 300px;  
-    overflow-y: hidden;
-    margin-bottom: 30px;
+    overflow-y: auto;  /* Hiermee kan de tekst scrollen als deze de max-height overschrijdt */
+    overflow-x: hidden;  /* Zorgt ervoor dat de horizontale scrollbar niet verschijnt */
+    position: relative;  /* Belangrijk voor het absoluut positioneren van het kruisje */
 }
 
 @media screen and (min-width: 768px) {
@@ -548,32 +550,17 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: translateY(-3px);
 }
 
-#close-text-chat {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #000;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 4px 8px;  /* Aangepaste padding */
-    z-index: 9996;
-    border: 1px solid #ccc;  /* Rand toevoegen voor betere zichtbaarheid */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toevoegen voor diepte */
-}
-
 #chatbot-text-footer {
-    position: fixed;
-    bottom: 80px;  /* Verhoogd van 70px naar 80px voor het positioneren van het kruisje iets hoger */
+    position: absolute;  /* Nu absoluut gepositioneerd binnen #chatbot-text */
+    top: -30px;  /* Boven de bovenkant van de container */
     right: 10px;
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 6px 12px;  
+    padding: 6px 12px;
     border-radius: 15px;
     text-align: center;
-    z-index: 9995;
+    z-index: 9996;  /* Hogere z-index om ervoor te zorgen dat het boven de tekst staat */
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -582,9 +569,11 @@ document.addEventListener("DOMContentLoaded", function() {
     cursor: pointer;
 }
 
-
 #close-text-chat {
-    cursor: pointer;
+    position: absolute;  /* Het kruisje is absoluut gepositioneerd binnen de #chatbot-text-footer */
+    top: 50%;  /* Centreer het kruisje verticaal */
+    transform: translateY(-50%);  /* Dit zorgt ervoor dat het kruisje perfect gecentreerd is */
+    right: 5px;
     font-size: 14px;
     color: #000;
     padding: 4px 8px;
@@ -644,8 +633,8 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
+            <div id="chatbot-text-footer" onclick="closeTextChat()">×</div>
         </div>
-        <div id="chatbot-text-footer" onclick="closeTextChat()">×</div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
