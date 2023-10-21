@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
 }
+
 #chatbot-text {
     position: fixed;
     bottom: 100px;
@@ -182,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
+    position: relative; /* Zorg dat het child-element #chatbot-text-close zich verhoudt tot dit element */
 }
 
 @media screen and (min-width: 768px) {
@@ -193,11 +195,13 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-text:hover {
     transform: translateY(-3px);
 }
+
 #chatbot-text-close {
     position: absolute;
-    right: 10px;
-    background-color: #ffffff;
-    color: #000000;
+    top: -35px; /* Zet het kruisje boven het tekstbalkje */
+    right: -5px; /* Zet het kruisje een beetje naar rechts */
+    background-color: #E0E0E0; /* Grijs rondje */
+    color: #000; /* Zwart kruisje */
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     width: 25px;
@@ -210,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function() {
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
-
 
 #chatbot-text-close:hover {
     background-color: #f0f0f0;
@@ -754,13 +757,11 @@ window.toggleChat = function() {
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
-
+        
 // Functie om de positie van het kruisje dynamisch aan te passen
 function adjustCloseButtonPosition() {
     const chatbotText = document.getElementById('chatbot-text');
     const closeButton = document.getElementById('chatbot-text-close');
-
-    // Stel de top positie van het kruisje in op een negatieve waarde gelijk aan de hoogte van de chatbox + een extra marge van 10px
     closeButton.style.top = `-${chatbotText.offsetHeight + 10}px`;
 }
 
@@ -777,25 +778,26 @@ function typeChatTextMessage() {
             clearInterval(typingInterval);
         }
     }, 50);
-    
-    // Roep de functie aan om de positie van het kruisje aan te passen na het typen van de chattekst
     adjustCloseButtonPosition();
 }
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
 
-// Roep de adjustCloseButtonPosition functie aan wanneer de pagina wordt geladen
-window.onload = adjustCloseButtonPosition;
-
-// Optioneel: Roep de adjustCloseButtonPosition functie aan wanneer de grootte van het venster verandert, voor responsiviteit
-window.onresize = adjustCloseButtonPosition;
-
 // Functie om de chattekst te sluiten
 function closeChatText() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";
 }
+
+// Combineren van onload events
+window.onload = function() {
+    adjustCloseButtonPosition();
+    // Eventuele andere onload functies kunnen hier worden toegevoegd.
+}
+
+// Optioneel: Roep de adjustCloseButtonPosition functie aan wanneer de grootte van het venster verandert, voor responsiviteit
+window.onresize = adjustCloseButtonPosition;
 
 
 window.closeChat = function() {
