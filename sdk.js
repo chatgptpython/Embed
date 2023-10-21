@@ -196,9 +196,9 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text-close {
-    position: fixed;
+    position: absolute;
+    top: -30px; // dit zorgt ervoor dat het kruisje half boven het chatvenster komt te zweven
     right: 10px;
-    bottom: calc(100px + 100% - 30px); // 30px is ongeveer de helft van de hoogte van het kruisje, dit zorgt ervoor dat het kruisje boven het chatvenster komt te zweven
     background-color: #d3d3d3; // grijze achtergrond
     color: #000000; // zwart kruisje
     border-radius: 50%;
@@ -621,8 +621,8 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
+            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
         </div>
-        <span id="chatbot-text-close" onclick="closeChatText()">×</span>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
