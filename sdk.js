@@ -183,8 +183,6 @@ document.addEventListener("DOMContentLoaded", function() {
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
-    display: flex;
-    justify-content: space-between; // Dit zorgt ervoor dat de inhoud en het kruisje worden verdeeld over de ruimte in de chatbox.
 }
 
 @media screen and (min-width: 768px) {
@@ -198,24 +196,27 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text-close {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    right: 10px;
+    bottom: calc(100px + 100% - 30px); // 30px is ongeveer de helft van de hoogte van het kruisje, dit zorgt ervoor dat het kruisje boven het chatvenster komt te zweven
+    background-color: #d3d3d3; // grijze achtergrond
+    color: #000000; // zwart kruisje
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 60px; // verhoogd naar 60px voor een moderner uiterlijk
+    height: 60px; // verhoogd naar 60px voor een moderner uiterlijk
     text-align: center;
-    line-height: 25px;
+    line-height: 60px; // verhoogd naar 60px voor een moderner uiterlijk
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 24px; // verhoogd voor een moderner uiterlijk
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); // iets meer schaduw voor diepte
     z-index: 9996;
     font-weight: bold;
-    transition: background-color 0.3s ease;
-    align-self: center; // Dit zorgt ervoor dat het kruisje verticaal gecentreerd is binnen de chatbox.
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #chatbot-text-close:hover {
-    background-color: #f0f0f0;
+    background-color: #b0b0b0; // een iets donkerdere tint grijs als je eroverheen gaat
+    transform: translateY(-2px);
 }
 
 
@@ -620,8 +621,8 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
-            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
         </div>
+        <span id="chatbot-text-close" onclick="closeChatText()">×</span>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
