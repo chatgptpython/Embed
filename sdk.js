@@ -774,7 +774,7 @@ setTimeout(typeChatTextMessage, 3000);
 // Voeg een event listener toe voor wanneer de pagina wordt geladen
 window.addEventListener("load", adjustCloseButtonPosition);
 
-function closeTextChat() {
+window.closeTextChat = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";
 }
