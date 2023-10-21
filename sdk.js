@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     width: auto;
-    max-width: 60vw;
+    max-width: 60vw; /* Limiteer de breedte tot 50% van de viewport */
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
@@ -196,9 +196,10 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text-close {
-    position: absolute;
-    top: -25px; /* Hiermee plaats je het kruisje boven de chatbox */
-    right: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #ffffff;
     color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -209,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
     line-height: 25px;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 9996; /* Deze zorgt ervoor dat het kruisje boven de chatbox verschijnt */
+    z-index: 9996;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
