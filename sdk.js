@@ -169,10 +169,10 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 12px 30px 12px 12px;  /* Aangepaste padding */
+    padding: 20px 30px 12px 12px;  /* Verhoog de bovenste padding om ruimte te maken voor het kruisje */
     border-radius: 15px;
     text-align: left;
-    z-index: 9995;
+    z-index: 9994;  /* Verlaag de z-index */
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -197,17 +197,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-text-chat {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: -20px;  /* Verplaats het kruisje boven de witte balk */
+    right: 10px;
     cursor: pointer;
     font-size: 20px;
     color: #000;
     background-color: #fff;
     border-radius: 50%;
-    padding: 4px 8px;  /* Aangepaste padding */
+    padding: 6px 10px;  
     z-index: 9996;
-    border: 1px solid #ccc;  /* Rand toevoegen voor betere zichtbaarheid */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toevoegen voor diepte */
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Verhoog de schaduw voor een verhoogde look */
 }
 
 
