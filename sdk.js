@@ -197,22 +197,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: -30px; // dit zorgt ervoor dat het kruisje half boven het chatvenster komt te zweven
-    right: 10px;
-    background-color: #d3d3d3; // grijze achtergrond
-    color: #000000; // zwart kruisje
+    top: 10px;  // Aangepast zodat het binnen de tekstballon staat
+    right: 10px;  // Al aan de rechterkant gezet
+    background-color: #d3d3d3;
+    color: #000000;
     border-radius: 50%;
-    width: 60px; // verhoogd naar 60px voor een moderner uiterlijk
-    height: 60px; // verhoogd naar 60px voor een moderner uiterlijk
+    width: 24px;  
+    height: 24px; 
     text-align: center;
-    line-height: 60px; // verhoogd naar 60px voor een moderner uiterlijk
+    line-height: 24px; 
     cursor: pointer;
-    font-size: 24px; // verhoogd voor een moderner uiterlijk
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); // iets meer schaduw voor diepte
-    z-index: 9996;
+    font-size: 18px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9997;  // Verhoogd voor de zekerheid
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 
 #chatbot-text-close:hover {
     background-color: #b0b0b0; // een iets donkerdere tint grijs als je eroverheen gaat
