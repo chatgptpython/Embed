@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 8px 20px;
+    padding: 12px 30px 12px 12px;  /* Aangepaste padding */
     border-radius: 15px;
     text-align: left;
     z-index: 9995;
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
     max-width: 60vw;
     height: auto; 
     max-height: 300px;  
-    overflow-y: auto;  
+    overflow-y: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -204,8 +204,10 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #000;
     background-color: #fff;
     border-radius: 50%;
-    padding: 2px 6px;
+    padding: 4px 8px;  /* Aangepaste padding */
     z-index: 9996;
+    border: 1px solid #ccc;  /* Rand toevoegen voor betere zichtbaarheid */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toevoegen voor diepte */
 }
 
 
