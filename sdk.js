@@ -771,8 +771,6 @@ function typeChatTextMessage() {
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
 
-// Aanroepen wanneer de pagina laadt
-typeChatTextMessage();
 
 window.closeChat = function() {
     const chatbot = document.getElementById("chatbot");
