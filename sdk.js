@@ -580,7 +580,6 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     cursor: pointer;
-    top: 10px; /*
 }
 
 
@@ -615,43 +614,43 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
     var html = `
-        <div id="chatbot">
-            <header>
-                <div id="chatbot-title-container">
-                    <span id="chatbot-title">
-                        <span role="img" aria-label="bot">🤖</span> 
-                        Chatproducties - Proddy
-                    </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
-                </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
-            </header>
-            <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
-                <button id="close-chatbot">Afsluiten</button>
-            </div>
-            <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
-            </div>
-            <div id="chatbot-powered">
-                <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
-            </div>
-        </div>
-        <div id="chatbot-text">
-            <span id="chatbot-text-content"></span>
-        </div>
-        <div id="chatbot-text-footer" onclick="closeTextChat()">×</div>
-        <div id="chatbot-icon" onclick="toggleChat()">
-            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
-        </div>
+       <div id="chatbot">
+         <header>
+             <div id="chatbot-title-container">
+                 <span id="chatbot-title">
+                     <span role="img" aria-label="bot">🤖</span> 
+                     Chatproducties - Proddy
+                 </span>
+                 <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+             </div>
+             <span id="close-chat" onclick="closeChat()">×</span>
+         </header>
+         <div id="chatbot-content"></div>
+         <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+             <div class="dot"></div>
+             <div class="dot"></div>
+             <div class="dot"></div>
+         </div>
+         <div id="choice-balloons" style="display: none;">
+             <button id="ask-another-question">Vraag stellen</button>
+             <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
+             <button id="close-chatbot">Afsluiten</button>
+         </div>
+         <div id="chatbot-input">
+             <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+             <button onclick="sendMessage()" class="send-icon"></button>
+         </div>
+         <div id="chatbot-powered">
+             <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
+         </div>
+         <div id="chatbot-text-footer" onclick="closeTextChat()">×</div>
+     </div>
+     <div id="chatbot-text">
+         <span id="chatbot-text-content"></span>
+     </div>
+     <div id="chatbot-icon" onclick="toggleChat()">
+         <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+     </div>
     `;
 
 
