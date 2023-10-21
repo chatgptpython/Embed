@@ -565,7 +565,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-footer {
     position: fixed;
-    bottom: 80px;  /* Verhoogd van 70px naar 80px voor het positioneren van het kruisje iets hoger */
+    top: 10px; /* Aanpassen aan de gewenste afstand vanaf de bovenkant */
     right: 10px;
     font-size: 15px;
     background-color: #ffffff;
@@ -581,6 +581,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-weight: 500;
     cursor: pointer;
 }
+
 
 
 #close-text-chat {
@@ -952,16 +953,14 @@ function preloadImages() {
     sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
 }
 
+// Hier komt je nieuwe code
 function adjustFooterPosition() {
     const chatText = document.getElementById("chatbot-text");
     const footer = document.getElementById("chatbot-text-footer");
 
     if (chatText && footer) {
         const chatTextHeight = chatText.offsetHeight;
-        const footerHeight = footer.offsetHeight;
-        
-        // Plaats de footer boven de chat tekst
-        footer.style.bottom = `${chatTextHeight + footerHeight + 10}px`;  // 10px is een kleine marge tussen de tekst en de footer
+        footer.style.bottom = `${chatTextHeight + 10}px`;  // 10px is een kleine marge tussen de tekst en de footer
     }
 }
 
