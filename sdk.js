@@ -180,9 +180,10 @@ document.addEventListener("DOMContentLoaded", function() {
     font-weight: 500;
     width: auto;
     max-width: 60vw;
-    height: auto; 
-    max-height: 300px;  
-    overflow-y: auto;  
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    position: relative; /* Nodig om positie voor het kruisje te bepalen */
 }
 
 @media screen and (min-width: 768px) {
@@ -197,29 +198,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: 10px;  // Aangepast zodat het binnen de tekstballon staat
-    right: 10px;  // Al aan de rechterkant gezet
+    top: 10px;
+    right: 10px;
     background-color: #d3d3d3;
     color: #000000;
     border-radius: 50%;
-    width: 24px;  
-    height: 24px; 
+    width: 24px;
+    height: 24px;
     text-align: center;
-    line-height: 24px; 
+    line-height: 24px;
     cursor: pointer;
-    font-size: 18px; 
+    font-size: 18px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 9997;  // Verhoogd voor de zekerheid
+    z-index: 9997;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-
 #chatbot-text-close:hover {
-    background-color: #b0b0b0; // een iets donkerdere tint grijs als je eroverheen gaat
+    background-color: #b0b0b0;
     transform: translateY(-2px);
 }
-
 
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
