@@ -595,7 +595,6 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
             <span id="chatbot-text-content"></span>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
