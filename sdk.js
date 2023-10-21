@@ -179,10 +179,11 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     width: auto;
-    max-width: 60vw; /* Limiteer de breedte tot 50% van de viewport */
+    max-width: 60vw;
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
+    padding-top: 35px; /* Voeg extra padding toe aan de bovenkant om ruimte te maken voor het kruisje */
 }
 
 @media screen and (min-width: 768px) {
@@ -194,8 +195,10 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-text:hover {
     transform: translateY(-3px);
 }
+
 #chatbot-text-close {
     position: absolute;
+    top: -15px; /* Plaats het kruisje boven het chatvenster */
     right: 10px;
     background-color: #ffffff;
     color: #000000;
@@ -212,10 +215,10 @@ document.addEventListener("DOMContentLoaded", function() {
     transition: background-color 0.3s ease;
 }
 
-
 #chatbot-text-close:hover {
     background-color: #f0f0f0;
 }
+
 
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
@@ -765,38 +768,43 @@ function adjustCloseButtonPosition() {
     closeButton.style.top = `-${chatbotText.offsetHeight + 10}px`;
 }
 
-// Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
     const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Stel hier je vraag!";
     let index = 0;
+    
+    // Start een interval om elk karakter in het bericht te typen
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
             chatTextContent.textContent += messageText[index];
             index++;
+
+            // Aangezien de tekst wordt toegevoegd en de hoogte van het chatvak verandert,
+            // roepen we de adjustCloseButtonPosition functie aan om het kruisje correct te positioneren
+            adjustCloseButtonPosition();
+
         } else {
+            // Als het hele bericht is getypt, stop dan het interval
             clearInterval(typingInterval);
         }
     }, 50);
-    
-    // Roep de functie aan om de positie van het kruisje aan te passen na het typen van de chattekst
-    adjustCloseButtonPosition();
 }
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
 
-// Roep de adjustCloseButtonPosition functie aan wanneer de pagina wordt geladen
-window.onload = adjustCloseButtonPosition;
+// Voeg een event listener toe voor wanneer de pagina wordt geladen
+window.addEventListener("load", adjustCloseButtonPosition);
 
-// Optioneel: Roep de adjustCloseButtonPosition functie aan wanneer de grootte van het venster verandert, voor responsiviteit
-window.onresize = adjustCloseButtonPosition;
+// Optioneel: Voeg een event listener toe voor wanneer de grootte van het venster verandert, voor responsiviteit
+window.addEventListener("resize", adjustCloseButtonPosition);
 
 // Functie om de chattekst te sluiten
 function closeChatText() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";
 }
+
 
 
 window.closeChat = function() {
