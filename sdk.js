@@ -183,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function() {
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
-    position: relative; /* Zorg dat het child-element #chatbot-text-close zich verhoudt tot dit element */
 }
 
 @media screen and (min-width: 768px) {
@@ -195,13 +194,11 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-text:hover {
     transform: translateY(-3px);
 }
-
 #chatbot-text-close {
     position: absolute;
-    top: -35px; /* Zet het kruisje boven het tekstbalkje */
-    right: -5px; /* Zet het kruisje een beetje naar rechts */
-    background-color: #E0E0E0; /* Grijs rondje */
-    color: #000; /* Zwart kruisje */
+    right: 10px;
+    background-color: #ffffff;
+    color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     width: 25px;
@@ -214,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
+
 
 #chatbot-text-close:hover {
     background-color: #f0f0f0;
