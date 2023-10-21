@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-text-chat {
     position: absolute;
-    top: -30px; /* Deze waarde kan worden overschreven door JavaScript */
+    top: -25px; 
     left: 10px;
     cursor: pointer;
     font-size: 20px;
@@ -788,9 +788,6 @@ function typeChatTextMessage() {
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
 
-// Voeg een event listener toe voor wanneer de pagina wordt geladen
-window.addEventListener("load", adjustCloseButtonPosition);
-
 window.closeTextChat = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";
@@ -978,6 +975,7 @@ document.getElementById("close-chatbot").addEventListener("click", function() {
     closeChat();
 });
 
+window.addEventListener("load", adjustCloseButtonPosition);
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
