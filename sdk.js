@@ -762,13 +762,15 @@ initializeChat();
 function adjustCloseButtonPosition() {
     const chatbotText = document.getElementById('chatbot-text');
     const closeButton = document.getElementById('chatbot-text-close');
+
+    // Stel de top positie van het kruisje in op een negatieve waarde gelijk aan de hoogte van de chatbox + een extra marge van 10px
     closeButton.style.top = `-${chatbotText.offsetHeight + 10}px`;
 }
 
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies...";
+    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Stel hier je vraag!";
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -778,26 +780,25 @@ function typeChatTextMessage() {
             clearInterval(typingInterval);
         }
     }, 50);
+    
+    // Roep de functie aan om de positie van het kruisje aan te passen na het typen van de chattekst
     adjustCloseButtonPosition();
 }
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
 
+// Roep de adjustCloseButtonPosition functie aan wanneer de pagina wordt geladen
+window.onload = adjustCloseButtonPosition;
+
+// Optioneel: Roep de adjustCloseButtonPosition functie aan wanneer de grootte van het venster verandert, voor responsiviteit
+window.onresize = adjustCloseButtonPosition;
+
 // Functie om de chattekst te sluiten
 function closeChatText() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";
 }
-
-// Combineren van onload events
-window.onload = function() {
-    adjustCloseButtonPosition();
-    // Eventuele andere onload functies kunnen hier worden toegevoegd.
-}
-
-// Optioneel: Roep de adjustCloseButtonPosition functie aan wanneer de grootte van het venster verandert, voor responsiviteit
-window.onresize = adjustCloseButtonPosition;
 
 
 window.closeChat = function() {
