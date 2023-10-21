@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     width: auto;
-    max-width: 50vw; /* Limiteer de breedte tot 50% van de viewport */
+    max-width: 60vw; /* Limiteer de breedte tot 50% van de viewport */
     height: auto; 
     max-height: 300px;  
     overflow-y: auto;  
