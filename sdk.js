@@ -565,23 +565,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-footer {
     position: fixed;
-    bottom: 70px;  /* Positie net boven het tekstvak */
+    bottom: 80px;  /* Verhoogd van 70px naar 80px voor het positioneren van het kruisje iets hoger */
     right: 10px;
+    font-size: 15px;
     background-color: #ffffff;
-    padding: 6px 12px;  /* Aangepaste padding */
+    color: #000000;
+    padding: 6px 12px;  
     border-radius: 15px;
     text-align: center;
     z-index: 9995;
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 30px;  /* Stel een vaste breedte in */
-    height: 30px; /* Stel een vaste hoogte in */
-    display: flex; 
-    justify-content: center; /* Horizontaal centreren */
-    align-items: center; /* Verticaal centreren */
-    font-size: 20px; /* Vergroot het lettertype om het kruisje duidelijker te maken */
-    color: #000000; /* Kleur van het kruisje */
+    letter-spacing: 0.5px;
+    font-weight: 500;
     cursor: pointer;
 }
 
