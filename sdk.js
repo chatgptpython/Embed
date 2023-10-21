@@ -184,12 +184,17 @@ document.addEventListener("DOMContentLoaded", function() {
     overflow-y: auto;  
 }
 
+@media screen and (min-width: 768px) {
+    #chatbot-text {
+        max-width: 25vw;
+    }
+}
+
 #chatbot-text:hover {
     transform: translateY(-3px);
 }
 #chatbot-text-close {
     position: absolute;
-    top: -35px; /* Een veilige standaardpositie die vervolgens door JavaScript wordt bijgewerkt */
     right: 10px;
     background-color: #ffffff;
     color: #000000;
@@ -198,13 +203,14 @@ document.addEventListener("DOMContentLoaded", function() {
     width: 25px;
     height: 25px;
     text-align: center;
-    line-height: 25px; /* Om het 'x' teken in het midden van de cirkel te krijgen */
+    line-height: 25px;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 9996;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
+
 
 #chatbot-text-close:hover {
     background-color: #f0f0f0;
@@ -761,7 +767,7 @@ function adjustCloseButtonPosition() {
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Of je nu vragen hebt over wat Hypadvies precies doet, onze diensten of wat het allemaal inhoudt, ik ben hier om je te helpen! 🏡";
+    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies...";
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -785,10 +791,11 @@ window.onload = adjustCloseButtonPosition;
 // Optioneel: Roep de adjustCloseButtonPosition functie aan wanneer de grootte van het venster verandert, voor responsiviteit
 window.onresize = adjustCloseButtonPosition;
 
-window.closeChatText = function() {
+// Functie om de chattekst te sluiten
+function closeChatText() {
     const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none";  // Verberg de chattekst
-};
+    chatText.style.display = "none";
+}
 
 
 window.closeChat = function() {
