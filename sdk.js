@@ -169,10 +169,10 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 20px 30px 12px 12px;  /* Verhoog de bovenste padding om ruimte te maken voor het kruisje */
+    padding: 12px 30px 12px 12px;  /* Aangepaste padding */
     border-radius: 15px;
     text-align: left;
-    z-index: 9994;  /* Verlaag de z-index */
+    z-index: 9995;
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -197,20 +197,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #close-text-chat {
     position: absolute;
-    top: -25px; 
-    left: 10px;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
     font-size: 20px;
     color: #000;
     background-color: #fff;
     border-radius: 50%;
-    padding: 6px 10px;  
+    padding: 4px 8px;  /* Aangepaste padding */
     z-index: 9996;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: top 0.3s ease; /* Toegevoegd voor een soepele overgang */
+    border: 1px solid #ccc;  /* Rand toevoegen voor betere zichtbaarheid */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toevoegen voor diepte */
 }
-
 
 
 #chatbot header img {
@@ -751,17 +749,17 @@ window.toggleChat = function() {
 initializeChat();
         
 function adjustCloseButtonPosition() {
-    const chatText = document.getElementById("chatbot-text");
+    const chatText = document.getElementById("chatbot-text-content");
     const closeButton = document.getElementById("close-text-chat");
-    
-    // De negatieve waarde van de hoogte van de chattekst + een beetje extra ruimte
-    const newPosition = -(chatText.offsetHeight + 10) + "px"; 
 
-    closeButton.style.top = newPosition;
+    if (chatText && closeButton) {
+        // Haal de huidige hoogte van het chattekstvenster op
+        const chatTextHeight = chatText.offsetHeight;
+        
+        // Plaats de sluitknop bovenaan het chattekstvenster
+        closeButton.style.top = `${chatTextHeight}px`;
+    }
 }
-
-// Roep de functie aan telkens wanneer de inhoud van #chatbot-text verandert
-adjustCloseButtonPosition();
 
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
@@ -787,6 +785,9 @@ function typeChatTextMessage() {
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
+
+// Voeg een event listener toe voor wanneer de pagina wordt geladen
+window.addEventListener("load", adjustCloseButtonPosition);
 
 window.closeTextChat = function() {
     const chatText = document.getElementById("chatbot-text");
@@ -975,7 +976,6 @@ document.getElementById("close-chatbot").addEventListener("click", function() {
     closeChat();
 });
 
-window.addEventListener("load", adjustCloseButtonPosition);
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
