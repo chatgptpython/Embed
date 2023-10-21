@@ -732,14 +732,6 @@ window.toggleChat = function() {
 // Aanroepen wanneer de pagina laadt
 initializeChat();
         
-// Functie om de positie van het kruisje dynamisch aan te passen
-function adjustCloseButtonPosition() {
-    const chatbotText = document.getElementById('chatbot-text');
-    const closeButton = document.getElementById('chatbot-text-close');
-
-    // Stel de top positie van het kruisje in op een negatieve waarde gelijk aan de hoogte van de chatbox + een extra marge van 10px
-    closeButton.style.top = `-${chatbotText.offsetHeight + 10}px`;
-}
 
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
@@ -768,9 +760,6 @@ setTimeout(typeChatTextMessage, 3000);
 
 // Voeg een event listener toe voor wanneer de pagina wordt geladen
 window.addEventListener("load", adjustCloseButtonPosition);
-
-// Optioneel: Voeg een event listener toe voor wanneer de grootte van het venster verandert, voor responsiviteit
-window.addEventListener("resize", adjustCloseButtonPosition);
 
 
 window.closeChat = function() {
