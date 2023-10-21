@@ -753,7 +753,7 @@ initializeChat();
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "👋 Hallo! Ik ben Hippy, je AI-gids bij Hypadvies. Of je nu vragen hebt over wat Hypadvies precies doet, onze diensten of wat het allemaal inhoudt, ik ben hier om je te helpen! 🏡";
+    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Of je nu vragen hebt over wat Hypadvies precies doet, onze diensten of wat het allemaal inhoudt, ik ben hier om je te helpen! 🏡";
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -948,7 +948,7 @@ document.getElementById("ask-another-question").addEventListener("click", functi
     // Stuur na een seconde een bericht namens de chatbot en schakel de invoer in voordat de chatbot de volgende vraag stelt
     setTimeout(() => {
         toggleInputState("enable");
-        typeBotMessage("👋 Hallo! Ik ben Hippy, je AI-gids bij Hypadvies. Of je nu vragen hebt over wat Hypadvies precies doet, onze diensten of wat het allemaal inhoudt, ik ben hier om je te helpen! 🏡");
+        typeBotMessage("Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Of je nu vragen hebt over wat Hypadvies precies doet, onze diensten of wat het allemaal inhoudt, ik ben hier om je te helpen! 🏡");
     }, 1000);
 });
 
