@@ -585,7 +585,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
         
-    // HTML toevoegen
+        // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -618,14 +618,13 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-content"></span>
             <span id="chatbot-text-close" onclick="closeChatText()">×</span>
+            <span id="chatbot-text-content"></span>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-    
 
     var div = document.createElement('div');
     div.innerHTML = html;
