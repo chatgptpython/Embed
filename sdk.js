@@ -952,6 +952,22 @@ function preloadImages() {
     sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
 }
 
+function adjustFooterPosition() {
+    const chatText = document.getElementById("chatbot-text");
+    const footer = document.getElementById("chatbot-text-footer");
+
+    if (chatText && footer) {
+        const chatTextHeight = chatText.offsetHeight;
+        footer.style.bottom = `${chatTextHeight + 10}px`;  // 10px is een kleine marge tussen de tekst en de footer
+    }
+}
+
+document.getElementById("chatbot-text-content").addEventListener("DOMSubtreeModified", function(){
+    adjustFooterPosition();
+});
+
+window.addEventListener("load", adjustFooterPosition);
+        
 // Functie om een bericht te simuleren dat door de chatbot wordt getypt
 function typeBotMessage(messageText, callback) {
     toggleInputState("disable"); 
