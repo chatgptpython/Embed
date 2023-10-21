@@ -565,7 +565,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-footer {
     position: fixed;
-    top: 10px; /* Aanpassen aan de gewenste afstand vanaf de bovenkant */
+    bottom: calc(100vh - (auto) - 10px); /* Hier wordt de 10px marge toegevoegd */
     right: 10px;
     font-size: 15px;
     background-color: #ffffff;
@@ -581,6 +581,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-weight: 500;
     cursor: pointer;
 }
+
 
 
 
