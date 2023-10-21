@@ -953,7 +953,7 @@ document.getElementById("ask-another-question").addEventListener("click", functi
     // Stuur na een seconde een bericht namens de chatbot en schakel de invoer in voordat de chatbot de volgende vraag stelt
     setTimeout(() => {
         toggleInputState("enable");
-        typeBotMessage("Wat is je nieuwe vraag?");
+        typeBotMessage("👋 Hallo! Ik ben Hippy, je AI-gids bij Hypadvies. Of je nu vragen hebt over wat Hypadvies precies doet, onze diensten of wat het allemaal inhoudt, ik ben hier om je te helpen! 🏡");
     }, 1000);
 });
 
