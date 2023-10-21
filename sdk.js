@@ -163,32 +163,21 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text {
-    position: relative;
+    position: fixed;
     bottom: 100px;
-    right: 10px;
+    right: 30px;
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 8px 20px;
+    padding: 8px 12px;
     border-radius: 15px;
-    text-align: left;
+    text-align: center;
     z-index: 9995;
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     letter-spacing: 0.5px;
     font-weight: 500;
-    width: auto;
-    max-width: 60vw;
-    height: auto; 
-    max-height: 300px;  
-    overflow-y: auto;  
-}
-
-@media screen and (min-width: 768px) {
-    #chatbot-text {
-        max-width: 25vw;
-    }
 }
 
 #chatbot-text:hover {
@@ -216,7 +205,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close:hover {
     background-color: #f0f0f0; 
+@media screen and (min-width: 768px) {
+    #chatbot-text {
+        max-width: 25vw;
+    }
 }
+
 
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
@@ -765,47 +759,30 @@ function adjustCloseButtonPosition() {
     closeButton.style.top = `-${chatbotText.offsetHeight + 10}px`;
 }
 
+// Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Stel hier je vraag!";
+    const messageText = "Stel hier je vraag👋";
     let index = 0;
-    
-    // Start een interval om elk karakter in het bericht te typen
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
             chatTextContent.textContent += messageText[index];
             index++;
-
-            // Aangezien de tekst wordt toegevoegd en de hoogte van het chatvak verandert,
-            // roepen we de adjustCloseButtonPosition functie aan om het kruisje correct te positioneren
-            adjustCloseButtonPosition();
-
         } else {
-            // Als het hele bericht is getypt, stop dan het interval
             clearInterval(typingInterval);
-            
-            // Roep de functie aan om de positie van het kruisje aan te passen nadat het hele bericht is getypt
-            adjustCloseButtonPosition();
         }
     }, 50);
-}
-
-function closeChatText() {
-    const chatText = document.getElementById("chatbot-text");
-    const chatTextContent = document.getElementById("chatbot-text-content");
-    const closeButton = document.getElementById("chatbot-text-close");
-    chatTextContent.style.opacity = "0";  // Maak de tekstinhoud onzichtbaar
-    closeButton.style.display = "block";   // Zorg ervoor dat het kruisje zichtbaar blijft
 }
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
 
-// Voeg een event listener toe voor wanneer de pagina wordt geladen
-window.addEventListener("load", adjustCloseButtonPosition);
+// Functie om de chattekst te sluiten
+function closeChatText() {
+    const chatText = document.getElementById("chatbot-text");
+    chatText.style.display = "none";
+}
 
-// Optioneel: Voeg een event listener toe voor wanneer de grootte van het venster verandert, voor responsiviteit
-window.addEventListener("resize", adjustCloseButtonPosition);
 
 
 window.closeChat = function() {
