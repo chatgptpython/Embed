@@ -535,6 +535,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: auto; 
     max-height: 300px;  
     overflow-y: hidden;
+    margin-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {
@@ -563,13 +564,27 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot-text-footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 4px 8px;
-    background-color: #f4f4f4;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 70px;  /* Positie net boven het tekstvak */
+    right: 10px;
+    background-color: #ffffff;
+    padding: 6px 12px;  /* Aangepaste padding */
+    border-radius: 15px;
+    text-align: center;
+    z-index: 9995;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 30px;  /* Stel een vaste breedte in */
+    height: 30px; /* Stel een vaste hoogte in */
+    display: flex; 
+    justify-content: center; /* Horizontaal centreren */
+    align-items: center; /* Verticaal centreren */
+    font-size: 20px; /* Vergroot het lettertype om het kruisje duidelijker te maken */
+    color: #000000; /* Kleur van het kruisje */
+    cursor: pointer;
 }
+
 
 #close-text-chat {
     cursor: pointer;
@@ -633,9 +648,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="chatbot-text">
             <span id="chatbot-text-content"></span>
         </div>
-        <div id="chatbot-text-footer">
-            <span id="close-text-chat" onclick="closeTextChat()">Afsluiten</span>
-        </div>
+        <div id="chatbot-text-footer" onclick="closeTextChat()">×</div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
