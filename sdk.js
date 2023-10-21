@@ -165,13 +165,13 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-text {
     position: fixed;
     bottom: 100px;
-    right: 50%; /* Gecentreerd op de x-as */
+    right: 10px;
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
-    padding: 8px 12px;
+    padding: 8px 20px;
     border-radius: 15px;
-    text-align: center;
+    text-align: left;
     z-index: 9995;
     transition: opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -179,38 +179,43 @@ document.addEventListener("DOMContentLoaded", function() {
     letter-spacing: 0.5px;
     font-weight: 500;
     width: auto;
-    max-width: 70vw;  /* Je kunt deze waarde aanpassen naar je eigen voorkeur. */
+    max-width: 60vw;
     height: auto; 
-    max-height: 300px;  /* Dit beperkt de maximale hoogte van de chatbox. */
-    overflow-y: auto;  /* Toont een scrollbar als de inhoud te lang is. */
-    transform: translateX(50%); /* Verschuif het element terug naar zijn oorspronkelijke positie */
+    max-height: 300px;  
+    overflow-y: auto;  
+}
+
+@media screen and (min-width: 768px) {
+    #chatbot-text {
+        max-width: 25vw;
+    }
 }
 
 #chatbot-text:hover {
-    transform: translateX(50%) translateY(-3px);
+    transform: translateY(-3px);
 }
 
 #chatbot-text-close {
     position: absolute;
-    top: -30px;
-    right: -5px;
+    top: -30px; /* Meer ruimte tussen het kruisje en de tekst */
+    right: -5px; /* Iets naar rechts verplaatst voor een betere uitlijning */
     background-color: #ffffff;
     color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 25px; /* Groter kruisje */
+    height: 25px; /* Groter kruisje */
     text-align: center;
-    line-height: 23px;
+    line-height: 23px; /* Aangepast om het kruisje in het midden van de cirkel te plaatsen */
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 9996;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    z-index: 9996; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease; 
 }
 
 #chatbot-text-close:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; 
 }
 
 #chatbot header img {
@@ -760,16 +765,23 @@ function adjustCloseButtonPosition() {
     closeButton.style.top = `-${chatbotText.offsetHeight + 10}px`;
 }
 
-// Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Stel hier je vraag👋";
+    const messageText = "Hallo!👋 Ik ben Hippy, je AI-gids bij Hypadvies. Stel hier je vraag!";
     let index = 0;
+    
+    // Start een interval om elk karakter in het bericht te typen
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
             chatTextContent.textContent += messageText[index];
             index++;
+
+            // Aangezien de tekst wordt toegevoegd en de hoogte van het chatvak verandert,
+            // roepen we de adjustCloseButtonPosition functie aan om het kruisje correct te positioneren
+            adjustCloseButtonPosition();
+
         } else {
+            // Als het hele bericht is getypt, stop dan het interval
             clearInterval(typingInterval);
         }
     }, 50);
@@ -777,6 +789,12 @@ function typeChatTextMessage() {
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
+
+// Voeg een event listener toe voor wanneer de pagina wordt geladen
+window.addEventListener("load", adjustCloseButtonPosition);
+
+// Optioneel: Voeg een event listener toe voor wanneer de grootte van het venster verandert, voor responsiviteit
+window.addEventListener("resize", adjustCloseButtonPosition);
 
 // Functie om de chattekst te sluiten
 function closeChatText() {
@@ -973,3 +991,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
