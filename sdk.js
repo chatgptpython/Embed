@@ -322,7 +322,9 @@ document.addEventListener("DOMContentLoaded", function() {
     text-align: left;
     border-radius: 10px;
     padding: 12px 18px;
+    max-width: 70%;  /* Beperk de maximale breedte van het bericht */
 }
+
 
 .bot-message-container {
     display: flex;
