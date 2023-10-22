@@ -389,6 +389,11 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: #f0f0f0; 
 }
 
+#chatbot-text-content {
+    cursor: pointer;
+}
+
+
 
 #choice-balloons {
     display: flex;
@@ -783,14 +788,6 @@ window.closeChatText = function() {
     chatText.style.display = "none";  // Verberg de chattekst
 };   
 
-document.getElementById("chatbot-text").addEventListener('click', function() {
-    toggleChat();
-});
-
-
-// Aanroepen wanneer de pagina laadt
-initializeChat();
-
 
 // Aanroepen wanneer de pagina laadt
 initializeChat();
@@ -807,6 +804,11 @@ function typeChatTextMessage() {
             index++;
         } else {
             clearInterval(typingInterval);
+            
+            // Voeg de click event listener hier toe, nadat de boodschap volledig is getypt
+            chatTextContent.addEventListener('click', function() {
+                toggleChat();
+            });
         }
     }, 50);
 }
