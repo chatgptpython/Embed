@@ -405,26 +405,27 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-
 #choice-balloons {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
     background-color: transparent;
-    border-top: none; /* Verwijdert de bovenste rand */
+    border-top: none; 
 }
 
 #choice-balloons button {
     font-size: 14.2px; 
     padding: 6.5px 13px;
+    margin: 5px;  /* Marge toegevoegd tussen knoppen */
     border-radius: 15px;
-    border: none; /* Verwijdert de rand */
-    outline: none; /* Verwijdert de focusrand */
+    border: none;
+    outline: none;
     background-color: rgba(255, 255, 255, 0.8);
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een lifted effect */
 }
 
 #ask-another-question {
@@ -439,11 +440,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #choice-balloons button:hover {
     opacity: 0.92;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Vergrootte schaduw op hover */
+    transform: translateY(-2px);  /* Lichtelijk omhoog verplaatsen van de knop op hover */
 }
 
 #chatbot-input.hide-input {
     display: none;
 }
+
 
 
         /* Om de tekst en het icoon naast elkaar te zetten */
