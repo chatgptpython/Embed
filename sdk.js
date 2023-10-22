@@ -204,16 +204,16 @@ document.addEventListener("DOMContentLoaded", function() {
     max-width: 100%;  
     width: 100%;  
     display: flex;
-    flex-direction: column;
-    align-items: start;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .bot-avatar {
     width: 20px;  /* Of welke grootte je ook wilt */
     height: 20px;
     margin-right: 5px;  /* Ruimte tussen het icoontje en de tekst */
+    margin-top: 3px;  /* Zorgt ervoor dat het icoontje net niet boven de bovenkant van de chatbubbel komt */
 }
-
         #chatbot-input button.send-icon {
     position: absolute;
     right: 10px;
