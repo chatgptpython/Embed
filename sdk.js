@@ -209,11 +209,12 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 .bot-avatar {
-    width: 30px;  /* Vergroot de breedte van het icoontje */
-    height: 30px;  /* Vergroot de hoogte van het icoontje */
+    width: 30px;  /* Breedte van het icoontje */
+    height: 30px;  /* Hoogte van het icoontje */
     margin-right: 5px;  /* Ruimte tussen het icoontje en de tekst */
-    margin-top: 10px;  /* Verplaatst het icoontje iets meer naar beneden */
+    margin-top: 20px;  /* Verplaatst het icoontje verder naar beneden */
 }
+
 
         #chatbot-input button.send-icon {
     position: absolute;
