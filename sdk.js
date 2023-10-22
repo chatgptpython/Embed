@@ -397,12 +397,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 #choice-balloons {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    display: none; /* Verberg ze standaard */
+    position: absolute;  /* Absoluut positioneren binnen #chatbot */
+    bottom: 0;           /* Uitgelijnd met de onderkant van #chatbot */
+    left: 0;             /* Uitgelijnd met de linkerkant van #chatbot */
+    right: 0;            /* Uitgelijnd met de rechterkant van #chatbot */
+    background-color: transparent;  /* Achtergrond transparant maken */
+    z-index: 2;          /* Zet het boven andere elementen */
 }
 
 #choice-balloons button {
