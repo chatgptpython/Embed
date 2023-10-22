@@ -200,12 +200,19 @@ document.addEventListener("DOMContentLoaded", function() {
     flex-direction: column;
 }
 
-                      .message-container {
-            max-width: 100%;  
-            width: 100%;  
-            display: flex;
-            flex-direction: column;
-        }
+.message-container {
+    max-width: 100%;  
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.bot-avatar {
+    width: 20px;  /* Of welke grootte je ook wilt */
+    height: 20px;
+    margin-right: 5px;  /* Ruimte tussen het icoontje en de tekst */
+}
 
         #chatbot-input button.send-icon {
     position: absolute;
@@ -434,38 +441,6 @@ document.addEventListener("DOMContentLoaded", function() {
     display: none;
 }
 
-.bot-message-container {
-    display: flex;
-    align-items: flex-start;
-    max-width: 85%;
-    align-self: flex-start;
-}
-
-.bot-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    vertical-align: middle;
-    border-radius: 50%; 
-    align-self: center;  /* Zorgt ervoor dat het icoon verticaal gecentreerd is ten opzichte van het bericht */
-}
-
-.message-container.bot-container {
-    display: flex;
-    align-items: center;
-}
-
-.bot-icon-outside {
-    margin-right: 10px;
-}
-
-.bot-message-outside {
-    background-color: #f1f1f1; /* of de gewenste achtergrondkleur voor de chatbubbel */
-    padding: 10px;
-    border-radius: 10px;
-}
-
-
 
         /* Om de tekst en het icoon naast elkaar te zetten */
         .bot-message, .user-message {
@@ -618,6 +593,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
    // HTML toevoegen
+ 
     var html = `
         <div id="chatbot">
             <header>
@@ -630,7 +606,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
-            <div id="chatbot-content"></div>
+            <div id="chatbot-content">
+                <!-- Voorbeeld van een chatbot bericht met icoontje -->
+                <div class="message-container bot-container">
+                    <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Chatbot Icoontje" class="chatbot-icon">
+                    <div class="message-sender">Chatbot:</div>
+                    <div class="bot-message">Dit is een voorbeeld bericht.</div>
+                </div>
+            </div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -657,7 +640,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-    
+
 
     var div = document.createElement('div');
     div.innerHTML = html;
@@ -669,23 +652,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-    
-    // Creëer een container voor het bot-bericht
-    let messageContainer = document.createElement("div");
+    const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
+    messageContainer.innerHTML = `
+        <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+        <div class="message-sender">Chatbot:</div>
+    `;
     chatContent.appendChild(messageContainer);
-
-    // Voeg een icoon toe voor de bot buiten de chatbubbel
-    let botIcon = document.createElement("img");
-    botIcon.src = "https://github.com/chatgptpython/embed/blob/main/send.png?raw=true";
-    botIcon.alt = "Bot";
-    botIcon.className = "bot-icon-outside";
-    messageContainer.appendChild(botIcon);
-
-    // Creëer een element voor het bericht van de bot
     let messageElem = document.createElement("div");
-    messageElem.className = "bot-message-outside";
+    messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
@@ -705,8 +680,6 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
-
-
 
     async function fetchAndApplyColor() {
     try {
@@ -901,69 +874,81 @@ window.closeChat = function() {
         }
     };
 
-    window.sendMessage = function() {
-        if (isBotTyping) return;
-    
-        const userInput = document.getElementById("user-input");
-        const chatContent = document.getElementById("chatbot-content");
-    
-        if (userInput.value.trim() !== "") {
-            isBotTyping = true;
-            toggleInputState("disable");
-    
-            // Voeg het bericht van de gebruiker toe
-            chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
-    
-            // Voeg de professionele laadbalk toe
-            chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+window.sendMessage = function() {
+    if (isBotTyping) return;
 
-    
-            // Automatisch scrollen naar het laatst toegevoegde bericht
-            chatContent.scrollTop = chatContent.scrollHeight;
-    
-            setTimeout(() => {
-                fetch(`${backendUrl}/ask`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ question: userInput.value })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    chatContent.lastChild.remove();  // Verwijder de loader
-                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-                    let messageText = data.answer;
-                    let messageElem = document.createElement("div");
-                    messageElem.className = "bot-message";
-                    chatContent.appendChild(messageElem);
-    
-                    let index = 0;
-                    let typingInterval = setInterval(() => {
-                        if (index < messageText.length) {
-                            messageElem.textContent += messageText[index];
-                            index++;
-                            chatContent.scrollTop = chatContent.scrollHeight;
-                        } else {
-                            clearInterval(typingInterval);
-                            toggleInputState("enable");
-                            isBotTyping = false;
-                            if (showChoiceBalloons) showChoiceBalloons();
-                        }
-                    }, 25);
-    
-                    userInput.value = "";
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div><div class="bot-message">Sorry, er is een fout opgetreden.</div>`;
-                    toggleInputState("enable");
-                    isBotTyping = false;
-                });
-            }, 500);
-        }
-    };
-    
+    const userInput = document.getElementById("user-input");
+    const chatContent = document.getElementById("chatbot-content");
+
+    if (userInput.value.trim() !== "") {
+        isBotTyping = true;
+        toggleInputState("disable");
+
+        // Voeg het bericht van de gebruiker toe
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+
+        // Voeg de professionele laadbalk toe
+        chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+
+        // Automatisch scrollen naar het laatst toegevoegde bericht
+        chatContent.scrollTop = chatContent.scrollHeight;
+
+        setTimeout(() => {
+            fetch(`${backendUrl}/ask`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: userInput.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatContent.lastChild.remove();  // Verwijder de loader
+                const messageContainer = document.createElement("div");
+                messageContainer.className = "message-container bot-container";
+                messageContainer.innerHTML = `
+                    <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+                    <div class="message-sender">Chatbot:</div>
+                `;
+                chatContent.appendChild(messageContainer);
+                let messageText = data.answer;
+                let messageElem = document.createElement("div");
+                messageElem.className = "bot-message";
+                messageContainer.appendChild(messageElem);
+
+                let index = 0;
+                let typingInterval = setInterval(() => {
+                    if (index < messageText.length) {
+                        messageElem.textContent += messageText[index];
+                        index++;
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    } else {
+                        clearInterval(typingInterval);
+                        toggleInputState("enable");
+                        isBotTyping = false;
+                        if (showChoiceBalloons) showChoiceBalloons();
+                    }
+                }, 25);
+
+                userInput.value = "";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                const messageContainer = document.createElement("div");
+                messageContainer.className = "message-container bot-container";
+                messageContainer.innerHTML = `
+                    <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+                    <div class="message-sender">Chatbot:</div>
+                    <div class="bot-message">Sorry, er is een fout opgetreden.</div>
+                `;
+                chatContent.appendChild(messageContainer);
+                toggleInputState("enable");
+                isBotTyping = false;
+            });
+        }, 500);
+    }
+};
+
     
 
     // De input-elementen activeren voor event-handling
@@ -990,31 +975,24 @@ function preloadImages() {
     const sendIcon = new Image();
     sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
 }
-
+        
 function typeBotMessage(messageText, callback) {
     toggleInputState("disable"); 
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
-    messageContainer.className = "bot-message-container";
+    messageContainer.className = "message-container bot-container";
+    messageContainer.innerHTML = `
+        <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+        <div class="message-sender">Chatbot:</div>
+    `;
     chatContent.appendChild(messageContainer);
-
-    // Voeg een icoon toe voor de bot
-    const botIcon = document.createElement("img");
-    botIcon.src = "https://github.com/chatgptpython/embed/blob/main/send.png?raw=true";
-    botIcon.alt = "Bot";
-    botIcon.className = "bot-icon";
-    messageContainer.appendChild(botIcon);
-    
-    const messageElem = document.createElement("div");
+    let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
-
-    let messageTextElem = document.createElement("span");
-    messageElem.appendChild(messageTextElem);
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
-            messageTextElem.textContent += messageText[index];
+            messageElem.textContent += messageText[index];
             index++;
             chatContent.scrollTop = chatContent.scrollHeight;
         } else {
@@ -1025,6 +1003,7 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
+
 
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
@@ -1073,5 +1052,6 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
 
 
