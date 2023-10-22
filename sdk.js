@@ -450,6 +450,21 @@ document.addEventListener("DOMContentLoaded", function() {
     align-self: center;  /* Zorgt ervoor dat het icoon verticaal gecentreerd is ten opzichte van het bericht */
 }
 
+.message-container.bot-container {
+    display: flex;
+    align-items: center;
+}
+
+.bot-icon-outside {
+    margin-right: 10px;
+}
+
+.bot-message-outside {
+    background-color: #f1f1f1; /* of de gewenste achtergrondkleur voor de chatbubbel */
+    padding: 10px;
+    border-radius: 10px;
+}
+
 
 
         /* Om de tekst en het icoon naast elkaar te zetten */
@@ -661,16 +676,16 @@ window.typeWelcomeMessage = async function() {
     messageContainer.className = "message-container bot-container";
     chatContent.appendChild(messageContainer);
 
-    // Voeg een icoon toe voor de bot
+    // Voeg een icoon toe voor de bot buiten de chatbubbel
     let botIcon = document.createElement("img");
     botIcon.src = "https://github.com/chatgptpython/embed/blob/main/send.png?raw=true";
     botIcon.alt = "Bot";
-    botIcon.className = "bot-icon";
+    botIcon.className = "bot-icon-outside";
     messageContainer.appendChild(botIcon);
 
     // Creëer een element voor het bericht van de bot
     let messageElem = document.createElement("div");
-    messageElem.className = "bot-message";
+    messageElem.className = "bot-message-outside";
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
