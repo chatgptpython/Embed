@@ -311,19 +311,26 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 24px;
     margin-right: 10px;
     vertical-align: middle;
-    border-radius: 50%;  /* om het icoontje rond te maken, indien gewenst */
+    border-radius: 50%; 
+    align-self: center;  /* Zorgt ervoor dat het icoon verticaal gecentreerd is ten opzichte van het bericht */
 }
 
-/* Aangepaste stijlen voor .bot-message om het icoon en de tekst naast elkaar te zetten */
+
 .bot-message {
-    align-self: flex-start;
-    max-width: 85%;
     background-color: #FFFFFF; 
-    color: #333;  /* Donkere tekst voor betere leesbaarheid */
+    color: #333;  
     text-align: left;
-    display: flex;           /* Nieuw toegevoegd */
-    align-items: center;     /* Nieuw toegevoegd */
+    border-radius: 10px;
+    padding: 12px 18px;
 }
+
+.bot-message-container {
+    display: flex;
+    align-items: flex-start;
+    max-width: 85%;
+    align-self: flex-start;
+}
+
         
              #chatbot-input .send-icon {
             width: 30px;
@@ -955,12 +962,21 @@ function preloadImages() {
 function typeBotMessage(messageText, callback) {
     toggleInputState("disable"); 
     const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-    let messageElem = document.createElement("div");
-    messageElem.className = "bot-message";
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "bot-message-container";
+    chatContent.appendChild(messageContainer);
+
     // Voeg een icoon toe voor de bot
-    messageElem.innerHTML = `<img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot" class="bot-icon">`;
-    chatContent.appendChild(messageElem);
+    const botIcon = document.createElement("img");
+    botIcon.src = "https://github.com/chatgptpython/embed/blob/main/send.png?raw=true";
+    botIcon.alt = "Bot";
+    botIcon.className = "bot-icon";
+    messageContainer.appendChild(botIcon);
+    
+    const messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    messageContainer.appendChild(messageElem);
+
     let messageTextElem = document.createElement("span");
     messageElem.appendChild(messageTextElem);
     let index = 0;
@@ -977,6 +993,7 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
+
 
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
