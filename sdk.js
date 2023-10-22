@@ -655,14 +655,23 @@ document.addEventListener("DOMContentLoaded", function() {
 window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
-    let messageElem = document.createElement("div");
-    messageElem.className = "bot-message";
-    chatContent.appendChild(messageElem);
+    
+    // Creëer een container voor het bot-bericht
+    let messageContainer = document.createElement("div");
+    messageContainer.className = "message-container bot-container";
+    chatContent.appendChild(messageContainer);
 
     // Voeg een icoon toe voor de bot
-    messageElem.innerHTML = `<img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot" class="bot-icon">`;
-    let messageTextElem = document.createElement("span");
-    messageElem.appendChild(messageTextElem);
+    let botIcon = document.createElement("img");
+    botIcon.src = "https://github.com/chatgptpython/embed/blob/main/send.png?raw=true";
+    botIcon.alt = "Bot";
+    botIcon.className = "bot-icon";
+    messageContainer.appendChild(botIcon);
+
+    // Creëer een element voor het bericht van de bot
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
     let messageText = await fetch(`${backendUrl}/get_welcome_message`)
@@ -673,7 +682,7 @@ window.typeWelcomeMessage = async function() {
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
-            messageTextElem.textContent += messageText[index];
+            messageElem.textContent += messageText[index];
             index++;
             chatContent.scrollTop = chatContent.scrollHeight;
         } else {
@@ -681,6 +690,7 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
+
 
 
     async function fetchAndApplyColor() {
