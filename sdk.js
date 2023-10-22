@@ -233,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
     align-items: center;
     border-top: none;
     position: relative;
+    z-index: 1;
 }
 
 #chatbot-input textarea {
@@ -396,11 +397,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 #choice-balloons {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: transparent;
-    border-top: none; /* Verwijdert de bovenste rand */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: none; /* Verberg ze standaard */
 }
 
 #choice-balloons button {
