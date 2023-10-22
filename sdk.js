@@ -227,13 +227,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     
 #chatbot-input {
-    padding: 10px 10px; /* Verklein de padding */
-    background-color: transparent; /* Maak de achtergrond van de container transparant */
+    padding: 10px 40px 10px 10px; /* Voeg meer padding rechts toe om ruimte te maken voor de verzendknop */
+    background-color: transparent; 
     display: flex;
     align-items: center;
     border-top: none;
     position: relative;
 }
+
 
 #chatbot-input textarea {
     flex: 1;
@@ -242,14 +243,15 @@ document.addEventListener("DOMContentLoaded", function() {
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin: 0 10px 0 0; /* Voeg wat marge toe aan de rechterkant */
-    background-color: #ffffff; /* Witte achtergrond voor het tekstveld */
+    margin: 0 40px 0 0; /* Vergroot de marge aan de rechterkant om ruimte te maken voor de verzendknop */
+    background-color: #ffffff; 
     resize: none;
     min-height: 28px;
     overflow: auto;
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+
 
 
            #chatbot-powered {
@@ -316,16 +318,19 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ... eventuele andere stijlen ... */
 }
         
-             #chatbot-input .send-icon {
-            width: 30px;
-            height: 30px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-            background-size: cover;
-            cursor: pointer;
-            background-color: transparent;  /* Verzekert dat er geen achtergrondkleur is */
-            border: none;
-            margin-right: 10px;
-        }
+#chatbot-input .send-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+    background-size: cover;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 10px; /* Plaats de knop 10px van de rechterkant */
+    top: 50%;
+    transform: translateY(-50%);
+}
 
 
 
