@@ -237,13 +237,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-input textarea {
     flex: 1;
-    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
+    padding: 10px 14px;
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin-right: 5px; 
-    background-color: #ffffff; 
+    margin: 0 10px 0 0; /* Voeg wat marge toe aan de rechterkant */
+    background-color: #ffffff; /* Witte achtergrond voor het tekstveld */
     resize: none;
     min-height: 28px;
     overflow: auto;
@@ -306,33 +306,15 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ... eventuele andere stijlen ... */
 }
 
-.bot-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    vertical-align: middle;
-    border-radius: 50%; 
-    align-self: center;  /* Zorgt ervoor dat het icoon verticaal gecentreerd is ten opzichte van het bericht */
-}
-
-
+/* Stijlen voor berichten van de bot */
 .bot-message {
-    background-color: #FFFFFF; 
-    color: #333;  
-    text-align: left;
-    border-radius: 10px;
-    padding: 12px 18px;
-    max-width: 70%;  /* Beperk de maximale breedte van het bericht */
-}
-
-
-.bot-message-container {
-    display: flex;
-    align-items: flex-start;
-    max-width: 85%;
     align-self: flex-start;
+    max-width: 85%;
+    background-color: #FFFFFF; 
+    color: #333;  /* Donkere tekst voor betere leesbaarheid */
+    text-align: left;
+    /* ... eventuele andere stijlen ... */
 }
-
         
              #chatbot-input .send-icon {
             width: 30px;
@@ -451,6 +433,23 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-input.hide-input {
     display: none;
 }
+
+.bot-message-container {
+    display: flex;
+    align-items: flex-start;
+    max-width: 85%;
+    align-self: flex-start;
+}
+
+.bot-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 50%; 
+    align-self: center;  /* Zorgt ervoor dat het icoon verticaal gecentreerd is ten opzichte van het bericht */
+}
+
 
 
         /* Om de tekst en het icoon naast elkaar te zetten */
@@ -995,7 +994,6 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
-
 
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
