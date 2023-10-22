@@ -233,7 +233,6 @@ document.addEventListener("DOMContentLoaded", function() {
     align-items: center;
     border-top: none;
     position: relative;
-    z-index: 1;
 }
 
 #chatbot-input textarea {
@@ -397,12 +396,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 #choice-balloons {
-    position: absolute;  /* Absoluut positioneren binnen #chatbot */
-    bottom: 0;           /* Uitgelijnd met de onderkant van #chatbot */
-    left: 0;             /* Uitgelijnd met de linkerkant van #chatbot */
-    right: 0;            /* Uitgelijnd met de rechterkant van #chatbot */
-    background-color: transparent;  /* Achtergrond transparant maken */
-    z-index: 2;          /* Zet het boven andere elementen */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-top: none; /* Verwijdert de bovenste rand */
 }
 
 #choice-balloons button {
@@ -430,6 +428,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #choice-balloons button:hover {
     opacity: 0.92;
+}
+
+#chatbot-input.hide-input {
+    display: none;
 }
 
 
@@ -964,20 +966,25 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-
 // Functie om de keuzeballonnetjes te tonen
 function showChoiceBalloons() {
-    toggleInputState("disable"); // Uitschakelen wanneer de keuzeballonnen worden getoond
+    const chatbotInput = document.getElementById("chatbot-input");
+    chatbotInput.classList.add("hide-input");  // Verberg de inputbalk
+
     const choiceBalloons = document.getElementById("choice-balloons");
     choiceBalloons.style.display = "flex";
 }
 
+
 // Functie om de keuzeballonnetjes te verbergen
 function hideChoiceBalloons() {
-    toggleInputState("disable"); // Invoer uitschakelen wanneer de keuzeballonnen worden verborgen
+    const chatbotInput = document.getElementById("chatbot-input");
+    chatbotInput.classList.remove("hide-input");  // Toon de inputbalk opnieuw
+
     const choiceBalloons = document.getElementById("choice-balloons");
     choiceBalloons.style.display = "none";
 }
+
 
 // Event Listeners voor de keuzeballonnetjes
 document.getElementById("ask-another-question").addEventListener("click", function() {
@@ -1006,3 +1013,5 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
+
