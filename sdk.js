@@ -227,23 +227,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     
 #chatbot-input {
-    padding: 10px; 
-    background-color: transparent; 
+    padding: 10px 10px; /* Verklein de padding */
+    background-color: transparent; /* Maak de achtergrond van de container transparant */
     display: flex;
     align-items: center;
     border-top: none;
     position: relative;
 }
 
-
 #chatbot-input textarea {
     flex: 1;
-    padding: 10px 14px 10px 10px;  /* Verminder de padding aan de rechterzijde */
+    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin: 0 40px 0 0; /* Zorg voor ruimte aan de rechterkant voor de knop */
+    margin-right: 5px; 
     background-color: #ffffff; 
     resize: none;
     min-height: 28px;
@@ -251,8 +250,6 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
-
-
 
 
            #chatbot-powered {
@@ -319,19 +316,17 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ... eventuele andere stijlen ... */
 }
         
-#chatbot-input .send-icon {
-    width: 30px;
-    height: 30px;
-    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-    background-size: cover;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    right: 15px;  /* Aanpassing zodat de knop binnen het tekstveld blijft */
-    top: 50%;
-    transform: translateY(-50%);
-}
+             #chatbot-input .send-icon {
+            width: 30px;
+            height: 30px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+            background-size: cover;
+            cursor: pointer;
+            background-color: transparent;  /* Verzekert dat er geen achtergrondkleur is */
+            border: none;
+            margin-right: 10px;
+        }
+
 
 
    
