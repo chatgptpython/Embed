@@ -959,7 +959,7 @@ function typeBotMessage(messageText, callback) {
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     // Voeg een icoon toe voor de bot
-    messageElem.innerHTML = `<img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chatbot-icon.png" alt="Bot" class="bot-icon">`;
+    messageElem.innerHTML = `<img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot" class="bot-icon">`;
     chatContent.appendChild(messageElem);
     let messageTextElem = document.createElement("span");
     messageElem.appendChild(messageTextElem);
