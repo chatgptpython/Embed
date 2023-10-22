@@ -306,14 +306,23 @@ document.addEventListener("DOMContentLoaded", function() {
     /* ... eventuele andere stijlen ... */
 }
 
-/* Stijlen voor berichten van de bot */
+.bot-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 50%;  /* om het icoontje rond te maken, indien gewenst */
+}
+
+/* Aangepaste stijlen voor .bot-message om het icoon en de tekst naast elkaar te zetten */
 .bot-message {
     align-self: flex-start;
     max-width: 85%;
     background-color: #FFFFFF; 
     color: #333;  /* Donkere tekst voor betere leesbaarheid */
     text-align: left;
-    /* ... eventuele andere stijlen ... */
+    display: flex;           /* Nieuw toegevoegd */
+    align-items: center;     /* Nieuw toegevoegd */
 }
         
              #chatbot-input .send-icon {
@@ -943,18 +952,21 @@ function preloadImages() {
     sendIcon.src = 'https://github.com/chatgptpython/embed/blob/main/send_5836606.png?raw=true';
 }
 
-// Functie om een bericht te simuleren dat door de chatbot wordt getypt
 function typeBotMessage(messageText, callback) {
     toggleInputState("disable"); 
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
+    // Voeg een icoon toe voor de bot
+    messageElem.innerHTML = `<img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chatbot-icon.png" alt="Bot" class="bot-icon">`;
     chatContent.appendChild(messageElem);
+    let messageTextElem = document.createElement("span");
+    messageElem.appendChild(messageTextElem);
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
-            messageElem.textContent += messageText[index];
+            messageTextElem.textContent += messageText[index];
             index++;
             chatContent.scrollTop = chatContent.scrollHeight;
         } else {
