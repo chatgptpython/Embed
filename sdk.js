@@ -748,6 +748,50 @@ window.closeChatText = function() {
     chatText.style.display = "none";  // Verberg de chattekst
 };        
 
+        
+window.toggleChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
+        chatbot.style.display = "flex";
+        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
+
+        setTimeout(function() {
+            chatbot.classList.add("visible");
+        }, 50);
+
+        icon.classList.add('cross');
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
+        icon.classList.remove('cross');
+        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
+    }
+};
+
+window.closeChatText = function() {
+    const chatText = document.getElementById("chatbot-text");
+    chatText.style.display = "none";  // Verberg de chattekst
+};   
+
+document.getElementById("chatbot-text").addEventListener('click', function() {
+    toggleChat();
+});
+
+
+// Aanroepen wanneer de pagina laadt
+initializeChat();
+
+
 // Aanroepen wanneer de pagina laadt
 initializeChat();
 
