@@ -213,7 +213,9 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 30px;  /* Hoogte van het icoontje */
     margin-right: 5px;  /* Ruimte tussen het icoontje en de tekst */
     margin-top: 20px;  /* Verplaatst het icoontje verder naar beneden */
+    margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
+
 
 
         #chatbot-input button.send-icon {
