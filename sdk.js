@@ -652,12 +652,17 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
- window.typeWelcomeMessage = async function() {
+window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     chatContent.innerHTML += `<div class="message-sender">Chatbot:</div>`;
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     chatContent.appendChild(messageElem);
+
+    // Voeg een icoon toe voor de bot
+    messageElem.innerHTML = `<img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot" class="bot-icon">`;
+    let messageTextElem = document.createElement("span");
+    messageElem.appendChild(messageTextElem);
 
     // Haal het welkomstbericht op van de server
     let messageText = await fetch(`${backendUrl}/get_welcome_message`)
@@ -668,7 +673,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
-            messageElem.textContent += messageText[index];
+            messageTextElem.textContent += messageText[index];
             index++;
             chatContent.scrollTop = chatContent.scrollHeight;
         } else {
@@ -676,6 +681,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 25);
 };
+
 
     async function fetchAndApplyColor() {
     try {
