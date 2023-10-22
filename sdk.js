@@ -593,7 +593,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
    // HTML toevoegen
- 
+  // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -606,14 +606,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
-            <div id="chatbot-content">
-                <!-- Voorbeeld van een chatbot bericht met icoontje -->
-                <div class="message-container bot-container">
-                    <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Chatbot Icoontje" class="chatbot-icon">
-                    <div class="message-sender">Chatbot:</div>
-                    <div class="bot-message">Dit is een voorbeeld bericht.</div>
-                </div>
-            </div>
+            <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -640,6 +633,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+    
 
 
     var div = document.createElement('div');
