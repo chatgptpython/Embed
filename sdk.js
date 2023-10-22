@@ -248,13 +248,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-input textarea {
     flex: 1;
-    padding: 10px 14px;
+    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin: 0 10px 0 0; /* Voeg wat marge toe aan de rechterkant */
-    background-color: #ffffff; /* Witte achtergrond voor het tekstveld */
+    margin-right: 5px; 
+    background-color: #ffffff; 
     resize: none;
     min-height: 28px;
     overflow: auto;
