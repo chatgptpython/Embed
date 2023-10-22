@@ -653,7 +653,7 @@ window.typeWelcomeMessage = async function() {
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
     messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
     `;
     chatContent.appendChild(messageContainer);
     let messageElem = document.createElement("div");
@@ -904,7 +904,7 @@ window.sendMessage = function() {
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
                 messageContainer.innerHTML = `
-                    <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
                 `;
                 chatContent.appendChild(messageContainer);
                 let messageText = data.answer;
@@ -933,7 +933,7 @@ window.sendMessage = function() {
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
                 messageContainer.innerHTML = `
-                    <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
                     <div class="bot-message">Sorry, er is een fout opgetreden.</div>
                 `;
                 chatContent.appendChild(messageContainer);
@@ -977,7 +977,7 @@ function typeBotMessage(messageText, callback) {
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
     messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/send.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
     `;
     chatContent.appendChild(messageContainer);
     let messageElem = document.createElement("div");
