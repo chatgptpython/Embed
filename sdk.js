@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     
 #chatbot-input {
-    padding: 10px 40px 10px 10px; /* Voeg meer padding rechts toe om ruimte te maken voor de verzendknop */
+    padding: 10px; 
     background-color: transparent; 
     display: flex;
     align-items: center;
@@ -238,12 +238,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-input textarea {
     flex: 1;
-    padding: 10px 14px;
+    padding: 10px 14px 10px 10px;  /* Verminder de padding aan de rechterzijde */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin: 0 40px 0 0; /* Vergroot de marge aan de rechterkant om ruimte te maken voor de verzendknop */
+    margin: 0 40px 0 0; /* Zorg voor ruimte aan de rechterkant voor de knop */
     background-color: #ffffff; 
     resize: none;
     min-height: 28px;
@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+
 
 
 
@@ -327,11 +328,10 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: transparent;
     border: none;
     position: absolute;
-    right: 10px; /* Plaats de knop 10px van de rechterkant */
+    right: 15px;  /* Aanpassing zodat de knop binnen het tekstveld blijft */
     top: 50%;
     transform: translateY(-50%);
 }
-
 
 
    
