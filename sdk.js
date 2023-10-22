@@ -209,11 +209,12 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 .bot-avatar {
-    width: 20px;  /* Of welke grootte je ook wilt */
-    height: 20px;
+    width: 30px;  /* Vergroot de breedte van het icoontje */
+    height: 30px;  /* Vergroot de hoogte van het icoontje */
     margin-right: 5px;  /* Ruimte tussen het icoontje en de tekst */
-    margin-top: 3px;  /* Zorgt ervoor dat het icoontje net niet boven de bovenkant van de chatbubbel komt */
+    margin-top: 10px;  /* Verplaatst het icoontje iets meer naar beneden */
 }
+
         #chatbot-input button.send-icon {
     position: absolute;
     right: 10px;
