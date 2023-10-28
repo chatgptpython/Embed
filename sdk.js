@@ -327,12 +327,12 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: #F7F7F7;  /* Lichtgrijze binnenkant */
-    color: #333;  /* Donkergrijze tekst */
+    background-color: var(--dynamic-color);  /* Dynamische achtergrondkleur */
+    color: #FFFFFF;  /* Witte tekst voor goede leesbaarheid */
     text-align: right;
     margin: 10px 0;
     padding: 12px 18px;
-    border-radius: 16px;  /* Verhoogde randradius */
+    border-radius: 16px;  /* Verhoogde randradius voor een moderner uiterlijk */
     width: auto;
     min-width: 40%;
     transition: all 0.3s ease-in-out;
@@ -341,8 +341,9 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     justify-content: center;
     position: relative;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);  /* Schaduw voor een "lifted" effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een "lifted" effect */
 }
+
 
 
 
