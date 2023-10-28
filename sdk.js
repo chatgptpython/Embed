@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
     metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
+    // Dynamisch toevoegen van Google Fonts
+    var linkElement = document.createElement('link');
+    linkElement.rel = 'stylesheet';
+    linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
+    document.getElementsByTagName('head')[0].appendChild(linkElement);
+
+
     (function() {
         // Haal de backend URL op van het script tag met de data-backend-url attribuut
         const scriptElement = document.querySelector('script[data-backend-url]');
@@ -158,31 +165,28 @@ document.addEventListener("DOMContentLoaded", function() {
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
-    
-    /* Nieuwe aanbevelingen */
-    font-family: 'Georgia, serif';  /* Een klassiek, leesbaar lettertype */
+    font-family: 'Roboto', sans-serif;  /* Modern lettertype */
+    font-size: 2em;  /* Vergrote tekstgrootte */
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
+
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
     height: 30px;         /* Vergrote hoogte */
     margin-right: 15px;   /* Vergrote marge */
 }
 
-/* Huidige stijl voor de ondertitel */
 #chatbot header .subtitle {
     display: block;
     font-size: 0.9em;
     color: rgba(255, 255, 255, 0.8);
     margin-top: 5px;
-    
-    /* Nieuwe aanbevelingen */
-    font-size: 0.7em;  /* Een kleinere grootte dan de titel, maar nog steeds leesbaar */
+    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
+    font-size: 1.2em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
     font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
     color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
-
 
 
 /* Huidige stijl voor de titel */
