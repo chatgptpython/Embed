@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: var(--dynamic-color);  /* Dynamische achtergrondkleur */
+    background: linear-gradient(180deg, var(--dynamic-color), rgba(255, 255, 255, 0.6));  /* Gemengde achtergrondkleur */
     color: #FFFFFF;  /* Witte tekst voor goede leesbaarheid */
     text-align: right;
     margin: 10px 0;
