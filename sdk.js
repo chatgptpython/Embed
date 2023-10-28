@@ -328,10 +328,22 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: #FFFFFF;  /* Achtergrondkleur is nu wit */
-    color: #000000;  /* Tekst is nu zwart */
+    background-color: #4A90E2;  /* Mooi blauw */
+    color: #FFFFFF;  /* Witte tekst */
     text-align: right;
-    border: 2px solid var(--header-color);  /* Voeg een rand toe met dezelfde kleur als de header */
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 10px;
+    width: auto;  /* Verander van 100% naar auto */
+    min-width: 40%;  /* Stel een minimum breedte in */
+    transition: all 0.3s ease-in-out;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    white-space: pre-wrap;
+    border: 2px solid var(--dynamic-color);  /* Dynamische randkleur */
 }
 
 
@@ -714,20 +726,29 @@ window.typeWelcomeMessage = async function() {
     }
 }
 
+function updateColor(color) {
+    // Update de achtergrondkleur van de header
+    const chatHeader = document.querySelector("#chatbot header");
+    chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
 
-    function updateColor(color) {
-        const chatHeader = document.querySelector("#chatbot header");
-        chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
-    }
+    // Update de randkleur voor de gebruikersberichten
+    const userMessages = document.querySelectorAll('.user-message');
+    userMessages.forEach(msg => {
+        msg.style.border = `2px solid ${color}`;
+    });
     
-    function updateChatIconColor(color) {
-        const chatIcon = document.getElementById("chatbot-icon");
-        chatIcon.style.background = color;
-    }
+    // Stel een CSS-variabele in voor dynamische kleur
+    document.documentElement.style.setProperty('--dynamic-color', color);
+}
 
+function updateChatIconColor(color) {
+    // Update de achtergrondkleur van het chat-icoon
+    const chatIcon = document.getElementById("chatbot-icon");
+    chatIcon.style.background = color;
+}
 
-    // Oproepen wanneer de pagina laadt
-    fetchAndApplyColor();
+// Oproepen wanneer de pagina laadt
+fetchAndApplyColor();
 
 
 async function fetchTitleMessage() {
