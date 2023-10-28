@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
-    // Dynamisch toevoegen van Google Fonts
-    var linkElement = document.createElement('link');
-    linkElement.rel = 'stylesheet';
-    linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
-    document.getElementsByTagName('head')[0].appendChild(linkElement);
-
-
     (function() {
         // Haal de backend URL op van het script tag met de data-backend-url attribuut
         const scriptElement = document.querySelector('script[data-backend-url]');
@@ -157,54 +150,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot header {
     background: linear-gradient(90deg, #FFFFFF, var(--header-color));
+    color: #333;
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
+    font-size: 1.8em;  
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
-    font-family: 'Roboto', sans-serif;  /* Modern lettertype */
-    font-size: 1.3em;  /* Vergrote tekstgrootte */
-    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
 
 #chatbot header img {
-    width: 40px;  /* Verhoogd van 30px naar 40px */
-    height: 40px;  /* Verhoogd van 30px naar 40px */
-    margin-right: 15px;
+    width: 30px;          /* Vergrote breedte */
+    height: 30px;         /* Vergrote hoogte */
+    margin-right: 15px;   /* Vergrote marge */
 }
 
 #chatbot header .subtitle {
-    display: block;
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
+    display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
+    font-size: 0.9em;  /* Aanpassing voor de ondertitel */
+    color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
     margin-top: 5px;
-    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
-    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
-    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
-    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
-    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
-
-/* Huidige stijl voor de titel */
 #chatbot-title {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 1.3em;
-    
-    /* Nieuwe aanbevelingen */
-    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
-    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
+    font-size: 1.2em;    /* Verkleinde grootte voor de titel */
 }
 
 .subtitle {
-    font-size: 0.5em;
+    font-size: 0.8em; /* Verkleinde grootte voor de ondertitel */
     margin-top: 5px;
 }
+
 
 
 
@@ -324,27 +306,16 @@ document.addEventListener("DOMContentLoaded", function() {
             white-space: pre-wrap;
         }
         
+        
+/* Stijlen voor berichten van de gebruiker */
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: var(--dynamic-color);  /* Dynamische achtergrondkleur */
-    color: #FFFFFF;  /* Witte tekst voor goede leesbaarheid */
+    background-color: #4A90E2;  /* Mooi blauw */
+    color: #FFFFFF;  /* Witte tekst */
     text-align: right;
-    margin: 10px 0;
-    padding: 12px 18px;
-    border-radius: 16px;  /* Verhoogde randradius voor een moderner uiterlijk */
-    width: auto;
-    min-width: 40%;
-    transition: all 0.3s ease-in-out;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een "lifted" effect */
+    /* ... eventuele andere stijlen ... */
 }
-
-
 
 /* Stijlen voor berichten van de bot */
 .bot-message {
@@ -629,12 +600,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-      // HTML toevoegen
+   // HTML toevoegen
+  // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
-                <!-- Nieuw icoontje toegevoegd hier -->
-                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
                 <div id="chatbot-title-container">
                     <span id="chatbot-title">
                         <span role="img" aria-label="bot">🤖</span> 
@@ -671,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-
+    
 
 
     var div = document.createElement('div');
@@ -725,29 +695,20 @@ window.typeWelcomeMessage = async function() {
     }
 }
 
-function updateColor(color) {
-    // Update de achtergrondkleur van de header
-    const chatHeader = document.querySelector("#chatbot header");
-    chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
 
-    // Update de randkleur voor de gebruikersberichten
-    const userMessages = document.querySelectorAll('.user-message');
-    userMessages.forEach(msg => {
-        msg.style.border = `2px solid ${color}`;
-    });
+    function updateColor(color) {
+        const chatHeader = document.querySelector("#chatbot header");
+        chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
+    }
     
-    // Stel een CSS-variabele in voor dynamische kleur
-    document.documentElement.style.setProperty('--dynamic-color', color);
-}
+    function updateChatIconColor(color) {
+        const chatIcon = document.getElementById("chatbot-icon");
+        chatIcon.style.background = color;
+    }
 
-function updateChatIconColor(color) {
-    // Update de achtergrondkleur van het chat-icoon
-    const chatIcon = document.getElementById("chatbot-icon");
-    chatIcon.style.background = color;
-}
 
-// Oproepen wanneer de pagina laadt
-fetchAndApplyColor();
+    // Oproepen wanneer de pagina laadt
+    fetchAndApplyColor();
 
 
 async function fetchTitleMessage() {
@@ -1089,6 +1050,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
-
 
