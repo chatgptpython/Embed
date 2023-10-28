@@ -150,38 +150,51 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot header {
     background: linear-gradient(90deg, #FFFFFF, var(--header-color));
-    color: #333;
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
-    font-size: 1.8em;  
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
+    
+    /* Nieuwe aanbevelingen */
+    font-family: 'Georgia, serif';  /* Een klassiek, leesbaar lettertype */
+    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
-
 #chatbot header img {
     width: 30px;          /* Vergrote breedte */
     height: 30px;         /* Vergrote hoogte */
     margin-right: 15px;   /* Vergrote marge */
 }
 
+/* Huidige stijl voor de ondertitel */
 #chatbot header .subtitle {
-    display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
-    font-size: 0.8em;  /* Groter dan voorheen, maar nog steeds kleiner dan de titel */
-    color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
+    display: block;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
     margin-top: 5px;
+    
+    /* Nieuwe aanbevelingen */
+    font-size: 0.7em;  /* Een kleinere grootte dan de titel, maar nog steeds leesbaar */
+    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
+    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
+    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
 
 
+/* Huidige stijl voor de titel */
 #chatbot-title {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 1.3em;    /* Verkleinde grootte voor de titel */
+    font-size: 1.3em;
+    
+    /* Nieuwe aanbevelingen */
+    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
+    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
 }
 
 .subtitle {
