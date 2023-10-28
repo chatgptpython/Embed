@@ -170,10 +170,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot header .subtitle {
     display: block; /* Zorgt ervoor dat de ondertitel op een nieuwe regel verschijnt */
-    font-size: 0.9em;  /* Aanpassing voor de ondertitel */
+    font-size: 0.5em;  /* Aanzienlijk kleiner dan de titel */
     color: rgba(255, 255, 255, 0.8);  /* Lichtere witte kleur */
     margin-top: 5px;
 }
+
 
 #chatbot-title {
     display: flex;
