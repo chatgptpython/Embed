@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background: linear-gradient(180deg, var(--dynamic-color), rgba(255, 255, 255, 0.6));  /* Gemengde achtergrondkleur */
+    background-color: var(--dynamic-color);  /* Dynamische achtergrondkleur */
     color: #FFFFFF;  /* Witte tekst voor goede leesbaarheid */
     text-align: right;
     margin: 10px 0;
@@ -343,7 +343,6 @@ document.addEventListener("DOMContentLoaded", function() {
     position: relative;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een "lifted" effect */
 }
-
 
 
 
