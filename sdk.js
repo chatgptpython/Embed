@@ -325,15 +325,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         
-/* Stijlen voor berichten van de gebruiker */
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: #4A90E2;  /* Mooi blauw */
-    color: #FFFFFF;  /* Witte tekst */
+    background-color: #FFFFFF;  /* Achtergrondkleur is nu wit */
+    color: #000000;  /* Tekst is nu zwart */
     text-align: right;
-    /* ... eventuele andere stijlen ... */
+    border: 2px solid var(--header-color);  /* Voeg een rand toe met dezelfde kleur als de header */
 }
+
 
 /* Stijlen voor berichten van de bot */
 .bot-message {
