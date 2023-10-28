@@ -171,9 +171,9 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header img {
-    width: 30px;          /* Vergrote breedte */
-    height: 30px;         /* Vergrote hoogte */
-    margin-right: 15px;   /* Vergrote marge */
+    width: 40px;  /* Verhoogd van 30px naar 40px */
+    height: 40px;  /* Verhoogd van 30px naar 40px */
+    margin-right: 15px;
 }
 
 #chatbot header .subtitle {
