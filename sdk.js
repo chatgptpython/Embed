@@ -179,14 +179,13 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 1.2em;    /* Verkleinde grootte voor de titel */
+    font-size: 1.0em;    /* Verkleinde grootte voor de titel */
 }
 
 .subtitle {
-    font-size: 0.8em; /* Verkleinde grootte voor de ondertitel */
+    font-size: 0.7em; /* Verkleinde grootte voor de ondertitel */
     margin-top: 5px;
 }
-
 
 
 
@@ -600,11 +599,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-   // HTML toevoegen
-  // HTML toevoegen
+      // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
+                <!-- Nieuw icoontje toegevoegd hier -->
+                <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Icon" id="header-icon">
                 <div id="chatbot-title-container">
                     <span id="chatbot-title">
                         <span role="img" aria-label="bot">🤖</span> 
@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-    
+
 
 
     var div = document.createElement('div');
