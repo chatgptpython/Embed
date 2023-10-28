@@ -327,12 +327,12 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: #FFFFFF;  /* Witte binnenkant */
-    color: #000000;  /* Zwarte tekst */
+    background-color: #F7F7F7;  /* Lichtgrijze binnenkant */
+    color: #333;  /* Donkergrijze tekst */
     text-align: right;
     margin: 10px 0;
     padding: 12px 18px;
-    border-radius: 10px;
+    border-radius: 16px;  /* Verhoogde randradius */
     width: auto;
     min-width: 40%;
     transition: all 0.3s ease-in-out;
@@ -341,9 +341,9 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     justify-content: center;
     position: relative;
-    white-space: pre-wrap;
-    border: 2px solid var(--dynamic-color);  /* Randkleur wordt dynamisch ingesteld */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);  /* Schaduw voor een "lifted" effect */
 }
+
 
 
 
