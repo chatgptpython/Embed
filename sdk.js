@@ -604,7 +604,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="chatbot">
             <header>
                 <!-- Nieuw icoontje toegevoegd hier -->
-                <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Icon" id="header-icon">
+                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
                 <div id="chatbot-title-container">
                     <span id="chatbot-title">
                         <span role="img" aria-label="bot">🤖</span> 
