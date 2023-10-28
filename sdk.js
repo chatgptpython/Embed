@@ -327,12 +327,12 @@ document.addEventListener("DOMContentLoaded", function() {
 .user-message {
     align-self: flex-end;
     max-width: 90%;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6)), var(--dynamic-color);
-    color: #FFFFFF;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7)), var(--dynamic-color);
+    color: calc(var(--dynamic-color) ? white : black);  /* Pas de tekstkleur aan */
     text-align: right;
     margin: 8px 0;
     padding: 14px 20px;
-    border-radius: 18px;  /* Modernere uitstraling */
+    border-radius: 18px;
     width: auto;
     min-width: 45%;
     transition: all 0.3s ease-in-out;
@@ -341,8 +341,8 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     justify-content: center;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 'Zwevend' effect */
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);  /* Betere leesbaarheid van de tekst */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 
