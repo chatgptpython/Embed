@@ -347,7 +347,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
 /* Stijlen voor berichten van de bot */
 .bot-message {
     align-self: flex-start;
