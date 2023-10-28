@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     height: 120px;
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
-    font-size: 2em;  /* Vergrote tekstgrootte */
+    font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
 
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
     color: rgba(255, 255, 255, 0.8);
     margin-top: 5px;
     font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
-    font-size: 1.2em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
+    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
     font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
     color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
