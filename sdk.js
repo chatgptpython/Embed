@@ -324,18 +324,17 @@ document.addEventListener("DOMContentLoaded", function() {
             white-space: pre-wrap;
         }
         
-        
 .user-message {
     align-self: flex-end;
     max-width: 85%;
-    background-color: #4A90E2;  /* Mooi blauw */
-    color: #FFFFFF;  /* Witte tekst */
+    background-color: #FFFFFF;  /* Witte binnenkant */
+    color: #000000;  /* Zwarte tekst */
     text-align: right;
     margin: 10px 0;
     padding: 12px 18px;
     border-radius: 10px;
-    width: auto;  /* Verander van 100% naar auto */
-    min-width: 40%;  /* Stel een minimum breedte in */
+    width: auto;
+    min-width: 40%;
     transition: all 0.3s ease-in-out;
     word-wrap: break-word;
     white-space: pre-wrap;
@@ -343,8 +342,9 @@ document.addEventListener("DOMContentLoaded", function() {
     justify-content: center;
     position: relative;
     white-space: pre-wrap;
-    border: 2px solid var(--dynamic-color);  /* Dynamische randkleur */
+    border: 2px solid var(--dynamic-color);  /* Randkleur wordt dynamisch ingesteld */
 }
+
 
 
 /* Stijlen voor berichten van de bot */
