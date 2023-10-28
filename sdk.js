@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 .subtitle {
-    font-size: 0.7em; /* Verkleinde grootte voor de ondertitel */
+    font-size: 0.5em;
     margin-top: 5px;
 }
 
