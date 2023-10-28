@@ -326,23 +326,22 @@ document.addEventListener("DOMContentLoaded", function() {
         
 .user-message {
     align-self: flex-end;
-    max-width: 90%;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7)), var(--dynamic-color);
-    color: calc(var(--dynamic-color) ? white : black);  /* Pas de tekstkleur aan */
+    max-width: 85%;
+    background-color: var(--dynamic-color);  /* Dynamische achtergrondkleur */
+    color: #FFFFFF;  /* Witte tekst voor goede leesbaarheid */
     text-align: right;
-    margin: 8px 0;
-    padding: 14px 20px;
-    border-radius: 18px;
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 16px;  /* Verhoogde randradius voor een moderner uiterlijk */
     width: auto;
-    min-width: 45%;
+    min-width: 40%;
     transition: all 0.3s ease-in-out;
     word-wrap: break-word;
     white-space: pre-wrap;
     display: flex;
     justify-content: center;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een "lifted" effect */
 }
 
 
