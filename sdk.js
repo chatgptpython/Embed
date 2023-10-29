@@ -158,20 +158,60 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background-color: #333;  /* Donkere achtergrond */
+    background-color: #1A2E4A;  /* Donkerblauwe achtergrond */
     color: #fff;  /* Witte tekst */
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Voeg een lichte schaduw toe */
+    font-family: 'Poppins', sans-serif;  /* Modern lettertype */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  /* Schaduw voor een "lifted" effect */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;  /* Verminderde padding */
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* Flexbox container voor icoon en titel */
+/* Hover effect voor de header */
+#chatbot header:hover {
+    background-color: #152D44;
+}
+
+/* Flexbox container voor het icoon en de titel */
 .header-left {
     display: flex;
     align-items: center;
+    padding: 0 10px;  /* Verminderde padding */
 }
+
+/* Stijlen voor de chatbot-titel */
+#chatbot-title {
+    font-size: 1.5em;  /* Vergrote tekst */
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Stijlen voor de ondertitel */
+.subtitle {
+    font-size: 0.8em;  /* Kleinere tekst */
+    margin-top: 2px;  /* Minder ruimte boven */
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* Stijlen voor de sluitknop */
+#close-chat {
+    background: transparent;
+    border: none;
+    font-size: 1.8em;  /* Iets kleiner icoon */
+    color: #fff;
+    cursor: pointer;
+    padding: 0 10px;  /* Verminderde padding */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect voor de sluitknop */
+#close-chat:hover {
+    transform: scale(1.1);
+}
+
 
 
 
@@ -192,22 +232,6 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
-
-
-/* Stijlen voor de chatbot-titel */
-#chatbot-title {
-    font-size: 1.4em;  /* Vergroot de titelgrootte */
-    margin: 0;
-}
-
-/* Stijlen voor de ondertitel */
-.subtitle {
-    font-size: 0.9em;
-    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
-    color: rgba(255, 255, 255, 0.8);
-}
-
-
 
 
 #chatbot-content {
@@ -516,20 +540,6 @@ document.addEventListener("DOMContentLoaded", function() {
             color: #888;
             margin-bottom: 5px;
         }
-
-/* Stijlen voor de sluitknop */
-#close-chat {
-    background: transparent;
-    border: none;
-    font-size: 1.5em;
-    color: #fff;
-    cursor: pointer;
-}
-
-#close-chat:hover {
-    color: #222;  
-    transform: scale(1.1);  /* Licht vergroot bij hover */
-}
 
 
  @media (max-width: 768px) {
