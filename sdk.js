@@ -178,14 +178,22 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
+#chatbot-title-container {
+    flex-grow: 1;  /* Zorgt dat de container groeit en de beschikbare ruimte opvult */
+    display: flex;  /* Maakt het een flex-container */
+    justify-content: center;  /* Centreert de inhoud horizontaal */
+    align-items: center;  /* Centreert de inhoud verticaal */
+}
+
 #chatbot-title {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    font-size: 1.5em;  /* Een grotere lettergrootte voor meer nadruk */
-    font-weight: bold; /* Vetgedrukte tekst voor een duidelijke uitstraling */
-    color: #ffffff;   /* Witte tekstkleur */
+    align-items: center;  /* Verandert dit naar 'center' om de titel te centreren */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
 }
+
 
 
 #chatbot-content {
