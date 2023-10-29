@@ -170,7 +170,9 @@ document.addEventListener("DOMContentLoaded", function() {
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #ffffff;
+    justify-content: space-between; /* Zorgt voor gelijke ruimte aan beide zijden van de items */
 }
+
 
 #chatbot header img {
     width: 40px;  /* Verhoogd van 30px naar 40px */
@@ -184,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1.5em;  /* Vergroot de tekstgrootte voor een duidelijke uitstraling */
     font-weight: bold;  /* Maak de tekst vetgedrukt voor een professionele uitstraling */
     color: #ffffff;  /* Verander de tekstkleur naar wit */
+    flex-grow: 1; /* Laat de titelcontainer groeien om beschikbare ruimte op te vullen */
+    text-align: center; /* Centreert de tekst binnen de titelcontainer */
+}
 }
 
 
