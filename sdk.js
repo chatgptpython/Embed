@@ -177,20 +177,21 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #header-icon {
-    border-radius: 50%;  /* Maakt de afbeelding rond */
-    width: 50px;  /* Aanpassen naar gewenste breedte */
-    height: 50px;  /* Aanpassen naar gewenste hoogte */
+    border-radius: 50%;  
+    width: 50px;  /* Verhoogd naar 50px */
+    height: 50px;  /* Verhoogd naar 50px */
 }
 
 .online-indicator {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 12px;  /* Grootte van het groene bolletje */
+    width: 12px;
     height: 12px;
-    background-color: green;  /* Groene kleur om aan te geven dat het online is */
-    border-radius: 50%;  /* Maakt het bolletje rond */
-    border: 2px solid white;  /* Witte rand om het bolletje */
+    background-color: green;
+    border-radius: 50%;
+    border: 2px solid white;
+    bottom: 4px;  /* Aangepast */
+    right: 4px;  /* Aangepast */
+    transform: translate(50%, 50%) rotate(145deg);  /* Toegevoegd voor 145 graden */
 }
 
 
