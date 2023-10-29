@@ -172,16 +172,32 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
 .icon-container {
     position: relative;
 }
 
 #header-icon {
-    border-radius: 50%;  /* Maakt de afbeelding rond */
-    width: 40px;  /* Aanpassen naar gewenste breedte */
-    height: 40px;  /* Aanpassen naar gewenste hoogte */
+    width: 50px;  /* Verhoogd van 40px naar 50px */
+    height: 50px;  /* Verhoogd van 40px naar 50px */
+    border-radius: 50%;
 }
 
+.online-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+    border: 2px solid white;
+    transform: translate(50%, 50%);
+}
 
 
 
@@ -663,19 +679,25 @@ document.addEventListener("DOMContentLoaded", function() {
     var html = `
         <div id="chatbot">
             <header>
-                <!-- Icoontje en online indicator toegevoegd in een container -->
-                <div class="icon-container">
-                    <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
-                    <span class="online-indicator"></span>
+                <div class="header-container">
+                    <!-- Rond icoon met online indicator -->
+                    <div class="icon-container">
+                        <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
+                        <div class="online-indicator"></div>
+                    </div>
+                    
+                    <!-- Titel en ondertitel -->
+                    <div id="chatbot-title-container">
+                        <span id="chatbot-title">
+                            <span role="img" aria-label="bot">🤖</span> 
+                            Chatproducties - Proddy
+                        </span>
+                        <div class="subtitle">Jouw virtuele assistent</div>
+                    </div>
+                    
+                    <!-- Sluitknop -->
+                    <span id="close-chat" onclick="closeChat()">×</span>
                 </div>
-                <div id="chatbot-title-container">
-                    <span id="chatbot-title">
-                        <span role="img" aria-label="bot">🤖</span> 
-                        Chatproducties - Proddy
-                    </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>
-                </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
