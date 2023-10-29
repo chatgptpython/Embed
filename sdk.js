@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    font-weight: bold;
 }
 
 /* Verwijder marges van iconen */
@@ -620,22 +621,25 @@ document.addEventListener("DOMContentLoaded", function() {
         style.appendChild(document.createTextNode(css));
     }
     document.head.appendChild(style);
-    
-    // HTML toevoegen
+ // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
-                <!-- Icoon aan de linkerkant -->
-                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
-                <!-- Titel in het midden -->
-                <div id="chatbot-title-container">
-                    <span id="chatbot-title">
-                        <span role="img" aria-label="bot">🤖</span> 
-                        Chatproducties - Proddy
-                    </span>
+                <div class="header-container">
+                    <!-- Icoon aan de linkerkant -->
+                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                    
+                    <!-- Titel in het midden -->
+                    <div id="chatbot-title-container">
+                        <span id="chatbot-title">
+                            <span role="img" aria-label="bot">🤖</span>
+                            Chatproducties - Proddy
+                        </span>
+                    </div>
+                    
+                    <!-- Kruisje rechts -->
+                    <span id="close-chat" onclick="closeChat()">×</span>
                 </div>
-                <!-- Kruisje rechts -->
-                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">
@@ -664,7 +668,6 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-
 
 
     var div = document.createElement('div');
