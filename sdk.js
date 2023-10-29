@@ -649,7 +649,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="chatbot">
             <header>
                 <!-- Nieuw icoontje toegevoegd hier -->
-                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
                 <div id="chatbot-title-container">
                     <span id="chatbot-title">
                         <span role="img" aria-label="bot">🤖</span> 
@@ -659,6 +659,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
+
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
