@@ -190,8 +190,9 @@ document.addEventListener("DOMContentLoaded", function() {
     border-radius: 50%;
     border: 2px solid white;
     bottom: 5px;  /* Aanpassen voor verticale positie */
-    right: 5px;  /* Aanpassen voor horizontale positie */
+    right: 6px;  /* Een millimeter meer naar links */
 }
+
 
 
 
