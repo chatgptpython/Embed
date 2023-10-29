@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag
     var metaTag = document.createElement('meta');
