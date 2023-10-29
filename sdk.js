@@ -189,8 +189,8 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: green;
     border-radius: 50%;
     border: 2px solid white;
-    bottom: 8px;  /* Verder aangepast */
-    right: 8px;  /* Verder aangepast */
+    bottom: 10px;  /* Iets verhoogd om het bolletje naar boven te verschuiven */
+    right: 10px;  /* Iets verhoogd om het bolletje naar links te verschuiven */
 }
 
 
