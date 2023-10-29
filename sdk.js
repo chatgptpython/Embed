@@ -157,49 +157,49 @@ document.addEventListener("DOMContentLoaded", function() {
     animation-delay: 0.4s;
 }
 
-/* Header met een elegante en stijlvolle uitstraling */
+/* Header met een moderne en minimale uitstraling */
 #chatbot header {
-    background-color: #2F2E41;  /* Donkergrijze achtergrond */
-    color: #EDEDED;  /* Lichtgrijze tekst */
-    font-family: 'Georgia', serif;  /* Klassiek lettertype */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Subtiele schaduw */
+    background-color: #1F1F1F;  /* Bijna zwarte achtergrond */
+    color: #E1E1E1;  /* Bijna witte tekst */
+    font-family: 'Helvetica Neue', sans-serif;  /* Modern lettertype */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);  /* Lichtere schaduw */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 20px;
+    padding: 14px 18px;
     transition: background-color 0.3s ease;
 }
 
 #chatbot header:hover {
-    background-color: #252634;
+    background-color: #181818;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 12px;
 }
 
 #chatbot-title {
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin: 0;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .subtitle {
-    font-size: 0.7em;
-    margin-top: 4px;
-    font-weight: 400;
-    opacity: 0.9;
+    font-size: 0.65em;
+    margin-top: 3px;
+    font-weight: 300;
+    opacity: 0.85;
 }
 
 #close-chat {
     background: transparent;
     border: none;
-    font-size: 1.9em;
-    color: #EDEDED;
+    font-size: 1.7em;
+    color: #E1E1E1;
     cursor: pointer;
-    padding: 0 12px;
+    padding: 0 14px;
     transition: color 0.3s ease;
 }
 
@@ -208,20 +208,20 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header img {
-    width: 45px;
-    height: 45px;
-    margin-right: 10px;
+    width: 42px;
+    height: 42px;
+    margin-right: 13px;
 }
 
 #chatbot header .subtitle {
     display: block;
-    font-size: 0.75em;
-    color: #B0B0B0;
-    margin-top: 3px;
-    font-family: 'Georgia', serif;
-    font-weight: 400;
+    font-size: 0.7em;
+    color: #A8A8A8;
     margin-top: 2px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
 }
+
 
 
 #chatbot-content {
