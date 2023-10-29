@@ -702,8 +702,8 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://www.heikantklimaattechniek.nl/contact/', '_blank')">Offerte warmtepomp</button>
-                <button id="make-appointment" onclick="window.open('https://www.heikantklimaattechniek.nl/contact/', '_blank')">Offerte airco</button>
+                <button id="make-appointment" onclick="window.open('https://www.heikantklimaattechniek.nl/offerte-warmtepomp/', '_blank')">Offerte warmtepomp</button>
+                <button id="make-appointment" onclick="window.open('https://www.heikantklimaattechniek.nl/offerte-airco/', '_blank')">Offerte airco</button>
                 <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
