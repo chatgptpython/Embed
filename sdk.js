@@ -191,7 +191,9 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: green;  /* Groene kleur om aan te geven dat het online is */
     border-radius: 50%;  /* Maakt het bolletje rond */
     border: 2px solid white;  /* Witte rand om het bolletje */
+    transform: translate(50%, 50%);  /* Verplaatst het bolletje zodat het half over de afbeelding valt */
 }
+
 
 
 #chatbot header img {
@@ -680,7 +682,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+                    <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
