@@ -158,19 +158,22 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
-    padding: 20px 30px;
-    text-align: left;
-    font-weight: 700;
+    background-color: #333;  /* Donkere achtergrond */
+    color: #fff;  /* Witte tekst */
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Voeg een lichte schaduw toe */
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    height: 120px;
-    font-family: 'Roboto', sans-serif;  /* Modern lettertype */
-    font-size: 1.3em;  /* Vergrote tekstgrootte */
-    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
+    justify-content: space-between;
 }
+
+/* Flexbox container voor icoon en titel */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+
 
 #chatbot header img {
     width: 40px;  /* Verhoogd van 30px naar 40px */
@@ -191,22 +194,19 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-/* Huidige stijl voor de titel */
+/* Stijlen voor de chatbot-titel */
 #chatbot-title {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    font-size: 1.3em;
-    
-    /* Nieuwe aanbevelingen */
-    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
-    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
+    font-size: 1.4em;  /* Vergroot de titelgrootte */
+    margin: 0;
 }
 
+/* Stijlen voor de ondertitel */
 .subtitle {
-    font-size: 0.5em;
-    margin-top: 5px;
+    font-size: 0.9em;
+    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
+    color: rgba(255, 255, 255, 0.8);
 }
+
 
 
 
@@ -517,16 +517,13 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
+/* Stijlen voor de sluitknop */
 #close-chat {
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #fff;
     cursor: pointer;
-    font-size: 40px;  
-    margin-left: auto;
-    padding: 10px;
-    background-color: transparent;
-    color: #444; 
-    transition: color 0.3s ease, transform 0.3s ease;
-    font-weight: 300; 
-    line-height: 1;  /* Zorgt ervoor dat het kruisje gecentreerd blijft */
 }
 
 #close-chat:hover {
@@ -634,17 +631,19 @@ document.addEventListener("DOMContentLoaded", function() {
       // HTML toevoegen
     var html = `
         <div id="chatbot">
+            <!-- Gewijzigd HTML stuk -->
             <header>
-                <!-- Nieuw icoontje toegevoegd hier -->
-                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
-                <div id="chatbot-title-container">
-                    <span id="chatbot-title">
-                        <span role="img" aria-label="bot">🤖</span> 
-                        Chatproducties - Proddy
-                    </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+                <div class="header-left">
+                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                    <div id="chatbot-title-container">
+                        <h1 id="chatbot-title">
+                            <span role="img" aria-label="bot">🤖</span> 
+                            Chatproducties - Proddy
+                        </h1>
+                        <p class="subtitle">Jouw virtuele assistent</p>
+                    </div>
                 </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
+                <button id="close-chat" onclick="closeChat()">×</button>
             </header>
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
