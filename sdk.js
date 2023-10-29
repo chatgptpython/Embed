@@ -624,9 +624,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
+                    <!-- Ondertitel verwijderd -->
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
+
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
