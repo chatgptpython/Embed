@@ -157,43 +157,20 @@ document.addEventListener("DOMContentLoaded", function() {
     animation-delay: 0.4s;
 }
 
-/* Positionering van items in de header */
 #chatbot header {
-    justify-content: space-between;
+    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
+    padding: 20px 30px;
+    text-align: left;
+    font-weight: 700;
+    display: flex;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;  /* Grote witte letters */
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    height: 120px;
+    font-family: 'Roboto', sans-serif;  /* Modern lettertype */
+    font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #ffffff;
 }
-
-/* Titel centreren */
-#chatbot-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    font-weight: bold;
-}
-
-/* Verwijder marges van iconen */
-#chatbot header img, #close-chat {
-    margin: 0;
-}
-
-/* Maak het kruisje kleiner en netjes gepositioneerd */
-#close-chat {
-    font-size: 1.5em;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-/* Extra stijlen voor het kruisje bij hover */
-#close-chat:hover {
-    color: #ddd;
-}
-
-
-
 
 #chatbot header img {
     width: 40px;  /* Verhoogd van 30px naar 40px */
@@ -201,21 +178,13 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-#chatbot header .subtitle {
-    display: block;
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 5px;
-    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
-    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
-    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
-    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
-    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
+
+
+#chatbot-title {
+    font-size: 1.5em;  /* Vergroot de tekstgrootte voor een duidelijke uitstraling */
+    font-weight: bold;  /* Maak de tekst vetgedrukt voor een professionele uitstraling */
+    color: #ffffff;  /* Verander de tekstkleur naar wit */
 }
-
-
-
-
 
 
 #chatbot-content {
@@ -525,6 +494,22 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
+#close-chat {
+    cursor: pointer;
+    font-size: 40px;  
+    margin-left: auto;
+    padding: 10px;
+    background-color: transparent;
+    color: #444; 
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 300; 
+    line-height: 1;  /* Zorgt ervoor dat het kruisje gecentreerd blijft */
+}
+
+#close-chat:hover {
+    color: #222;  
+    transform: scale(1.1);  /* Licht vergroot bij hover */
+}
 
 
  @media (max-width: 768px) {
@@ -611,6 +596,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
+
     </style>
     `;
     var style = document.createElement('style');
@@ -621,28 +607,23 @@ document.addEventListener("DOMContentLoaded", function() {
         style.appendChild(document.createTextNode(css));
     }
     document.head.appendChild(style);
- // HTML toevoegen
+
+      // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
-                <div class="header-container">
-                    <!-- Icoon aan de linkerkant -->
-                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
-                    
-                    <!-- Titel in het midden -->
-                    <div id="chatbot-title-container">
-                        <span id="chatbot-title">
-                            <span role="img" aria-label="bot">🤖</span>
-                            Chatproducties - Proddy
-                        </span>
-                    </div>
-                    
-                    <!-- Kruisje rechts -->
-                    <span id="close-chat" onclick="closeChat()">×</span>
+                <!-- Nieuw icoontje toegevoegd hier -->
+                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                <div id="chatbot-title-container">
+                    <span id="chatbot-title">
+                        <span role="img" aria-label="bot">🤖</span> 
+                        Chatproducties - Proddy
+                    </span>
                 </div>
+                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">
+            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -662,12 +643,13 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-close" onclick="closeChatText()">×</span>
-            <span id="chatbot-text-content"></span>
+            <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+
 
 
     var div = document.createElement('div');
@@ -1085,6 +1067,8 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
+
 
 
 
