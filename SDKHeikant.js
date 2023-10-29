@@ -218,12 +218,12 @@ document.addEventListener("DOMContentLoaded", function() {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 1.3em;
-    
-    /* Nieuwe aanbevelingen */
     font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
     font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
+    line-height: 1.5;  /* Zorgt voor meer ruimte tussen de regels */
+    margin-bottom: 5px;  /* Optioneel, voegt wat extra ruimte toe onder de titel */
 }
+
 
 .subtitle {
     font-size: 0.5em;
