@@ -226,10 +226,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 @media (max-width: 768px) {
     #chatbot-title {
-        line-height: 1.2;  /* Kleinere ruimte tussen de regels */
-        margin-bottom: 2px;  /* Kleinere ruimte onder de titel */
+        line-height: 1;  /* Minimale ruimte tussen de regels */
+        margin-bottom: 0;  /* Geen extra ruimte onder de titel */
     }
 }
+
 
 
 .subtitle {
