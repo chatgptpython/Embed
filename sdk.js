@@ -210,6 +210,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+@media (max-width: 768px) {
+    /* Andere aanpassingen voor mobiele schermen */
+
+    /* Aanpassing voor de titel en ondertitel op kleinere schermen */
+    #chatbot-title {
+        font-size: 1.8em;  /* Maak de titel groter */
+    }
+    .subtitle {
+        font-size: 1.0em;  /* Maak de ondertitel groter */
+    }
+}
+
+
 #chatbot-content {
     flex: 1;
     overflow-y: auto;
