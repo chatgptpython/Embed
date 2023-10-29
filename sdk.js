@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #header-icon {
-    border-radius: 50%;  
+    border-radius: 50%;
     width: 50px;  /* Verhoogd naar 50px */
     height: 50px;  /* Verhoogd naar 50px */
 }
@@ -189,9 +189,8 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: green;
     border-radius: 50%;
     border: 2px solid white;
-    bottom: 4px;  /* Aangepast */
-    right: 4px;  /* Aangepast */
-    transform: translate(50%, 50%) rotate(145deg);  /* Toegevoegd voor 145 graden */
+    bottom: 8px;  /* Verder aangepast */
+    right: 8px;  /* Verder aangepast */
 }
 
 
