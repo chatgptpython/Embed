@@ -226,8 +226,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 @media (max-width: 768px) {
     #chatbot-title {
-        line-height: 1.5;  /* Zorgt voor meer ruimte tussen de regels */
-        margin-bottom: 5px;  /* Optioneel, voegt wat extra ruimte toe onder de titel */
+        line-height: 1.2;  /* Kleinere ruimte tussen de regels */
+        margin-bottom: 2px;  /* Kleinere ruimte onder de titel */
     }
 }
 
