@@ -157,53 +157,39 @@ document.addEventListener("DOMContentLoaded", function() {
     animation-delay: 0.4s;
 }
 
+/* Positionering van items in de header */
 #chatbot header {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFF;
-    border-bottom: 1px solid #ddd;
-    padding: 15px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;  /* Grote witte letters */
+    color: #ffffff;
 }
 
-#left-space {
-    flex-grow: 1;
-}
-
-#chatbot-title-container {
-    flex-grow: 1;
-    text-align: center;
-}
-
+/* Titel centreren */
 #chatbot-title {
-    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* Verwijder marges van iconen */
+#chatbot header img, #close-chat {
     margin: 0;
 }
 
-#right-icons {
-    display: flex;
-    align-items: center;
-}
-
-#extra-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 15px;
-}
-
+/* Maak het kruisje kleiner en netjes gepositioneerd */
 #close-chat {
     font-size: 1.5em;
+    margin-right: 10px;
     cursor: pointer;
-    background: none;
-    border: none;
-    color: #333;
 }
 
+/* Extra stijlen voor het kruisje bij hover */
 #close-chat:hover {
-    color: #555;
+    color: #ddd;
 }
-
 
 
 
