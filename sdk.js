@@ -620,25 +620,25 @@ document.addEventListener("DOMContentLoaded", function() {
         style.appendChild(document.createTextNode(css));
     }
     document.head.appendChild(style);
-
-      // HTML toevoegen
+    
+    // HTML toevoegen
     var html = `
         <div id="chatbot">
-            <!-- Gewijzigd HTML stuk -->
             <header>
-                <div id="left-space"></div>
+                <!-- Icoon aan de linkerkant -->
+                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                <!-- Titel in het midden -->
                 <div id="chatbot-title-container">
-                    <span id="chatbot-title">🤖 Chatproducties - Proddy</span>
+                    <span id="chatbot-title">
+                        <span role="img" aria-label="bot">🤖</span> 
+                        Chatproducties - Proddy
+                    </span>
                 </div>
-                <div id="right-icons">
-                    <img src="https://path/to/your/icon.png" id="extra-icon" alt="Extra Icoon">
-                    <span id="close-chat" onclick="closeChat()">×</span>
-                </div>
+                <!-- Kruisje rechts -->
+                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
-            >
-
             <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+            <div class="loader-container" style="display: none;">
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -658,7 +658,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-close" onclick="closeChatText()">×</span>
-            <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
+            <span id="chatbot-text-content"></span>
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
