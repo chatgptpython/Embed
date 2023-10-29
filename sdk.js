@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 120px;
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
-    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
+    color: #ffffff;
 }
 
 #chatbot header img {
@@ -191,17 +191,14 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-/* Huidige stijl voor de titel */
 #chatbot-title {
     display: flex;
     flex-direction: column;
     align-items: start;
-    font-size: 1.3em;
-    
-    /* Nieuwe aanbevelingen */
-    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
-    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
-}
+    font-size: 1.5em;  /* Een grotere lettergrootte voor meer nadruk */
+    font-weight: bold; /* Vetgedrukte tekst voor een duidelijke uitstraling */
+    color: #ffffff;   /* Witte tekstkleur */
+
 
 .subtitle {
     font-size: 0.5em;
@@ -642,7 +639,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
