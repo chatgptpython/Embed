@@ -157,70 +157,72 @@ document.addEventListener("DOMContentLoaded", function() {
     animation-delay: 0.4s;
 }
 
-/* Header met een moderne en minimale uitstraling */
 #chatbot header {
-    background-color: #1F1F1F;  /* Bijna zwarte achtergrond */
-    color: #E1E1E1;  /* Bijna witte tekst */
-    font-family: 'Helvetica Neue', sans-serif;  /* Modern lettertype */
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);  /* Lichtere schaduw */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 18px;
-    transition: background-color 0.3s ease;
+    background-color: #FFF;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#chatbot header:hover {
-    background-color: #181818;
+#header-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
+#chatbot-title-container {
+    flex-grow: 1;
+    text-align: center;
 }
 
 #chatbot-title {
     font-size: 1.5em;
     margin: 0;
-    font-weight: 500;
 }
 
-.subtitle {
-    font-size: 0.65em;
-    margin-top: 3px;
-    font-weight: 300;
-    opacity: 0.85;
+#header-buttons {
+    display: flex;
+    gap: 10px;
 }
 
-#close-chat {
-    background: transparent;
+#help-button, #settings-button {
+    background: none;
     border: none;
-    font-size: 1.7em;
-    color: #E1E1E1;
+    font-size: 1em;
     cursor: pointer;
-    padding: 0 14px;
-    transition: color 0.3s ease;
+    color: #333;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
 }
 
-#close-chat:hover {
-    color: #FFFFFF;
+#help-button:hover, #settings-button:hover {
+    background-color: #eee;
 }
+
 
 #chatbot header img {
-    width: 42px;
-    height: 42px;
-    margin-right: 13px;
+    width: 40px;  /* Verhoogd van 30px naar 40px */
+    height: 40px;  /* Verhoogd van 30px naar 40px */
+    margin-right: 15px;
 }
 
 #chatbot header .subtitle {
     display: block;
-    font-size: 0.7em;
-    color: #A8A8A8;
-    margin-top: 2px;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: 300;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
+    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
+    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
+    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
+    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
+
+
+
 
 
 
@@ -531,6 +533,17 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
+#close-chat {
+    font-size: 1.5em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #333;
+}
+
+#close-chat:hover {
+    color: #555;
+}
 
  @media (max-width: 768px) {
         #chatbot {
@@ -616,7 +629,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
     </style>
     `;
     var style = document.createElement('style');
@@ -633,18 +645,17 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="chatbot">
             <!-- Gewijzigd HTML stuk -->
             <header>
-                <div class="header-left">
-                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
-                    <div id="chatbot-title-container">
-                        <h1 id="chatbot-title">
-                            <span role="img" aria-label="bot">🤖</span> 
-                            Chatproducties - Proddy
-                        </h1>
-                        <p class="subtitle">Jouw virtuele assistent</p>
-                    </div>
+                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                <div id="chatbot-title-container">
+                    <span id="chatbot-title">🤖 Chatproducties - Proddy</span>
                 </div>
-                <button id="close-chat" onclick="closeChat()">×</button>
+                <div id="header-buttons">
+                    <button id="help-button">Help</button>
+                    <button id="settings-button">Instellingen</button>
+                </div>
+                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
+
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
