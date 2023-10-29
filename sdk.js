@@ -184,14 +184,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 .online-indicator {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 12px;  /* Grootte van het groene bolletje */
+    bottom: 5px;  /* Verplaatst het bolletje een beetje naar boven */
+    right: -5px;  /* Verplaatst het bolletje naar links */
+    width: 12px;
     height: 12px;
-    background-color: green;  /* Groene kleur om aan te geven dat het online is */
-    border-radius: 50%;  /* Maakt het bolletje rond */
-    border: 2px solid white;  /* Witte rand om het bolletje */
-    transform: translate(50%, 50%);  /* Verplaatst het bolletje zodat het half over de afbeelding valt */
+    background-color: green;
+    border-radius: 50%;
+    border: 2px solid white;
+    transform: translate(50%, 50%);
 }
 
 
