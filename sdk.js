@@ -159,18 +159,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: #FFF;
     border-bottom: 1px solid #ddd;
     padding: 15px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#header-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
+#left-space {
+    flex-grow: 1;
 }
 
 #chatbot-title-container {
@@ -183,24 +181,31 @@ document.addEventListener("DOMContentLoaded", function() {
     margin: 0;
 }
 
-#header-buttons {
+#right-icons {
     display: flex;
-    gap: 10px;
+    align-items: center;
 }
 
-#help-button, #settings-button {
+#extra-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+#close-chat {
+    font-size: 1.5em;
+    cursor: pointer;
     background: none;
     border: none;
-    font-size: 1em;
-    cursor: pointer;
     color: #333;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
 }
 
-#help-button:hover, #settings-button:hover {
-    background-color: #eee;
+#close-chat:hover {
+    color: #555;
 }
+
+
+
 
 
 #chatbot header img {
@@ -533,17 +538,7 @@ document.addEventListener("DOMContentLoaded", function() {
             margin-bottom: 5px;
         }
 
-#close-chat {
-    font-size: 1.5em;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #333;
-}
 
-#close-chat:hover {
-    color: #555;
-}
 
  @media (max-width: 768px) {
         #chatbot {
@@ -645,16 +640,16 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="chatbot">
             <!-- Gewijzigd HTML stuk -->
             <header>
-                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Icon" id="header-icon">
+                <div id="left-space"></div>
                 <div id="chatbot-title-container">
                     <span id="chatbot-title">🤖 Chatproducties - Proddy</span>
                 </div>
-                <div id="header-buttons">
-                    <button id="help-button">Help</button>
-                    <button id="settings-button">Instellingen</button>
+                <div id="right-icons">
+                    <img src="https://path/to/your/icon.png" id="extra-icon" alt="Extra Icoon">
+                    <span id="close-chat" onclick="closeChat()">×</span>
                 </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
+            >
 
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
