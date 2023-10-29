@@ -213,15 +213,22 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-/* Huidige stijl voor de titel */
 #chatbot-title {
     display: flex;
     flex-direction: column;
     align-items: start;
+    font-size: 1.3em;
+    
+    /* Nieuwe aanbevelingen */
     font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
     font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
-    line-height: 1.5;  /* Zorgt voor meer ruimte tussen de regels */
-    margin-bottom: 5px;  /* Optioneel, voegt wat extra ruimte toe onder de titel */
+}
+
+@media (max-width: 768px) {
+    #chatbot-title {
+        line-height: 1.5;  /* Zorgt voor meer ruimte tussen de regels */
+        margin-bottom: 5px;  /* Optioneel, voegt wat extra ruimte toe onder de titel */
+    }
 }
 
 
