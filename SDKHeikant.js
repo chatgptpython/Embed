@@ -470,22 +470,21 @@ document.addEventListener("DOMContentLoaded", function() {
     cursor: pointer;
 }
 
-
 #choice-balloons {
     display: flex;
     flex-wrap: wrap;  /* Maakt het mogelijk voor items om te 'wrappen' naar de volgende regel */
-    justify-content: space-between;
+    justify-content: flex-start;  /* Uitlijnen aan het begin van de container */
+    align-items: center;  /* Verticale uitlijning van de items */
     padding: 10px 20px;
     background-color: transparent;
     border-top: none; 
-    max-height: 200px;  /* Stel een maximale hoogte in voor de container */
-    overflow-y: auto;  /* Laat een scrollbar verschijnen als de inhoud de maximale hoogte overschrijdt */
+    gap: 10px;  /* Stelt een vaste ruimte tussen de items in */
 }
 
 #choice-balloons button {
     font-size: 14.2px; 
     padding: 6.5px 13px;
-    margin: 5px;  /* Marge toegevoegd tussen knoppen */
+    margin: 0;  /* Verwijder de marge om te voorkomen dat deze interfereert met de 'gap' instelling */
     border-radius: 15px;
     border: none;
     outline: none;
@@ -495,7 +494,6 @@ document.addEventListener("DOMContentLoaded", function() {
     transition: all 0.3s ease-in-out;
     font-weight: 500;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een lifted effect */
-    flex: 0 0 auto;  /* Zorgt ervoor dat de knoppen hun grootte behouden en niet uitrekken */
 }
 
 
