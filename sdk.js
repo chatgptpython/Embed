@@ -189,8 +189,9 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: green;
     border-radius: 50%;
     border: 2px solid white;
-    bottom: -2px;
-    right: 6px;  /* Verhoogd om
+    bottom: 5px;  /* Aanpassen voor verticale positie */
+    right: 5px;  /* Aanpassen voor horizontale positie */
+}
 
 
 
