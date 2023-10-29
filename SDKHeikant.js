@@ -475,10 +475,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #choice-balloons {
     display: flex;
+    flex-wrap: wrap;  /* Maakt het mogelijk voor items om te 'wrappen' naar de volgende regel */
     justify-content: space-between;
     padding: 10px 20px;
     background-color: transparent;
     border-top: none; 
+    max-height: 200px;  /* Stel een maximale hoogte in voor de container */
+    overflow-y: auto;  /* Laat een scrollbar verschijnen als de inhoud de maximale hoogte overschrijdt */
 }
 
 #choice-balloons button {
@@ -494,7 +497,9 @@ document.addEventListener("DOMContentLoaded", function() {
     transition: all 0.3s ease-in-out;
     font-weight: 500;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een lifted effect */
+    flex: 0 0 auto;  /* Zorgt ervoor dat de knoppen hun grootte behouden en niet uitrekken */
 }
+
 
 #ask-another-question {
     background-color: #4A90E2;
@@ -674,7 +679,7 @@ document.addEventListener("DOMContentLoaded", function() {
               <header>
                 <!-- Icoontje en online indicator toegevoegd in een container -->
                 <div class="icon-container">
-                    <img src="https://www.heikantinstallatie.nl/wp-content/uploads/2021/01/cropped-Group-486-192x192.png" alt="Icon" id="header-icon">
+                    <img src="https://www.heikantklimaattechniek.nl/wp-content/uploads/2021/01/cropped-Group-472-192x192.png" alt="Icon" id="header-icon">
                     <span class="online-indicator"></span>
                 </div>
                 <div id="chatbot-title-container">
@@ -694,7 +699,8 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Offerte opvragen</button>
+                <button id="make-appointment" onclick="window.open('https://www.heikantklimaattechniek.nl/contact/', '_blank')">Offerte warmtepomp</button>
+                <button id="make-appointment" onclick="window.open('https://www.heikantklimaattechniek.nl/contact/', '_blank')">Offerte airco</button>
                 <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
