@@ -182,17 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 40px;  /* Aanpassen naar gewenste hoogte */
 }
 
-.online-indicator {
-    position: absolute;
-    bottom: 5px;  /* Verplaatst het bolletje een beetje naar boven */
-    right: -10px;  /* Verplaatst het bolletje meer naar links */
-    width: 12px;
-    height: 12px;
-    background-color: green;
-    border-radius: 50%;
-    border: 2px solid white;
-    transform: translate(50%, 50%);
-}
+
 
 
 
