@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .online-indicator {
     position: absolute;
     bottom: 5px;  /* Verplaatst het bolletje een beetje naar boven */
-    right: -5px;  /* Verplaatst het bolletje naar links */
+    right: -10px;  /* Verplaatst het bolletje meer naar links */
     width: 12px;
     height: 12px;
     background-color: green;
@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
     border: 2px solid white;
     transform: translate(50%, 50%);
 }
+
 
 
 
