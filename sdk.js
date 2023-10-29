@@ -169,10 +169,8 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 120px;
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
-    color: #ffffff;
-    justify-content: space-between; /* Zorgt voor gelijke ruimte aan beide zijden van de items */
+    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
-
 
 #chatbot header img {
     width: 40px;  /* Verhoogd van 30px naar 40px */
@@ -180,16 +178,36 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
+#chatbot header .subtitle {
+    display: block;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
+    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
+    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
+    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
+    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
+}
 
 
+/* Huidige stijl voor de titel */
 #chatbot-title {
-    font-size: 1.5em;  /* Vergroot de tekstgrootte voor een duidelijke uitstraling */
-    font-weight: bold;  /* Maak de tekst vetgedrukt voor een professionele uitstraling */
-    color: #ffffff;  /* Verander de tekstkleur naar wit */
-    flex-grow: 1; /* Laat de titelcontainer groeien om beschikbare ruimte op te vullen */
-    text-align: center; /* Centreert de tekst binnen de titelcontainer */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 1.3em;
+    
+    /* Nieuwe aanbevelingen */
+    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
+    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
 }
+
+.subtitle {
+    font-size: 0.5em;
+    margin-top: 5px;
 }
+
 
 
 #chatbot-content {
@@ -624,11 +642,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
-                    <!-- Ondertitel verwijderd -->
+                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
-
             <div id="chatbot-content"></div>
             <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
@@ -1074,9 +1091,6 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
-
-
 
 
 
