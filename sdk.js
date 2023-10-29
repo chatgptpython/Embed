@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 120px;
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
-    color: #ffffff; 
+    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
 }
 
 #chatbot header img {
@@ -178,20 +178,34 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-#chatbot-title-container {
-    flex-grow: 1;  /* Zorgt dat de container groeit en de beschikbare ruimte opvult */
-    display: flex;  /* Maakt het een flex-container */
-    justify-content: center;  /* Centreert de inhoud horizontaal */
-    align-items: center;  /* Centreert de inhoud verticaal */
+#chatbot header .subtitle {
+    display: block;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
+    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
+    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
+    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
+    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
+
+/* Huidige stijl voor de titel */
 #chatbot-title {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Verandert dit naar 'center' om de titel te centreren */
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ffffff;
+    align-items: start;
+    font-size: 1.3em;
+    
+    /* Nieuwe aanbevelingen */
+    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
+    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
+}
+
+.subtitle {
+    font-size: 0.5em;
+    margin-top: 5px;
 }
 
 
@@ -628,7 +642,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
-                    <!-- Subtitel verwijderd -->
+                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
