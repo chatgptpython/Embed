@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 120px;
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
-    color: #ffffff;
+    color: #ffffff; 
 }
 
 #chatbot header img {
@@ -178,19 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-#chatbot header .subtitle {
-    display: block;
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 5px;
-    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
-    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
-    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
-    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
-    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
-}
-
-
 #chatbot-title {
     display: flex;
     flex-direction: column;
@@ -198,13 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1.5em;  /* Een grotere lettergrootte voor meer nadruk */
     font-weight: bold; /* Vetgedrukte tekst voor een duidelijke uitstraling */
     color: #ffffff;   /* Witte tekstkleur */
-
-
-.subtitle {
-    font-size: 0.5em;
-    margin-top: 5px;
 }
-
 
 
 #chatbot-content {
@@ -639,6 +620,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
+                    <!-- Subtitel verwijderd -->
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
@@ -1087,6 +1069,8 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
+
 
 
 
