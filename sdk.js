@@ -670,8 +670,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // HTML toevoegen
     var html = `
         <div id="chatbot">
-             <header>
-                <!-- Icoontje en online indicator toegevoegd in een container -->
+            <header>
                 <div class="icon-container">
                     <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
                     <span class="online-indicator"></span>
@@ -681,7 +680,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>  <!-- Ondertitel nu direct onder de titel -->
+                    <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
