@@ -215,7 +215,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-/* Huidige stijl voor de titel */
 #chatbot-title {
     display: flex;
     flex-direction: column;
@@ -226,6 +225,16 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
     font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
 }
+
+@media (max-width: 768px) {
+    #chatbot-title {
+        line-height: 1;  /* Minimale ruimte tussen de regels */
+        margin-bottom: 0;  /* Geen extra ruimte onder de titel */
+        font-size: 1.3em !important;
+    }
+}
+
+
 
 .subtitle {
     font-size: 0.5em;
@@ -472,19 +481,21 @@ document.addEventListener("DOMContentLoaded", function() {
     cursor: pointer;
 }
 
-
 #choice-balloons {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;  /* Maakt het mogelijk voor items om te 'wrappen' naar de volgende regel */
+    justify-content: flex-start;  /* Uitlijnen aan het begin van de container */
+    align-items: center;  /* Verticale uitlijning van de items */
     padding: 10px 20px;
     background-color: transparent;
     border-top: none; 
+    gap: 10px;  /* Stelt een vaste ruimte tussen de items in */
 }
 
 #choice-balloons button {
     font-size: 14.2px; 
     padding: 6.5px 13px;
-    margin: 5px;  /* Marge toegevoegd tussen knoppen */
+    margin: 0;  /* Verwijder de marge om te voorkomen dat deze interfereert met de 'gap' instelling */
     border-radius: 15px;
     border: none;
     outline: none;
@@ -495,6 +506,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-weight: 500;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een lifted effect */
 }
+
 
 #ask-another-question {
     background-color: #4A90E2;
