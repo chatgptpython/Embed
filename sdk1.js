@@ -12,15 +12,16 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
     (function() {
-        // Haal de backend URL op van het script tag met de data-backend-url attribuut
-        const scriptElement = document.querySelector('script[data-backend-url]');
-        const backendUrl = scriptElement.getAttribute('data-backend-url');
+        // Hardcoded backend URL
+        const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
 
         // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+        const scriptElement = document.querySelector('script[data-tenant-id]');
         const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-        // Hier kan je de backendUrl en tenantId verder gebruiken
-        console.log(backendUrl, tenantId); // Dit zal de URL en tenantId loggen naar de console
+        // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
+        console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
+        // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
 
     var css = `
 <style>
@@ -803,10 +804,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
         
-
-
-const backendUrl = 'https://chatbot-1k97.onrender.com'; // Hardgecodeerde backend URL
-
 async function fetchTitleMessage(tenantId) {
     try {
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
@@ -845,7 +842,6 @@ async function initializeChat(tenantId) {
         console.error("Failed to fetch welcome message:", error);
     }
 }
-
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
