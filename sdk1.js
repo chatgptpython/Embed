@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
 
         // Hardcoded tenantId
-        const tenantId = "henk"; // Vervang 'uwTenantId' door uw daadwerkelijke tenant ID
+        const tenantId = "hypadvies"; // Vervang 'uwTenantId' door uw daadwerkelijke tenant ID
 
         console.log(backendUrl, tenantId); 
         
