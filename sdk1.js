@@ -43,6 +43,9 @@
    </div>
 `;
 
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    document.body.appendChild(div);
 var css = `
 <style>
     
