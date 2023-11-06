@@ -821,6 +821,8 @@ async function fetchTitleMessage(backendUrl, tenantId) {
     }
 }
 
+let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
+let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
 
 
 async function initializeChat(backendUrl, tenantId) {
