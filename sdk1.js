@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag
     var metaTag = document.createElement('meta');
@@ -11,16 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
+
     (function() {
         // Haal de backend URL op van het script tag met de data-backend-url attribuut
         const scriptElement = document.querySelector('script[data-backend-url]');
         const backendUrl = scriptElement.getAttribute('data-backend-url');
 
-        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
-        const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-        // Hier kan je de backendUrl en tenantId verder gebruiken
-        console.log(backendUrl, tenantId); // Dit zal de URL en tenantId loggen naar de console
+        // Hier kan je de backendUrl verder gebruiken
+        console.log(backendUrl); // Dit zal de URL loggen naar de console, om te verifiëren of het correct werkt
 
     var css = `
 <style>
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 12px;
     background-color: green;
     border-radius: 50%;
-    border: 2px solid white; 
+    border: 2px solid white;
     bottom: 5px;  /* Aanpassen voor verticale positie */
     right: 8px;  /* Nog iets meer naar links */
 }
@@ -735,89 +735,78 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-        window.typeWelcomeMessage = async function(backendUrl, tenantId) {
-            const chatContent = document.getElementById("chatbot-content");
-            const messageContainer = document.createElement("div");
-            messageContainer.className = "message-container bot-container";
-            messageContainer.innerHTML = `
-                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-            `;
-            chatContent.appendChild(messageContainer);
-            let messageElem = document.createElement("div");
-            messageElem.className = "bot-message";
-            messageContainer.appendChild(messageElem);
-        
-            // Haal het welkomstbericht op van de server
-            let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
-                .then(response => response.json())
-                .then(data => data.message)
-                .catch(() => "Standaard welkomstbericht als backup");
-        
-            let index = 0;
-            let typingInterval = setInterval(() => {
-                if (index < messageText.length) {
-                    messageElem.textContent += messageText[index];
-                    index++;
-                    chatContent.scrollTop = chatContent.scrollHeight;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, 25);
-        };
-        
+window.typeWelcomeMessage = async function() {
+    const chatContent = document.getElementById("chatbot-content");
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "message-container bot-container";
+    messageContainer.innerHTML = `
+        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+    `;
+    chatContent.appendChild(messageContainer);
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    messageContainer.appendChild(messageElem);
 
+    // Haal het welkomstbericht op van de server
+    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
+        .then(response => response.json())
+        .then(data => data.message)
+        .catch(() => "Standaard welkomstbericht als backup");
 
-        async function fetchAndApplyColor(backendUrl, tenantId) {
-            try {
-                const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
-                const data = await response.json();
-                if (data.color) {
-                    updateColor(data.color);
-                    updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
-                }
-            } catch (error) {
-                console.error("Failed to fetch color:", error);
-            }
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
         }
-        
-// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
-async function fetchAndApplyColor() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
+    }, 25);
+};
 
-    // Stel een API-aanroep samen om de kleurinstellingen op te halen
-    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
-    const response = await fetch(colorSettingsUrl);
-    const data = await response.json();
-
-    // Pas de kleuren toe met de opgehaalde kleurinstellingen
-    if (data.headerColor) {
-        updateColor(data.headerColor);
-    }
-    if (data.iconColor) {
-        updateChatIconColor(data.iconColor);
+    async function fetchAndApplyColor() {
+    try {
+        const response = await fetch(`${backendUrl}/get_color`);
+        const data = await response.json();
+        if (data.color) {
+            updateColor(data.color);
+            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    fetchAndApplyColor();
-});
+function updateColor(color) {
+    // Update de achtergrondkleur van de header
+    const chatHeader = document.querySelector("#chatbot header");
+    chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
+
+    // Update de randkleur voor de gebruikersberichten
+    const userMessages = document.querySelectorAll('.user-message');
+    userMessages.forEach(msg => {
+        msg.style.border = `2px solid ${color}`;
+    });
+    
+    // Stel een CSS-variabele in voor dynamische kleur
+    document.documentElement.style.setProperty('--dynamic-color', color);
+}
+
+function updateChatIconColor(color) {
+    // Update de achtergrondkleur van het chat-icoon
+    const chatIcon = document.getElementById("chatbot-icon");
+    chatIcon.style.background = color;
+}
+
+// Oproepen wanneer de pagina laadt
+fetchAndApplyColor();
 
 
-// Roep de functie aan wanneer de pagina laadt
-document.addEventListener("DOMContentLoaded", function() {
-    fetchAndApplyColor();
-});
-
-
-async function fetchTitleMessage(backendUrl, tenantId) {
+async function fetchTitleMessage() {
     try {
-        // Stel een API-aanroep samen om het titelbericht op te halen
-        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
-        const response = await fetch(titleMessageUrl);
+        const response = await fetch(`${backendUrl}/get_title_message`);
         const data = await response.json();
-
         if (data.message) {
             document.querySelector("#chatbot-title").innerText = data.message;
         }
@@ -826,24 +815,22 @@ async function fetchTitleMessage(backendUrl, tenantId) {
     }
 }
 
+let cachedTitle = "Standaardnaam als fallback";
+let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
 
-async function initializeChat(backendUrl, tenantId) {
-    // Haal het titelbericht op
+async function initializeChat() {
     try {
-        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
-        const titleResponse = await fetch(titleMessageUrl);
-        const titleData = await titleResponse.json();
-        cachedTitle = titleData.message || cachedTitle;
+        const response = await fetch(`${backendUrl}/get_title_message`);
+        const data = await response.json();
+        cachedTitle = data.message || cachedTitle;
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
 
-    // Haal het welkomstbericht op
     try {
-        const welcomeMessageUrl = `${backendUrl}/get_welcome_message?tenant_id=${tenantId}`;
-        const welcomeResponse = await fetch(welcomeMessageUrl);
-        const welcomeData = await welcomeResponse.json();
-        cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
+        const response = await fetch(`${backendUrl}/get_welcome_message`);
+        const data = await response.json();
+        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
     } catch (error) {
         console.error("Failed to fetch welcome message:", error);
     }
@@ -980,94 +967,80 @@ window.closeChat = function() {
         }
     };
 
-    window.sendMessage = async function() {
-        if (isBotTyping) return;
-    
-        const userInput = document.getElementById("user-input");
-        const chatContent = document.getElementById("chatbot-content");
-        const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-        const backendUrl = scriptElement.getAttribute('data-backend-url');
-        const tenantId = scriptElement.getAttribute('data-tenant-id');
-    
-        if (userInput.value.trim() !== "") {
-            isBotTyping = true;
-            toggleInputState("disable");
-    
-            // Voeg het bericht van de gebruiker toe
-            chatContent.innerHTML += `<div class="message-container user-container">
-                                        <div class="message-sender user">U:</div>
-                                        <div class="user-message">${userInput.value}</div>
-                                      </div>`;
-    
-            // Voeg de professionele laadbalk toe
-            chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
-    
-            // Automatisch scrollen naar het laatst toegevoegde bericht
-            chatContent.scrollTop = chatContent.scrollHeight;
-    
-            try {
-                const response = await fetch(`${backendUrl}/ask`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ question: userInput.value, tenant_id: tenantId })
-                });
-    
-                const data = await response.json();
-    
-                if (response.ok) {
-                    chatContent.lastChild.remove(); // Verwijder de loader
-    
-                    const messageContainer = document.createElement("div");
-                    messageContainer.className = "message-container bot-container";
-                    messageContainer.innerHTML = `
-                        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-                    `;
-                    chatContent.appendChild(messageContainer);
-    
-                    let messageText = data.answer;
-                    let messageElem = document.createElement("div");
-                    messageElem.className = "bot-message";
-                    messageContainer.appendChild(messageElem);
-    
-                    let index = 0;
-                    let typingInterval = setInterval(() => {
-                        if (index < messageText.length) {
-                            messageElem.textContent += messageText[index];
-                            index++;
-                            chatContent.scrollTop = chatContent.scrollHeight;
-                        } else {
-                            clearInterval(typingInterval);
-                            toggleInputState("enable");
-                            isBotTyping = false;
-                            if (typeof showChoiceBalloons === "function") showChoiceBalloons();
-                        }
-                    }, 25);
-                } else {
-                    throw new Error(data.error || "Er is een fout opgetreden tijdens het versturen van de vraag.");
-                }
-    
-                userInput.value = "";
-            } catch (error) {
-                console.error("Error:", error);
-                chatContent.lastChild.remove(); // Verwijder de loader
-    
+window.sendMessage = function() {
+    if (isBotTyping) return;
+
+    const userInput = document.getElementById("user-input");
+    const chatContent = document.getElementById("chatbot-content");
+
+    if (userInput.value.trim() !== "") {
+        isBotTyping = true;
+        toggleInputState("disable");
+
+        // Voeg het bericht van de gebruiker toe
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+
+        // Voeg de professionele laadbalk toe
+        chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+
+        // Automatisch scrollen naar het laatst toegevoegde bericht
+        chatContent.scrollTop = chatContent.scrollHeight;
+
+        setTimeout(() => {
+            fetch(`${backendUrl}/ask`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: userInput.value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatContent.lastChild.remove();  // Verwijder de loader
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
                 messageContainer.innerHTML = `
                     <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-                    <div class="bot-message">Sorry, er is een fout opgetreden: ${error.message}</div>
+                `;
+                chatContent.appendChild(messageContainer);
+                let messageText = data.answer;
+                let messageElem = document.createElement("div");
+                messageElem.className = "bot-message";
+                messageContainer.appendChild(messageElem);
+
+                let index = 0;
+                let typingInterval = setInterval(() => {
+                    if (index < messageText.length) {
+                        messageElem.textContent += messageText[index];
+                        index++;
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    } else {
+                        clearInterval(typingInterval);
+                        toggleInputState("enable");
+                        isBotTyping = false;
+                        if (showChoiceBalloons) showChoiceBalloons();
+                    }
+                }, 25);
+
+                userInput.value = "";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                const messageContainer = document.createElement("div");
+                messageContainer.className = "message-container bot-container";
+                messageContainer.innerHTML = `
+                    <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+                    <div class="bot-message">Sorry, er is een fout opgetreden.</div>
                 `;
                 chatContent.appendChild(messageContainer);
                 toggleInputState("enable");
                 isBotTyping = false;
-            }
-        }
-    };
-    
-    
+            });
+        }, 500);
+    }
+};
 
+    
 
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
@@ -1164,19 +1137,14 @@ document.getElementById("close-chatbot").addEventListener("click", function() {
 
 
 // Aanroepen wanneer de pagina laadt
-document.addEventListener("DOMContentLoaded", function() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-    initializeChat(backendUrl, tenantId);
-});
-
-
-// Aanroepen wanneer de pagina laadt
 preloadImages();
 
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
+
+
+
 
 
