@@ -849,15 +849,6 @@ async function initializeChat(backendUrl, tenantId) {
     }
 }
 
-
-// Aanroepen wanneer de pagina laadt
-document.addEventListener("DOMContentLoaded", function() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-    initializeChat(backendUrl, tenantId);
-});
-
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
@@ -1077,6 +1068,7 @@ window.closeChat = function() {
     
     
 
+
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
         handleKeyUp(event);
@@ -1168,6 +1160,15 @@ document.getElementById("ask-another-question").addEventListener("click", functi
 
 document.getElementById("close-chatbot").addEventListener("click", function() {
     closeChat();
+});
+
+
+// Aanroepen wanneer de pagina laadt
+document.addEventListener("DOMContentLoaded", function() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+    initializeChat(backendUrl, tenantId);
 });
 
 
