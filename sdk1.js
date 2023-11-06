@@ -822,22 +822,24 @@ async function fetchTitleMessage(backendUrl, tenantId) {
 }
 
 
-let cachedTitle = "Standaardnaam als fallback";
-let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
 
-async function initializeChat() {
+async function initializeChat(backendUrl, tenantId) {
+    // Haal het titelbericht op
     try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
-        const data = await response.json();
-        cachedTitle = data.message || cachedTitle;
+        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
+        const titleResponse = await fetch(titleMessageUrl);
+        const titleData = await titleResponse.json();
+        cachedTitle = titleData.message || cachedTitle;
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
 
+    // Haal het welkomstbericht op
     try {
-        const response = await fetch(`${backendUrl}/get_welcome_message`);
-        const data = await response.json();
-        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
+        const welcomeMessageUrl = `${backendUrl}/get_welcome_message?tenant_id=${tenantId}`;
+        const welcomeResponse = await fetch(welcomeMessageUrl);
+        const welcomeData = await welcomeResponse.json();
+        cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
     } catch (error) {
         console.error("Failed to fetch welcome message:", error);
     }
