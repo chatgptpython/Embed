@@ -805,11 +805,30 @@ function updateChatIconColor(color) {
     console.log('Updating icon color to:', color);
 }
 
-        
-async function fetchTitleMessage(tenantId) {
+document.addEventListener("DOMContentLoaded", function() {
+    // Definieer de backend URL
+    const backendUrl = "https://chatbot-1k97.onrender.com"; // Vervang dit met je daadwerkelijke backend URL
+
+    // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+    const scriptElement = document.querySelector('script[data-tenant-id]');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Hier kan je de backendUrl en tenantId verder gebruiken
+    if (tenantId) {
+        fetchTitleMessage(backendUrl, tenantId);
+        initializeChat(backendUrl, tenantId);
+    } else {
+        console.error("Tenant ID is missing.");
+    }
+});
+
+async function fetchTitleMessage(backendUrl, tenantId) {
     try {
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
         const response = await fetch(titleMessageUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
 
         if (data.message) {
@@ -823,7 +842,7 @@ async function fetchTitleMessage(tenantId) {
 let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
 let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
 
-async function initializeChat(tenantId) {
+async function initializeChat(backendUrl, tenantId) {
     // Haal het titelbericht op
     try {
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
@@ -844,6 +863,7 @@ async function initializeChat(tenantId) {
         console.error("Failed to fetch welcome message:", error);
     }
 }
+
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
