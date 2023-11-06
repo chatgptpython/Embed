@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag
     var metaTag = document.createElement('meta');
@@ -13,14 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
-
     (function() {
         // Haal de backend URL op van het script tag met de data-backend-url attribuut
         const scriptElement = document.querySelector('script[data-backend-url]');
         const backendUrl = scriptElement.getAttribute('data-backend-url');
 
-        // Hier kan je de backendUrl verder gebruiken
-        console.log(backendUrl); // Dit zal de URL loggen naar de console, om te verifiëren of het correct werkt
+        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+        const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+        // Hier kan je de backendUrl en tenantId verder gebruiken
+        console.log(backendUrl, tenantId); // Dit zal de URL en tenantId loggen naar de console
 
     var css = `
 <style>
