@@ -733,7 +733,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // JavaScript toevoegen
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
-window.typeWelcomeMessage = async function(backendUrl, tenantId) {
+window.typeWelcomeMessage = async function(backendUrl) {
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
@@ -746,7 +746,7 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
+    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=hypadvies`)
         .then(response => response.json())
         .then(data => data.message)
         .catch(() => "Standaard welkomstbericht als backup");
@@ -763,28 +763,9 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     }, 25);
 };
 
-
-    async function fetchAndApplyColor() {
-    try {
-        const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
-        const data = await response.json();
-        if (data.color) {
-            updateColor(data.color);
-            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
-        }
-    } catch (error) {
-        console.error("Failed to fetch color:", error);
-    }
-}
-
-// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
-async function fetchAndApplyColor() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-
+async function fetchAndApplyColor(backendUrl) {
     // Stel een API-aanroep samen om de kleurinstellingen op te halen
-    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
+    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=hypadvies`;
     const response = await fetch(colorSettingsUrl);
     const data = await response.json();
 
@@ -796,15 +777,16 @@ async function fetchAndApplyColor() {
         updateChatIconColor(data.iconColor);
     }
 }
-        
+
 document.addEventListener("DOMContentLoaded", function() {
-    fetchAndApplyColor();
+    const scriptElement = document.querySelector('script[data-backend-url]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    fetchAndApplyColor(backendUrl);
 });
 
-        
-async function fetchTitleMessage(tenantId) {
+async function fetchTitleMessage(backendUrl) {
     try {
-        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
+        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=hypadvies`;
         const response = await fetch(titleMessageUrl);
         const data = await response.json();
 
@@ -819,11 +801,10 @@ async function fetchTitleMessage(tenantId) {
 let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
 let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
 
-async function initializeChat(tenantId) {
+async function initializeChat(backendUrl) {
     // Haal het titelbericht op
     try {
-        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
-        const titleResponse = await fetch(titleMessageUrl);
+        const titleResponse = await fetch(`${backendUrl}/get_title_message?tenant_id=hypadvies`);
         const titleData = await titleResponse.json();
         cachedTitle = titleData.message || cachedTitle;
     } catch (error) {
@@ -832,21 +813,20 @@ async function initializeChat(tenantId) {
 
     // Haal het welkomstbericht op
     try {
-        const welcomeMessageUrl = `${backendUrl}/get_welcome_message?tenant_id=${tenantId}`;
-        const welcomeResponse = await fetch(welcomeMessageUrl);
+        const welcomeResponse = await fetch(`${backendUrl}/get_welcome_message?tenant_id=hypadvies`);
         const welcomeData = await welcomeResponse.json();
         cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
     } catch (error) {
         console.error("Failed to fetch welcome message:", error);
     }
 }
-        
+
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
     const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
 
-    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+    if (chatbot.style.display === "none" or chatbot.style.display === "") {
         document.querySelector("#chatbot-title").innerText = cachedTitle;
         if (firstTimeOpen) {
             typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
@@ -873,12 +853,14 @@ window.toggleChat = function() {
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";  // Verberg de chattekst
-};        
-
+};
 
 // Aanroepen wanneer de pagina laadt
-initializeChat();
-
+document.addEventListener("DOMContentLoaded", function() {
+    const scriptElement = document.querySelector('script[data-backend-url]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    initializeChat(backendUrl);
+});
 
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
