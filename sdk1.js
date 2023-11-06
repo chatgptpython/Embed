@@ -766,42 +766,44 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
 
-    async function fetchAndApplyColor() {
+  document.addEventListener("DOMContentLoaded", function() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Zorg ervoor dat de backend URL en tenant ID niet undefined zijn
+    if (backendUrl && tenantId) {
+        fetchAndApplyColor(backendUrl, tenantId);
+    } else {
+        console.error("Backend URL or Tenant ID is missing.");
+    }
+});
+
+async function fetchAndApplyColor(backendUrl, tenantId) {
     try {
         const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         if (data.color) {
             updateColor(data.color);
-            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+            updateChatIconColor(data.color);
         }
     } catch (error) {
         console.error("Failed to fetch color:", error);
     }
 }
 
-// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
-async function fetchAndApplyColor() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-    // Stel een API-aanroep samen om de kleurinstellingen op te halen
-    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
-    const response = await fetch(colorSettingsUrl);
-    const data = await response.json();
-
-    // Pas de kleuren toe met de opgehaalde kleurinstellingen
-    if (data.headerColor) {
-        updateColor(data.headerColor);
-    }
-    if (data.iconColor) {
-        updateChatIconColor(data.iconColor);
-    }
+function updateColor(color) {
+    // Hier moet je logica komen om de kleur van de chatbot aan te passen
+    console.log('Updating header color to:', color);
 }
-        
-document.addEventListener("DOMContentLoaded", function() {
-    fetchAndApplyColor();
-});
+
+function updateChatIconColor(color) {
+    // Hier moet je logica komen om de kleur van het chatbot-icoon aan te passen
+    console.log('Updating icon color to:', color);
+}
 
         
 async function fetchTitleMessage(tenantId) {
