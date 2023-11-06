@@ -826,7 +826,7 @@ window.toggleChat = function() {
     const icon = document.getElementById("chatbot-icon");
     const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
 
-    if (chatbot.style.display === "none" or chatbot.style.display === "") {
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
         document.querySelector("#chatbot-title").innerText = cachedTitle;
         if (firstTimeOpen) {
             typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
@@ -849,6 +849,7 @@ window.toggleChat = function() {
         chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
     }
 };
+
 
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
