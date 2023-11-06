@@ -805,10 +805,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
 
 
+const backendUrl = 'https://chatbot-1k97.onrender.com'; // Hardgecodeerde backend URL
 
-async function fetchTitleMessage(backendUrl, tenantId) {
+async function fetchTitleMessage(tenantId) {
     try {
-        // Stel een API-aanroep samen om het titelbericht op te halen
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
         const response = await fetch(titleMessageUrl);
         const data = await response.json();
@@ -824,8 +824,7 @@ async function fetchTitleMessage(backendUrl, tenantId) {
 let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
 let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
 
-
-async function initializeChat(backendUrl, tenantId) {
+async function initializeChat(tenantId) {
     // Haal het titelbericht op
     try {
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
