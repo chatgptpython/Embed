@@ -748,7 +748,7 @@ window.typeWelcomeMessage = async function() {
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
+    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
         .then(response => response.json())
         .then(data => data.message)
         .catch(() => "Standaard welkomstbericht als backup");
@@ -767,7 +767,7 @@ window.typeWelcomeMessage = async function() {
 
     async function fetchAndApplyColor() {
     try {
-        const response = await fetch(`${backendUrl}/get_color`);
+        const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
         const data = await response.json();
         if (data.color) {
             updateColor(data.color);
@@ -778,20 +778,29 @@ window.typeWelcomeMessage = async function() {
     }
 }
 
-function updateColor(color) {
-    // Update de achtergrondkleur van de header
-    const chatHeader = document.querySelector("#chatbot header");
-    chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
+// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
+async function fetchAndApplyColor() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-    // Update de randkleur voor de gebruikersberichten
-    const userMessages = document.querySelectorAll('.user-message');
-    userMessages.forEach(msg => {
-        msg.style.border = `2px solid ${color}`;
-    });
-    
-    // Stel een CSS-variabele in voor dynamische kleur
-    document.documentElement.style.setProperty('--dynamic-color', color);
+    // Stel een API-aanroep samen om de kleurinstellingen op te halen
+    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
+    const response = await fetch(colorSettingsUrl);
+    const data = await response.json();
+
+    // Pas de kleuren toe met de opgehaalde kleurinstellingen
+    if (data.headerColor) {
+        updateColor(data.headerColor);
+    }
+    if (data.iconColor) {
+        updateChatIconColor(data.iconColor);
+    }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetchAndApplyColor();
+});
 
 function updateChatIconColor(color) {
     // Update de achtergrondkleur van het chat-icoon
