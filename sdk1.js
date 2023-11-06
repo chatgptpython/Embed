@@ -11,18 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
+    // Voer uw JavaScript-code uit zodra de DOM volledig geladen is
     (function() {
         // Hardcoded backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
 
-        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
-        const scriptElement = document.querySelector('script[data-tenant-id]');
-        const tenantId = scriptElement.getAttribute('data-tenant-id');
+        // Hardcoded tenantId
+        const tenantId = "henk"; // Vervang 'uwTenantId' door uw daadwerkelijke tenant ID
 
-        // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
-        console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
-        // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
-
+        console.log(backendUrl, tenantId); 
+        
     var css = `
 <style>
             body {
@@ -735,8 +733,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // JavaScript toevoegen
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
-
-window.typeWelcomeMessage = async function() {
+window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
@@ -765,6 +762,7 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
+
 
     async function fetchAndApplyColor() {
     try {
