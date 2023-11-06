@@ -1,30 +1,51 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Dynamisch toevoegen van de viewport meta tag
-    var metaTag = document.createElement('meta');
-    metaTag.name = "viewport";
-    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
-    document.getElementsByTagName('head')[0].appendChild(metaTag);
+   // HTML toevoegen
+   var html = `
+   <div id="chatbot">
+       <header>
+           <div class="icon-container">
+               <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
+               <span class="online-indicator"></span>
+           </div>
+           <div id="chatbot-title-container">
+               <span id="chatbot-title">
+                   <span role="img" aria-label="bot">🤖</span> 
+                   Chatproducties - Proddy
+               </span>
+               <div class="subtitle">Jouw virtuele assistent</div>
+           </div>
+           <span id="close-chat" onclick="closeChat()">×</span>
+       </header>
+       <div id="chatbot-content"></div>
+       <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+       </div>
+       <div id="choice-balloons" style="display: none;">
+           <button id="ask-another-question">Vraag stellen</button>
+           <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
+           <button id="close-chatbot">Afsluiten</button>
+       </div>
+       <div id="chatbot-input">
+           <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+           <button onclick="sendMessage()" class="send-icon"></button>
+       </div>
+       <div id="chatbot-powered">
+           <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
+       </div>
+   </div>
+   <div id="chatbot-text">
+       <span id="chatbot-text-close" onclick="closeChatText()">×</span>
+       <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
+   </div>
+   <div id="chatbot-icon" onclick="toggleChat()">
+       <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
+   </div>
+`;
 
-    // Dynamisch toevoegen van Google Fonts
-    var linkElement = document.createElement('link');
-    linkElement.rel = 'stylesheet';
-    linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
-    document.getElementsByTagName('head')[0].appendChild(linkElement);
-
-    (function() {
-        // Hardcoded backend URL
-        const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
-
-        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
-        const scriptElement = document.querySelector('script[data-tenant-id]');
-        const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-        // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
-        console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
-        // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
-
-    var css = `
+var css = `
 <style>
+    
             body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
@@ -669,7 +690,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
     </style>
     `;
     var style = document.createElement('style');
@@ -681,154 +701,116 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-      // HTML toevoegen
-    var html = `
-        <div id="chatbot">
-            <header>
-                <div class="icon-container">
-                    <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
-                    <span class="online-indicator"></span>
-                </div>
-                <div id="chatbot-title-container">
-                    <span id="chatbot-title">
-                        <span role="img" aria-label="bot">🤖</span> 
-                        Chatproducties - Proddy
-                    </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>
-                </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
-            </header>
-            <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
-                <button id="close-chatbot">Afsluiten</button>
-            </div>
-            <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
-            </div>
-            <div id="chatbot-powered">
-                <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
-            </div>
-        </div>
-        <div id="chatbot-text">
-            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
-            <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
-        </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
-            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
-        </div>
-    `;
+
+var div = document.createElement('div');
+div.innerHTML = html;
+document.body.appendChild(div);
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Dynamisch toevoegen van de viewport meta tag
+    var metaTag = document.createElement('meta');
+    metaTag.name = "viewport";
+    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.getElementsByTagName('head')[0].appendChild(metaTag);
 
-    var div = document.createElement('div');
-    div.innerHTML = html;
-    document.body.appendChild(div);
+    // Dynamisch toevoegen van Google Fonts
+    var linkElement = document.createElement('link');
+    linkElement.rel = 'stylesheet';
+    linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
+    document.getElementsByTagName('head')[0].appendChild(linkElement);
+
+    (function() {
+        // Haal de backend URL op van het script tag met de data-backend-url attribuut
+        const scriptElement = document.querySelector('script[data-backend-url]');
+        const backendUrl = scriptElement.getAttribute('data-backend-url');
+
+        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+        const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+        // Hier kan je de backendUrl en tenantId verder gebruiken
+        console.log(backendUrl, tenantId); // Dit zal de URL en tenantId loggen naar de console
 
     // JavaScript toevoegen
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-window.typeWelcomeMessage = async function() {
-    const chatContent = document.getElementById("chatbot-content");
-    const messageContainer = document.createElement("div");
-    messageContainer.className = "message-container bot-container";
-    messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-    `;
-    chatContent.appendChild(messageContainer);
-    let messageElem = document.createElement("div");
-    messageElem.className = "bot-message";
-    messageContainer.appendChild(messageElem);
+        window.typeWelcomeMessage = async function(backendUrl, tenantId) {
+            const chatContent = document.getElementById("chatbot-content");
+            const messageContainer = document.createElement("div");
+            messageContainer.className = "message-container bot-container";
+            messageContainer.innerHTML = `
+                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+            `;
+            chatContent.appendChild(messageContainer);
+            let messageElem = document.createElement("div");
+            messageElem.className = "bot-message";
+            messageContainer.appendChild(messageElem);
+        
+            // Haal het welkomstbericht op van de server
+            let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
+                .then(response => response.json())
+                .then(data => data.message)
+                .catch(() => "Standaard welkomstbericht als backup");
+        
+            let index = 0;
+            let typingInterval = setInterval(() => {
+                if (index < messageText.length) {
+                    messageElem.textContent += messageText[index];
+                    index++;
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                } else {
+                    clearInterval(typingInterval);
+                }
+            }, 25);
+        };
+        
 
-    // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
-        .then(response => response.json())
-        .then(data => data.message)
-        .catch(() => "Standaard welkomstbericht als backup");
 
-    let index = 0;
-    let typingInterval = setInterval(() => {
-        if (index < messageText.length) {
-            messageElem.textContent += messageText[index];
-            index++;
-            chatContent.scrollTop = chatContent.scrollHeight;
-        } else {
-            clearInterval(typingInterval);
+        async function fetchAndApplyColor(backendUrl, tenantId) {
+            try {
+                const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
+                const data = await response.json();
+                if (data.color) {
+                    updateColor(data.color);
+                    updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+                }
+            } catch (error) {
+                console.error("Failed to fetch color:", error);
+            }
         }
-    }, 25);
-};
-
-  document.addEventListener("DOMContentLoaded", function() {
+        
+// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
+async function fetchAndApplyColor() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-    // Zorg ervoor dat de backend URL en tenant ID niet undefined zijn
-    if (backendUrl && tenantId) {
-        fetchAndApplyColor(backendUrl, tenantId);
-    } else {
-        console.error("Backend URL or Tenant ID is missing.");
+    // Stel een API-aanroep samen om de kleurinstellingen op te halen
+    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
+    const response = await fetch(colorSettingsUrl);
+    const data = await response.json();
+
+    // Pas de kleuren toe met de opgehaalde kleurinstellingen
+    if (data.headerColor) {
+        updateColor(data.headerColor);
     }
-});
-
-async function fetchAndApplyColor(backendUrl, tenantId) {
-    try {
-        const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        if (data.color) {
-            updateColor(data.color);
-            updateChatIconColor(data.color);
-        }
-    } catch (error) {
-        console.error("Failed to fetch color:", error);
+    if (data.iconColor) {
+        updateChatIconColor(data.iconColor);
     }
-}
-
-function updateColor(color) {
-    // Hier moet je logica komen om de kleur van de chatbot aan te passen
-    console.log('Updating header color to:', color);
-}
-
-function updateChatIconColor(color) {
-    // Hier moet je logica komen om de kleur van het chatbot-icoon aan te passen
-    console.log('Updating icon color to:', color);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Definieer de backend URL
-    const backendUrl = "https://chatbot-1k97.onrender.com"; // Vervang dit met je daadwerkelijke backend URL
-
-    // Haal het tenantId op van het script tag met de data-tenant-id attribuut
-    const scriptElement = document.querySelector('script[data-tenant-id]');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-    // Hier kan je de backendUrl en tenantId verder gebruiken
-    if (tenantId) {
-        fetchTitleMessage(backendUrl, tenantId);
-        initializeChat(backendUrl, tenantId);
-    } else {
-        console.error("Tenant ID is missing.");
-    }
+    fetchAndApplyColor();
 });
+
+
 
 async function fetchTitleMessage(backendUrl, tenantId) {
     try {
+        // Stel een API-aanroep samen om het titelbericht op te halen
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
         const response = await fetch(titleMessageUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
         const data = await response.json();
 
         if (data.message) {
@@ -839,8 +821,6 @@ async function fetchTitleMessage(backendUrl, tenantId) {
     }
 }
 
-let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
-let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
 
 async function initializeChat(backendUrl, tenantId) {
     // Haal het titelbericht op
@@ -898,6 +878,41 @@ window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";  // Verberg de chattekst
 };        
+
+        
+window.toggleChat = function() {
+    const chatbot = document.getElementById("chatbot");
+    const icon = document.getElementById("chatbot-icon");
+    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
+
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
+        chatbot.style.display = "flex";
+        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
+
+        setTimeout(function() {
+            chatbot.classList.add("visible");
+        }, 50);
+
+        icon.classList.add('cross');
+    } else {
+        chatbot.classList.remove("visible");
+        setTimeout(function() {
+            chatbot.style.display = "none";
+        }, 500);
+        icon.classList.remove('cross');
+        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
+    }
+};
+
+window.closeChatText = function() {
+    const chatText = document.getElementById("chatbot-text");
+    chatText.style.display = "none";  // Verberg de chattekst
+};   
 
 
 // Aanroepen wanneer de pagina laadt
@@ -1157,8 +1172,5 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
-
-
-
 
 
