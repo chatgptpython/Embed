@@ -797,25 +797,22 @@ async function fetchAndApplyColor() {
         updateChatIconColor(data.iconColor);
     }
 }
-
+        
 document.addEventListener("DOMContentLoaded", function() {
     fetchAndApplyColor();
 });
 
-function updateChatIconColor(color) {
-    // Update de achtergrondkleur van het chat-icoon
-    const chatIcon = document.getElementById("chatbot-icon");
-    chatIcon.style.background = color;
-}
-
-// Oproepen wanneer de pagina laadt
-fetchAndApplyColor();
+        
 
 
-async function fetchTitleMessage() {
+
+async function fetchTitleMessage(backendUrl, tenantId) {
     try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
+        // Stel een API-aanroep samen om het titelbericht op te halen
+        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
+        const response = await fetch(titleMessageUrl);
         const data = await response.json();
+
         if (data.message) {
             document.querySelector("#chatbot-title").innerText = data.message;
         }
@@ -823,6 +820,7 @@ async function fetchTitleMessage() {
         console.error("Failed to fetch title message:", error);
     }
 }
+
 
 let cachedTitle = "Standaardnaam als fallback";
 let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
