@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
 
         // Hardcoded tenantId
-        const tenantId = "hypadvies"; // Vervang 'uwTenantId' door uw daadwerkelijke tenant ID
+        const tenantId = "tenant3"; // Vervang 'uwTenantId' door uw daadwerkelijke tenant ID
 
         console.log(backendUrl, tenantId); 
         
@@ -746,7 +746,7 @@ window.typeWelcomeMessage = async function(backendUrl) {
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=hypadvies`)
+    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=tenant3`)
         .then(response => response.json())
         .then(data => data.message)
         .catch(() => "Standaard welkomstbericht als backup");
@@ -765,7 +765,7 @@ window.typeWelcomeMessage = async function(backendUrl) {
 
 async function fetchAndApplyColor(backendUrl) {
     // Stel een API-aanroep samen om de kleurinstellingen op te halen
-    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=hypadvies`;
+    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=tenant3`;
     const response = await fetch(colorSettingsUrl);
     const data = await response.json();
 
@@ -786,7 +786,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 async function fetchTitleMessage(backendUrl) {
     try {
-        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=hypadvies`;
+        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=tenant3`;
         const response = await fetch(titleMessageUrl);
         const data = await response.json();
 
@@ -804,7 +804,7 @@ let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde inste
 async function initializeChat(backendUrl) {
     // Haal het titelbericht op
     try {
-        const titleResponse = await fetch(`${backendUrl}/get_title_message?tenant_id=hypadvies`);
+        const titleResponse = await fetch(`${backendUrl}/get_title_message?tenant_id=tenant3`);
         const titleData = await titleResponse.json();
         cachedTitle = titleData.message || cachedTitle;
     } catch (error) {
@@ -813,7 +813,7 @@ async function initializeChat(backendUrl) {
 
     // Haal het welkomstbericht op
     try {
-        const welcomeResponse = await fetch(`${backendUrl}/get_welcome_message?tenant_id=hypadvies`);
+        const welcomeResponse = await fetch(`${backendUrl}/get_welcome_message?tenant_id=tenant3`);
         const welcomeData = await welcomeResponse.json();
         cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
     } catch (error) {
