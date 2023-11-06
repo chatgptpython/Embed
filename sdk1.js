@@ -798,8 +798,9 @@ async function fetchTitleMessage(backendUrl) {
     }
 }
 
-let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
-let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
+let cachedTitle; // Verwijder de standaardinstelling
+let cachedWelcomeMessage; // Verwijder de standaardinstelling
+
 
 async function initializeChat(backendUrl) {
     // Haal het titelbericht op
