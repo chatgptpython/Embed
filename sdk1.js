@@ -14,11 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
+    (function() {
     // Haal het tenantId op van het script tag met de data-tenant-id attribuut
     const scriptElement = document.querySelector('script[data-tenant-id]');
     tenantId = scriptElement.getAttribute('data-tenant-id');
 
     console.log(backendUrl, tenantId); // Dit zal de backendUrl en tenantId loggen naar de console
+
 
 
     var css = `
@@ -1133,6 +1135,7 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
 
 
 
