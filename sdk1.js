@@ -803,13 +803,20 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchAndApplyColor();
 });
 
-        
 async function fetchTitleMessage(tenantId) {
     try {
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
         const response = await fetch(titleMessageUrl);
+        if (!response.ok) {
+            // Log de respons status en status tekst als er een fout is
+            console.error(`Error: ${response.status} ${response.statusText}`);
+            // Lees en log de respons tekst
+            const errorText = await response.text();
+            console.error(`Error response body: ${errorText}`);
+            document.querySelector("#chatbot-title").innerText = "Standaard Titel";
+            return;
+        }
         const data = await response.json();
-
         if (data.message) {
             document.querySelector("#chatbot-title").innerText = data.message;
         }
@@ -826,8 +833,18 @@ async function initializeChat(tenantId) {
     try {
         const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
         const titleResponse = await fetch(titleMessageUrl);
-        const titleData = await titleResponse.json();
-        cachedTitle = titleData.message || cachedTitle;
+        if (!titleResponse.ok) {
+            // Log de respons status en status tekst als er een fout is
+            console.error(`Error: ${titleResponse.status} ${titleResponse.statusText}`);
+            // Lees en log de respons tekst
+            const errorText = await titleResponse.text();
+            console.error(`Error response body: ${errorText}`);
+            // Gebruik standaardwaarde als fallback
+            cachedTitle = "Standaard Titel";
+        } else {
+            const titleData = await titleResponse.json();
+            cachedTitle = titleData.message || cachedTitle;
+        }
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
@@ -836,12 +853,23 @@ async function initializeChat(tenantId) {
     try {
         const welcomeMessageUrl = `${backendUrl}/get_welcome_message?tenant_id=${tenantId}`;
         const welcomeResponse = await fetch(welcomeMessageUrl);
-        const welcomeData = await welcomeResponse.json();
-        cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
+        if (!welcomeResponse.ok) {
+            // Log de respons status en status tekst als er een fout is
+            console.error(`Error: ${welcomeResponse.status} ${welcomeResponse.statusText}`);
+            // Lees en log de respons tekst
+            const errorText = await welcomeResponse.text();
+            console.error(`Error response body: ${errorText}`);
+            // Gebruik standaardwaarde als fallback
+            cachedWelcomeMessage = "Standaard welkomstbericht";
+        } else {
+            const welcomeData = await welcomeResponse.json();
+            cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
+        }
     } catch (error) {
         console.error("Failed to fetch welcome message:", error);
     }
 }
+
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
