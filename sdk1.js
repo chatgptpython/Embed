@@ -751,7 +751,7 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server met de aangepaste URL
-    let messageText = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`)
+    let messageText = await fetch(`${backendUrl}/heikant/get_welcome_message`)
         .then(response => response.json())
         .then(data => data.welcome_message) // Zorg ervoor dat de sleutel overeenkomt met wat de server stuurt
         .catch(() => "Standaard welkomstbericht als backup");
