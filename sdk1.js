@@ -768,42 +768,32 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
 
-    async function fetchAndApplyColor() {
+async function fetchAndApplyColor() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // De URL moet overeenkomen met de Flask route die we hebben ingesteld
+    const colorUrl = `${backendUrl}/${tenantId}/get_color`;
+
     try {
-        const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
+        const response = await fetch(colorUrl);
         const data = await response.json();
+
+        // Controleer of de kleur gevonden is en pas deze dan toe
         if (data.color) {
-            updateColor(data.color);
-            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+            updateColor(data.color); // Functie die u definieert om de kleur toe te passen
+            // Verondersteld dat updateChatIconColor een bestaande functie is om het icoon te kleuren
+            updateChatIconColor(data.color);
         }
     } catch (error) {
         console.error("Failed to fetch color:", error);
     }
 }
 
-// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
-async function fetchAndApplyColor() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
+// Voeg een event listener toe die de kleur ophaalt wanneer de DOM volledig geladen is
+document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
 
-    // Stel een API-aanroep samen om de kleurinstellingen op te halen
-    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
-    const response = await fetch(colorSettingsUrl);
-    const data = await response.json();
-
-    // Pas de kleuren toe met de opgehaalde kleurinstellingen
-    if (data.headerColor) {
-        updateColor(data.headerColor);
-    }
-    if (data.iconColor) {
-        updateChatIconColor(data.iconColor);
-    }
-}
-        
-document.addEventListener("DOMContentLoaded", function() {
-    fetchAndApplyColor();
-});
 
 async function fetchTitleMessage(tenantId) {
     try {
