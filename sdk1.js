@@ -1,7 +1,3 @@
-// Definieer backendUrl en tenantId op het hoogste niveau van het script
-const backendUrl = "https://chatbot-1k97.onrender.com";
-let tenantId = 'heikant'; // Standaardwaarde voor tenantId
-
 document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
@@ -14,6 +10,20 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
+ (function() {
+        // Hardcoded backend URL
+        const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
+        let tenantId = 'heikant'; // Standaardwaarde voor tenantId
+
+        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+        const scriptElement = document.querySelector('script[data-tenant-id]');
+        const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+        // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
+        console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
+        // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
+
+    
     var css = `
 <style>
 
