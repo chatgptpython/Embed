@@ -773,7 +773,7 @@ async function fetchAndApplyColor() {
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-    // De URL moet overeenkomen met de Flask route die we hebben ingesteld
+    // De URL moet overeenkomen met de Flask-route die we hebben ingesteld
     const colorUrl = `${backendUrl}/${tenantId}/get_color`;
 
     try {
@@ -785,6 +785,9 @@ async function fetchAndApplyColor() {
             updateColor(data.color); // Functie die u definieert om de kleur toe te passen
             // Verondersteld dat updateChatIconColor een bestaande functie is om het icoon te kleuren
             updateChatIconColor(data.color);
+        } else {
+            // Als er geen kleur is ontvangen, log de foutmelding
+            console.error("Geen kleurinstellingen gevonden:", data.error);
         }
     } catch (error) {
         console.error("Failed to fetch color:", error);
@@ -793,6 +796,16 @@ async function fetchAndApplyColor() {
 
 // Voeg een event listener toe die de kleur ophaalt wanneer de DOM volledig geladen is
 document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
+
+function updateColor(color) {
+    // Voeg hier uw logica toe om de kleur in de webpagina toe te passen
+    console.log('Kleur bijgewerkt naar:', color);
+}
+
+function updateChatIconColor(color) {
+    // Voeg hier uw logica toe om de kleur van het chat-icoon bij te werken
+    console.log('Chat-icoon kleur bijgewerkt naar:', color);
+}
 
 
 async function fetchTitleMessage(tenantId) {
