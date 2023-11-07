@@ -1,6 +1,6 @@
 // Definieer backendUrl en tenantId op het hoogste niveau van het script
 const backendUrl = "https://chatbot-1k97.onrender.com";
-let tenantId; // tenantId wordt later ingesteld
+let tenantId = 'heikant'; // Standaardwaarde voor tenantId
 
 document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
@@ -14,13 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
+
     (function() {
-    // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+    // Probeer het tenantId op te halen van het script tag met de data-tenant-id attribuut
     const scriptElement = document.querySelector('script[data-tenant-id]');
-    tenantId = scriptElement.getAttribute('data-tenant-id');
+    if (scriptElement) {
+        tenantId = scriptElement.getAttribute('data-tenant-id') || tenantId;
+    }
 
     console.log(backendUrl, tenantId); // Dit zal de backendUrl en tenantId loggen naar de console
-
 
 
     var css = `
