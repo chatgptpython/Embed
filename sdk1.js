@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
- (function() {
+
+    (function() {
         // Hardcoded backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
-        let tenantId = 'heikant'; // Standaardwaarde voor tenantId
 
         // Haal het tenantId op van het script tag met de data-tenant-id attribuut
         const scriptElement = document.querySelector('script[data-tenant-id]');
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
         console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
         // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
-
     
     var css = `
 <style>
