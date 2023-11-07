@@ -775,7 +775,7 @@ async function fetchAndApplyColor() {
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
     // De URL moet overeenkomen met de Flask-route die we hebben ingesteld
-    const colorUrl = `${backendUrl}/${tenantId}/get_color`;
+    const colorUrl = `${backendUrl}/heikant/get_color`;
 
     try {
         const response = await fetch(colorUrl);
@@ -811,7 +811,7 @@ function updateChatIconColor(color) {
 
 async function fetchTitleMessage(tenantId) {
     try {
-        const titleMessageUrl = `${backendUrl}/${tenantId}/get_title_message`;
+        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
         const response = await fetch(titleMessageUrl);
         if (!response.ok) {
             // Log de respons status en status tekst als er een fout is
@@ -837,7 +837,7 @@ let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde inste
 async function initializeChat(tenantId) {
     // Haal het titelbericht op
     try {
-        const titleMessageUrl = `${backendUrl}/${tenantId}/get_title_message`;
+        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
         const titleResponse = await fetch(titleMessageUrl);
         if (!titleResponse.ok) {
             // Log de respons status en status tekst als er een fout is
@@ -857,7 +857,7 @@ async function initializeChat(tenantId) {
 
     // Haal het welkomstbericht op
     try {
-        const welcomeMessageUrl = `${backendUrl}/${tenantId}/get_welcome_message`;
+        const welcomeMessageUrl = `${backendUrl}/heikant/get_welcome_message`;
         const welcomeResponse = await fetch(welcomeMessageUrl);
         if (!welcomeResponse.ok) {
             // Log de respons status en status tekst als er een fout is
@@ -979,7 +979,7 @@ window.closeChat = function() {
         const chatContent = document.getElementById("chatbot-content");
         const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
         const backendUrl = scriptElement.getAttribute('data-backend-url');
-        const tenantId = scriptElement.getAttribute('data-tenant-id');
+
     
         if (userInput.value.trim() !== "") {
             isBotTyping = true;
