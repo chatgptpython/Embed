@@ -14,17 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
-
-    (function() {
-    // Probeer het tenantId op te halen van het script tag met de data-tenant-id attribuut
-    const scriptElement = document.querySelector('script[data-tenant-id]');
-    if (scriptElement) {
-        tenantId = scriptElement.getAttribute('data-tenant-id') || tenantId;
-    }
-
-    console.log(backendUrl, tenantId); // Dit zal de backendUrl en tenantId loggen naar de console
-
-
     var css = `
 <style>
 
