@@ -11,16 +11,18 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
 
-    // Voer uw JavaScript-code uit zodra de DOM volledig geladen is
     (function() {
         // Hardcoded backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
 
-        // Hardcoded tenantId
-        const tenantId = "tenant3"; // Vervang 'uwTenantId' door uw daadwerkelijke tenant ID
+        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+        const scriptElement = document.querySelector('script[data-tenant-id]');
+        const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-        console.log(backendUrl, tenantId); 
-        
+        // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
+        console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
+        // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
+
     var css = `
 <style>
             body {
@@ -733,7 +735,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // JavaScript toevoegen
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
-window.typeWelcomeMessage = async function(backendUrl) {
+
+window.typeWelcomeMessage = async function() {
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
@@ -746,7 +749,7 @@ window.typeWelcomeMessage = async function(backendUrl) {
     messageContainer.appendChild(messageElem);
 
     // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=tenant3`)
+    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
         .then(response => response.json())
         .then(data => data.message)
         .catch(() => "Standaard welkomstbericht als backup");
@@ -763,9 +766,27 @@ window.typeWelcomeMessage = async function(backendUrl) {
     }, 25);
 };
 
-async function fetchAndApplyColor(backendUrl) {
+    async function fetchAndApplyColor() {
+    try {
+        const response = await fetch(`${backendUrl}/get_color?tenant_id=${tenantId}`);
+        const data = await response.json();
+        if (data.color) {
+            updateColor(data.color);
+            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
+    }
+}
+
+// Functie om de kleurinstellingen van de tenant op te halen en toe te passen
+async function fetchAndApplyColor() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
     // Stel een API-aanroep samen om de kleurinstellingen op te halen
-    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=tenant3`;
+    const colorSettingsUrl = `${backendUrl}/get_color_settings?tenant_id=${tenantId}`;
     const response = await fetch(colorSettingsUrl);
     const data = await response.json();
 
@@ -777,16 +798,15 @@ async function fetchAndApplyColor(backendUrl) {
         updateChatIconColor(data.iconColor);
     }
 }
-
+        
 document.addEventListener("DOMContentLoaded", function() {
-    const scriptElement = document.querySelector('script[data-backend-url]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    fetchAndApplyColor(backendUrl);
+    fetchAndApplyColor();
 });
 
-async function fetchTitleMessage(backendUrl) {
+        
+async function fetchTitleMessage(tenantId) {
     try {
-        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=tenant3`;
+        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
         const response = await fetch(titleMessageUrl);
         const data = await response.json();
 
@@ -798,14 +818,14 @@ async function fetchTitleMessage(backendUrl) {
     }
 }
 
-let cachedTitle; // Verwijder de standaardinstelling
-let cachedWelcomeMessage; // Verwijder de standaardinstelling
+let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
+let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
 
-
-async function initializeChat(backendUrl) {
+async function initializeChat(tenantId) {
     // Haal het titelbericht op
     try {
-        const titleResponse = await fetch(`${backendUrl}/get_title_message?tenant_id=tenant3`);
+        const titleMessageUrl = `${backendUrl}/get_title_message?tenant_id=${tenantId}`;
+        const titleResponse = await fetch(titleMessageUrl);
         const titleData = await titleResponse.json();
         cachedTitle = titleData.message || cachedTitle;
     } catch (error) {
@@ -814,14 +834,15 @@ async function initializeChat(backendUrl) {
 
     // Haal het welkomstbericht op
     try {
-        const welcomeResponse = await fetch(`${backendUrl}/get_welcome_message?tenant_id=tenant3`);
+        const welcomeMessageUrl = `${backendUrl}/get_welcome_message?tenant_id=${tenantId}`;
+        const welcomeResponse = await fetch(welcomeMessageUrl);
         const welcomeData = await welcomeResponse.json();
         cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
     } catch (error) {
         console.error("Failed to fetch welcome message:", error);
     }
 }
-
+        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -851,18 +872,15 @@ window.toggleChat = function() {
     }
 };
 
-
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";  // Verberg de chattekst
-};
+};        
+
 
 // Aanroepen wanneer de pagina laadt
-document.addEventListener("DOMContentLoaded", function() {
-    const scriptElement = document.querySelector('script[data-backend-url]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    initializeChat(backendUrl);
-});
+initializeChat();
+
 
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
@@ -1117,6 +1135,8 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });  
+
+
 
 
 
