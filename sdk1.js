@@ -738,7 +738,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
         let isBotTyping = false;
 
-window.typeWelcomeMessage = async function() {
+window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
@@ -750,10 +750,10 @@ window.typeWelcomeMessage = async function() {
     messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
 
-    // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message?tenant_id=${tenantId}`)
+    // Haal het welkomstbericht op van de server met de aangepaste URL
+    let messageText = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`)
         .then(response => response.json())
-        .then(data => data.message)
+        .then(data => data.welcome_message) // Zorg ervoor dat de sleutel overeenkomt met wat de server stuurt
         .catch(() => "Standaard welkomstbericht als backup");
 
     let index = 0;
@@ -767,6 +767,7 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
+
 
 async function fetchAndApplyColor() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
