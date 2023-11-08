@@ -756,16 +756,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Functie om de kleur op te halen en toe te passen
-    async function fetchAndApplyColor() {
+     async function fetchAndApplyColor() {
         try {
             const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
             const data = await response.json();
-            document.querySelector("#chatbot header").style.backgroundColor = data.color;
+            // Zorg ervoor dat je het element selecteert waarvan je de kleur wilt veranderen
+            const headerElement = document.querySelector("#chatbot-header");
+            if (headerElement && data.color) {
+                headerElement.style.backgroundColor = data.color;
+            } else {
+                console.error("Kleur data niet gevonden of header element bestaat niet");
+            }
         } catch (error) {
             console.error("Failed to fetch color:", error);
         }
     }
+
 
     // Roep de functies aan nadat de DOM volledig is geladen
     fetchAndDisplayWelcomeMessage();
