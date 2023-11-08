@@ -745,16 +745,36 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Functie om het titelbericht op te halen en weer te geven
-    async function fetchAndApplyTitleMessage() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
-            const data = await response.json();
-            document.getElementById("chatbot-title").innerText = data.title_message;
-        } catch (error) {
-            console.error("Failed to fetch title message:", error);
-        }
+  // Functie om het welkomstbericht op te halen en weer te geven
+async function fetchAndDisplayWelcomeMessage(backendUrl, tenantId) {
+    try {
+        const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
+        const data = await response.json();
+        const chatContent = document.getElementById("chatbot-content"); // Selecteer het chatbot-content element
+        const messageContainer = document.createElement("div");
+        messageContainer.className = "message-container bot-container";
+        messageContainer.innerHTML = `
+            <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+        `;
+        chatContent.appendChild(messageContainer);
+        let messageElem = document.createElement("div");
+        messageElem.className = "bot-message";
+        messageContainer.appendChild(messageElem);
+        
+        let index = 0;
+        let typingInterval = setInterval(() => {
+            if (index < data.welcome_message.length) {
+                messageElem.textContent += data.welcome_message[index];
+                index++;
+                chatContent.scrollTop = chatContent.scrollHeight;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 25);
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
     }
+}
 
     // Functie om de kleur op te halen en toe te passen
     async function fetchAndApplyColor() {
