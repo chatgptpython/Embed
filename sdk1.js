@@ -853,52 +853,43 @@ function updateChatIconColor(color) {
 }
 
 
-async function fetchTitleMessage(tenantId) {
+window.fetchTitleMessage = async function() {
+    const titleElement = document.querySelector("#chatbot-title");
+    if (!titleElement) {
+        console.error('Element met ID "chatbot-title" is niet gevonden.');
+        return;
+    }
+
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        titleElement.innerText = "Standaard Titel";
+        return;
+    }
+
     try {
-        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
-        const response = await fetch(titleMessageUrl);
+        const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
         if (!response.ok) {
-            // Log de respons status en status tekst als er een fout is
-            console.error(`Error: ${response.status} ${response.statusText}`);
-            // Lees en log de respons tekst
-            const errorText = await response.text();
-            console.error(`Error response body: ${errorText}`);
-            document.querySelector("#chatbot-title").innerText = "Standaard Titel";
-            return;
+            throw new Error(`Server response status: ${response.status}`);
         }
         const data = await response.json();
-        if (data.message) {
-            document.querySelector("#chatbot-title").innerText = data.message;
+        if (!data || !data.title_message) {
+            throw new Error("Titelbericht is niet gevonden in de response.");
         }
+        titleElement.innerText = data.title_message;
     } catch (error) {
-        console.error("Failed to fetch title message:", error);
+        console.error("Error bij het ophalen van het titelbericht: ", error);
+        titleElement.innerText = "Standaard Titel"; // Fallback titel
     }
-}
+};
 
-let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
-let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
-
-async function initializeChat(tenantId) {
-    // Haal het titelbericht op
-    try {
-        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
-        const titleResponse = await fetch(titleMessageUrl);
-        if (!titleResponse.ok) {
-            // Log de respons status en status tekst als er een fout is
-            console.error(`Error: ${titleResponse.status} ${titleResponse.statusText}`);
-            // Lees en log de respons tekst
-            const errorText = await titleResponse.text();
-            console.error(`Error response body: ${errorText}`);
-            // Gebruik standaardwaarde als fallback
-            cachedTitle = "Standaard Titel";
-        } else {
-            const titleData = await titleResponse.json();
-            cachedTitle = titleData.message || cachedTitle;
-        }
-    } catch (error) {
-        console.error("Failed to fetch title message:", error);
-    }
-}
+// Functie om de chatbot te initialiseren, inclusief het ophalen van het titelbericht
+window.initializeChat = async function() {
+    // Haal eerst het titelbericht op
+    await window.fetchTitleMessage();
 
         
 window.toggleChat = function() {
