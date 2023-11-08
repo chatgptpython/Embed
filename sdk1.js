@@ -852,7 +852,8 @@ function updateChatIconColor(color) {
     }
 }
 
-
+let cachedTitle = "Standaard Titel"; // Globale variabele voor de titel
+        
 window.fetchTitleMessage = async function() {
     const titleElement = document.querySelector("#chatbot-title");
     if (!titleElement) {
