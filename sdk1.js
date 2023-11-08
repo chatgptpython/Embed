@@ -890,7 +890,7 @@ window.fetchTitleMessage = async function() {
 window.initializeChat = async function() {
     // Haal eerst het titelbericht op
     await window.fetchTitleMessage();
-
+};      
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
