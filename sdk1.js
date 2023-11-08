@@ -1128,7 +1128,7 @@ window.closeChat = function() {
         }
     };
        
-    </style>
+
         
 // Aanroepen wanneer de pagina laadt
 document.addEventListener("DOMContentLoaded", function() {
