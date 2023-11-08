@@ -794,19 +794,19 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
         
+let cachedColor; // Globale variabele voor de kleur, wordt ingesteld in fetchAndApplyColor
+
+// Functie om de kleur dynamisch op te halen en toe te passen
 async function fetchAndApplyColor() {
-    // URL en Tenant ID ophalen uit de script tag
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-    // Valideer backendUrl en tenantId
     if (!backendUrl || !tenantId) {
         console.error('Backend URL of Tenant ID is niet gedefinieerd.');
         return;
     }
 
-    // De URL samenstellen die overeenkomt met de Flask-route die we hebben ingesteld
     const colorUrl = `${backendUrl}/${tenantId}/get_color`;
 
     try {
@@ -815,42 +815,41 @@ async function fetchAndApplyColor() {
             throw new Error(`Server response status: ${response.status}`);
         }
         const data = await response.json();
-
-        // Controleer of de kleur gevonden is en pas deze dan toe
-        if (data.color) {
-            updateColor(data.color); // Functie om de algemene chatbot kleur toe te passen
-            updateChatIconColor(data.color); // Functie om het icoon te kleuren
+        if (data && data.color) {
+            cachedColor = data.color; // Update de gecachte kleur
+            updateColor(cachedColor); // Pas de kleur toe
+            updateChatIconColor(cachedColor); // Pas de kleur van het icoon aan
         } else {
-            // Als er geen kleur is ontvangen, log de foutmelding
-            console.error("Geen kleurinstellingen gevonden:", data.error);
+            throw new Error("Geen kleurinstellingen gevonden in de response.");
         }
     } catch (error) {
         console.error("Failed to fetch color:", error);
     }
 }
 
-// Voeg een event listener toe die de kleur ophaalt wanneer de DOM volledig geladen is
-document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
-
+// Deze functie wordt opgeroepen nadat de kleur is opgehaald
 function updateColor(color) {
-    // Logica toevoegen om de kleur in de webpagina toe te passen
     const chatbotElements = document.getElementsByClassName('chatbot-color');
     Array.from(chatbotElements).forEach((element) => {
-        element.style.backgroundColor = color; // Pas de achtergrondkleur aan
+        element.style.backgroundColor = color;
     });
     console.log('Kleur bijgewerkt naar:', color);
 }
 
+// Deze functie wordt opgeroepen nadat de kleur is opgehaald
 function updateChatIconColor(color) {
-    // Identificeer het chat-icoon element en pas de kleur aan
-    const chatIcon = document.getElementById('chat-icon'); // Pas dit aan naar het juiste ID van je chat-icoon
+    const chatIcon = document.getElementById('chat-icon');
     if (chatIcon) {
-        chatIcon.style.color = color; // Pas de tekstkleur van het icoon aan
+        chatIcon.style.color = color;
         console.log('Chat-icoon kleur bijgewerkt naar:', color);
     } else {
         console.error('Chat-icoon element niet gevonden op de pagina.');
     }
 }
+
+// Voeg de EventListener toe om fetchAndApplyColor aan te roepen na het laden van de DOM
+document.addEventListener('DOMContentLoaded', fetchAndApplyColor);
+
 
 let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
 let cachedWelcomeMessage; // Globale
