@@ -793,67 +793,10 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
-        
-let cachedColor; // Globale variabele voor de kleur, wordt ingesteld in fetchAndApplyColor
-        
-// Functie om de kleur dynamisch op te halen en toe te passen
-async function fetchAndApplyColor() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-    if (!backendUrl || !tenantId) {
-        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
-        return;
-    }
-
-    const colorUrl = `${backendUrl}/${tenantId}/get_color`; // De URL van de Python Flask route
-
-    try {
-        const response = await fetch(colorUrl);
-        if (!response.ok) {
-            throw new Error(`Server response status: ${response.status}`);
-        }
-        const data = await response.json();
-        if (data && data.color) {
-            cachedColor = data.color; // Update de gecachte kleur
-            updateColor(cachedColor); // Pas de kleur toe op de chatbot elementen
-            updateChatIconColor(cachedColor); // Pas de kleur van het icoon aan
-        } else {
-            throw new Error("Geen kleurinstellingen gevonden in de response.");
-        }
-    } catch (error) {
-        console.error("Failed to fetch color:", error);
-    }
-}
-
-// Functie om de kleur in de webpagina toe te passen
-function updateColor(color) {
-    const chatbotElement = document.getElementById('chatbot');
-    if (chatbotElement) {
-        chatbotElement.style.setProperty('--header-color', color);
-        console.log('Header kleur bijgewerkt naar:', color);
-    }
-}
-
-
-// Functie om de kleur van het chat-icoon aan te passen
-function updateChatIconColor(color) {
-    const chatIcon = document.querySelector('#chatbot-icon img');
-    if (chatIcon) {
-        chatIcon.style.backgroundColor = color; // Hier wordt de achtergrondkleur van de afbeelding aangepast
-        console.log('Chat-icoon kleur bijgewerkt naar:', color);
-    } else {
-        console.error('Chat-icoon element niet gevonden op de pagina.');
-    }
-}
-
-// Voeg de EventListener toe om fetchAndApplyColor aan te roepen na het laden van de DOM
-document.addEventListener('DOMContentLoaded', fetchAndApplyColor);
-
-
+ 
 let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
 let cachedWelcomeMessage; // Globale
+let cachedColor;
         
 // Functie om het titelbericht dynamisch op te halen
 window.fetchTitleMessage = async function() {
@@ -890,11 +833,69 @@ window.fetchTitleMessage = async function() {
     }
 };
 
-// Functie om de chatbot te initialiseren, inclusief het ophalen van het titelbericht
+// Functie om de kleur dynamisch op te halen en toe te passen
+async function fetchAndApplyColor() {
+    // Verkrijg backendUrl en tenantId uit het script-element
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        return;
+    }
+
+    // Opbouwen van de URL om de kleurinstellingen op te halen
+    const colorUrl = `${backendUrl}/${tenantId}/get_color`;
+
+    try {
+        // Proberen de kleurinstellingen op te halen via de API
+        const response = await fetch(colorUrl);
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (data && data.color) {
+            cachedColor = data.color; // Cache de kleur
+            updateColor(cachedColor); // Pas de kleur toe op de chatbot elementen
+            updateChatIconColor(cachedColor); // Pas de kleur van het icoon aan
+        } else {
+            throw new Error("Geen kleurinstellingen gevonden in de response.");
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
+    }
+}
+
+// Functie om de kleur in de webpagina toe te passen
+function updateColor(color) {
+    // Pas de header kleur toe
+    const chatbotHeader = document.querySelector('#chatbot header');
+    if (chatbotHeader) {
+        chatbotHeader.style.background = `linear-gradient(90deg, #FFFFFF, ${color})`;
+        console.log('Header kleur bijgewerkt naar:', color);
+    }
+}
+
+// Functie om de kleur van het chat-icoon aan te passen
+function updateChatIconColor(color) {
+    // Pas de kleur van het chat-icoon toe
+    const chatIcon = document.querySelector('#chatbot-icon');
+    if (chatIcon) {
+        chatIcon.style.background = color;
+        console.log('Chat-icoon kleur bijgewerkt naar:', color);
+    }
+}
+
+// Functie om de chatbot te initialiseren, inclusief het ophalen van het titelbericht en de kleur
 window.initializeChat = async function() {
     // Haal eerst het titelbericht op
     await window.fetchTitleMessage();
-};      
+
+    // Haal de kleur op en pas deze toe
+    await fetchAndApplyColor();
+};
+
         
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
