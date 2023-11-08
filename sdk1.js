@@ -795,7 +795,7 @@ window.typeWelcomeMessage = async function() {
 };
         
 let cachedColor; // Globale variabele voor de kleur, wordt ingesteld in fetchAndApplyColor
-
+        
 // Functie om de kleur dynamisch op te halen en toe te passen
 async function fetchAndApplyColor() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
@@ -807,7 +807,7 @@ async function fetchAndApplyColor() {
         return;
     }
 
-    const colorUrl = `${backendUrl}/${tenantId}/get_color`;
+    const colorUrl = `${backendUrl}/${tenantId}/get_color`; // De URL van de Python Flask route
 
     try {
         const response = await fetch(colorUrl);
@@ -849,7 +849,6 @@ function updateChatIconColor(color) {
 
 // Voeg de EventListener toe om fetchAndApplyColor aan te roepen na het laden van de DOM
 document.addEventListener('DOMContentLoaded', fetchAndApplyColor);
-
 
 
 let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
