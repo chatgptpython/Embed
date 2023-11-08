@@ -829,12 +829,13 @@ async function fetchAndApplyColor() {
 
 // Functie om de kleur in de webpagina toe te passen
 function updateColor(color) {
-    const headerElement = document.querySelector('#chatbot header');
-    if (headerElement) {
-        headerElement.style.backgroundColor = color;
+    const chatbotElement = document.getElementById('chatbot');
+    if (chatbotElement) {
+        chatbotElement.style.setProperty('--header-color', color);
         console.log('Header kleur bijgewerkt naar:', color);
     }
 }
+
 
 // Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
