@@ -734,16 +734,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
 
-    // Functie om het welkomstbericht op te halen en weer te geven
-    async function fetchAndDisplayWelcomeMessage() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
-            const data = await response.json();
-            document.getElementById("chatbot-content").innerHTML = '<div class="bot-message">' + data.welcome_message + '</div>';
-        } catch (error) {
-            console.error("Failed to fetch welcome message:", error);
-        }
-    }
 
     // Functie om het titelbericht op te halen en weer te geven
     async function fetchAndApplyTitleMessage() {
@@ -773,24 +763,36 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchAndApplyColor();
 
 
- window.typeWelcomeMessage = async function(backendUrl, tenantId) {
+window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
+
+    // Maak de container voor het bericht
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
     messageContainer.innerHTML = `
         <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
     `;
     chatContent.appendChild(messageContainer);
+
+    // Maak het element voor de berichttekst
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
 
-    // Haal het welkomstbericht op van de server met de aangepaste URL
-    let messageText = await fetch(`${backendUrl}/heikant/get_welcome_message`)
-        .then(response => response.json())
-        .then(data => data.welcome_message) // Zorg ervoor dat de sleutel overeenkomt met wat de server stuurt
-        .catch(() => "Standaard welkomstbericht als backup");
+    // Initialiseer messageText met de fallback-waarde
+    let messageText = "Standaard welkomstbericht als backup";
 
+    try {
+        // Probeer het welkomstbericht op te halen van de backend
+        const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
+        const data = await response.json();
+        // Als het bericht succesvol is opgehaald, update dan messageText
+        messageText = data.welcome_message;
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
+    }
+
+    // Typ het bericht uit met een interval
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -798,6 +800,7 @@ document.addEventListener("DOMContentLoaded", function() {
             index++;
             chatContent.scrollTop = chatContent.scrollHeight;
         } else {
+            // Zodra het hele bericht is getypt, stop het interval
             clearInterval(typingInterval);
         }
     }, 25);
