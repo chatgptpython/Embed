@@ -888,26 +888,6 @@ async function initializeChat(tenantId) {
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
-
-    // Haal het welkomstbericht op
-    try {
-        const welcomeMessageUrl = `${backendUrl}/heikant/get_welcome_message`;
-        const welcomeResponse = await fetch(welcomeMessageUrl);
-        if (!welcomeResponse.ok) {
-            // Log de respons status en status tekst als er een fout is
-            console.error(`Error: ${welcomeResponse.status} ${welcomeResponse.statusText}`);
-            // Lees en log de respons tekst
-            const errorText = await welcomeResponse.text();
-            console.error(`Error response body: ${errorText}`);
-            // Gebruik standaardwaarde als fallback
-            cachedWelcomeMessage = "Standaard welkomstbericht";
-        } else {
-            const welcomeData = await welcomeResponse.json();
-            cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
-        }
-    } catch (error) {
-        console.error("Failed to fetch welcome message:", error);
-    }
 }
 
         
