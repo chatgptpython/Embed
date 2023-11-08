@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var css = `
 <style>
 
-<style>
             body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
@@ -1128,9 +1127,9 @@ window.closeChat = function() {
             }
         }
     };
-    
-    
-
+       
+    </style>
+        
 // Aanroepen wanneer de pagina laadt
 document.addEventListener("DOMContentLoaded", function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
