@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
         const tenantId = 'heikant'; // Hardcoded tenantId
 
+        fetchAndDisplayWelcomeMessage();
+        fetchAndApplyTitleMessage();
+        fetchAndApplyColor();
+
+
         // Haal het tenantId op van het script tag met de data-tenant-id attribuut
         const scriptElement = document.querySelector('script[data-tenant-id]');
         
