@@ -853,6 +853,7 @@ function updateChatIconColor(color) {
 }
 
 let cachedTitle = "Standaard Titel"; // Globale variabele voor de titel
+let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
         
 window.fetchTitleMessage = async function() {
     const titleElement = document.querySelector("#chatbot-title");
