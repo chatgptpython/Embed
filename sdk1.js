@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // Haal het tenantId op van het script tag met de data-tenant-id attribuut
         const scriptElement = document.querySelector('script[data-tenant-id]');
 
-        // Hier kan je de hardcoded backendUrl en het dynamisch opgehaalde tenantId verder gebruiken
-        console.log(backendUrl, tenantId); // Dit zal de hardcoded backendUrl en dynamisch opgehaalde tenantId loggen naar de console
-        // Voeg hier de rest van je code toe die gebruikmaakt van backendUrl en tenantId
     
     var css = `
 <style>
