@@ -852,9 +852,10 @@ function updateChatIconColor(color) {
     }
 }
 
-let cachedTitle = "titel"; // Globale variabele voor de titel
-let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
+let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
+let cachedWelcomeMessage; // Globale
         
+// Functie om het titelbericht dynamisch op te halen
 window.fetchTitleMessage = async function() {
     const titleElement = document.querySelector("#chatbot-title");
     if (!titleElement) {
@@ -881,10 +882,11 @@ window.fetchTitleMessage = async function() {
         if (!data || !data.title_message) {
             throw new Error("Titelbericht is niet gevonden in de response.");
         }
-        titleElement.innerText = data.title_message;
+        cachedTitle = data.title_message; // Update de gecachte titel
+        titleElement.innerText = cachedTitle;
     } catch (error) {
         console.error("Error bij het ophalen van het titelbericht: ", error);
-        titleElement.innerText = "Standaard Titel"; // Fallback titel
+        titleElement.innerText = cachedTitle || "Standaard Titel"; // Fallback titel
     }
 };
 
