@@ -875,7 +875,7 @@ async function initializeChat(tenantId) {
 
         
     // Definieer backendUrl en tenantId
-    const backendUrl = "https://chatbot-1k97.onrender.com";
+ 
     const tenantId = 'heikant'; // Hardcoded tenantId voor demonstratie
 
     // Functie om het welkomstbericht op te halen en te tonen
