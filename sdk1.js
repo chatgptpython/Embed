@@ -794,8 +794,7 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
         
-// Globale variabele voor de kleur
-let cachedColor;
+let cachedColor; // Globale variabele voor de kleur, wordt ingesteld in fetchAndApplyColor
 
 // Functie om de kleur dynamisch op te halen en toe te passen
 async function fetchAndApplyColor() {
@@ -830,18 +829,18 @@ async function fetchAndApplyColor() {
 
 // Functie om de kleur in de webpagina toe te passen
 function updateColor(color) {
-    const chatbotElements = document.querySelectorAll('.chatbot-color');
-    chatbotElements.forEach((element) => {
-        element.style.backgroundColor = color;
-    });
-    console.log('Kleur bijgewerkt naar:', color);
+    const headerElement = document.querySelector('#chatbot header');
+    if (headerElement) {
+        headerElement.style.backgroundColor = color;
+        console.log('Header kleur bijgewerkt naar:', color);
+    }
 }
 
 // Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
-    const chatIcon = document.querySelector('#chat-icon');
+    const chatIcon = document.querySelector('#chatbot-icon img');
     if (chatIcon) {
-        chatIcon.style.color = color;
+        chatIcon.style.backgroundColor = color; // Hier wordt de achtergrondkleur van de afbeelding aangepast
         console.log('Chat-icoon kleur bijgewerkt naar:', color);
     } else {
         console.error('Chat-icoon element niet gevonden op de pagina.');
