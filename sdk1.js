@@ -808,7 +808,6 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
 
 async function fetchAndApplyColor() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
     // De URL moet overeenkomen met de Flask-route die we hebben ingesteld
