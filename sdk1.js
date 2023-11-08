@@ -733,46 +733,56 @@ document.addEventListener("DOMContentLoaded", function() {
     let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
     
-    window.typeWelcomeMessage = async function(backendUrl, tenantId) {
-        const chatContent = document.getElementById("chatbot-content");
-        const messageContainer = document.createElement("div");
-        messageContainer.className = "message-container bot-container";
-        messageContainer.innerHTML = `
-            <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-        `;
-        chatContent.appendChild(messageContainer);
-        let messageElem = document.createElement("div");
-        messageElem.className = "bot-message";
-        messageContainer.appendChild(messageElem);
-    
-        // Dynamisch het welkomstbericht opvragen op basis van de tenant ID
-        let messageText = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`)
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.welcome_message) {
-                    return data.welcome_message; // Zorg ervoor dat de sleutel overeenkomt met wat de server stuurt
-                } else {
-                    throw new Error('Welkomstbericht niet gevonden in de respons.');
-                }
-            })
-            .catch(error => {
-                console.error("Error bij het ophalen van het welkomstbericht: ", error);
-                return "Standaard welkomstbericht als backup"; // Standaard welkomstbericht als backup
-            });
-    
-        let index = 0;
-        let typingInterval = setInterval(() => {
-            if (index < messageText.length) {
-                messageElem.textContent += messageText[index];
-                index++;
-                chatContent.scrollTop = chatContent.scrollHeight;
-            } else {
-                clearInterval(typingInterval);
-                // Mogelijk hier andere initialisatie functies aanroepen als dat nodig is
-            }
-        }, 25);
-    };
-    
+window.typeWelcomeMessage = async function(backendUrl, tenantId) {
+    const chatContent = document.getElementById("chatbot-content");
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "message-container bot-container";
+    messageContainer.innerHTML = `
+        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+    `;
+    chatContent.appendChild(messageContainer);
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    messageContainer.appendChild(messageElem);
+
+    let messageText = "Standaard welkomstbericht als backup"; // Standaard backup bericht
+
+    try {
+        const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
+
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
+
+        const contentType = response.headers.get("Content-Type");
+        if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Ongeldig Content-Type voor JSON response.");
+        }
+
+        const data = await response.json();
+
+        if (data && data.welcome_message) {
+            messageText = data.welcome_message;
+        } else {
+            throw new Error("Welkomstbericht is niet gevonden in de response.");
+        }
+    } catch (error) {
+        console.error("Error bij het ophalen van het welkomstbericht: ", error);
+    }
+
+    // Start typ animatie
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 25);
+};
+
 
 async function fetchAndApplyColor() {
     
