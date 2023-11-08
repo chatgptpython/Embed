@@ -793,7 +793,7 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
-
+        
 async function fetchAndApplyColor() {
     // URL en Tenant ID ophalen uit de script tag
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
@@ -818,7 +818,7 @@ async function fetchAndApplyColor() {
 
         // Controleer of de kleur gevonden is en pas deze dan toe
         if (data.color) {
-            updateColor(data.color); // Functie om de kleur toe te passen
+            updateColor(data.color); // Functie om de algemene chatbot kleur toe te passen
             updateChatIconColor(data.color); // Functie om het icoon te kleuren
         } else {
             // Als er geen kleur is ontvangen, log de foutmelding
@@ -836,18 +836,20 @@ function updateColor(color) {
     // Logica toevoegen om de kleur in de webpagina toe te passen
     const chatbotElements = document.getElementsByClassName('chatbot-color');
     Array.from(chatbotElements).forEach((element) => {
-        element.style.backgroundColor = color;
+        element.style.backgroundColor = color; // Pas de achtergrondkleur aan
     });
     console.log('Kleur bijgewerkt naar:', color);
 }
 
 function updateChatIconColor(color) {
-    // Logica toevoegen om de kleur van het chat-icoon bij te werken
-    const chatIcon = document.getElementById('chatbot-icon');
+    // Identificeer het chat-icoon element en pas de kleur aan
+    const chatIcon = document.getElementById('chat-icon'); // Pas dit aan naar het juiste ID van je chat-icoon
     if (chatIcon) {
-        chatIcon.style.color = color; // Stel de kleur in van het icoon, of een ander eigenschap dat relevant is
+        chatIcon.style.color = color; // Pas de tekstkleur van het icoon aan
+        console.log('Chat-icoon kleur bijgewerkt naar:', color);
+    } else {
+        console.error('Chat-icoon element niet gevonden op de pagina.');
     }
-    console.log('Chat-icoon kleur bijgewerkt naar:', color);
 }
 
 
