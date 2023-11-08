@@ -730,51 +730,41 @@ document.addEventListener("DOMContentLoaded", function() {
         const scriptElement = document.querySelector('script[data-tenant-id]');
         
     
-  // JavaScript toevoegen
-    let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
-    let isBotTyping = false;
+// JavaScript toevoegen
+let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+let isBotTyping = false;
 
-
-    // Functie om het titelbericht op te halen en weer te geven
-    async function fetchAndApplyTitleMessage() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
-            const data = await response.json();
-            document.getElementById("chatbot-title").innerText = data.title_message;
-        } catch (error) {
-            console.error("Failed to fetch title message:", error);
-        }
+// Functie om het titelbericht op te halen en weer te geven
+async function fetchAndApplyTitleMessage() {
+    try {
+        const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
+        const data = await response.json();
+        document.getElementById("chatbot-title").innerText = data.title_message;
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
     }
+}
 
-    // Functie om de kleur op te halen en toe te passen
-    async function fetchAndApplyColor() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
-            const data = await response.json();
-            document.querySelector("#chatbot header").style.backgroundColor = data.color;
-        } catch (error) {
-            console.error("Failed to fetch color:", error);
-        }
+// Functie om de kleur op te halen en toe te passen
+async function fetchAndApplyColor() {
+    try {
+        const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
+        const data = await response.json();
+        document.querySelector("#chatbot header").style.backgroundColor = data.color;
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
     }
+}
 
-    // Roep de functies aan nadat de DOM volledig is geladen
-    fetchAndDisplayWelcomeMessage();
-    fetchAndApplyTitleMessage();
-    fetchAndApplyColor();
-
-
+// Functie om de getypte welkomstboodschap te tonen
 window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
-
-    // Maak de container voor het bericht
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
     messageContainer.innerHTML = `
         <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
     `;
     chatContent.appendChild(messageContainer);
-
-    // Maak het element voor de berichttekst
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
