@@ -830,12 +830,20 @@ async function fetchAndApplyColor() {
 document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
 
 function updateColor(color) {
-    // Voeg hier uw logica toe om de kleur in de webpagina toe te passen
+    // Stel de kleur van de header in
+    const headerElement = document.querySelector("#chatbot-header"); // Vervang door de juiste selector
+    if (headerElement) {
+        headerElement.style.backgroundColor = color;
+    }
     console.log('Kleur bijgewerkt naar:', color);
 }
 
 function updateChatIconColor(color) {
-    // Voeg hier uw logica toe om de kleur van het chat-icoon bij te werken
+    // Stel de kleur van het chat-icoon in
+    const chatIconElement = document.querySelector("#chatbot-icon"); // Vervang door de juiste selector
+    if (chatIconElement) {
+        chatIconElement.style.color = color; // Gebruik 'color' voor tekst of 'backgroundColor' voor achtergrond
+    }
     console.log('Chat-icoon kleur bijgewerkt naar:', color);
 }
 
