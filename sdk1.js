@@ -794,21 +794,32 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
 
-
 async function fetchAndApplyColor() {
-    
-    // De URL moet overeenkomen met de Flask-route die we hebben ingesteld
-    const colorUrl = `${backendUrl}/heikant/get_color`;
+    // URL en Tenant ID ophalen uit de script tag
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Valideer backendUrl en tenantId
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        return;
+    }
+
+    // De URL samenstellen die overeenkomt met de Flask-route die we hebben ingesteld
+    const colorUrl = `${backendUrl}/${tenantId}/get_color`;
 
     try {
         const response = await fetch(colorUrl);
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
         const data = await response.json();
 
         // Controleer of de kleur gevonden is en pas deze dan toe
         if (data.color) {
-            updateColor(data.color); // Functie die u definieert om de kleur toe te passen
-            // Verondersteld dat updateChatIconColor een bestaande functie is om het icoon te kleuren
-            updateChatIconColor(data.color);
+            updateColor(data.color); // Functie om de kleur toe te passen
+            updateChatIconColor(data.color); // Functie om het icoon te kleuren
         } else {
             // Als er geen kleur is ontvangen, log de foutmelding
             console.error("Geen kleurinstellingen gevonden:", data.error);
@@ -822,12 +833,20 @@ async function fetchAndApplyColor() {
 document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
 
 function updateColor(color) {
-    // Voeg hier uw logica toe om de kleur in de webpagina toe te passen
+    // Logica toevoegen om de kleur in de webpagina toe te passen
+    const chatbotElements = document.getElementsByClassName('chatbot-color');
+    Array.from(chatbotElements).forEach((element) => {
+        element.style.backgroundColor = color;
+    });
     console.log('Kleur bijgewerkt naar:', color);
 }
 
 function updateChatIconColor(color) {
-    // Voeg hier uw logica toe om de kleur van het chat-icoon bij te werken
+    // Logica toevoegen om de kleur van het chat-icoon bij te werken
+    const chatIcon = document.getElementById('chatbot-icon');
+    if (chatIcon) {
+        chatIcon.style.color = color; // Stel de kleur in van het icoon, of een ander eigenschap dat relevant is
+    }
     console.log('Chat-icoon kleur bijgewerkt naar:', color);
 }
 
