@@ -720,45 +720,59 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(div);
 
 
-(function() {
-    // Constanten en variabelen
-    const backendUrl = "https://chatbot-1k97.onrender.com";
-    const tenantId = 'heikant';
-    let firstTimeOpen = true;
+
+    (function() {
+        // Hardcoded backend URL
+        const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
+        const tenantId = 'heikant'; // Hardcoded tenantId
+
+        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
+        const scriptElement = document.querySelector('script[data-tenant-id]');
+        
+    
+  // JavaScript toevoegen
+    let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
 
-    // Utility functies
-    async function fetchData(endpoint, onSuccess, onFailure) {
+    // Functie om het welkomstbericht op te halen en weer te geven
+    async function fetchAndDisplayWelcomeMessage() {
         try {
-            const response = await fetch(`${backendUrl}/${tenantId}/${endpoint}`);
+            const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
             const data = await response.json();
-            onSuccess(data);
+            document.getElementById("chatbot-content").innerHTML = '<div class="bot-message">' + data.welcome_message + '</div>';
         } catch (error) {
-            onFailure(error);
+            console.error("Failed to fetch welcome message:", error);
         }
     }
 
-    // Specifieke data ophaalfuncties
-    function displayWelcomeMessage(data) {
-        document.getElementById("chatbot-content").innerHTML = '<div class="bot-message">' + data.welcome_message + '</div>';
+    // Functie om het titelbericht op te halen en weer te geven
+    async function fetchAndApplyTitleMessage() {
+        try {
+            const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
+            const data = await response.json();
+            document.getElementById("chatbot-title").innerText = data.title_message;
+        } catch (error) {
+            console.error("Failed to fetch title message:", error);
+        }
     }
 
-    function applyTitleMessage(data) {
-        document.getElementById("chatbot-title").innerText = data.title_message;
+    // Functie om de kleur op te halen en toe te passen
+    async function fetchAndApplyColor() {
+        try {
+            const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
+            const data = await response.json();
+            document.querySelector("#chatbot header").style.backgroundColor = data.color;
+        } catch (error) {
+            console.error("Failed to fetch color:", error);
+        }
     }
 
-    function applyColor(data) {
-        document.querySelector("#chatbot header").style.backgroundColor = data.color;
-    }
+    // Roep de functies aan nadat de DOM volledig is geladen
+    fetchAndDisplayWelcomeMessage();
+    fetchAndApplyTitleMessage();
+    fetchAndApplyColor();
 
-    // Oproepen van de fetchData functie met de juiste parameters
-    function initializeChatbot() {
-        fetchData('get_welcome_message', displayWelcomeMessage, error => console.error("Failed to fetch welcome message:", error));
-        fetchData('get_title_message', applyTitleMessage, error => console.error("Failed to fetch title message:", error));
-        fetchData('get_color', applyColor, error => console.error("Failed to fetch color:", error));
-    }
 
-        
  window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
@@ -1166,4 +1180,3 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });
-
