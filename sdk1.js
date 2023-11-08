@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var css = `
 <style>
 
-          body {
+           body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
         }
@@ -668,8 +668,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
-     
+    
     </style>
     `;
     var style = document.createElement('style');
@@ -732,11 +731,12 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-      // JavaScript toevoegen
-    let firstTimeOpen = true;  // Variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+    
+  // JavaScript toevoegen
+    let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
 
-    // Functies voor het ophalen en tonen van welkomstbericht, titelbericht en kleur
+    // Functie om het welkomstbericht op te halen en weer te geven
     async function fetchAndDisplayWelcomeMessage() {
         try {
             const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
@@ -747,6 +747,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Functie om het titelbericht op te halen en weer te geven
     async function fetchAndApplyTitleMessage() {
         try {
             const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
@@ -757,6 +758,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Functie om de kleur op te halen en toe te passen
     async function fetchAndApplyColor() {
         try {
             const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
@@ -766,12 +768,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Failed to fetch color:", error);
         }
     }
-
-    // Bel deze functies om de data op te halen en toe te passen
-    fetchAndDisplayWelcomeMessage();
-    fetchAndApplyTitleMessage();
-    fetchAndApplyColor();
-
 
 
 window.typeWelcomeMessage = async function(backendUrl, tenantId) {
@@ -803,6 +799,114 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
         }
     }, 25);
 };
+
+
+async function fetchAndApplyColor() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // De URL moet overeenkomen met de Flask-route die we hebben ingesteld
+    const colorUrl = `${backendUrl}/heikant/get_color`;
+
+    try {
+        const response = await fetch(colorUrl);
+        const data = await response.json();
+
+        // Controleer of de kleur gevonden is en pas deze dan toe
+        if (data.color) {
+            updateColor(data.color); // Functie die u definieert om de kleur toe te passen
+            // Verondersteld dat updateChatIconColor een bestaande functie is om het icoon te kleuren
+            updateChatIconColor(data.color);
+        } else {
+            // Als er geen kleur is ontvangen, log de foutmelding
+            console.error("Geen kleurinstellingen gevonden:", data.error);
+        }
+    } catch (error) {
+        console.error("Failed to fetch color:", error);
+    }
+}
+
+// Voeg een event listener toe die de kleur ophaalt wanneer de DOM volledig geladen is
+document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
+
+function updateColor(color) {
+    // Voeg hier uw logica toe om de kleur in de webpagina toe te passen
+    console.log('Kleur bijgewerkt naar:', color);
+}
+
+function updateChatIconColor(color) {
+    // Voeg hier uw logica toe om de kleur van het chat-icoon bij te werken
+    console.log('Chat-icoon kleur bijgewerkt naar:', color);
+}
+
+
+async function fetchTitleMessage(tenantId) {
+    try {
+        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
+        const response = await fetch(titleMessageUrl);
+        if (!response.ok) {
+            // Log de respons status en status tekst als er een fout is
+            console.error(`Error: ${response.status} ${response.statusText}`);
+            // Lees en log de respons tekst
+            const errorText = await response.text();
+            console.error(`Error response body: ${errorText}`);
+            document.querySelector("#chatbot-title").innerText = "Standaard Titel";
+            return;
+        }
+        const data = await response.json();
+        if (data.message) {
+            document.querySelector("#chatbot-title").innerText = data.message;
+        }
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+}
+
+let cachedTitle = "Standaard Titel"; // Standaardwaarde instellen
+let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
+
+async function initializeChat(tenantId) {
+    // Haal het titelbericht op
+    try {
+        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
+        const titleResponse = await fetch(titleMessageUrl);
+        if (!titleResponse.ok) {
+            // Log de respons status en status tekst als er een fout is
+            console.error(`Error: ${titleResponse.status} ${titleResponse.statusText}`);
+            // Lees en log de respons tekst
+            const errorText = await titleResponse.text();
+            console.error(`Error response body: ${errorText}`);
+            // Gebruik standaardwaarde als fallback
+            cachedTitle = "Standaard Titel";
+        } else {
+            const titleData = await titleResponse.json();
+            cachedTitle = titleData.message || cachedTitle;
+        }
+    } catch (error) {
+        console.error("Failed to fetch title message:", error);
+    }
+
+    // Haal het welkomstbericht op
+    try {
+        const welcomeMessageUrl = `${backendUrl}/heikant/get_welcome_message`;
+        const welcomeResponse = await fetch(welcomeMessageUrl);
+        if (!welcomeResponse.ok) {
+            // Log de respons status en status tekst als er een fout is
+            console.error(`Error: ${welcomeResponse.status} ${welcomeResponse.statusText}`);
+            // Lees en log de respons tekst
+            const errorText = await welcomeResponse.text();
+            console.error(`Error response body: ${errorText}`);
+            // Gebruik standaardwaarde als fallback
+            cachedWelcomeMessage = "Standaard welkomstbericht";
+        } else {
+            const welcomeData = await welcomeResponse.json();
+            cachedWelcomeMessage = welcomeData.message || cachedWelcomeMessage;
+        }
+    } catch (error) {
+        console.error("Failed to fetch welcome message:", error);
+    }
+}
 
         
 window.toggleChat = function() {
@@ -1097,8 +1201,3 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });
-
-
-
-
-
