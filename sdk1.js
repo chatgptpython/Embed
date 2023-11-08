@@ -756,16 +756,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-     async function fetchAndApplyColor() {
+      async function fetchAndApplyColor() {
         try {
             const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
             const data = await response.json();
-            // Zorg ervoor dat je het element selecteert waarvan je de kleur wilt veranderen
-            const headerElement = document.querySelector("#chatbot-header");
-            if (headerElement && data.color) {
-                headerElement.style.backgroundColor = data.color;
+            // This assumes that your backend returns a color in a format like "#ffffff" or "rgb(255, 255, 255)"
+            if (data.color) {
+                document.documentElement.style.setProperty('--header-color', data.color);
             } else {
-                console.error("Kleur data niet gevonden of header element bestaat niet");
+                console.error("Kleur data niet gevonden");
             }
         } catch (error) {
             console.error("Failed to fetch color:", error);
