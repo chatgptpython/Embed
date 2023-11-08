@@ -794,7 +794,8 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
         
-let cachedColor; // Globale variabele voor de kleur, wordt ingesteld in fetchAndApplyColor
+// Globale variabele voor de kleur
+let cachedColor;
 
 // Functie om de kleur dynamisch op te halen en toe te passen
 async function fetchAndApplyColor() {
@@ -817,7 +818,7 @@ async function fetchAndApplyColor() {
         const data = await response.json();
         if (data && data.color) {
             cachedColor = data.color; // Update de gecachte kleur
-            updateColor(cachedColor); // Pas de kleur toe
+            updateColor(cachedColor); // Pas de kleur toe op de chatbot elementen
             updateChatIconColor(cachedColor); // Pas de kleur van het icoon aan
         } else {
             throw new Error("Geen kleurinstellingen gevonden in de response.");
@@ -827,18 +828,18 @@ async function fetchAndApplyColor() {
     }
 }
 
-// Deze functie wordt opgeroepen nadat de kleur is opgehaald
+// Functie om de kleur in de webpagina toe te passen
 function updateColor(color) {
-    const chatbotElements = document.getElementsByClassName('chatbot-color');
-    Array.from(chatbotElements).forEach((element) => {
+    const chatbotElements = document.querySelectorAll('.chatbot-color');
+    chatbotElements.forEach((element) => {
         element.style.backgroundColor = color;
     });
     console.log('Kleur bijgewerkt naar:', color);
 }
 
-// Deze functie wordt opgeroepen nadat de kleur is opgehaald
+// Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
-    const chatIcon = document.getElementById('chat-icon');
+    const chatIcon = document.querySelector('#chat-icon');
     if (chatIcon) {
         chatIcon.style.color = color;
         console.log('Chat-icoon kleur bijgewerkt naar:', color);
@@ -849,6 +850,7 @@ function updateChatIconColor(color) {
 
 // Voeg de EventListener toe om fetchAndApplyColor aan te roepen na het laden van de DOM
 document.addEventListener('DOMContentLoaded', fetchAndApplyColor);
+
 
 
 let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
