@@ -733,44 +733,55 @@ document.addEventListener("DOMContentLoaded", function() {
     let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
     
-window.typeWelcomeMessage = async function(backendUrl, tenantId) {
+window.typeWelcomeMessage = async function() {
+    // Elementen ophalen
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
-    messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-    `;
     chatContent.appendChild(messageContainer);
+    
+    // Avatar voor de bot instellen
+    const botAvatar = document.createElement("img");
+    botAvatar.src = "https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true";
+    botAvatar.alt = "Bot Avatar";
+    botAvatar.className = "bot-avatar";
+    messageContainer.appendChild(botAvatar);
+    
+    // Container voor het welkomstbericht
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
 
-    let messageText = "Standaard welkomstbericht als backup"; // Standaard backup bericht
+    // URL en Tenant ID ophalen uit de script tag
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
 
+    // Valideer backendUrl en tenantId
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        messageElem.textContent = "Er is een fout opgetreden. Probeer het opnieuw.";
+        return;
+    }
+
+    // Probeert het welkomstbericht op te halen
     try {
         const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
-
         if (!response.ok) {
             throw new Error(`Server response status: ${response.status}`);
         }
-
-        const contentType = response.headers.get("Content-Type");
-        if (!contentType || !contentType.includes("application/json")) {
-            throw new Error("Ongeldig Content-Type voor JSON response.");
-        }
-
         const data = await response.json();
-
-        if (data && data.welcome_message) {
-            messageText = data.welcome_message;
-        } else {
+        if (!data || !data.welcome_message) {
             throw new Error("Welkomstbericht is niet gevonden in de response.");
         }
+        // Stelt het welkomstbericht in
+        messageText = data.welcome_message;
     } catch (error) {
         console.error("Error bij het ophalen van het welkomstbericht: ", error);
+        messageText = "Standaard welkomstbericht als backup"; // Fallback bericht
     }
 
-    // Start typ animatie
+    // Start de typ-animatie voor het welkomstbericht
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
