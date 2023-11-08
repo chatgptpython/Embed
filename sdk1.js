@@ -775,35 +775,6 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchAndApplyColor();
 
 
-window.typeWelcomeMessage = async function(backendUrl, tenantId) {
-    const chatContent = document.getElementById("chatbot-content");
-    const messageContainer = document.createElement("div");
-    messageContainer.className = "message-container bot-container";
-    messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-    `;
-    chatContent.appendChild(messageContainer);
-    let messageElem = document.createElement("div");
-    messageElem.className = "bot-message";
-    messageContainer.appendChild(messageElem);
-
-    // Haal het welkomstbericht op van de server met de aangepaste URL
-    let messageText = await fetch(`${backendUrl}/heikant/get_welcome_message`)
-        .then(response => response.json())
-        .then(data => data.welcome_message) // Zorg ervoor dat de sleutel overeenkomt met wat de server stuurt
-        .catch(() => "Standaard welkomstbericht als backup");
-
-    let index = 0;
-    let typingInterval = setInterval(() => {
-        if (index < messageText.length) {
-            messageElem.textContent += messageText[index];
-            index++;
-            chatContent.scrollTop = chatContent.scrollHeight;
-        } else {
-            clearInterval(typingInterval);
-        }
-    }, 25);
-};
 
 
 async function fetchAndApplyColor() {
