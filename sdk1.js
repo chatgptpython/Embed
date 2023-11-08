@@ -852,7 +852,7 @@ function updateChatIconColor(color) {
     }
 }
 
-let cachedTitle = "Standaard Titel"; // Globale variabele voor de titel
+let cachedTitle = "titel"; // Globale variabele voor de titel
 let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde instellen
         
 window.fetchTitleMessage = async function() {
