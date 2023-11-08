@@ -769,6 +769,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Roep de functies aan nadat de DOM volledig is geladen
+    fetchAndDisplayWelcomeMessage();
+    fetchAndApplyTitleMessage();
+    fetchAndApplyColor();
+
 
 window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
