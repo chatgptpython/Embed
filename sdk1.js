@@ -721,6 +721,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
     (function() {
         // Hardcoded backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
@@ -756,21 +757,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-      async function fetchAndApplyColor() {
+    // Functie om de kleur op te halen en toe te passen
+    async function fetchAndApplyColor() {
         try {
             const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
             const data = await response.json();
-            // This assumes that your backend returns a color in a format like "#ffffff" or "rgb(255, 255, 255)"
-            if (data.color) {
-                document.documentElement.style.setProperty('--header-color', data.color);
-            } else {
-                console.error("Kleur data niet gevonden");
-            }
+            document.querySelector("#chatbot header").style.backgroundColor = data.color;
         } catch (error) {
             console.error("Failed to fetch color:", error);
         }
     }
-
 
     // Roep de functies aan nadat de DOM volledig is geladen
     fetchAndDisplayWelcomeMessage();
@@ -835,38 +831,32 @@ async function fetchAndApplyColor() {
 document.addEventListener("DOMContentLoaded", fetchAndApplyColor);
 
 function updateColor(color) {
-    // Stel de kleur van de header in
-    const headerElement = document.querySelector("#chatbot-header"); // Vervang door de juiste selector
-    if (headerElement) {
-        headerElement.style.backgroundColor = color;
-    }
+    // Voeg hier uw logica toe om de kleur in de webpagina toe te passen
     console.log('Kleur bijgewerkt naar:', color);
 }
 
 function updateChatIconColor(color) {
-    // Stel de kleur van het chat-icoon in
-    const chatIconElement = document.querySelector("#chatbot-icon"); // Vervang door de juiste selector
-    if (chatIconElement) {
-        chatIconElement.style.color = color; // Gebruik 'color' voor tekst of 'backgroundColor' voor achtergrond
-    }
+    // Voeg hier uw logica toe om de kleur van het chat-icoon bij te werken
     console.log('Chat-icoon kleur bijgewerkt naar:', color);
 }
 
 
 async function fetchTitleMessage(tenantId) {
     try {
-        const titleMessageUrl = `${backendUrl}/${tenantId}/get_title_message`;
+        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
         const response = await fetch(titleMessageUrl);
         if (!response.ok) {
+            // Log de respons status en status tekst als er een fout is
             console.error(`Error: ${response.status} ${response.statusText}`);
+            // Lees en log de respons tekst
             const errorText = await response.text();
             console.error(`Error response body: ${errorText}`);
             document.querySelector("#chatbot-title").innerText = "Standaard Titel";
             return;
         }
         const data = await response.json();
-        if (data.title_message) {
-            document.querySelector("#chatbot-title").innerText = data.title_message;
+        if (data.message) {
+            document.querySelector("#chatbot-title").innerText = data.message;
         }
     } catch (error) {
         console.error("Failed to fetch title message:", error);
@@ -879,22 +869,24 @@ let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde inste
 async function initializeChat(tenantId) {
     // Haal het titelbericht op
     try {
-        const titleMessageUrl = `${backendUrl}/${tenantId}/get_title_message`;
+        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
         const titleResponse = await fetch(titleMessageUrl);
         if (!titleResponse.ok) {
+            // Log de respons status en status tekst als er een fout is
             console.error(`Error: ${titleResponse.status} ${titleResponse.statusText}`);
+            // Lees en log de respons tekst
             const errorText = await titleResponse.text();
             console.error(`Error response body: ${errorText}`);
+            // Gebruik standaardwaarde als fallback
             cachedTitle = "Standaard Titel";
         } else {
             const titleData = await titleResponse.json();
-            cachedTitle = titleData.title_message || cachedTitle;
+            cachedTitle = titleData.message || cachedTitle;
         }
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
 }
-
 
         
 window.toggleChat = function() {
@@ -1177,6 +1169,19 @@ document.getElementById("ask-another-question").addEventListener("click", functi
         typeBotMessage("Wat is je nieuwe vraag?");
     }, 1000);
 });
+
+document.getElementById("close-chatbot").addEventListener("click", function() {
+    closeChat();
+});
+
+
+// Aanroepen wanneer de pagina laadt
+preloadImages();
+
+
+})();  // Deze lijn sluit de IIFE correct af
+});
+
 
 document.getElementById("close-chatbot").addEventListener("click", function() {
     closeChat();
