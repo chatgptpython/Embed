@@ -874,79 +874,6 @@ async function initializeChat(tenantId) {
 }
 
         
-    // Definieer backendUrl en tenantId
- 
-    const tenantId = 'heikant'; // Hardcoded tenantId voor demonstratie
-
-    // Functie om het welkomstbericht op te halen en te tonen
-    async function fetchAndDisplayWelcomeMessage() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
-            const data = await response.json();
-            displayWelcomeMessage(data.welcome_message || "Standaard welkomstbericht");
-        } catch (error) {
-            console.error("Failed to fetch welcome message:", error);
-            displayWelcomeMessage("Standaard welkomstbericht");
-        }
-    }
-
-    // Functie om het titelbericht op te halen en toe te passen
-    async function fetchAndApplyTitleMessage() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
-            const data = await response.json();
-            applyTitleMessage(data.title_message || "Standaard Titel");
-        } catch (error) {
-            console.error("Failed to fetch title message:", error);
-            applyTitleMessage("Standaard Titel");
-        }
-    }
-
-    // Functie om de kleur op te halen en toe te passen
-    async function fetchAndApplyColor() {
-        try {
-            const response = await fetch(`${backendUrl}/${tenantId}/get_color`);
-            const data = await response.json();
-            applyColor(data.color || "#FFFFFF"); // Gebruik wit als fallback kleur
-        } catch (error) {
-            console.error("Failed to fetch color:", error);
-            applyColor("#FFFFFF"); // Gebruik wit als fallback kleur
-        }
-    }
-
-    // Functie om het welkomstbericht te tonen
-    function displayWelcomeMessage(message) {
-        const messageContainer = document.getElementById("chatbot-content");
-        // Verwijder eerdere welkomstberichten indien aanwezig
-        const previousWelcomeMessage = messageContainer.querySelector(".bot-message");
-        if (previousWelcomeMessage) {
-            previousWelcomeMessage.remove();
-        }
-        // Voeg het nieuwe welkomstbericht toe
-        const messageElem = document.createElement("div");
-        messageElem.className = "bot-message";
-        messageElem.textContent = message;
-        messageContainer.appendChild(messageElem);
-    }
-
-    // Functie om de titel toe te passen
-    function applyTitleMessage(message) {
-        const titleContainer = document.getElementById("chatbot-title");
-        titleContainer.textContent = message;
-    }
-
-    // Functie om de kleur toe te passen
-    function applyColor(color) {
-        // Pas hier de kleur toe op de elementen van je chatbot
-        console.log('Kleur bijgewerkt naar:', color);
-    }
-
-    // Roep de functies aan om de titel, welkomstbericht en kleur op te halen en toe te passen
-    fetchAndApplyTitleMessage();
-    fetchAndDisplayWelcomeMessage();
-    fetchAndApplyColor();
-
-        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -1127,9 +1054,9 @@ window.closeChat = function() {
             }
         }
     };
-       
+    
+    
 
-        
 // Aanroepen wanneer de pagina laadt
 document.addEventListener("DOMContentLoaded", function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
@@ -1238,8 +1165,7 @@ preloadImages();
 
 
 })();  // Deze lijn sluit de IIFE correct af
-});  
-
+});
 
 
 
