@@ -725,6 +725,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Hardcoded backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
         const tenantId = 'heikant'; // Hardcoded tenantId
+   
+        fetchAndApplyTitleMessage(backendUrl, tenantId);
+        fetchAndApplyColor(backendUrl, tenantId);
+        typeWelcomeMessage(backendUrl, tenantId); // Verpl
 
         // Haal het tenantId op van het script tag met de data-tenant-id attribuut
         const scriptElement = document.querySelector('script[data-tenant-id]');
@@ -761,28 +765,23 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
-    messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-    `;
     chatContent.appendChild(messageContainer);
+
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
     messageContainer.appendChild(messageElem);
 
-    // Initialiseer messageText met de fallback-waarde
+    // Initialiseer messageText met een standaard bericht voor het geval de fetch mislukt
     let messageText = "Standaard welkomstbericht als backup";
-
     try {
-        // Probeer het welkomstbericht op te halen van de backend
         const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
         const data = await response.json();
-        // Als het bericht succesvol is opgehaald, update dan messageText
-        messageText = data.welcome_message;
+        messageText = data.welcome_message;  // Gebruik het opgehaalde welkomstbericht
     } catch (error) {
         console.error("Failed to fetch welcome message:", error);
     }
 
-    // Typ het bericht uit met een interval
+    // Typ het welkomstbericht uit
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -790,7 +789,6 @@ window.typeWelcomeMessage = async function(backendUrl, tenantId) {
             index++;
             chatContent.scrollTop = chatContent.scrollHeight;
         } else {
-            // Zodra het hele bericht is getypt, stop het interval
             clearInterval(typingInterval);
         }
     }, 25);
