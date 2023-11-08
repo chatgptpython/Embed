@@ -25,7 +25,651 @@ document.addEventListener("DOMContentLoaded", function() {
     var css = `
 <style>
 
+<style>
+            body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+        }
 
+                
+        #chatbot {
+            position: fixed;
+            bottom: 95px !important;
+            right: 30px;
+            width: 420px;
+            height: 640px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            z-index: 10000;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+        }
+
+              
+           #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            width: 50px important; 
+            height: 50px important;
+            border-radius: 50%;
+            background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            z-index: 9996;
+        }
+
+        
+              #chatbot-icon img {
+            width: 60%;      /* Verminder naar de gewenste breedte */
+            height: 60%;     /* Verminder naar de gewenste hoogte */
+            display: block;
+            margin: auto;    /* Centreert de afbeelding in de container */
+        }
+
+        
+
+
+        #chatbot.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+        #chatbot-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        #chatbot-icon::before, 
+        #chatbot-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            width: 60%;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        #chatbot-icon.open::before, 
+        #chatbot-icon.open::after {
+            background: white;
+        }
+        
+        #chatbot-icon::before {
+            transform: rotate(45deg);
+        }
+        
+        #chatbot-icon::after {
+            transform: rotate(-45deg);
+        }
+        
+        #chatbot-icon img {
+            font-size: 40px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        #chatbot-icon.open img {
+            opacity: 0;
+        }
+
+#make-appointment {
+    background-color: #4A90E2;  /* dezelfde kleur als de 'Nog een vraag stellen' knop */
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    animation: pulse 1.4s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#chatbot header {
+    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
+    padding: 20px 30px;
+    text-align: left;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    height: 120px;
+    font-family: 'Roboto', sans-serif;  /* Modern lettertype */
+    font-size: 1.3em;  /* Vergrote tekstgrootte */
+    color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
+}
+
+.icon-container {
+    position: relative;
+}
+
+#header-icon {
+    border-radius: 50%;
+    width: 50px;  /* Verhoogd naar 50px */
+    height: 50px;  /* Verhoogd naar 50px */
+}
+
+.online-indicator {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+    border: 2px solid white;
+    bottom: 5px;  /* Aanpassen voor verticale positie */
+    right: 8px;  /* Nog iets meer naar links */
+}
+
+
+
+
+#chatbot header img {
+    width: 40px;  /* Verhoogd van 30px naar 40px */
+    height: 40px;  /* Verhoogd van 30px naar 40px */
+    margin-right: 15px;
+}
+
+#chatbot header .subtitle {
+    display: block;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
+    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
+    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
+    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
+    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
+}
+
+
+#chatbot-title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 1.3em;
+    
+    /* Nieuwe aanbevelingen */
+    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
+    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
+}
+
+@media (max-width: 768px) {
+    #chatbot-title {
+        line-height: 1;  /* Minimale ruimte tussen de regels */
+        margin-bottom: 0;  /* Geen extra ruimte onder de titel */
+        font-size: 1.3em !important;
+    }
+}
+
+
+
+.subtitle {
+    font-size: 0.5em;
+    margin-top: 5px;
+}
+
+
+
+@media (max-width: 768px) {
+    /* Andere aanpassingen voor mobiele schermen */
+
+    /* Aanpassing voor de titel en ondertitel op kleinere schermen */
+    #chatbot-title {
+        font-size: 1.8em;  /* Maak de titel groter */
+    }
+    .subtitle {
+        font-size: 1.0em;  /* Maak de ondertitel groter */
+    }
+}
+
+
+#chatbot-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Zachte en subtiele gradiënt */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-container {
+    max-width: 100%;  
+    width: 100%;  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.bot-avatar {
+    width: 30px;  /* Breedte van het icoontje */
+    height: 30px;  /* Hoogte van het icoontje */
+    margin-right: 5px;  /* Ruimte tussen het icoontje en de tekst */
+    margin-top: 20px;  /* Verplaatst het icoontje verder naar beneden */
+    margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
+}
+
+
+
+        #chatbot-input button.send-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+        #chatbot-input button.send-icon {
+            position: absolute;
+            right: 20px; /* Verplaatst de knop meer naar links */
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer; /* Maakt het klikbaar */
+            transition: transform 0.3s ease; /* Soepel hover-effect */
+        }
+
+        #chatbot-input button.send-icon:hover {
+            transform: translateY(-50%) scale(1.1); /* Hover-effect */
+        }
+    
+#chatbot-input {
+    padding: 10px 10px; /* Verklein de padding */
+    background-color: transparent; /* Maak de achtergrond van de container transparant */
+    display: flex;
+    align-items: center;
+    border-top: none;
+    position: relative;
+}
+
+#chatbot-input textarea {
+    flex: 1;
+    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    color: #333;
+    margin-right: 5px; 
+    background-color: #ffffff; 
+    resize: none;
+    min-height: 28px;
+    overflow: auto;
+    font-size: 1.1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+
+           #chatbot-powered {
+        text-align: center;
+        font-size: 0.8em;
+        color: #888;
+        padding: 10px 0;
+        background-color: #f9f9f9;
+        border-top: 1px solid rgba(140, 119, 219, 0.1);
+        cursor: pointer; /* Maakt het element klikbaar */
+        transition: color 0.3s ease; /* Voegt een overgangseffect toe voor een soepele kleurverandering */
+    }
+    
+    #chatbot-powered:hover {
+        color: #666; /* Donkere kleur bij hover */
+        text-decoration: underline; /* Onderstreping bij hover */
+    }
+
+        #chatbot-powered a {
+        color: inherit; /* Neemt de kleur van de ouder over */
+        text-decoration: none; /* Verwijdert de standaard onderstreping */
+        transition: color 0.3s ease; /* Voegt een overgangseffect toe voor een soepele kleurverandering */
+    }
+    
+    #chatbot-powered a:hover {
+        color: #666; /* Donkere kleur bij hover */
+        text-decoration: underline; /* Onderstreping bij hover */
+    }
+
+
+        .user-message, .bot-message {
+            margin: 10px 0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            width: auto;  /* Verander van 100% naar auto */
+            min-width: 40%;  /* Stel een minimum breedte in */
+            transition: all 0.3s ease-in-out;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            white-space: pre-wrap;
+        }
+        
+.user-message {
+    align-self: flex-end;
+    max-width: 85%;
+    background-color: var(--dynamic-color);  /* Dynamische achtergrondkleur */
+    color: #FFFFFF;  /* Witte tekst voor goede leesbaarheid */
+    text-align: right;
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 16px;  /* Verhoogde randradius voor een moderner uiterlijk */
+    width: auto;
+    min-width: 40%;
+    transition: all 0.3s ease-in-out;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een "lifted" effect */
+}
+
+
+
+/* Stijlen voor berichten van de bot */
+.bot-message {
+    align-self: flex-start;
+    max-width: 85%;
+    background-color: #FFFFFF; 
+    color: #333;  /* Donkere tekst voor betere leesbaarheid */
+    text-align: left;
+    /* ... eventuele andere stijlen ... */
+}
+        
+             #chatbot-input .send-icon {
+            width: 30px;
+            height: 30px;
+            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+            background-size: cover;
+            cursor: pointer;
+            background-color: transparent;  /* Verzekert dat er geen achtergrondkleur is */
+            border: none;
+            margin-right: 10px;
+        }
+
+
+
+   
+           .user-container {
+            align-items: flex-end;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message-sender.user {
+            align-self: flex-end;
+            text-align: right;  /* Tekst uitlijnen naar rechts */
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        
+#chatbot-text {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 12px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 9995;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+#chatbot-text:hover {
+    transform: translateY(-3px);
+}
+
+#chatbot-text-close {
+    position: absolute;
+    top: -30px; /* Meer ruimte tussen het kruisje en de tekst */
+    right: -5px; /* Iets naar rechts verplaatst voor een betere uitlijning */
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 25px; /* Groter kruisje */
+    height: 25px; /* Groter kruisje */
+    text-align: center;
+    line-height: 23px; /* Aangepast om het kruisje in het midden van de cirkel te plaatsen */
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9996; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease; 
+}
+
+#chatbot-text-close:hover {
+    background-color: #f0f0f0; 
+}
+
+#chatbot-text-content {
+    cursor: pointer;
+}
+
+#choice-balloons {
+    display: flex;
+    flex-wrap: wrap;  /* Maakt het mogelijk voor items om te 'wrappen' naar de volgende regel */
+    justify-content: flex-start;  /* Uitlijnen aan het begin van de container */
+    align-items: center;  /* Verticale uitlijning van de items */
+    padding: 10px 20px;
+    background-color: transparent;
+    border-top: none; 
+    gap: 10px;  /* Stelt een vaste ruimte tussen de items in */
+}
+
+#choice-balloons button {
+    font-size: 14.2px; 
+    padding: 6.5px 13px;
+    margin: 0;  /* Verwijder de marge om te voorkomen dat deze interfereert met de 'gap' instelling */
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Schaduw toegevoegd voor een lifted effect */
+}
+
+
+#ask-another-question {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+}
+
+#close-chatbot {
+    background-color: #F0F3F4;
+    color: #333;
+}
+
+#choice-balloons button:hover {
+    opacity: 0.92;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Vergrootte schaduw op hover */
+    transform: translateY(-2px);  /* Lichtelijk omhoog verplaatsen van de knop op hover */
+}
+
+#chatbot-input.hide-input {
+    display: none;
+}
+
+
+
+        /* Om de tekst en het icoon naast elkaar te zetten */
+        .bot-message, .user-message {
+            display: flex;
+            align-items: center;
+        }
+        
+         .typing-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+            animation: typing 1.5s infinite;
+            margin: 0 2px;
+        }
+
+            @keyframes typing {
+        0% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.3;
+        }
+    }
+
+
+        
+        .message-sender {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+#close-chat {
+    cursor: pointer;
+    font-size: 40px;  
+    margin-left: auto;
+    padding: 10px;
+    background-color: transparent;
+    color: #444; 
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 300; 
+    line-height: 1;  /* Zorgt ervoor dat het kruisje gecentreerd blijft */
+}
+
+#close-chat:hover {
+    color: #222;  
+    transform: scale(1.1);  /* Licht vergroot bij hover */
+}
+
+
+ @media (max-width: 768px) {
+        #chatbot {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+            top: 0;
+            transform: translateY(0);
+            z-index: 9999;
+        }
+
+        #chatbot-icon {
+            width: 60px;  /* Maak het blauwe bolletje kleiner op mobiele apparaten */
+            height: 60px;
+        }
+
+        #chatbot-icon img {
+            width: 60%; /* Aangepaste grootte voor het icoontje binnen de cirkel op mobiele apparaten */
+            height: 60%;
+        }
+        
+    #chatbot-icon.open {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10000;
+    }
+
+    #close-chat {
+        display: block;  /* Toon het bovenste sluitknopje op mobiele apparaten */
+    }
+}
+#chatbot-icon.cross::before,
+#chatbot-icon.cross::after {
+    background: white;
+}
+
+#chatbot-icon.cross::before {
+    transform: rotate(45deg);
+}
+
+#chatbot-icon.cross::after {
+    transform: rotate(-45deg);
+}
+
+#chatbot-icon.cross img {
+    opacity: 0;
+}
+
+         
+@media (min-width: 769px) {
+    #chatbot-icon {
+        width: 70px;  /* Vergroot de breedte */
+        height: 70px;  /* Vergroot de hoogte */
+    }
+    #chatbot-icon img {
+        font-size: 52px;  /* Vergroot de font-grootte van het icoon */
+    }
+    #chatbot {
+        bottom: 125px;  /* Verplaats de chatbot een beetje meer naar boven */
+    }
+
+    @media (min-width: 769px) {
+    #chatbot {
+        width: 480px;  /* Vergroot de breedte */
+        height: 720px;  /* Vergroot de hoogte */
+    }
+    
+    #chatbot header {
+        font-size: 1.5em;  /* Vergroot de tekstgrootte in de header */
+    }
+    
+    .user-message, .bot-message {
+        font-size: 1.1em;  /* Vergroot de tekstgrootte in de berichten */
+    }
+    
+    #chatbot-input textarea {
+        font-size: 1.1em;  /* Vergroot de tekstgrootte in het invoerveld */
+    }
+}
+
+}
     </style>
     `;
     var style = document.createElement('style');
