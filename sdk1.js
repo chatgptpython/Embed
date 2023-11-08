@@ -736,9 +736,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let firstTimeOpen = true;  // Variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
 
-    const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
-    const tenantId = 'heikant'; // Hardcoded tenantId
-
     // Functies voor het ophalen en tonen van welkomstbericht, titelbericht en kleur
     async function fetchAndDisplayWelcomeMessage() {
         try {
