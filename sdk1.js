@@ -842,20 +842,18 @@ function updateChatIconColor(color) {
 
 async function fetchTitleMessage(tenantId) {
     try {
-        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
+        const titleMessageUrl = `${backendUrl}/${tenantId}/get_title_message`;
         const response = await fetch(titleMessageUrl);
         if (!response.ok) {
-            // Log de respons status en status tekst als er een fout is
             console.error(`Error: ${response.status} ${response.statusText}`);
-            // Lees en log de respons tekst
             const errorText = await response.text();
             console.error(`Error response body: ${errorText}`);
             document.querySelector("#chatbot-title").innerText = "Standaard Titel";
             return;
         }
         const data = await response.json();
-        if (data.message) {
-            document.querySelector("#chatbot-title").innerText = data.message;
+        if (data.title_message) {
+            document.querySelector("#chatbot-title").innerText = data.title_message;
         }
     } catch (error) {
         console.error("Failed to fetch title message:", error);
@@ -868,24 +866,22 @@ let cachedWelcomeMessage = "Standaard welkomstbericht"; // Standaardwaarde inste
 async function initializeChat(tenantId) {
     // Haal het titelbericht op
     try {
-        const titleMessageUrl = `${backendUrl}/heikant/get_title_message`;
+        const titleMessageUrl = `${backendUrl}/${tenantId}/get_title_message`;
         const titleResponse = await fetch(titleMessageUrl);
         if (!titleResponse.ok) {
-            // Log de respons status en status tekst als er een fout is
             console.error(`Error: ${titleResponse.status} ${titleResponse.statusText}`);
-            // Lees en log de respons tekst
             const errorText = await titleResponse.text();
             console.error(`Error response body: ${errorText}`);
-            // Gebruik standaardwaarde als fallback
             cachedTitle = "Standaard Titel";
         } else {
             const titleData = await titleResponse.json();
-            cachedTitle = titleData.message || cachedTitle;
+            cachedTitle = titleData.title_message || cachedTitle;
         }
     } catch (error) {
         console.error("Failed to fetch title message:", error);
     }
 }
+
 
         
 window.toggleChat = function() {
