@@ -999,22 +999,31 @@ window.closeChat = function() {
         const chatContent = document.getElementById("chatbot-content");
         const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
         const backendUrl = scriptElement.getAttribute('data-backend-url');
-
+        const tenantId = scriptElement.getAttribute('data-tenant-id');
     
         if (userInput.value.trim() !== "") {
             isBotTyping = true;
             toggleInputState("disable");
     
             // Voeg het bericht van de gebruiker toe
-            chatContent.innerHTML += `<div class="message-container user-container">
-                                        <div class="message-sender user">U:</div>
-                                        <div class="user-message">${userInput.value}</div>
-                                      </div>`;
+            const userMessageContainer = document.createElement("div");
+            userMessageContainer.className = "message-container user-container";
     
-            // Voeg de professionele laadbalk toe
+            const userMessageSender = document.createElement("div");
+            userMessageSender.className = "message-sender user";
+            userMessageSender.textContent = "U:";
+    
+            const userMessageElem = document.createElement("div");
+            userMessageElem.className = "user-message";
+            userMessageElem.textContent = userInput.value;
+            userMessageElem.style.backgroundColor = cachedColor; // Pas de gecachte kleur toe als achtergrond
+    
+            userMessageContainer.appendChild(userMessageSender);
+            userMessageContainer.appendChild(userMessageElem);
+            chatContent.appendChild(userMessageContainer);
+    
             chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
     
-            // Automatisch scrollen naar het laatst toegevoegde bericht
             chatContent.scrollTop = chatContent.scrollHeight;
     
             try {
@@ -1038,11 +1047,11 @@ window.closeChat = function() {
                     `;
                     chatContent.appendChild(messageContainer);
     
-                    let messageText = data.answer;
                     let messageElem = document.createElement("div");
                     messageElem.className = "bot-message";
                     messageContainer.appendChild(messageElem);
     
+                    let messageText = data.answer;
                     let index = 0;
                     let typingInterval = setInterval(() => {
                         if (index < messageText.length) {
@@ -1077,7 +1086,7 @@ window.closeChat = function() {
             }
         }
     };
-    
+
     
 
 // Aanroepen wanneer de pagina laadt
