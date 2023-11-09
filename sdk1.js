@@ -992,100 +992,100 @@ window.closeChat = function() {
         }
     };
 
-    window.sendMessage = async function() {
-        if (isBotTyping) return;
-    
-        const userInput = document.getElementById("user-input");
-        const chatContent = document.getElementById("chatbot-content");
-        const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-        const backendUrl = scriptElement.getAttribute('data-backend-url');
-        const tenantId = scriptElement.getAttribute('data-tenant-id');
-    
-        if (userInput.value.trim() !== "") {
-            isBotTyping = true;
-            toggleInputState("disable");
-    
-            // Voeg het bericht van de gebruiker toe
-            const userMessageContainer = document.createElement("div");
-            userMessageContainer.className = "message-container user-container";
-    
-            const userMessageSender = document.createElement("div");
-            userMessageSender.className = "message-sender user";
-            userMessageSender.textContent = "U:";
-    
-            const userMessageElem = document.createElement("div");
-            userMessageElem.className = "user-message";
-            userMessageElem.textContent = userInput.value;
-            userMessageElem.style.backgroundColor = cachedColor; // Pas de gecachte kleur toe als achtergrond
-    
-            userMessageContainer.appendChild(userMessageSender);
-            userMessageContainer.appendChild(userMessageElem);
-            chatContent.appendChild(userMessageContainer);
-    
-            chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
-    
-            chatContent.scrollTop = chatContent.scrollHeight;
-    
-            try {
-                const response = await fetch(`${backendUrl}/ask`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ question: userInput.value, tenant_id: tenantId })
-                });
-    
-                const data = await response.json();
-    
-                if (response.ok) {
-                    chatContent.lastChild.remove(); // Verwijder de loader
-    
-                    const messageContainer = document.createElement("div");
-                    messageContainer.className = "message-container bot-container";
-                    messageContainer.innerHTML = `
-                        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-                    `;
-                    chatContent.appendChild(messageContainer);
-    
-                    let messageElem = document.createElement("div");
-                    messageElem.className = "bot-message";
-                    messageContainer.appendChild(messageElem);
-    
-                    let messageText = data.answer;
-                    let index = 0;
-                    let typingInterval = setInterval(() => {
-                        if (index < messageText.length) {
-                            messageElem.textContent += messageText[index];
-                            index++;
-                            chatContent.scrollTop = chatContent.scrollHeight;
-                        } else {
-                            clearInterval(typingInterval);
-                            toggleInputState("enable");
-                            isBotTyping = false;
-                            if (typeof showChoiceBalloons === "function") showChoiceBalloons();
-                        }
-                    }, 25);
-                } else {
-                    throw new Error(data.error || "Er is een fout opgetreden tijdens het versturen van de vraag.");
-                }
-    
-                userInput.value = "";
-            } catch (error) {
-                console.error("Error:", error);
+  window.sendMessage = async function() {
+    if (isBotTyping) return;
+
+    const userInput = document.getElementById("user-input");
+    const chatContent = document.getElementById("chatbot-content");
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    if (userInput.value.trim() !== "") {
+        isBotTyping = true;
+        toggleInputState("disable");
+
+        // Voeg het bericht van de gebruiker toe
+        const userMessageContainer = document.createElement("div");
+        userMessageContainer.className = "message-container user-container";
+
+        const userMessageSender = document.createElement("div");
+        userMessageSender.className = "message-sender user";
+        userMessageSender.textContent = "U:";
+
+        const userMessageElem = document.createElement("div");
+        userMessageElem.className = "user-message";
+        userMessageElem.textContent = userInput.value;
+        userMessageElem.style.backgroundColor = cachedColor; // Pas de gecachte kleur toe als achtergrond
+
+        userMessageContainer.appendChild(userMessageSender);
+        userMessageContainer.appendChild(userMessageElem);
+        chatContent.appendChild(userMessageContainer);
+
+        chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+
+        chatContent.scrollTop = chatContent.scrollHeight;
+
+        try {
+            const response = await fetch(`${backendUrl}/ask`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: userInput.value, tenant_id: tenantId })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
                 chatContent.lastChild.remove(); // Verwijder de loader
-    
+
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
                 messageContainer.innerHTML = `
                     <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-                    <div class="bot-message">Sorry, er is een fout opgetreden: ${error.message}</div>
                 `;
                 chatContent.appendChild(messageContainer);
-                toggleInputState("enable");
-                isBotTyping = false;
+
+                let messageElem = document.createElement("div");
+                messageElem.className = "bot-message";
+                messageContainer.appendChild(messageElem);
+
+                let messageText = data.answer;
+                let index = 0;
+                let typingInterval = setInterval(() => {
+                    if (index < messageText.length) {
+                        messageElem.textContent += messageText[index];
+                        index++;
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    } else {
+                        clearInterval(typingInterval);
+                        toggleInputState("enable");
+                        isBotTyping = false;
+                        if (typeof showChoiceBalloons === "function") showChoiceBalloons();
+                    }
+                }, 25);
+            } else {
+                throw new Error(data.error || "Er is een fout opgetreden tijdens het versturen van de vraag.");
             }
+
+            userInput.value = "";
+        } catch (error) {
+            console.error("Error:", error);
+            chatContent.lastChild.remove(); // Verwijder de loader
+
+            const messageContainer = document.createElement("div");
+            messageContainer.className = "message-container bot-container";
+            messageContainer.innerHTML = `
+                <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
+                <div class="bot-message">Sorry, er is een fout opgetreden: ${error.message}</div>
+            `;
+            chatContent.appendChild(messageContainer);
+            toggleInputState("enable");
+            isBotTyping = false;
         }
-    };
+    }
+};
 
     
 
