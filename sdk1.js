@@ -890,6 +890,28 @@ function updateChatIconColor(color) {
     }
 }
 
+        // Functie om de kleur van het gebruikersinputveld aan te passen
+function updateUserInputColor(color) {
+    const userInput = document.getElementById('user-input');
+    if (userInput) {
+        userInput.style.background = color;
+        console.log('Gebruikersinput kleur bijgewerkt naar:', color);
+    }
+}
+
+// Update de functie updateColor om ook de gebruikersinput kleur aan te passen
+function updateColor(color) {
+    // Pas de header kleur toe
+    const chatbotHeader = document.querySelector('#chatbot header');
+    if (chatbotHeader) {
+        chatbotHeader.style.background = `linear-gradient(90deg, #FFFFFF, ${color})`;
+        console.log('Header kleur bijgewerkt naar:', color);
+    }
+    
+    // Update de gebruikersinput kleur
+    updateUserInputColor(color);
+}
+
 // Functie om de chatbot te initialiseren, inclusief het ophalen van het titelbericht en de kleur
 window.initializeChat = async function() {
     // Haal eerst het titelbericht op
@@ -1005,15 +1027,12 @@ window.sendMessage = function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-    // Verkrijg de huidige kleur van de header
-    const headerColor = document.getElementById("chatbot-header").style.color;
-
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Voeg het bericht van de gebruiker toe aan de chat-interface met de headerkleur
-        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user" style="color: ${headerColor}">U:</div><div class="user-message" style="color: ${headerColor}">${userInput.value}</div></div>`;
+        // Voeg het bericht van de gebruiker toe aan de chat-interface
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
