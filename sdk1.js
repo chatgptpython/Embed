@@ -1005,12 +1005,15 @@ window.sendMessage = function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
 
+    // Verkrijg de huidige kleur van de header
+    const headerColor = document.getElementById("chatbot-header").style.color;
+
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Voeg het bericht van de gebruiker toe aan de chat-interface
-        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+        // Voeg het bericht van de gebruiker toe aan de chat-interface met de headerkleur
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user" style="color: ${headerColor}">U:</div><div class="user-message" style="color: ${headerColor}">${userInput.value}</div></div>`;
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
