@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
+    background: linear-gradient(270deg, #FFFFFF, var(--header-color) 85%);
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
@@ -870,12 +870,12 @@ async function fetchAndApplyColor() {
     }
 }
 
-// Functie om de kleur in de webpagina toe te passen
 function updateColor(color) {
     // Pas de header kleur toe
     const chatbotHeader = document.querySelector('#chatbot header');
     if (chatbotHeader) {
-        chatbotHeader.style.background = `linear-gradient(90deg, #FFFFFF, ${color})`;
+        // Stel de achtergrond in met de nieuwe kleur en behoud de stijl zoals gedefinieerd in CSS
+        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, ${color} 85%)`;
         console.log('Header kleur bijgewerkt naar:', color);
     }
 }
