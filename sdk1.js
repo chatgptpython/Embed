@@ -767,6 +767,7 @@ window.typeWelcomeMessage = async function() {
     }
 
     // Probeert het welkomstbericht op te halen
+    let messageText = '';
     try {
         const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
         if (!response.ok) {
@@ -776,8 +777,7 @@ window.typeWelcomeMessage = async function() {
         if (!data || !data.welcome_message) {
             throw new Error("Welkomstbericht is niet gevonden in de response.");
         }
-        // Stelt het welkomstbericht in
-        messageText = data.welcome_message;
+        messageText = data.welcome_message; // Stelt het welkomstbericht in
     } catch (error) {
         console.error("Error bij het ophalen van het welkomstbericht: ", error);
         messageText = "Standaard welkomstbericht als backup"; // Fallback bericht
@@ -795,6 +795,7 @@ window.typeWelcomeMessage = async function() {
         }
     }, 25);
 };
+
  
 let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
 let cachedWelcomeMessage; // Globale
