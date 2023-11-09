@@ -723,7 +723,7 @@ document.addEventListener("DOMContentLoaded", function() {
     (function() {
         // Hardcoded backend URL
         const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
-        const tenantId = 'heikant'; // Hardcoded tenantId
+        const tenantId = 'hypadvies'; // Hardcoded tenantId
 
         // Haal het tenantId op van het script tag met de data-tenant-id attribuut
         const scriptElement = document.querySelector('script[data-tenant-id]');
