@@ -992,23 +992,27 @@ window.closeChat = function() {
         }
     };
 
-window.sendMessage = function(tenantId) {
+window.sendMessage = function() {
     if (isBotTyping) return;
 
     const userInput = document.getElementById("user-input");
     const chatContent = document.getElementById("chatbot-content");
 
+    // Verkrijg de tenant ID van het script-element
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Voeg het bericht van de gebruiker toe
+        // Voeg het bericht van de gebruiker toe aan de chat-interface
         chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
 
-        // Voeg de laadbalk toe
+        // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
 
-        // Automatisch scrollen naar het laatst toegevoegde bericht
+        // Automatisch scrollen naar het laatste bericht
         chatContent.scrollTop = chatContent.scrollHeight;
 
         setTimeout(() => {
@@ -1019,12 +1023,15 @@ window.sendMessage = function(tenantId) {
                 },
                 body: JSON.stringify({ 
                     question: userInput.value,
-                    tenant_id: tenantId  // Stuur de tenant ID mee
+                    tenant_id: tenantId  // Voeg de tenant ID toe aan het verzoek
                 })
             })
             .then(response => response.json())
             .then(data => {
-                chatContent.lastChild.remove();  // Verwijder de loader
+                // Verwijder de laadbalk
+                chatContent.lastChild.remove();
+
+                // Voeg het antwoord van de bot toe aan de chat-interface
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
                 messageContainer.innerHTML = `
@@ -1050,9 +1057,11 @@ window.sendMessage = function(tenantId) {
                     }
                 }, 25);
 
+                // Maak het invoerveld leeg
                 userInput.value = "";
             })
             .catch(error => {
+                // Toon een foutmelding als de aanvraag mislukt
                 console.error("Error:", error);
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
