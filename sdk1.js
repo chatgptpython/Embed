@@ -719,16 +719,18 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(div);
 
 
-
     (function() {
-        // Hardcoded backend URL
-        const backendUrl = "https://chatbot-1k97.onrender.com"; // Hardcoded waarde
-        const tenantId = 'hypadvies'; // Hardcoded tenantId
+    // URL en Tenant ID ophalen uit de script tag
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
 
-        // Haal het tenantId op van het script tag met de data-tenant-id attribuut
-        const scriptElement = document.querySelector('script[data-tenant-id]');
-        
-    
+    // Valideer backendUrl en tenantId
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        return; // Stop de uitvoering als deze waarden niet zijn gevonden
+    }
+
   // JavaScript toevoegen
     let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
     let isBotTyping = false;
