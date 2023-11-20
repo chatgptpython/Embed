@@ -1166,13 +1166,15 @@ function hideChoiceBalloons() {
 }
 
 
-// Event Listeners voor de keuzeballonnetjes
 document.getElementById("ask-another-question").addEventListener("click", function() {
     hideChoiceBalloons();
     
     // Stuur automatisch een bericht namens de gebruiker
     const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">Ik wil nog een vraag stellen</div></div>`;
+    chatContent.innerHTML += `<div class="message-container user-container">
+                                <div class="message-sender user">U:</div>
+                                <div class="user-message" style="background-color: ${cachedColor};">Ik wil nog een vraag stellen</div>
+                              </div>`;
     chatContent.scrollTop = chatContent.scrollHeight;
 
     // Stuur na een seconde een bericht namens de chatbot en schakel de invoer in voordat de chatbot de volgende vraag stelt
