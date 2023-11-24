@@ -913,24 +913,13 @@ function updateChatIconColor(color) {
     }
 }
 
-// Verbeterde functie om de chatbot te initialiseren
 window.initializeChat = async function() {
-    try {
-        // Wacht tot het titelbericht, de kleur en het welkomstbericht zijn opgehaald
-        await Promise.all([window.fetchTitleMessage(), fetchAndApplyColor(), window.typeWelcomeMessage()]);
+    // Haal eerst het titelbericht op
+    await window.fetchTitleMessage();
 
-        // Code om de chatbot-interface te tonen, bijvoorbeeld:
-        // document.getElementById("chatbot").style.display = "block";
-    } catch (error) {
-        console.error("Fout bij het initialiseren van de chatbot:", error);
-        // Optioneel: Toon een foutmelding aan de gebruiker
-    }
+    // Haal de kleur op en pas deze toe
+    await fetchAndApplyColor();
 };
-
-// Zorg ervoor dat deze functie wordt aangeroepen wanneer de pagina geladen is
-document.addEventListener("DOMContentLoaded", function() {
-    initializeChat();
-});
 
         
 window.toggleChat = function() {
