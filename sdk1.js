@@ -1106,14 +1106,20 @@ window.sendMessage = function() {
 
     
 
-// Aanroepen wanneer de pagina laadt
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
-    initializeChat(backendUrl, tenantId);
-});
 
+    try {
+        await fetchAndApplyColor();  // Asynchroon de kleur ophalen en toepassen
+        await fetchTitleMessage();   // Asynchroon de titel ophalen
+        cachedWelcomeMessage = await typeWelcomeMessage(); // Asynchroon het welkomstbericht typen en ophalen
+    } catch (error) {
+        console.error("Error bij het ophalen van de configuratie: ", error);
+    }
+
+    initializeChat(backendUrl, tenantId);
 
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
