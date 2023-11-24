@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         #chatbot-icon {
+            transform: scale(0.6); 
             position: fixed;
             bottom: 20px;
             right: 30px;
