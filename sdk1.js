@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
