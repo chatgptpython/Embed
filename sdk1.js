@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         #chatbot-icon {
-            transform: scale(0.6); 
+            transform: scale(0.8); 
             position: fixed;
             bottom: 20px;
             right: 30px;
@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
               #chatbot-icon img {
-            width: 40%;      /* Verminder naar de gewenste breedte */
-            height: 40%;     /* Verminder naar de gewenste hoogte */
+            width: 50%;      /* Verminder naar de gewenste breedte */
+            height: 50%;     /* Verminder naar de gewenste hoogte */
             display: block;
             margin: auto;    /* Centreert de afbeelding in de container */
         }
