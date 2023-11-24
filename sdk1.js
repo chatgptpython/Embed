@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(270deg, #FFFFFF, var(--header-color) 85%);
+    background: linear-gradient(270deg, #FFFFFF, rgba(var(--header-color), 0.1) 85%);
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
