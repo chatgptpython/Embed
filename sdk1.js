@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
+    transition: background 0.5s ease-in-out;
 }
 
 .icon-container {
@@ -873,17 +874,15 @@ async function fetchAndApplyColor() {
 }
 
 function updateColor(color) {
-    // Pas de header kleur toe
     const chatbotHeader = document.querySelector('#chatbot header');
     if (chatbotHeader) {
-        // Converteer hex kleur naar RGB
         const rgb = hexToRgb(color);
-        // Stel de achtergrond in met de nieuwe, lichtere kleur en behoud de stijl zoals gedefinieerd in CSS
-        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5) 85%)`;
-        console.log('Header kleur bijgewerkt naar:', color);
+        // Verhoog saturatie en helderheid
+        const vibrantColor = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`;
+        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, ${vibrantColor})`;
+        console.log('Header kleur bijgewerkt naar:', vibrantColor);
     }
 }
-
 // Helper functie om hex naar RGB te converteren
 function hexToRgb(hex) {
     const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
