@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: scale(0.8); 
             position: fixed;
             bottom: 20px;
-            right: 30px;
+            right: 15px;
             width: 30px; /* Aangepaste breedte */
             height: 30px; /* Aangepaste hoogte */
             border-radius: 50%;
