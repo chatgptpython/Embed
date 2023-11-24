@@ -876,11 +876,29 @@ function updateColor(color) {
     // Pas de header kleur toe
     const chatbotHeader = document.querySelector('#chatbot header');
     if (chatbotHeader) {
-        // Stel de achtergrond in met de nieuwe kleur en behoud de stijl zoals gedefinieerd in CSS
-        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, ${color} 85%)`;
+        // Converteer hex kleur naar RGB
+        const rgb = hexToRgb(color);
+        // Stel de achtergrond in met de nieuwe, lichtere kleur en behoud de stijl zoals gedefinieerd in CSS
+        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.1) 85%)`;
         console.log('Header kleur bijgewerkt naar:', color);
     }
 }
+
+// Helper functie om hex naar RGB te converteren
+function hexToRgb(hex) {
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
 
 // Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
