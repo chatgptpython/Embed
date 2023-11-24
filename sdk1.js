@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 50px important; 
-            height: 50px important;
+            width: 35px important; 
+            height: 35px important;
             border-radius: 50%;
             background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
             display: flex;
@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
               #chatbot-icon img {
-            width: 30%;      /* Verminder naar de gewenste breedte */
-            height: 30%;     /* Verminder naar de gewenste hoogte */
+            width: 40%;      /* Verminder naar de gewenste breedte */
+            height: 40%;     /* Verminder naar de gewenste hoogte */
             display: block;
             margin: auto;    /* Centreert de afbeelding in de container */
         }
