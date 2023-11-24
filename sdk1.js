@@ -878,8 +878,8 @@ function updateColor(color) {
     if (chatbotHeader) {
         // Converteer hex kleur naar RGB
         const rgb = hexToRgb(color);
-        // Stel de achtergrond in met de nieuwe, iets donkerdere kleur en laat het over de hele balk lopen
-        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.3))`;
+        // Stel de achtergrond in met de nieuwe, lichtere kleur en behoud de stijl zoals gedefinieerd in CSS
+        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5) 85%)`;
         console.log('Header kleur bijgewerkt naar:', color);
     }
 }
@@ -898,6 +898,7 @@ function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
+
 
 
 // Functie om de kleur van het chat-icoon aan te passen
