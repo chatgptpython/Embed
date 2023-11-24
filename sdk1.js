@@ -37,15 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
         }
 
-              
-           #chatbot-icon {
+        #chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 30px;
-            width: 35px important; 
-            height: 35px important;
+            width: 30px; /* Aangepaste breedte */
+            height: 30px; /* Aangepaste hoogte */
             border-radius: 50%;
-            background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
+            background: #1a2e4a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function() {
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
             z-index: 9996;
         }
+
+
 
         
               #chatbot-icon img {
