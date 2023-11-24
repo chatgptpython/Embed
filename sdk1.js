@@ -1,18 +1,4 @@
-
-document.addEventListener("DOMContentLoaded", async function() {
-    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
-    const backendUrl = scriptElement.getAttribute('data-backend-url');
-    const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-    try {
-        await fetchAndApplyColor();  // Asynchroon de kleur ophalen en toepassen
-        await fetchTitleMessage();   // Asynchroon de titel ophalen
-        cachedWelcomeMessage = await typeWelcomeMessage(); // Asynchroon het welkomstbericht typen en ophalen
-    } catch (error) {
-        console.error("Error bij het ophalen van de configuratie: ", error);
-    }
-
-    initializeChat(backendUrl, tenantId);
+document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
@@ -162,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 }
 
 #chatbot header {
-    background: linear-gradient(270deg, #FFFFFF, rgba(var(--header-color), 0.1) 95%);
+    background: linear-gradient(270deg, #FFFFFF, rgba(var(--header-color), 0.1) 85%);
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
@@ -174,7 +160,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
-
 }
 
 .icon-container {
@@ -891,31 +876,11 @@ function updateColor(color) {
     // Pas de header kleur toe
     const chatbotHeader = document.querySelector('#chatbot header');
     if (chatbotHeader) {
-        // Converteer hex kleur naar RGB
-        const rgb = hexToRgb(color);
-        // Stel de achtergrond in met de nieuwe, donkerdere kleur en behoud de stijl zoals gedefinieerd in CSS
-        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.3))`;
+        // Stel de achtergrond in met de nieuwe kleur en behoud de stijl zoals gedefinieerd in CSS
+        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, ${color} 85%)`;
         console.log('Header kleur bijgewerkt naar:', color);
     }
 }
-
-// Helper functie om hex naar RGB te converteren
-function hexToRgb(hex) {
-    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-        return r + r + g + g + b + b;
-    });
-
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
-}
-
-
-
 
 // Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
@@ -927,6 +892,7 @@ function updateChatIconColor(color) {
     }
 }
 
+// Functie om de chatbot te initialiseren, inclusief het ophalen van het titelbericht en de kleur
 window.initializeChat = async function() {
     // Haal eerst het titelbericht op
     await window.fetchTitleMessage();
@@ -1118,6 +1084,16 @@ window.sendMessage = function() {
 };
 
 
+    
+
+// Aanroepen wanneer de pagina laadt
+document.addEventListener("DOMContentLoaded", function() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+    initializeChat(backendUrl, tenantId);
+});
+
 
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
@@ -1218,3 +1194,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });
+
