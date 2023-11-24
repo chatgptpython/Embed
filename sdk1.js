@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
         #chatbot-icon:hover {
-            transform: scale(0.6);
+            transform: scale(0.9);
         }
         
         #chatbot-icon::before, 
