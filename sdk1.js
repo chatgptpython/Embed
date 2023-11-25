@@ -425,8 +425,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
 #chatbot-text {
     position: fixed;
-    bottom: 110px; /* Verhoog de waarde om de balk lager te plaatsen */
-    right: 30px; 
+    bottom: 200px; /* Aanzienlijk vergroot om de balk veel lager te plaatsen */
+    right: 30px;
     font-size: 15px;
     background-color: #ffffff;
     color: #000000;
@@ -447,8 +447,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: -35px; /* Verhoog de waarde om het kruisje lager te plaatsen */
-    right: -10px; 
+    top: -50px; /* Aanzienlijk vergroot om het kruisje veel lager te plaatsen */
+    right: -10px;
     background-color: #ffffff;
     color: #000000;
     border: 1px solid rgba(0, 0, 0, 0.1);
