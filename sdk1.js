@@ -426,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text {
     position: fixed;
-    bottom: 80px;
+    bottom: 90px;
     right: 30px;
     font-size: 15px;
     background-color: #ffffff;
@@ -448,7 +448,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-close {
     position: absolute;
-    top: -20px; /* Meer ruimte tussen het kruisje en de tekst */
+    top: -30px; /* Meer ruimte tussen het kruisje en de tekst */
     right: -5px; /* Iets naar rechts verplaatst voor een betere uitlijning */
     background-color: #ffffff;
     color: #000000;
