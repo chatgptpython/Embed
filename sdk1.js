@@ -936,9 +936,11 @@ window.closeChatText = function() {
     chatText.style.display = "none";  // Verberg de chattekst
 };        
 
+window.onload = function() {
+    // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
+    initializeChat();
+};
 
-// Aanroepen wanneer de pagina laadt
-initializeChat();
 
 
 // Functie om de chattekst getypt weer te geven
