@@ -248,6 +248,17 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
 
+
+#chatbot-input {
+    position: relative; /* Container moet relatief gepositioneerd zijn */
+    padding: 10px 10px; /* Aangepaste padding voor de gehele input balk */
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border-top: none;
+    height: 50px; /* Een vaste hoogte voor de input balk */
+}
+
 #chatbot-input .send-icon {
     width: 30px;
     height: 30px;
@@ -257,48 +268,21 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: transparent;
     border: none;
     position: absolute;
-    right: 20px;
+    right: 10px; /* Aanpassen aan de gewenste afstand van de rechterkant */
     top: 50%;
     transform: translateY(-50%);
-}
-
-
-#chatbot-input button.send-icon {
-    position: absolute;
-    right: 20px; /* Aanpassen aan de gewenste afstand van de rechterkant */
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer; /* Maakt het klikbaar */
-    transition: transform 0.3s ease; /* Soepel hover-effect */
-}
-
-#chatbot-input button.send-icon:hover {
-    transform: translateY(-50%) scale(1.1); /* Hover-effect */
-}
-
-
-
-#chatbot-input {
-    padding: 10px 10px;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    border-top: none;
-    position: relative;
-    height: 50px;
 }
 
 #chatbot-input textarea {
-    flex: 1;
-    padding: 10px 50px 10px 10px;
+    flex-grow: 1;
+    padding: 0 45px 0 10px; /* Links padding verminderd, rechts vergroot voor de knop */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin-right: 5px;
     background-color: #ffffff;
     resize: none;
-    min-height: 28px;
+    min-height: 30px; /* Aangepast aan de hoogte van de input balk */
     overflow: auto;
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -308,11 +292,14 @@ document.addEventListener("DOMContentLoaded", function() {
     text-align: center;
     font-size: 0.8em;
     color: #888;
-    padding: 10px 0;
+    padding: 10px 0; /* Aangepaste padding */
     background-color: #f9f9f9;
     border-top: 1px solid rgba(140, 119, 219, 0.1);
-    margin-top: 20px; /* Aanpassen voor consistentie */
+    position: absolute;
+    bottom: 0; /* Verzekert dat het altijd onderaan de chatbot blijft */
+    width: 100%; /* Zorgt dat de breedte gelijk is aan de chatbot-container */
 }
+
 
     
     #chatbot-powered:hover {
