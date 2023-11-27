@@ -247,25 +247,28 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 20px;  /* Verplaatst het icoontje verder naar beneden */
     margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
- /* Stijl voor de container van de chatbalk */
+/* Stijl voor de container van de chatbalk */
 #chatbot-input {
     display: flex;
     align-items: center;
     position: relative;
     height: 50px; /* Hoogte van de chatbalk */
-    border-top: 1px solid #ccc;
-    background-color: #f9f9f9;
-    padding-right: 40px; /* Ruimte voor de verzendknop */
+    border-radius: 25px; /* Maakt de balk ronder */
+    border: 1px solid #ccc;
+    background-color: transparent; /* Achtergrondkleur is nu transparant */
+    padding-right: 10px; /* Aangepaste ruimte voor de verzendknop binnen de balk */
+    width: 100%; /* Maakt de balk breder */
+    box-sizing: border-box; /* Zorgt dat padding en border binnen de breedte vallen */
 }
 
 /* Stijl voor het tekstgebied binnen de chatbalk */
 #chatbot-input textarea {
     flex-grow: 1; /* Laat het tekstveld de beschikbare ruimte vullen */
     height: 40px; /* Hoogte van het tekstveld */
-    margin: 5px 40px 5px 5px; /* Margin aangepast voor de verzendknop */
+    margin: 5px; /* Uniforme marge rondom het tekstveld */
+    border-radius: 20px; /* Ronde hoeken voor het tekstveld */
     border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
+    padding: 5px 10px; /* Aangepaste padding */
     font-size: 1em;
     resize: none; /* Voorkom dat gebruikers de grootte kunnen veranderen */
     outline: none; /* Verwijdert de focus-omlijning */
@@ -274,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function() {
 /* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
     position: absolute;
-    right: 10px; /* Afstand vanaf de rechterrand van de container */
+    right: 15px; /* Afstand vanaf de rechterrand van de container */
     top: 50%; /* Midden uitlijnen */
     transform: translateY(-50%); /* Zorgt voor exacte midden uitlijning */
     width: 30px;
