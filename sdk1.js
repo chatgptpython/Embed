@@ -278,9 +278,9 @@ document.addEventListener("DOMContentLoaded", function() {
 /* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
     position: absolute;
-    right: 10px; /* Positie naar rechts */
+    right: 15px; /* Positie iets meer naar links */
     top: 50%; /* Verticaal gecentreerd */
-    transform: translateY(-65%); /* Verdere aanpassing voor betere verticale uitlijning */
+    transform: translateY(-68%); /* Verdere aanpassing voor hogere positie */
     width: 30px;
     height: 30px; /* Afmetingen van de knop */
     background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
@@ -292,8 +292,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* Hover-effect voor de verzendknop */
 #chatbot-input .send-icon:hover {
-    transform: translateY(-65%) scale(1.1);
+    transform: translateY(-68%) scale(1.1);
 }
+
 
 
            #chatbot-powered {
