@@ -250,13 +250,13 @@ document.addEventListener("DOMContentLoaded", function() {
 /* Stijl voor de container van de chatbalk */
 #chatbot-input {
     display: flex;
-    align-items: center;
+    align-items: center; /* Zorgt voor verticale uitlijning */
     position: relative;
     height: 50px; /* Hoogte van de chatbalk */
     border-radius: 25px; /* Maakt de balk ronder */
     border: none; /* Geen rand */
     background-color: transparent; /* Achtergrondkleur is transparant */
-    padding: 5px; /* Uniforme padding */
+    padding: 5px 10px; /* Padding aan beide kanten */
     width: calc(100% - 20px); /* Aanpassing voor breedte */
     margin: 0 10px; /* Ruimte aan de zijkanten */
     box-sizing: border-box;
@@ -273,14 +273,11 @@ document.addEventListener("DOMContentLoaded", function() {
     resize: none; /* Geen resize */
     outline: none; /* Geen focus-omlijning */
     background-color: #f9f9f9; /* Achtergrondkleur van het tekstveld */
+    margin-right: 10px; /* Ruimte voor de verzendknop */
 }
 
 /* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
-    position: absolute;
-    right: 15px; /* Positie iets meer naar links */
-    top: 50%; /* Verticaal gecentreerd */
-    transform: translateY(-68%); /* Verdere aanpassing voor hogere positie */
     width: 30px;
     height: 30px; /* Afmetingen van de knop */
     background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
@@ -292,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* Hover-effect voor de verzendknop */
 #chatbot-input .send-icon:hover {
-    transform: translateY(-68%) scale(1.1);
+    transform: scale(1.1);
 }
 
 
