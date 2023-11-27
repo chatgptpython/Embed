@@ -202,8 +202,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     .subtitle {
-        font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
-        margin-top: -15px !important; /* Nog grotere negatieve marge */
+        font-size: 0.8em; /* Verklein de lettergrootte van de ondertitel */
+        margin-top: -15px !important; /* Behoud de negatieve marge */
         margin-bottom: 0 !important;
         padding: 0 !important;
         color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
