@@ -251,35 +251,35 @@ document.addEventListener("DOMContentLoaded", function() {
 #chatbot-input {
     display: flex;
     align-items: center; /* Zorgt voor verticale uitlijning */
+    justify-content: space-between; /* Evenredige ruimteverdeling binnen de container */
     position: relative;
-    height: 50px; /* Hoogte van de chatbalk */
-    border-radius: 25px; /* Maakt de balk ronder */
-    border: none; /* Geen rand */
-    background-color: transparent; /* Achtergrondkleur is transparant */
-    padding: 5px 10px; /* Padding aan beide kanten */
-    width: calc(100% - 20px); /* Aanpassing voor breedte */
-    margin: 0 10px; /* Ruimte aan de zijkanten */
-    box-sizing: border-box;
+    height: 50px; /* Vaste hoogte van de chatbalk */
+    border-radius: 25px; /* Ronde hoeken */
+    background-color: transparent; /* Transparante achtergrond */
+    width: 100%; /* Volledige breedte */
+    padding: 0 10px; /* Padding aan de zijkanten */
+    box-sizing: border-box; /* Inclusief padding en border in de breedte */
 }
 
 /* Stijl voor het tekstgebied binnen de chatbalk */
 #chatbot-input textarea {
-    flex-grow: 1; /* Vult de beschikbare ruimte */
-    height: 40px; /* Hoogte van het tekstveld */
+    flex-grow: 1; /* Neemt beschikbare ruimte in beslag */
+    height: 40px; /* Vaste hoogte */
     border-radius: 20px; /* Ronde hoeken */
     border: 1px solid #ddd;
-    padding: 5px 10px; /* Padding */
+    padding: 5px 15px; /* Padding aan binnenkant */
+    margin: 5px 10px 5px 0; /* Margin rondom het tekstveld */
     font-size: 1em;
-    resize: none; /* Geen resize */
+    resize: none; /* Geen mogelijkheid om te vergroten/verkleinen */
     outline: none; /* Geen focus-omlijning */
     background-color: #f9f9f9; /* Achtergrondkleur van het tekstveld */
-    margin-right: 10px; /* Ruimte voor de verzendknop */
 }
 
 /* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
     width: 30px;
-    height: 30px; /* Afmetingen van de knop */
+    height: 30px; /* Vaste afmetingen van de knop */
+    margin: auto 0; /* Automatische marge voor verticale centrering */
     background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
     background-size: cover;
     cursor: pointer;
