@@ -247,55 +247,48 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 20px;  /* Verplaatst het icoontje verder naar beneden */
     margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
+ /* Stijl voor de container van de chatbalk */
 #chatbot-input {
-    padding: 10px 10px;
-    background-color: transparent;
     display: flex;
     align-items: center;
-    border-top: none;
+    justify-content: space-between;
     position: relative;
+    padding-right: 50px; /* Ruimte voor de verzendknop */
+    border-top: 1px solid #ccc;
+    background-color: #f9f9f9;
     height: 50px;
 }
 
+/* Stijl voor het tekstgebied binnen de chatbalk */
+#chatbot-input textarea {
+    width: calc(100% - 60px); /* Ruimte overlaten voor de verzendknop */
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 1em;
+    resize: none; /* Voorkom dat gebruikers de grootte kunnen veranderen */
+}
+
+/* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
+    position: absolute;
+    right: 10px; /* Afstand vanaf de rechterrand van de container */
+    top: 50%;
+    transform: translateY(-50%);
     width: 30px;
     height: 30px;
     background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
     background-size: cover;
     cursor: pointer;
-    background-color: transparent;
     border: none;
+    background-color: transparent;
 }
 
-#chatbot-input button.send-icon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-#chatbot-input button.send-icon:hover {
+/* Hover-effect voor de verzendknop */
+#chatbot-input .send-icon:hover {
     transform: translateY(-50%) scale(1.1);
 }
-
-#chatbot-input textarea {
-    flex: 1;
-    padding: 10px 50px 10px 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    color: #333;
-    margin-right: 5px; 
-    background-color: #ffffff; 
-    resize: none;
-    min-height: 28px;
-    overflow: auto;
-    font-size: 1.1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
 
 
            #chatbot-powered {
