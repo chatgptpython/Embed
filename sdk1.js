@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-   #chatbot-title {
+    #chatbot-title {
         font-size: 1.1em;
         font-weight: normal;
         margin: 0 !important;
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     .subtitle {
         font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
-        margin-top: 2px !important; /* Zeer kleine ruimte tussen titel en ondertitel */
+        margin-top: -5px !important; /* Negatieve marge om ruimte te verminderen */
         margin-bottom: 0 !important;
         padding: 0 !important;
         color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
