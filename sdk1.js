@@ -249,6 +249,30 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
+#chatbot-input .send-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+    background-size: cover;
+    cursor: pointer;
+    background-color: transparent; /* Verzekert dat er geen achtergrondkleur is */
+    border: none;
+}
+
+#chatbot-input button.send-icon {
+    position: absolute;
+    right: 20px; /* Aanpassen aan de gewenste afstand van de rechterkant */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; /* Maakt het klikbaar */
+    transition: transform 0.3s ease; /* Soepel hover-effect */
+}
+
+#chatbot-input button.send-icon:hover {
+    transform: translateY(-50%) scale(1.1); /* Hover-effect */
+}
+
+
 #chatbot-input {
     position: relative; /* Container moet relatief gepositioneerd zijn */
     padding: 10px 10px; /* Aangepaste padding voor de gehele input balk */
