@@ -254,30 +254,31 @@ document.addEventListener("DOMContentLoaded", function() {
     position: relative;
     height: 50px; /* Hoogte van de chatbalk */
     border-radius: 25px; /* Maakt de balk ronder */
-    border: 1px solid #ccc;
+    border: none; /* Maakt de rand transparant */
     background-color: transparent; /* Achtergrondkleur is nu transparant */
-    padding-right: 10px; /* Aangepaste ruimte voor de verzendknop binnen de balk */
-    width: 100%; /* Maakt de balk breder */
-    box-sizing: border-box; /* Zorgt dat padding en border binnen de breedte vallen */
+    padding: 5px; /* Uniforme padding voor evenwichtige uitlijning */
+    width: calc(100% - 20px); /* Balkbreedte met ruimte aan de zijkanten */
+    margin: 0 10px; /* Zorgt voor ruimte aan de zijkanten */
+    box-sizing: border-box;
 }
 
 /* Stijl voor het tekstgebied binnen de chatbalk */
 #chatbot-input textarea {
     flex-grow: 1; /* Laat het tekstveld de beschikbare ruimte vullen */
     height: 40px; /* Hoogte van het tekstveld */
-    margin: 5px; /* Uniforme marge rondom het tekstveld */
     border-radius: 20px; /* Ronde hoeken voor het tekstveld */
     border: 1px solid #ddd;
     padding: 5px 10px; /* Aangepaste padding */
     font-size: 1em;
     resize: none; /* Voorkom dat gebruikers de grootte kunnen veranderen */
     outline: none; /* Verwijdert de focus-omlijning */
+    background-color: #f9f9f9; /* Achtergrondkleur van het tekstveld */
 }
 
 /* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
     position: absolute;
-    right: 15px; /* Afstand vanaf de rechterrand van de container */
+    right: 10px; /* Verplaatst de knop iets meer naar links */
     top: 50%; /* Midden uitlijnen */
     transform: translateY(-50%); /* Zorgt voor exacte midden uitlijning */
     width: 30px;
