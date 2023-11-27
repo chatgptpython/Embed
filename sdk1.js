@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-    #chatbot-title {
+   #chatbot-title {
         font-size: 1.1em;
         font-weight: normal;
         margin: 0 !important;
@@ -203,14 +203,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     .subtitle {
         font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
-        margin-top: -10px !important; /* Vergroot de negatieve marge om de ruimte verder te verminderen */
+        margin-top: -15px !important; /* Nog grotere negatieve marge */
         margin-bottom: 0 !important;
         padding: 0 !important;
         color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
         font-weight: lighter; /* Een lichtere letterdikte */
         font-family: 'Roboto', sans-serif; /* Consistent met de titel */
     }
-
+    
     /* Responsieve stijlen voor mobiele apparaten */
     @media (max-width: 768px) {
         #chatbot-title {
