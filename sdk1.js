@@ -269,31 +269,43 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: translateY(-50%) scale(1.1); /* Hover-effect */
         }
     
-#chatbot-input {
-    padding: 10px 10px; /* Verklein de padding */
-    background-color: transparent; /* Maak de achtergrond van de container transparant */
-    display: flex;
-    align-items: center;
-    border-top: none;
-    position: relative;
-}
+    #chatbot-input {
+        padding: 5px 15px; /* Aangepaste padding voor consistentie */
+        background-color: #ffffff; /* Achtergrondkleur van de inputbalk */
+        display: flex;
+        align-items: center; /* Zorgt ervoor dat elementen verticaal gecentreerd zijn */
+        border-top: 1px solid #ddd;
+        position: relative;
+        height: 40px; /* Vaste hoogte voor consistentie */
+    }
 
-#chatbot-input textarea {
-    flex: 1;
-    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    color: #333;
-    margin-right: 5px; 
-    background-color: #ffffff; 
-    resize: none;
-    min-height: 28px;
-    overflow: auto;
-    font-size: 1.1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
+    #chatbot-input textarea {
+        flex: 1;
+        padding: 5px 10px; /* Aangepaste padding voor de tekst */
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        color: #333;
+        background-color: #f8f9fa; /* Achtergrondkleur van de textarea */
+        resize: none; /* Voorkomt dat gebruikers de grootte van textarea wijzigen */
+        min-height: 28px; /* Minimale hoogte van de textarea */
+        font-size: 0.9em; /* Aangepaste lettergrootte */
+        box-shadow: none; /* Verwijdert eventuele schaduw voor een strakkere look */
+    }
 
+    #chatbot-input button.send-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px; /* Aangepaste grootte van het verzendicoon */
+        height: 24px;
+        background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+        background-size: cover;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+    }
 
            #chatbot-powered {
         text-align: center;
