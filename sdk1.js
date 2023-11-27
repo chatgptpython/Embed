@@ -248,7 +248,6 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
 
-
 #chatbot-input .send-icon {
     width: 30px;
     height: 30px;
@@ -272,59 +271,44 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: translateY(-50%) scale(1.1); /* Hover-effect */
 }
 
-
 #chatbot-input {
-    position: relative; /* Container moet relatief gepositioneerd zijn */
-    padding: 10px 10px; /* Aangepaste padding voor de gehele input balk */
-    background-color: transparent;
+    padding: 10px 10px; /* Verklein de padding */
+    background-color: transparent; /* Maak de achtergrond van de container transparant */
     display: flex;
     align-items: center;
     border-top: none;
-    height: 50px; /* Een vaste hoogte voor de input balk */
-}
-
-#chatbot-input .send-icon {
-    width: 30px;
-    height: 30px;
-    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-    background-size: cover;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    right: 10px; /* Aanpassen aan de gewenste afstand van de rechterkant */
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    height: 50px; /* Stel een vaste hoogte in */
 }
 
 #chatbot-input textarea {
-    flex-grow: 1;
-    padding: 0 45px 0 10px; /* Links padding verminderd, rechts vergroot voor de knop */
+    flex: 1;
+    padding: 10px 50px 10px 10px; /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    background-color: #ffffff;
+    margin-right: 5px; 
+    background-color: #ffffff; 
     resize: none;
-    min-height: 30px; /* Aangepast aan de hoogte van de input balk */
+    min-height: 28px;
     overflow: auto;
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-#chatbot-powered {
-    text-align: center;
-    font-size: 0.8em;
-    color: #888;
-    padding: 10px 0; /* Aangepaste padding */
-    background-color: #f9f9f9;
-    border-top: 1px solid rgba(140, 119, 219, 0.1);
-    position: absolute;
-    bottom: 0; /* Verzekert dat het altijd onderaan de chatbot blijft */
-    width: 100%; /* Zorgt dat de breedte gelijk is aan de chatbot-container */
-}
 
 
+           #chatbot-powered {
+        text-align: center;
+        font-size: 0.8em;
+        color: #888;
+        padding: 10px 0;
+        background-color: #f9f9f9;
+        border-top: 1px solid rgba(140, 119, 219, 0.1);
+        cursor: pointer; /* Maakt het element klikbaar */
+        transition: color 0.3s ease; /* Voegt een overgangseffect toe voor een soepele kleurverandering */
+    }
     
     #chatbot-powered:hover {
         color: #666; /* Donkere kleur bij hover */
