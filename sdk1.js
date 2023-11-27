@@ -271,40 +271,44 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: translateY(-50%) scale(1.1); /* Hover-effect */
 }
 
- #chatbot-input {
-    position: relative; /* Container moet relatief gepositioneerd zijn */
-    padding: 10px 10px; /* Aangepaste padding voor de gehele input balk */
+
+
+/* Overige stijlen... */
+
+#chatbot-input {
+    position: relative; /* Zorg dat de positie relatief is voor absoluut gepositioneerde kinderen */
+    padding: 10px 10px; /* Padding aan alle kanten */
     background-color: transparent;
-    display: flex;
-    align-items: center;
+    display: flex; /* Gebruik flexbox voor uitlijning */
+    align-items: center; /* Centreer items verticaal */
     border-top: none;
-    height: 50px; /* Een vaste hoogte voor de input balk */
+    height: 50px; /* Stel een vaste hoogte in */
+    bottom: 0; /* Zorg dat het aan de onderkant van #chatbot blijft */
+    width: 100%; /* Volledige breedte binnen de #chatbot */
 }
 
 #chatbot-input .send-icon {
-    width: 30px;
-    height: 30px;
-    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+    position: absolute; /* Absolute positionering binnen #chatbot-input */
+    right: 10px; /* Afstand vanaf de rechterkant */
+    top: 50%; /* Startpositie vanaf de bovenkant */
+    transform: translateY(-50%); /* Centreer verticaal */
+    width: 30px; /* Breedte van de knop */
+    height: 30px; /* Hoogte van de knop */
+    background-image: url('send-icon-url'); /* URL van de verzendknop */
     background-size: cover;
     cursor: pointer;
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    right: 10px; /* Aanpassen aan de gewenste afstand van de rechterkant */
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #chatbot-input textarea {
-    flex-grow: 1;
-    padding: 0 45px 0 10px; /* Links padding verminderd, rechts vergroot voor de knop */
+    flex-grow: 1; /* Laat de textarea groeien om beschikbare ruimte te vullen */
+    padding: 0 45px 0 10px; /* Padding om ruimte te maken voor de verzendknop */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
     background-color: #ffffff;
-    resize: none;
-    min-height: 30px; /* Aangepast aan de hoogte van de input balk */
+    resize: none; /* Voorkom dat gebruikers de textarea kunnen vergroten/verkleinen */
+    min-height: 30px; /* Minimale hoogte */
     overflow: auto;
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -314,13 +318,16 @@ document.addEventListener("DOMContentLoaded", function() {
     text-align: center;
     font-size: 0.8em;
     color: #888;
-    padding: 10px 0; /* Aangepaste padding */
+    padding: 10px 0;
     background-color: #f9f9f9;
     border-top: 1px solid rgba(140, 119, 219, 0.1);
     position: absolute;
-    bottom: 0; /* Verzekert dat het altijd onderaan de chatbot blijft */
-    width: 100%; /* Zorgt dat de breedte gelijk is aan de chatbot-container */
+    bottom: -60px; /* Aanpassen op basis van de hoogte van #chatbot-powered */
+    width: 100%; /* Volledige breedte */
 }
+
+/* Zorg ervoor dat alle andere stijlen hier correct zijn ingesloten */
+
     
     #chatbot-powered:hover {
         color: #666; /* Donkere kleur bij hover */
