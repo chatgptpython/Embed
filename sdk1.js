@@ -254,9 +254,14 @@ document.addEventListener("DOMContentLoaded", function() {
     background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
     background-size: cover;
     cursor: pointer;
-    background-color: transparent; /* Verzekert dat er geen achtergrondkleur is */
+    background-color: transparent;
     border: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
 
 #chatbot-input button.send-icon {
     position: absolute;
@@ -271,25 +276,27 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: translateY(-50%) scale(1.1); /* Hover-effect */
 }
 
+
+
 #chatbot-input {
-    padding: 10px 10px; /* Verklein de padding */
-    background-color: transparent; /* Maak de achtergrond van de container transparant */
+    padding: 10px 10px;
+    background-color: transparent;
     display: flex;
     align-items: center;
     border-top: none;
     position: relative;
-    height: 50px; /* Stel een vaste hoogte in */
+    height: 50px;
 }
 
 #chatbot-input textarea {
     flex: 1;
-    padding: 10px 50px 10px 10px; /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
+    padding: 10px 50px 10px 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     color: #333;
-    margin-right: 5px; 
-    background-color: #ffffff; 
+    margin-right: 5px;
+    background-color: #ffffff;
     resize: none;
     min-height: 28px;
     overflow: auto;
@@ -297,18 +304,16 @@ document.addEventListener("DOMContentLoaded", function() {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+#chatbot-powered {
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+    padding: 10px 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid rgba(140, 119, 219, 0.1);
+    margin-top: 20px; /* Aanpassen voor consistentie */
+}
 
-
-           #chatbot-powered {
-        text-align: center;
-        font-size: 0.8em;
-        color: #888;
-        padding: 10px 0;
-        background-color: #f9f9f9;
-        border-top: 1px solid rgba(140, 119, 219, 0.1);
-        cursor: pointer; /* Maakt het element klikbaar */
-        transition: color 0.3s ease; /* Voegt een overgangseffect toe voor een soepele kleurverandering */
-    }
     
     #chatbot-powered:hover {
         color: #666; /* Donkere kleur bij hover */
