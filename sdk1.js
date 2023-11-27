@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
+    justify-content: space-between; /* Ruimte tussen titel en sluitknop */
 
 }
 
@@ -205,46 +206,34 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
-
-#chatbot-title {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    font-size: 1.3em;
-    
-    /* Nieuwe aanbevelingen */
-    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
-    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
-}
-
-@media (max-width: 768px) {
+    /* Stijlen voor de chatbot titel */
     #chatbot-title {
-        line-height: 1;  /* Minimale ruimte tussen de regels */
-        margin-bottom: 0;  /* Geen extra ruimte onder de titel */
-        font-size: 1.3em !important;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-size: 1.1em; /* Een kleiner, meer ingetogen lettergrootte */
+        font-weight: normal; /* Verwijder de vetgedrukte stijl */
+        margin-bottom: 0.5em; /* Ruimte onder de titel */
     }
-}
 
-
-
-.subtitle {
-    font-size: 0.5em;
-    margin-top: 5px;
-}
-
-
-
-@media (max-width: 768px) {
-    /* Andere aanpassingen voor mobiele schermen */
-
-    /* Aanpassing voor de titel en ondertitel op kleinere schermen */
-    #chatbot-title {
-        font-size: 1.8em;  /* Maak de titel groter */
-    }
+    /* Stijlen voor de chatbot ondertitel */
     .subtitle {
-        font-size: 1.0em;  /* Maak de ondertitel groter */
+        font-size: 0.9em; /* Iets kleinere grootte dan de titel */
+        margin-top: 0.5em; /* Ruimte boven de ondertitel */
     }
-}
+
+    /* Responsieve stijlen voor mobiele apparaten */
+    @media (max-width: 768px) {
+        #chatbot-title {
+            font-size: 1.3em; /* Grotere titel op kleinere schermen */
+            line-height: 1.1; /* Licht verhoogde regelhoogte voor betere leesbaarheid */
+        }
+
+        .subtitle {
+            font-size: 1em; /* Grotere ondertitel op kleinere schermen */
+            margin-top: 0.3em; /* Aangepaste ruimte boven de ondertitel */
+        }
+    }
 
 
 #chatbot-content {
