@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     .subtitle {
-        font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
+        font-size: 0.7em; /* Kleinere lettergrootte dan de titel */
         margin-top: -12px !important; /* Nog grotere negatieve marge */
         margin-bottom: 0 !important;
         padding: 0 !important;
