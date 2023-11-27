@@ -206,14 +206,14 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
-     /* Stijlen voor de chatbot titel */
+   /* Stijlen voor de chatbot titel */
     #chatbot-title {
         display: flex;
         flex-direction: column;
         align-items: start;
         font-size: 1.1em; /* Een kleiner, meer ingetogen lettergrootte */
         font-weight: normal; /* Verwijder de vetgedrukte stijl */
-        margin-bottom: 5px; /* Kleine ruimte onder de titel voor de ondertitel */
+        margin-bottom: 2px; /* Minimale ruimte onder de titel voor de ondertitel */
     }
 
     /* Stijlen voor de chatbot ondertitel */
