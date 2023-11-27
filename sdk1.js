@@ -194,33 +194,40 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-   #chatbot-title {
-        font-size: 1.1em;
-        font-weight: normal;
-        margin: 0 !important;
-        padding: 0 !important;
+
+    #chatbot-title-container {
+        text-align: center; /* Centreert de titel en ondertitel */
+        padding: 10px; /* Voegt wat ruimte rondom toe */
+    }
+
+    #chatbot-title {
+        font-size: 1.2em; /* Licht vergrote lettergrootte voor de titel */
+        font-weight: bold; /* Maakt de titel vetgedrukt */
+        color: #1a2e4a; /* Donkerdere kleur voor betere leesbaarheid */
+        margin: 0;
+        padding: 0;
     }
 
     .subtitle {
-        font-size: 0.8em; /* Verklein de lettergrootte van de ondertitel */
-        margin-top: -15px !important; /* Behoud de negatieve marge */
-        margin-bottom: 0 !important;
-        padding: 0 !important;
-        color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
-        font-weight: lighter; /* Een lichtere letterdikte */
-        font-family: 'Roboto', sans-serif; /* Consistent met de titel */
+        font-size: 0.9em; /* Subtiel kleinere lettergrootte dan de titel */
+        color: #4a4a4a; /* Lichtere kleur voor de ondertitel */
+        font-weight: normal; /* Standaard letterdikte voor de ondertitel */
+        margin-top: 5px; /* Kleine ruimte tussen titel en ondertitel */
+        margin-bottom: 0;
+        padding: 0;
     }
-    
-    /* Responsieve stijlen voor mobiele apparaten */
+
+    /* Responsieve stijlen voor mobiele apparaten... */
     @media (max-width: 768px) {
         #chatbot-title {
-            font-size: 1.3em; /* Grotere titel op kleinere schermen */
+            font-size: 1.4em; /* Grotere lettergrootte op kleinere schermen */
         }
 
         .subtitle {
-            font-size: 1em; /* Grotere ondertitel op kleinere schermen */
+            font-size: 1em; /* Aangepaste lettergrootte voor ondertitel op kleinere schermen */
         }
     }
+
 #chatbot-content {
     flex: 1;
     overflow-y: auto;
