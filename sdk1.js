@@ -206,19 +206,18 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
-   #chatbot-title-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; /* Zorgt voor uitlijning aan de linkerkant */
-        margin: 0;
-        padding: 0;
+   #chatbot-title {
+        font-size: 1.1em;
+        font-weight: normal;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    #chatbot-title {
-        font-size: 1.1em; /* Aangepaste lettergrootte */
-        font-weight: normal;
-        margin: 0;
-        padding: 0;
+    .subtitle {
+        font-size: 0.9em;
+        margin-top: 2px !important; /* Minimale ruimte tussen de titel en ondertitel */
+        margin-bottom: 0 !important;
+        padding: 0 !important;
     }
 
     .subtitle {
@@ -664,7 +663,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-      // HTML toevoegen
+   // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -677,6 +676,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
+                    <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
@@ -707,6 +707,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+
 
 
 
