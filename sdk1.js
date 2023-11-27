@@ -194,18 +194,6 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-#chatbot header .subtitle {
-    display: block;
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 5px;
-    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
-    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
-    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
-    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
-    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
-}
-
    #chatbot-title {
         font-size: 1.1em;
         font-weight: normal;
@@ -214,31 +202,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     .subtitle {
-        font-size: 0.9em;
-        margin-top: 2px !important; /* Minimale ruimte tussen de titel en ondertitel */
+        font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
+        margin-top: 2px !important; /* Zeer kleine ruimte tussen titel en ondertitel */
         margin-bottom: 0 !important;
         padding: 0 !important;
-    }
-
-    .subtitle {
-        font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
-        margin-top: 2px; /* Minimale ruimte tussen titel en ondertitel */
-        margin-bottom: 0;
-        padding: 0;
+        color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
+        font-weight: lighter; /* Een lichtere letterdikte */
+        font-family: 'Roboto', sans-serif; /* Consistent met de titel */
     }
 
     /* Responsieve stijlen voor mobiele apparaten */
     @media (max-width: 768px) {
         #chatbot-title {
             font-size: 1.3em; /* Grotere titel op kleinere schermen */
-            line-height: 1.1; /* Licht verhoogde regelhoogte voor betere leesbaarheid */
         }
 
         .subtitle {
             font-size: 1em; /* Grotere ondertitel op kleinere schermen */
         }
     }
-
 #chatbot-content {
     flex: 1;
     overflow-y: auto;
