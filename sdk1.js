@@ -270,35 +270,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     
     #chatbot-input {
-        padding: 5px 15px; /* Aangepaste padding voor consistentie */
-        background-color: #ffffff; /* Achtergrondkleur van de inputbalk */
+        padding: 5px 10px;
+        background-color: transparent; /* Achtergrondkleur verwijderd */
         display: flex;
-        align-items: center; /* Zorgt ervoor dat elementen verticaal gecentreerd zijn */
-        border-top: 1px solid #ddd;
-        position: relative;
-        height: 40px; /* Vaste hoogte voor consistentie */
+        align-items: center; /* Zorgt voor verticale centrering */
+        justify-content: space-between; /* Ruimte tussen tekstveld en verzendknop */
+        border-top: 1px solid #ddd; /* behoudt een subtiele scheiding */
+        height: 40px; /* Vaste hoogte */
     }
 
     #chatbot-input textarea {
-        flex: 1;
-        padding: 5px 10px; /* Aangepaste padding voor de tekst */
+        flex-grow: 1;
+        padding: 5px 10px;
         border: none;
         border-radius: 8px;
         outline: none;
         color: #333;
-        background-color: #f8f9fa; /* Achtergrondkleur van de textarea */
-        resize: none; /* Voorkomt dat gebruikers de grootte van textarea wijzigen */
-        min-height: 28px; /* Minimale hoogte van de textarea */
-        font-size: 0.9em; /* Aangepaste lettergrootte */
-        box-shadow: none; /* Verwijdert eventuele schaduw voor een strakkere look */
+        background-color: #f8f9fa; /* Achtergrondkleur van het tekstveld */
+        resize: none;
+        font-size: 0.9em;
+        box-shadow: none;
     }
 
     #chatbot-input button.send-icon {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 24px; /* Aangepaste grootte van het verzendicoon */
+        width: 24px;
         height: 24px;
         background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
         background-size: cover;
