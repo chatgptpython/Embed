@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     .subtitle {
         font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
-        margin-top: -5px !important; /* Negatieve marge om ruimte te verminderen */
+        margin-top: -10px !important; /* Vergroot de negatieve marge om de ruimte verder te verminderen */
         margin-bottom: 0 !important;
         padding: 0 !important;
         color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
