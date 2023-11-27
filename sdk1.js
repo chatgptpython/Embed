@@ -677,7 +677,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span role="img" aria-label="bot">🤖</span> 
                         Chatproducties - Proddy
                     </span>
-                    <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
