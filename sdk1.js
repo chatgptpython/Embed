@@ -269,31 +269,31 @@ document.addEventListener("DOMContentLoaded", function() {
             transform: translateY(-50%) scale(1.1); /* Hover-effect */
         }
     
-    #chatbot-input {
-        padding: 5px 10px;
-        background-color: transparent; /* Achtergrondkleur verwijderd */
+   #chatbot-input {
+        padding: 5px 10px; /* Padding aangepast */
+        background-color: #ffffff; /* Achtergrondkleur van de inputbalk */
         display: flex;
-        align-items: center; /* Zorgt voor verticale centrering */
-        justify-content: space-between; /* Ruimte tussen tekstveld en verzendknop */
-        border-top: 1px solid #ddd; /* behoudt een subtiele scheiding */
-        height: 40px; /* Vaste hoogte */
+        align-items: center; /* Verticale uitlijning van elementen */
+        justify-content: space-between; /* Ruimte tussen elementen */
+        border-top: 1px solid #ddd;
+        height: 40px; /* Vaste hoogte voor consistentie */
     }
 
     #chatbot-input textarea {
-        flex-grow: 1;
-        padding: 5px 10px;
+        flex-grow: 1; /* Laat textarea de beschikbare ruimte vullen */
+        padding: 5px 10px; /* Padding voor textarea */
         border: none;
         border-radius: 8px;
         outline: none;
         color: #333;
-        background-color: #f8f9fa; /* Achtergrondkleur van het tekstveld */
-        resize: none;
-        font-size: 0.9em;
-        box-shadow: none;
+        background-color: #f8f9fa; /* Achtergrondkleur van de textarea */
+        resize: none; /* Voorkomt dat gebruikers de grootte wijzigen */
+        font-size: 0.9em; /* Aangepaste lettergrootte */
+        box-shadow: none; /* Geen schaduw */
     }
 
     #chatbot-input button.send-icon {
-        width: 24px;
+        width: 24px; /* Aangepaste grootte van het verzendicoon */
         height: 24px;
         background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
         background-size: cover;
