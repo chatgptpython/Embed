@@ -248,22 +248,29 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
 
+#chatbot-input .send-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+    background-size: cover;
+    cursor: pointer;
+    background-color: transparent; /* Verzekert dat er geen achtergrondkleur is */
+    border: none;
+}
 
+#chatbot-input button.send-icon {
+    position: absolute;
+    right: 20px; /* Aanpassen aan de gewenste afstand van de rechterkant */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; /* Maakt het klikbaar */
+    transition: transform 0.3s ease; /* Soepel hover-effect */
+}
 
+#chatbot-input button.send-icon:hover {
+    transform: translateY(-50%) scale(1.1); /* Hover-effect */
+}
 
-         #chatbot-input button.send-icon {
-            position: absolute;
-            right: 20px; /* Aanpassen aan de gewenste afstand van de rechterkant */
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer; /* Maakt het klikbaar */
-            transition: transform 0.3s ease; /* Soepel hover-effect */
-        }
-
-        #chatbot-input button.send-icon:hover {
-            transform: translateY(-50%) scale(1.1); /* Hover-effect */
-        }
-    
 #chatbot-input {
     padding: 10px 10px; /* Verklein de padding */
     background-color: transparent; /* Maak de achtergrond van de container transparant */
@@ -271,11 +278,12 @@ document.addEventListener("DOMContentLoaded", function() {
     align-items: center;
     border-top: none;
     position: relative;
+    height: 50px; /* Stel een vaste hoogte in */
 }
 
 #chatbot-input textarea {
     flex: 1;
-    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
+    padding: 10px 50px 10px 10px; /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
@@ -288,6 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
     font-size: 1.1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+
 
 
            #chatbot-powered {
@@ -364,17 +373,7 @@ document.addEventListener("DOMContentLoaded", function() {
     text-align: left;
     /* ... eventuele andere stijlen ... */
 }
-        
-             #chatbot-input .send-icon {
-            width: 30px;
-            height: 30px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-            background-size: cover;
-            cursor: pointer;
-            background-color: transparent;  /* Verzekert dat er geen achtergrondkleur is */
-            border: none;
-            margin-right: 10px;
-        }
+
 
 
 
