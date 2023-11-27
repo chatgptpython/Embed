@@ -250,15 +250,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        #chatbot-input button.send-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-        #chatbot-input button.send-icon {
+
+         #chatbot-input button.send-icon {
             position: absolute;
-            right: 20px; /* Verplaatst de knop meer naar links */
+            right: 20px; /* Aanpassen aan de gewenste afstand van de rechterkant */
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer; /* Maakt het klikbaar */
