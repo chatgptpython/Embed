@@ -206,25 +206,28 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
 }
 
-  /* Specifieke stijlen voor de chatbot titel */
-    #chatbot-title {
+   #chatbot-title-container {
         display: flex;
         flex-direction: column;
-        align-items: start;
-        font-size: 1.1em; /* Aangepaste grootte */
-        font-weight: normal;
-        margin: 0; /* Geen margin om ruimte te minimaliseren */
-        padding: 0; /* Geen padding */
+        align-items: flex-start; /* Zorgt voor uitlijning aan de linkerkant */
+        margin: 0;
+        padding: 0;
     }
 
-    /* Specifieke stijlen voor de chatbot ondertitel */
-    .subtitle {
-        font-size: 0.9em;
-        margin: 0; /* Geen margin */
-        padding-top: 2px; /* Minimale ruimte boven de ondertitel */
-        padding-bottom: 0; /* Geen padding onderaan */
+    #chatbot-title {
+        font-size: 1.1em; /* Aangepaste lettergrootte */
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
     }
-    
+
+    .subtitle {
+        font-size: 0.9em; /* Kleinere lettergrootte dan de titel */
+        margin-top: 2px; /* Minimale ruimte tussen titel en ondertitel */
+        margin-bottom: 0;
+        padding: 0;
+    }
+
     /* Responsieve stijlen voor mobiele apparaten */
     @media (max-width: 768px) {
         #chatbot-title {
