@@ -891,21 +891,14 @@ window.initializeChat = async function() {
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
-    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
+    const chatText = document.getElementById("chatbot-text");
 
-    if (chatbot.style.display === "none" || chatbot.style.display === "") {
-        document.querySelector("#chatbot-title").innerText = cachedTitle;
-        if (firstTimeOpen) {
-            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
-            firstTimeOpen = false;
-        }
+    if (getComputedStyle(chatbot).display === "none") {
         chatbot.style.display = "flex";
-        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
-
+        chatText.style.opacity = "0"; // Verberg de tekst wanneer de chat geopend wordt
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
-
         icon.classList.add('cross');
     } else {
         chatbot.classList.remove("visible");
@@ -913,14 +906,22 @@ window.toggleChat = function() {
             chatbot.style.display = "none";
         }, 500);
         icon.classList.remove('cross');
-        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
+        chatText.style.opacity = "1"; // Toon de tekst opnieuw wanneer de chat gesloten wordt
     }
 };
 
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none";  // Verberg de chattekst
-};        
+    chatText.style.display = "none"; // Verberg de chattekst
+};
+
+document.getElementById("chatbot-icon").addEventListener("click", toggleChat);
+document.getElementById("chatbot-text-close").addEventListener("click", closeChatText);
+
+// Zorg ervoor dat de touch-events correct worden afgehandeld op mobiele apparaten
+document.addEventListener('touchstart', function(event) {
+    event.stopPropagation();
+}, false); 
 
 
 window.onload = function() {
