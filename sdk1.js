@@ -1123,7 +1123,7 @@ function preloadImages() {
 }
         
 function typeBotMessage(messageText, callback) {
-    toggleInputState("disable"); 
+    toggleInputState("disable");
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
@@ -1131,9 +1131,12 @@ function typeBotMessage(messageText, callback) {
         <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
     `;
     chatContent.appendChild(messageContainer);
+
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
+    messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
     messageContainer.appendChild(messageElem);
+
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -1148,6 +1151,7 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
+
 
 
 // Functie om de keuzeballonnetjes te tonen
