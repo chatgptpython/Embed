@@ -680,7 +680,6 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
             <div id="choice-balloons" style="display: none;">
                 <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
                 <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
