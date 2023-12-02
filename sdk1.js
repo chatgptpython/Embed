@@ -887,20 +887,20 @@ window.initializeChat = async function() {
     await fetchAndApplyColor();
 };
 
-        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
     const chatText = document.getElementById("chatbot-text");
 
-    if (getComputedStyle(chatbot).display === "none") {
+    // Controleer of de chatbot al zichtbaar is voordat je besluit om deze te sluiten
+    if (getComputedStyle(chatbot).display === "none" || !chatbot.classList.contains("visible")) {
         chatbot.style.display = "flex";
         chatText.style.opacity = "0"; // Verberg de tekst wanneer de chat geopend wordt
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
         icon.classList.add('cross');
-    } else {
+    } else if (chatbot.classList.contains("visible")) {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
@@ -921,8 +921,7 @@ document.getElementById("chatbot-text-close").addEventListener("click", closeCha
 // Zorg ervoor dat de touch-events correct worden afgehandeld op mobiele apparaten
 document.addEventListener('touchstart', function(event) {
     event.stopPropagation();
-}, false); 
-
+}, false);
 
 window.onload = function() {
     // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
