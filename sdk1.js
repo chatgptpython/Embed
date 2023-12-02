@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
-    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    metaTag.content = "width=device-width, initial-scale=1.0";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
+
 
     var linkElement = document.createElement('link');
     linkElement.rel = 'stylesheet';
@@ -591,6 +592,25 @@ document.addEventListener("DOMContentLoaded", function() {
     opacity: 0;
 }
 
+#chatbot-content {
+    overflow-y: auto; // Zorgt voor een scrollbare inhoud indien nodig
+    -webkit-overflow-scrolling: touch; // Verbeterde scroll-ervaring op iOS-apparaten
+}
+
+@media (max-width: 768px) {
+    #chatbot {
+        width: 100%; // Zorgt ervoor dat de chatbot de volledige breedte van het scherm gebruikt op mobiele apparaten
+        height: 100%; // Zorgt ervoor dat de chatbot de volledige hoogte van het scherm gebruikt op mobiele apparaten
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        top: 0;
+        transform: translateY(0);
+    }
+    /* Voeg indien nodig meer stijlen toe voor betere responsiviteit */
+}
+
+
          
 @media (min-width: 769px) {
     #chatbot-icon {
@@ -890,38 +910,37 @@ window.initializeChat = async function() {
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
-    const chatText = document.getElementById("chatbot-text");
+    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
 
-    // Controleer of de chatbot al zichtbaar is voordat je besluit om deze te sluiten
-    if (getComputedStyle(chatbot).display === "none" || !chatbot.classList.contains("visible")) {
+    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
         chatbot.style.display = "flex";
-        chatText.style.opacity = "0"; // Verberg de tekst wanneer de chat geopend wordt
+        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
+
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
+
         icon.classList.add('cross');
-    } else if (chatbot.classList.contains("visible")) {
+    } else {
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
         icon.classList.remove('cross');
-        chatText.style.opacity = "1"; // Toon de tekst opnieuw wanneer de chat gesloten wordt
+        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
     }
 };
 
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none"; // Verberg de chattekst
-};
+    chatText.style.display = "none";  // Verberg de chattekst
+};        
 
-document.getElementById("chatbot-icon").addEventListener("click", toggleChat);
-document.getElementById("chatbot-text-close").addEventListener("click", closeChatText);
-
-// Zorg ervoor dat de touch-events correct worden afgehandeld op mobiele apparaten
-document.addEventListener('touchstart', function(event) {
-    event.stopPropagation();
-}, false);
 
 window.onload = function() {
     // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
@@ -962,17 +981,13 @@ window.closeChat = function() {
     icon.classList.remove('cross');  // Verwijder de 'cross' klasse
 };
 
-        window.handleKeyUp = function(event) {
-            if (event.key === "Enter" && !isBotTyping) {
-                sendMessage();
-            }
-        };
-
     window.handleKeyUp = function(event) {
         if (event.key === "Enter" && !isBotTyping) {
             sendMessage();
+            event.preventDefault(); // Voorkom standaard 'Enter' gedrag dat kan interfereren met scrollen
         }
     };
+
 
     window.toggleInputState = function(state) {
         const userInput = document.getElementById("user-input");
