@@ -1003,7 +1003,7 @@ window.sendMessage = function() {
 
         // Voeg het bericht van de gebruiker toe aan de chat-interface
         // Voeg het bericht van de gebruiker toe aan de chat-interface
-        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message" style="background-color: ${cachedColor};">${userInput.value}</div></div>`;
+        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user"></div><div class="user-message" style="background-color: ${cachedColor};">${userInput.value}</div></div>`;
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
