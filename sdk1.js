@@ -740,6 +740,7 @@ window.typeWelcomeMessage = async function() {
     // Container voor het welkomstbericht
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
+    messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
     messageContainer.appendChild(messageElem);
 
     // URL en Tenant ID ophalen uit de script tag
