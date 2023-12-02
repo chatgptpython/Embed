@@ -679,7 +679,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="dot"></div>
             </div>
             <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Vraag stellen</button>
+                <button id="ask-another-question">Nieuwe vraag stellen</button>
                 <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
