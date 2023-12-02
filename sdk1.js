@@ -1015,7 +1015,7 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-       // Voeg het bericht van de gebruiker toe aan de chat-interface
+        // Voeg het bericht van de gebruiker toe aan de chat-interface
         chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userInput.value}</div></div>`;
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
@@ -1050,6 +1050,7 @@ window.sendMessage = function() {
                 let messageText = data.answer;
                 let messageElem = document.createElement("div");
                 messageElem.className = "bot-message";
+                messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
                 messageContainer.appendChild(messageElem);
 
                 let index = 0;
@@ -1085,7 +1086,6 @@ window.sendMessage = function() {
         }, 500);
     }
 };
-
 
     
 
