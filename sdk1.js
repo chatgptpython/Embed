@@ -701,8 +701,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-    var div = document.createElement('div');
+   var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
 
@@ -1051,14 +1050,13 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Sla het bericht van de gebruiker op in een variabele
-        const userMessage = userInput.value;
-
-        // Maak het invoerveld leeg zodra de vraag verstuurd wordt
-        userInput.value = "";
+        const userMessage = userInput.value; // Bewaar de ingevoerde tekst
 
         // Voeg het bericht van de gebruiker toe aan de chat-interface
-        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userInput.value}</div></div>`;
+        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userMessage}</div></div>`;
+
+        // Maak de inputbalk leeg zodra de vraag verstuurd wordt
+        userInput.value = "";
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
