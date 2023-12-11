@@ -1089,12 +1089,12 @@ window.sendMessage = function() {
                     <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
                 `;
                 chatContent.appendChild(messageContainer);
-                let messageText = data.answer;
                 let messageElem = document.createElement("div");
                 messageElem.className = "bot-message";
                 messageElem.style.borderTopLeftRadius = "0";
                 messageContainer.appendChild(messageElem);
 
+                let messageText = data.answer;
                 let index = 0;
                 let typingInterval = setInterval(() => {
                     if (index < messageText.length) {
@@ -1103,6 +1103,12 @@ window.sendMessage = function() {
                         chatContent.scrollTop = chatContent.scrollHeight;
                     } else {
                         clearInterval(typingInterval);
+
+                        // Toon bronlinks als bubbels
+                        if (data.formatted_source_links && data.formatted_source_links.length > 0) {
+                            displaySourceLinksAsBubbles(data.formatted_source_links.slice(0, 3));
+                        }
+
                         toggleInputState("enable");
                         isBotTyping = false;
                         if (showChoiceBalloons) showChoiceBalloons();
@@ -1126,6 +1132,22 @@ window.sendMessage = function() {
     }
 };
 
+function displaySourceLinksAsBubbles(links) {
+    const chatContent = document.getElementById("chatbot-content");
+    const linksContainer = document.createElement("div");
+    linksContainer.className = "source-links-container";
+
+    links.forEach(link => {
+        const linkElem = document.createElement("a");
+        linkElem.href = link.url;
+        linkElem.textContent = link.title;
+        linkElem.target = "_blank";
+        linkElem.className = "source-link-bubble";
+        linksContainer.appendChild(linkElem);
+    });
+
+    chatContent.appendChild(linksContainer);
+}
 
     
 
