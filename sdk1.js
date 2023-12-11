@@ -540,6 +540,33 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Licht vergroot bij hover */
 }
 
+/* Container voor de bronlinks */
+.source-links-container {
+    margin-top: 8px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+/* Stijl voor individuele bronlink-bubbels */
+.source-link-bubble {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 8px;
+    background-color: #f0f0f0; /* Lichtgrijze achtergrond */
+    border: 1px solid #ddd; /* Lichtgrijze rand */
+    border-radius: 12px; /* Ronde hoeken */
+    font-size: 0.8em; /* Kleinere tekst */
+    text-decoration: none; /* Geen onderstreping */
+    color: #333; /* Donkergrijze tekst */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.source-link-bubble:hover {
+    background-color: #e0e0e0; /* Donkerder bij hover */
+    color: #000; /* Zwartere tekst bij hover */
+}
+
+
 
  @media (max-width: 768px) {
         #chatbot {
