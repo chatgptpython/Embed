@@ -1190,48 +1190,6 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-
-
-// Functie om de keuzeballonnetjes te tonen
-function showChoiceBalloons() {
-    const chatbotInput = document.getElementById("chatbot-input");
-    chatbotInput.classList.add("hide-input");  // Verberg de inputbalk
-
-    const choiceBalloons = document.getElementById("choice-balloons");
-    choiceBalloons.style.display = "flex";
-}
-
-
-// Functie om de keuzeballonnetjes te verbergen
-function hideChoiceBalloons() {
-    const chatbotInput = document.getElementById("chatbot-input");
-    chatbotInput.classList.remove("hide-input");  // Toon de inputbalk opnieuw
-
-    const choiceBalloons = document.getElementById("choice-balloons");
-    choiceBalloons.style.display = "none";
-}
-
-
-document.getElementById("ask-another-question").addEventListener("click", function() {
-    hideChoiceBalloons();
-    
-    // Stuur automatisch een bericht namens de gebruiker met de cachedColor
-    const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">Ik wil nog een vraag stellen</div></div>`;
-    chatContent.scrollTop = chatContent.scrollHeight;
-
-    // Stuur na een seconde een bericht namens de chatbot en schakel de invoer in voordat de chatbot de volgende vraag stelt
-    setTimeout(() => {
-        toggleInputState("enable");
-        typeBotMessage("Wat is je nieuwe vraag?");
-    }, 1000);
-});
-
-document.getElementById("close-chatbot").addEventListener("click", function() {
-    closeChat();
-});
-
-
 // Aanroepen wanneer de pagina laadt
 preloadImages();
 
