@@ -551,19 +551,19 @@ document.addEventListener("DOMContentLoaded", function() {
 .source-link-bubble {
     display: inline-block;
     margin-right: 5px;
-    padding: 5px 8px;
-    background-color: #f0f0f0; /* Lichtgrijze achtergrond */
-    border: 1px solid #ddd; /* Lichtgrijze rand */
-    border-radius: 12px; /* Ronde hoeken */
-    font-size: 0.8em; /* Kleinere tekst */
-    text-decoration: none; /* Geen onderstreping */
-    color: #333; /* Donkergrijze tekst */
+    padding: 6px 10px; /* Iets meer padding */
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Iets rondere hoeken */
+    font-size: 0.9em; /* Iets grotere tekst */
+    text-decoration: none;
+    color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .source-link-bubble:hover {
-    background-color: #e0e0e0; /* Donkerder bij hover */
-    color: #000; /* Zwartere tekst bij hover */
+    background-color: #e0e0e0;
+    color: #000;
 }
 
 
@@ -1167,9 +1167,13 @@ function displaySourceLinksAsBubbles(links) {
     links.forEach(link => {
         const linkElem = document.createElement("a");
         linkElem.href = link.url;
-        linkElem.textContent = link.title;
         linkElem.target = "_blank";
         linkElem.className = "source-link-bubble";
+
+        // Extract deel van URL na de laatste '/'
+        const linkText = link.url.split('/').pop().replace(/-/g, ' '); // Vervangt streepjes door spaties
+        linkElem.textContent = linkText || link.title; // Gebruik de geëxtraheerde tekst of de titel
+
         linksContainer.appendChild(linkElem);
     });
 
