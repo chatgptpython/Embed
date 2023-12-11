@@ -1050,13 +1050,12 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-        const userMessage = userInput.value; // Bewaar de ingevoerde tekst
+        // Sla de waarde van de invoer op en maak de invoerbalk leeg
+        const userMessage = userInput.value;
+        userInput.value = "";
 
         // Voeg het bericht van de gebruiker toe aan de chat-interface
-        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userMessage}</div></div>`;
-
-        // Maak de inputbalk leeg zodra de vraag verstuurd wordt
-        userInput.value = "";
+        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userInput.value}</div></div>`;
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
@@ -1127,6 +1126,7 @@ window.sendMessage = function() {
         }, 500);
     }
 };
+
 
     
 
