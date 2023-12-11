@@ -1050,10 +1050,13 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Voeg het bericht van de gebruiker toe aan de chat-interface
-        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userInput.value}</div></div>`;
+        // Sla de waarde van de invoer op voordat deze wordt leeggemaakt
+        const userMessage = userInput.value;
 
-        // Maak de inputbalk leeg direct nadat de gebruikersboodschap is toegevoegd
+        // Voeg het bericht van de gebruiker toe aan de chat-interface
+        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userMessage}</div></div>`;
+
+        // Maak de inputbalk leeg
         userInput.value = "";
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
@@ -1069,9 +1072,9 @@ window.sendMessage = function() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ 
-                    question: userInput.value,  // Let op: Dit is nu leeg, zorg dat je de waarde opslaat voordat je het veld leegmaakt als je het nodig hebt
+                    question: userMessage,
                     tenant_id: tenantId,
-                    user_id: userId  // Voeg de user ID toe aan het verzoek
+                    user_id: userId
                 })
             })
             .then(response => response.json())
