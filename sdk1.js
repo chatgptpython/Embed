@@ -551,6 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .source-link-bubble {
     display: inline-block;
     margin-right: 5px;
+    margin-bottom: 5px; /* Toegevoegd voor betere weergave op kleine schermen */
     padding: 6px 10px; /* Iets meer padding */
     background-color: #f0f0f0;
     border: 1px solid #ddd;
@@ -559,11 +560,23 @@ document.addEventListener("DOMContentLoaded", function() {
     text-decoration: none;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap; /* Voorkomt dat tekst breekt */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Voegt ellipsen toe als de tekst te lang is */
+    max-width: 140px; /* Maximale breedte van de bubbel */
 }
 
 .source-link-bubble:hover {
     background-color: #e0e0e0;
     color: #000;
+}
+
+/* Aanpassingen voor kleinere schermen */
+@media (max-width: 480px) {
+    .source-link-bubble {
+        font-size: 0.8em; /* Kleinere tekstgrootte */
+        padding: 5px 8px; /* Minder padding */
+    }
 }
 
 
