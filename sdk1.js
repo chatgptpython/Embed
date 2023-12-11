@@ -708,6 +708,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     (function() {
+    // Functies om een unieke ID te genereren en te beheren in een cookie
+    function generateUniqueId() {
+        return 'id_' + Math.random().toString(36).substr(2, 9);
+    }
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Controleer of de gebruiker al een unieke ID heeft
+    var userId = getCookie('userId');
+    if (!userId) {
+        userId = generateUniqueId();
+        setCookie('userId', userId, 365); // Stel de cookie in met een geldigheid van 1 jaar
+    }
     // URL en Tenant ID ophalen uit de script tag
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
@@ -1007,9 +1039,13 @@ window.sendMessage = function() {
     const userInput = document.getElementById("user-input");
     const chatContent = document.getElementById("chatbot-content");
 
-    // Verkrijg de tenant ID van het script-element
+    // Verkrijg de tenant ID en backend URL van het script-element
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Haal de userId uit de cookie
+    var userId = getCookie('userId');
 
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
@@ -1032,7 +1068,8 @@ window.sendMessage = function() {
                 },
                 body: JSON.stringify({ 
                     question: userInput.value,
-                    tenant_id: tenantId  // Voeg de tenant ID toe aan het verzoek
+                    tenant_id: tenantId,
+                    user_id: userId  // Voeg de user ID toe aan het verzoek
                 })
             })
             .then(response => response.json())
