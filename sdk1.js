@@ -1051,6 +1051,9 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
+        // Maak het invoerveld direct leeg zodra de vraag verstuurd wordt
+        userInput.value = "";
+
         // Voeg het bericht van de gebruiker toe aan de chat-interface
         chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userInput.value}</div></div>`;
 
