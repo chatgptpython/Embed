@@ -1050,12 +1050,11 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Sla de waarde van de invoer op en maak de invoerbalk leeg
-        const userMessage = userInput.value;
-        userInput.value = "";
-
         // Voeg het bericht van de gebruiker toe aan de chat-interface
         chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userInput.value}</div></div>`;
+
+        // Maak de inputbalk leeg direct nadat de gebruikersboodschap is toegevoegd
+        userInput.value = "";
 
         // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
@@ -1070,7 +1069,7 @@ window.sendMessage = function() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ 
-                    question: userInput.value,
+                    question: userInput.value,  // Let op: Dit is nu leeg, zorg dat je de waarde opslaat voordat je het veld leegmaakt als je het nodig hebt
                     tenant_id: tenantId,
                     user_id: userId  // Voeg de user ID toe aan het verzoek
                 })
@@ -1090,7 +1089,7 @@ window.sendMessage = function() {
                 let messageText = data.answer;
                 let messageElem = document.createElement("div");
                 messageElem.className = "bot-message";
-                messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
+                messageElem.style.borderTopLeftRadius = "0";
                 messageContainer.appendChild(messageElem);
 
                 let index = 0;
@@ -1106,9 +1105,6 @@ window.sendMessage = function() {
                         if (showChoiceBalloons) showChoiceBalloons();
                     }
                 }, 25);
-
-                // Maak het invoerveld leeg
-                userInput.value = "";
             })
             .catch(error => {
                 // Toon een foutmelding als de aanvraag mislukt
