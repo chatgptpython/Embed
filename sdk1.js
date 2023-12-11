@@ -1170,15 +1170,19 @@ function displaySourceLinksAsBubbles(links) {
         linkElem.target = "_blank";
         linkElem.className = "source-link-bubble";
 
-        // Extract deel van URL na de laatste '/'
-        const linkText = link.url.split('/').pop().replace(/-/g, ' '); // Vervangt streepjes door spaties
-        linkElem.textContent = linkText || link.title; // Gebruik de geëxtraheerde tekst of de titel
+        // Extract het laatste deel van de URL na de laatste '/'
+        const urlSegments = link.url.split('/');
+        const lastSegment = urlSegments[urlSegments.length - 1] || urlSegments[urlSegments.length - 2]; // Omgaan met trailing slashes
+        const linkText = lastSegment.replace(/-/g, ' '); // Vervangt streepjes door spaties
+
+        linkElem.textContent = linkText || link.title; // Gebruik de geëxtraheerde tekst of de titel als fallback
 
         linksContainer.appendChild(linkElem);
     });
 
     chatContent.appendChild(linksContainer);
 }
+
 
     
 
