@@ -1051,7 +1051,10 @@ window.sendMessage = function() {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Maak het invoerveld direct leeg zodra de vraag verstuurd wordt
+        // Sla het bericht van de gebruiker op in een variabele
+        const userMessage = userInput.value;
+
+        // Maak het invoerveld leeg zodra de vraag verstuurd wordt
         userInput.value = "";
 
         // Voeg het bericht van de gebruiker toe aan de chat-interface
