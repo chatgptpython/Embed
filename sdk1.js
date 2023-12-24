@@ -1134,7 +1134,7 @@ window.sendMessage = function() {
                 messageElem.style.borderTopLeftRadius = "0";
                 messageContainer.appendChild(messageElem);
 
-                let messageText = data.answer || 'Geen antwoord ontvangen.';
+                let messageText = data.answer;
                 let index = 0;
                 let typingInterval = setInterval(() => {
                     if (index < messageText.length) {
