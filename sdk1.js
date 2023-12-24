@@ -1121,7 +1121,7 @@ window.sendMessage = function() {
             .then(data => {
                 // Verwijder de laadbalk
                 chatContent.lastChild.remove();
-
+            
                 // Voeg het antwoord van de bot toe aan de chat-interface
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
@@ -1133,8 +1133,9 @@ window.sendMessage = function() {
                 messageElem.className = "bot-message";
                 messageElem.style.borderTopLeftRadius = "0";
                 messageContainer.appendChild(messageElem);
-
-                let messageText = data.answer;
+            
+                // Controleer of 'data.answer' bestaat en een string is
+                let messageText = data.answer || 'Geen antwoord ontvangen.';
                 let index = 0;
                 let typingInterval = setInterval(() => {
                     if (index < messageText.length) {
