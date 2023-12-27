@@ -1,27 +1,22 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Dynamisch toevoegen van de viewport meta tag
+    // Voeg CSP meta tag toe
+    var cspMetaTag = document.createElement('meta');
+    cspMetaTag.httpEquiv = "Content-Security-Policy";
+    // Pas de CSP-regels hier aan volgens uw behoeften
+    cspMetaTag.content = "default-src 'self'; script-src 'self'; img-src 'self' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'";
+    document.getElementsByTagName('head')[0].appendChild(cspMetaTag);
+
+    // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
-    metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    metaTag.content = "width=device-width, initial-scale=1.0";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
 
-    // Dynamisch toevoegen van Google Fonts
     var linkElement = document.createElement('link');
     linkElement.rel = 'stylesheet';
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
-
-
-    (function() {
-        // Haal de backend URL op van het script tag met de data-backend-url attribuut
-        const scriptElement = document.querySelector('script[data-backend-url]');
-        const backendUrl = scriptElement.getAttribute('data-backend-url');
-
-        // Hier kan je de backendUrl verder gebruiken
-        console.log(backendUrl); // Dit zal de URL loggen naar de console, om te verifiëren of het correct werkt
-
+   
     var css = `
 <style>
             body {
@@ -49,15 +44,15 @@ document.addEventListener("DOMContentLoaded", function() {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
         }
 
-              
-           #chatbot-icon {
+        #chatbot-icon {
+            transform: scale(0.8); 
             position: fixed;
             bottom: 20px;
-            right: 30px;
-            width: 50px important; 
-            height: 50px important;
+            right: 0px;
+            width: 30px; /* Aangepaste breedte */
+            height: 30px; /* Aangepaste hoogte */
             border-radius: 50%;
-            background: #1a2e4a; /* Gemaakt tot een solide blauwe kleur */
+            background: #1a2e4a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -66,10 +61,12 @@ document.addEventListener("DOMContentLoaded", function() {
             z-index: 9996;
         }
 
+
+
         
               #chatbot-icon img {
-            width: 60%;      /* Verminder naar de gewenste breedte */
-            height: 60%;     /* Verminder naar de gewenste hoogte */
+            width: 50%;      /* Verminder naar de gewenste breedte */
+            height: 50%;     /* Verminder naar de gewenste hoogte */
             display: block;
             margin: auto;    /* Centreert de afbeelding in de container */
         }
@@ -84,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         
         #chatbot-icon:hover {
-            transform: scale(1.1);
+            transform: scale(0.9);
         }
         
         #chatbot-icon::before, 
@@ -158,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 #chatbot header {
-    background: linear-gradient(90deg, #FFFFFF, var(--header-color));
+    background: linear-gradient(270deg, #FFFFFF, rgba(var(--header-color), 0.1) 95%);
     padding: 20px 30px;
     text-align: left;
     font-weight: 700;
@@ -170,6 +167,8 @@ document.addEventListener("DOMContentLoaded", function() {
     font-family: 'Roboto', sans-serif;  /* Modern lettertype */
     font-size: 1.3em;  /* Vergrote tekstgrootte */
     color: #4a4a4a;  /* Een zachte, donkergrijze kleur */
+    justify-content: space-between; /* Ruimte tussen titel en sluitknop */
+
 }
 
 .icon-container {
@@ -202,59 +201,33 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-right: 15px;
 }
 
-#chatbot header .subtitle {
-    display: block;
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 5px;
-    font-family: 'Roboto', sans-serif;  /* Consistent met de titel */
-    font-size: 0.8em;  /* Kleiner dan de titel maar nog steeds groter dan voorheen */
-    font-weight: lighter;  /* Een lichtere letterdikte voor een subtielere uitstraling */
-    color: #7a7a7a;  /* Een lichtgrijze kleur voor een zachtere uitstraling */
-    margin-top: 2px;  /* Minder ruimte tussen de titel en ondertitel */
-}
-
-
-#chatbot-title {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    font-size: 1.3em;
-    
-    /* Nieuwe aanbevelingen */
-    font-size: 1.1em;  /* Een kleinere, meer ingetogen lettergrootte */
-    font-weight: normal;  /* Verwijder de vetgedrukte stijl voor een rustigere uitstraling */
-}
-
-@media (max-width: 768px) {
-    #chatbot-title {
-        line-height: 1;  /* Minimale ruimte tussen de regels */
-        margin-bottom: 0;  /* Geen extra ruimte onder de titel */
-        font-size: 1.3em !important;
+  #chatbot-title {
+        font-size: 1.1em;
+        font-weight: normal;
+        margin: 0 !important;
+        padding: 0 !important;
     }
-}
 
-
-
-.subtitle {
-    font-size: 0.5em;
-    margin-top: 5px;
-}
-
-
-
-@media (max-width: 768px) {
-    /* Andere aanpassingen voor mobiele schermen */
-
-    /* Aanpassing voor de titel en ondertitel op kleinere schermen */
-    #chatbot-title {
-        font-size: 1.8em;  /* Maak de titel groter */
-    }
     .subtitle {
-        font-size: 1.0em;  /* Maak de ondertitel groter */
+        font-size: 0.7em; /* Kleinere lettergrootte dan de titel */
+        margin-top: -12px !important; /* Nog grotere negatieve marge */
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+        color: #7a7a7a; /* Een lichtgrijze kleur voor een zachtere uitstraling */
+        font-weight: lighter; /* Een lichtere letterdikte */
+        font-family: 'Roboto', sans-serif; /* Consistent met de titel */
     }
-}
 
+    /* Responsieve stijlen voor mobiele apparaten... */
+    @media (max-width: 768px) {
+        #chatbot-title {
+            font-size: 1.4em; /* Grotere lettergrootte op kleinere schermen */
+        }
+
+        .subtitle {
+            font-size: 1em; /* Aangepaste lettergrootte voor ondertitel op kleinere schermen */
+        }
+    }
 
 #chatbot-content {
     flex: 1;
@@ -281,52 +254,51 @@ document.addEventListener("DOMContentLoaded", function() {
     margin-top: 20px;  /* Verplaatst het icoontje verder naar beneden */
     margin-left: -5px;  /* Verplaatst het icoontje een beetje naar links */
 }
-
-
-
-        #chatbot-input button.send-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-        #chatbot-input button.send-icon {
-            position: absolute;
-            right: 20px; /* Verplaatst de knop meer naar links */
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer; /* Maakt het klikbaar */
-            transition: transform 0.3s ease; /* Soepel hover-effect */
-        }
-
-        #chatbot-input button.send-icon:hover {
-            transform: translateY(-50%) scale(1.1); /* Hover-effect */
-        }
-    
+/* Stijl voor de container van de chatbalk */
 #chatbot-input {
-    padding: 10px 10px; /* Verklein de padding */
-    background-color: transparent; /* Maak de achtergrond van de container transparant */
     display: flex;
-    align-items: center;
-    border-top: none;
+    align-items: center; /* Zorgt voor verticale uitlijning */
+    justify-content: space-between; /* Evenredige ruimteverdeling binnen de container */
     position: relative;
+    height: 50px; /* Vaste hoogte van de chatbalk */
+    border-radius: 25px; /* Ronde hoeken */
+    background-color: transparent; /* Transparante achtergrond */
+    width: 100%; /* Volledige breedte */
+    padding: 0 10px; /* Padding aan de zijkanten */
+    box-sizing: border-box; /* Inclusief padding en border in de breedte */
 }
 
+/* Stijl voor het tekstgebied binnen de chatbalk */
 #chatbot-input textarea {
-    flex: 1;
-    padding: 10px 50px 10px 10px;  /* Vergrote padding aan de rechterzijde om te voorkomen dat tekst achter de verzendknop komt */
+    flex-grow: 1; /* Neemt beschikbare ruimte in beslag */
+    height: 40px; /* Vaste hoogte */
+    border-radius: 20px; /* Ronde hoeken */
     border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    color: #333;
-    margin-right: 5px; 
-    background-color: #ffffff; 
-    resize: none;
-    min-height: 28px;
-    overflow: auto;
-    font-size: 1.1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 5px 15px; /* Padding aan binnenkant */
+    margin: 5px 10px 5px 0; /* Margin rondom het tekstveld */
+    font-size: 1em;
+    resize: none; /* Geen mogelijkheid om te vergroten/verkleinen */
+    outline: none; /* Geen focus-omlijning */
+    background-color: #f9f9f9; /* Achtergrondkleur van het tekstveld */
 }
+
+/* Stijl voor de verzendknop */
+#chatbot-input .send-icon {
+    width: 30px;
+    height: 30px; /* Vaste afmetingen van de knop */
+    margin: auto 0; /* Automatische marge voor verticale centrering */
+    background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
+    background-size: cover;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+/* Hover-effect voor de verzendknop */
+#chatbot-input .send-icon:hover {
+    transform: scale(1.1);
+}
+
 
 
            #chatbot-powered {
@@ -403,17 +375,7 @@ document.addEventListener("DOMContentLoaded", function() {
     text-align: left;
     /* ... eventuele andere stijlen ... */
 }
-        
-             #chatbot-input .send-icon {
-            width: 30px;
-            height: 30px;
-            background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
-            background-size: cover;
-            cursor: pointer;
-            background-color: transparent;  /* Verzekert dat er geen achtergrondkleur is */
-            border: none;
-            margin-right: 10px;
-        }
+
 
 
 
@@ -432,9 +394,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         
+
 #chatbot-text {
     position: fixed;
-    bottom: 100px;
+    bottom: 90px;
     right: 30px;
     font-size: 15px;
     background-color: #ffffff;
@@ -583,6 +546,46 @@ document.addEventListener("DOMContentLoaded", function() {
     transform: scale(1.1);  /* Licht vergroot bij hover */
 }
 
+/* Container voor de bronlinks */
+.source-links-container {
+    margin-top: 8px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+/* Stijl voor individuele bronlink-bubbels */
+.source-link-bubble {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px; /* Toegevoegd voor betere weergave op kleine schermen */
+    padding: 6px 10px; /* Iets meer padding */
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Iets rondere hoeken */
+    font-size: 0.9em; /* Iets grotere tekst */
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap; /* Voorkomt dat tekst breekt */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Voegt ellipsen toe als de tekst te lang is */
+    max-width: 140px; /* Maximale breedte van de bubbel */
+}
+
+.source-link-bubble:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+/* Aanpassingen voor kleinere schermen */
+@media (max-width: 480px) {
+    .source-link-bubble {
+        font-size: 0.8em; /* Kleinere tekstgrootte */
+        padding: 5px 8px; /* Minder padding */
+    }
+}
+
+
 
  @media (max-width: 768px) {
         #chatbot {
@@ -635,6 +638,25 @@ document.addEventListener("DOMContentLoaded", function() {
     opacity: 0;
 }
 
+#chatbot-content {
+    overflow-y: auto; // Zorgt voor een scrollbare inhoud indien nodig
+    -webkit-overflow-scrolling: touch; // Verbeterde scroll-ervaring op iOS-apparaten
+}
+
+@media (max-width: 768px) {
+    #chatbot {
+        width: 100%; // Zorgt ervoor dat de chatbot de volledige breedte van het scherm gebruikt op mobiele apparaten
+        height: 100%; // Zorgt ervoor dat de chatbot de volledige hoogte van het scherm gebruikt op mobiele apparaten
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        top: 0;
+        transform: translateY(0);
+    }
+    /* Voeg indien nodig meer stijlen toe voor betere responsiviteit */
+}
+
+
          
 @media (min-width: 769px) {
     #chatbot-icon {
@@ -668,7 +690,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 }
-
     </style>
     `;
     var style = document.createElement('style');
@@ -680,12 +701,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-      // HTML toevoegen
+   // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
                 <div class="icon-container">
-                    <img src="https://avatars.collectcdn.com/5b090ec7e39f17833220e6e9/5b090ec7e39f17833220e6e9-5b0915c0e39f17833220e6f2.jpeg?t=1679047180389" alt="Icon" id="header-icon">
+                    <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png">
                     <span class="online-indicator"></span>
                 </div>
                 <div id="chatbot-title-container">
@@ -704,8 +725,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="dot"></div>
             </div>
             <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Vraag stellen</button>
-                <button id="make-appointment" onclick="window.open('https://hypadvies.nl/vestigingen/', '_blank')">Afspraak maken</button>
+                <button id="ask-another-question">Nieuwe vraag stellen</button>
                 <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
@@ -727,32 +747,109 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-    var div = document.createElement('div');
+   var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
 
-    // JavaScript toevoegen
-        let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
-        let isBotTyping = false;
 
+    (function() {
+    // Functies om een unieke ID te genereren en te beheren in een cookie
+    function generateUniqueId() {
+        return 'id_' + Math.random().toString(36).substr(2, 9);
+    }
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Controleer of de gebruiker al een unieke ID heeft
+    var userId = getCookie('userId');
+    if (!userId) {
+        userId = generateUniqueId();
+        setCookie('userId', userId, 365); // Stel de cookie in met een geldigheid van 1 jaar
+    }
+    // URL en Tenant ID ophalen uit de script tag
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Valideer backendUrl en tenantId
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        return; // Stop de uitvoering als deze waarden niet zijn gevonden
+    }
+
+  // JavaScript toevoegen
+    let firstTimeOpen = true;  // Nieuwe variabele om bij te houden of de chatbot voor de eerste keer wordt geopend
+    let isBotTyping = false;
+    
 window.typeWelcomeMessage = async function() {
+    // Elementen ophalen
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
-    messageContainer.innerHTML = `
-        <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
-    `;
     chatContent.appendChild(messageContainer);
+    
+    // Avatar voor de bot instellen
+    const botAvatar = document.createElement("img");
+    botAvatar.src = "https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true";
+    botAvatar.alt = "Bot Avatar";
+    botAvatar.className = "bot-avatar";
+    messageContainer.appendChild(botAvatar);
+    
+    // Container voor het welkomstbericht
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
+    messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
     messageContainer.appendChild(messageElem);
 
-    // Haal het welkomstbericht op van de server
-    let messageText = await fetch(`${backendUrl}/get_welcome_message`)
-        .then(response => response.json())
-        .then(data => data.message)
-        .catch(() => "Standaard welkomstbericht als backup");
+    // URL en Tenant ID ophalen uit de script tag
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
 
+    // Valideer backendUrl en tenantId
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        messageElem.textContent = "Er is een fout opgetreden. Probeer het opnieuw.";
+        return;
+    }
+
+    // Probeert het welkomstbericht op te halen
+    let messageText = '';
+    try {
+        const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (!data || !data.welcome_message) {
+            throw new Error("Welkomstbericht is niet gevonden in de response.");
+        }
+        messageText = data.welcome_message; // Stelt het welkomstbericht in
+    } catch (error) {
+        console.error("Error bij het ophalen van het welkomstbericht: ", error);
+        messageText = "Standaard welkomstbericht als backup"; // Fallback bericht
+    }
+
+    // Start de typ-animatie voor het welkomstbericht
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -765,13 +862,74 @@ window.typeWelcomeMessage = async function() {
     }, 25);
 };
 
-    async function fetchAndApplyColor() {
+ 
+let cachedTitle; // Globale variabele voor de titel, wordt ingesteld in fetchTitleMessage
+let cachedWelcomeMessage; // Globale
+let cachedColor;
+        
+// Functie om het titelbericht dynamisch op te halen
+window.fetchTitleMessage = async function() {
+    const titleElement = document.querySelector("#chatbot-title");
+    if (!titleElement) {
+        console.error('Element met ID "chatbot-title" is niet gevonden.');
+        return;
+    }
+
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        titleElement.innerText = "Standaard Titel";
+        return;
+    }
+
     try {
-        const response = await fetch(`${backendUrl}/get_color`);
+        const response = await fetch(`${backendUrl}/${tenantId}/get_title_message`);
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
         const data = await response.json();
-        if (data.color) {
-            updateColor(data.color);
-            updateChatIconColor(data.color); // Voeg deze regel toe om het chat-icoonkleur bij te werken
+        if (!data || !data.title_message) {
+            throw new Error("Titelbericht is niet gevonden in de response.");
+        }
+        cachedTitle = data.title_message; // Update de gecachte titel
+        titleElement.innerText = cachedTitle;
+    } catch (error) {
+        console.error("Error bij het ophalen van het titelbericht: ", error);
+        titleElement.innerText = cachedTitle || "Standaard Titel"; // Fallback titel
+    }
+};
+
+// Functie om de kleur dynamisch op te halen en toe te passen
+async function fetchAndApplyColor() {
+    // Verkrijg backendUrl en tenantId uit het script-element
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        return;
+    }
+
+    // Opbouwen van de URL om de kleurinstellingen op te halen
+    const colorUrl = `${backendUrl}/${tenantId}/get_color`;
+
+    try {
+        // Proberen de kleurinstellingen op te halen via de API
+        const response = await fetch(colorUrl);
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (data && data.color) {
+            cachedColor = data.color; // Cache de kleur
+            updateColor(cachedColor); // Pas de kleur toe op de chatbot elementen
+            updateChatIconColor(cachedColor); // Pas de kleur van het icoon aan
+        } else {
+            throw new Error("Geen kleurinstellingen gevonden in de response.");
         }
     } catch (error) {
         console.error("Failed to fetch color:", error);
@@ -779,64 +937,53 @@ window.typeWelcomeMessage = async function() {
 }
 
 function updateColor(color) {
-    // Update de achtergrondkleur van de header
-    const chatHeader = document.querySelector("#chatbot header");
-    chatHeader.style.background = `linear-gradient(135deg, ${color}, #ffffff)`;
+    // Pas de header kleur toe
+    const chatbotHeader = document.querySelector('#chatbot header');
+    if (chatbotHeader) {
+        // Converteer hex kleur naar RGB
+        const rgb = hexToRgb(color);
+        // Stel de achtergrond in met de nieuwe, donkerdere kleur en behoud de stijl zoals gedefinieerd in CSS
+        chatbotHeader.style.background = `linear-gradient(270deg, #FFFFFF, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.3))`;
+        console.log('Header kleur bijgewerkt naar:', color);
+    }
+}
 
-    // Update de randkleur voor de gebruikersberichten
-    const userMessages = document.querySelectorAll('.user-message');
-    userMessages.forEach(msg => {
-        msg.style.border = `2px solid ${color}`;
+// Helper functie om hex naar RGB te converteren
+function hexToRgb(hex) {
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
     });
-    
-    // Stel een CSS-variabele in voor dynamische kleur
-    document.documentElement.style.setProperty('--dynamic-color', color);
+
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
 }
 
+
+
+
+// Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
-    // Update de achtergrondkleur van het chat-icoon
-    const chatIcon = document.getElementById("chatbot-icon");
-    chatIcon.style.background = color;
-}
-
-// Oproepen wanneer de pagina laadt
-fetchAndApplyColor();
-
-
-async function fetchTitleMessage() {
-    try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
-        const data = await response.json();
-        if (data.message) {
-            document.querySelector("#chatbot-title").innerText = data.message;
-        }
-    } catch (error) {
-        console.error("Failed to fetch title message:", error);
+    // Pas de kleur van het chat-icoon toe
+    const chatIcon = document.querySelector('#chatbot-icon');
+    if (chatIcon) {
+        chatIcon.style.background = color;
+        console.log('Chat-icoon kleur bijgewerkt naar:', color);
     }
 }
 
-let cachedTitle = "Standaardnaam als fallback";
-let cachedWelcomeMessage = "Standaard welkomstbericht als backup";
+window.initializeChat = async function() {
+    // Haal eerst het titelbericht op
+    await window.fetchTitleMessage();
 
-async function initializeChat() {
-    try {
-        const response = await fetch(`${backendUrl}/get_title_message`);
-        const data = await response.json();
-        cachedTitle = data.message || cachedTitle;
-    } catch (error) {
-        console.error("Failed to fetch title message:", error);
-    }
+    // Haal de kleur op en pas deze toe
+    await fetchAndApplyColor();
+};
 
-    try {
-        const response = await fetch(`${backendUrl}/get_welcome_message`);
-        const data = await response.json();
-        cachedWelcomeMessage = data.message || cachedWelcomeMessage;
-    } catch (error) {
-        console.error("Failed to fetch welcome message:", error);
-    }
-}
-
-        
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -871,44 +1018,12 @@ window.closeChatText = function() {
     chatText.style.display = "none";  // Verberg de chattekst
 };        
 
-        
-window.toggleChat = function() {
-    const chatbot = document.getElementById("chatbot");
-    const icon = document.getElementById("chatbot-icon");
-    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
 
-    if (chatbot.style.display === "none" || chatbot.style.display === "") {
-        document.querySelector("#chatbot-title").innerText = cachedTitle;
-        if (firstTimeOpen) {
-            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
-            firstTimeOpen = false;
-        }
-        chatbot.style.display = "flex";
-        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
-
-        setTimeout(function() {
-            chatbot.classList.add("visible");
-        }, 50);
-
-        icon.classList.add('cross');
-    } else {
-        chatbot.classList.remove("visible");
-        setTimeout(function() {
-            chatbot.style.display = "none";
-        }, 500);
-        icon.classList.remove('cross');
-        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
-    }
+window.onload = function() {
+    // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
+    initializeChat();
 };
 
-window.closeChatText = function() {
-    const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none";  // Verberg de chattekst
-};   
-
-
-// Aanroepen wanneer de pagina laadt
-initializeChat();
 
 
 // Functie om de chattekst getypt weer te geven
@@ -943,17 +1058,13 @@ window.closeChat = function() {
     icon.classList.remove('cross');  // Verwijder de 'cross' klasse
 };
 
-        window.handleKeyUp = function(event) {
-            if (event.key === "Enter" && !isBotTyping) {
-                sendMessage();
-            }
-        };
-
     window.handleKeyUp = function(event) {
         if (event.key === "Enter" && !isBotTyping) {
             sendMessage();
+            event.preventDefault(); // Voorkom standaard 'Enter' gedrag dat kan interfereren met scrollen
         }
     };
+
 
     window.toggleInputState = function(state) {
         const userInput = document.getElementById("user-input");
@@ -973,17 +1084,31 @@ window.sendMessage = function() {
     const userInput = document.getElementById("user-input");
     const chatContent = document.getElementById("chatbot-content");
 
+    // Verkrijg de tenant ID en backend URL van het script-element
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Haal de userId uit de cookie
+    var userId = getCookie('userId');
+
     if (userInput.value.trim() !== "") {
         isBotTyping = true;
         toggleInputState("disable");
 
-        // Voeg het bericht van de gebruiker toe
-        chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">${userInput.value}</div></div>`;
+        // Sla de waarde van de invoer op voordat deze wordt leeggemaakt
+        const userMessage = userInput.value;
 
-        // Voeg de professionele laadbalk toe
+        // Voeg het bericht van de gebruiker toe aan de chat-interface
+        chatContent.innerHTML += `<div class="message-container user-container" style="display: flex; justify-content: flex-end;"><div class="user-message" style="background-color: ${cachedColor}; border-top-right-radius: 0;">${userMessage}</div></div>`;
+
+        // Maak de inputbalk leeg
+        userInput.value = "";
+
+        // Voeg een laadbalk toe om de respons van de bot aan te geven
         chatContent.innerHTML += '<div class="loader-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
 
-        // Automatisch scrollen naar het laatst toegevoegde bericht
+        // Automatisch scrollen naar het laatste bericht
         chatContent.scrollTop = chatContent.scrollHeight;
 
         setTimeout(() => {
@@ -992,22 +1117,30 @@ window.sendMessage = function() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ question: userInput.value })
+                body: JSON.stringify({ 
+                    question: userMessage,
+                    tenant_id: tenantId,
+                    user_id: userId
+                })
             })
             .then(response => response.json())
             .then(data => {
-                chatContent.lastChild.remove();  // Verwijder de loader
+                // Verwijder de laadbalk
+                chatContent.lastChild.remove();
+
+                // Voeg het antwoord van de bot toe aan de chat-interface
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
                 messageContainer.innerHTML = `
                     <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
                 `;
                 chatContent.appendChild(messageContainer);
-                let messageText = data.answer;
                 let messageElem = document.createElement("div");
                 messageElem.className = "bot-message";
+                messageElem.style.borderTopLeftRadius = "0";
                 messageContainer.appendChild(messageElem);
 
+                let messageText = data.answer;
                 let index = 0;
                 let typingInterval = setInterval(() => {
                     if (index < messageText.length) {
@@ -1016,15 +1149,20 @@ window.sendMessage = function() {
                         chatContent.scrollTop = chatContent.scrollHeight;
                     } else {
                         clearInterval(typingInterval);
+
+                        // Toon bronlinks als bubbels
+                        if (data.formatted_source_links && data.formatted_source_links.length > 0) {
+                            displaySourceLinksAsBubbles(data.formatted_source_links.slice(0, 3));
+                        }
+
                         toggleInputState("enable");
                         isBotTyping = false;
                         if (showChoiceBalloons) showChoiceBalloons();
                     }
                 }, 25);
-
-                userInput.value = "";
             })
             .catch(error => {
+                // Toon een foutmelding als de aanvraag mislukt
                 console.error("Error:", error);
                 const messageContainer = document.createElement("div");
                 messageContainer.className = "message-container bot-container";
@@ -1040,7 +1178,41 @@ window.sendMessage = function() {
     }
 };
 
+function displaySourceLinksAsBubbles(links) {
+    const chatContent = document.getElementById("chatbot-content");
+    const linksContainer = document.createElement("div");
+    linksContainer.className = "source-links-container";
+
+    links.forEach(link => {
+        const linkElem = document.createElement("a");
+        linkElem.href = link.url;
+        linkElem.target = "_blank";
+        linkElem.className = "source-link-bubble";
+
+        // Extract het laatste deel van de URL na de laatste '/'
+        const urlSegments = link.url.split('/');
+        const lastSegment = urlSegments[urlSegments.length - 1] || urlSegments[urlSegments.length - 2]; // Omgaan met trailing slashes
+        const linkText = lastSegment.replace(/-/g, ' '); // Vervangt streepjes door spaties
+
+        linkElem.textContent = linkText || link.title; // Gebruik de geëxtraheerde tekst of de titel als fallback
+
+        linksContainer.appendChild(linkElem);
+    });
+
+    chatContent.appendChild(linksContainer);
+}
+
+
     
+
+// Aanroepen wanneer de pagina laadt
+document.addEventListener("DOMContentLoaded", function() {
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+    initializeChat(backendUrl, tenantId);
+});
+
 
     // De input-elementen activeren voor event-handling
     document.getElementById("user-input").onkeyup = function(event) {
@@ -1068,7 +1240,7 @@ function preloadImages() {
 }
         
 function typeBotMessage(messageText, callback) {
-    toggleInputState("disable"); 
+    toggleInputState("disable");
     const chatContent = document.getElementById("chatbot-content");
     const messageContainer = document.createElement("div");
     messageContainer.className = "message-container bot-container";
@@ -1076,9 +1248,12 @@ function typeBotMessage(messageText, callback) {
         <img src="https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true" alt="Bot Avatar" class="bot-avatar">
     `;
     chatContent.appendChild(messageContainer);
+
     let messageElem = document.createElement("div");
     messageElem.className = "bot-message";
+    messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
     messageContainer.appendChild(messageElem);
+
     let index = 0;
     let typingInterval = setInterval(() => {
         if (index < messageText.length) {
@@ -1094,57 +1269,9 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-
-// Functie om de keuzeballonnetjes te tonen
-function showChoiceBalloons() {
-    const chatbotInput = document.getElementById("chatbot-input");
-    chatbotInput.classList.add("hide-input");  // Verberg de inputbalk
-
-    const choiceBalloons = document.getElementById("choice-balloons");
-    choiceBalloons.style.display = "flex";
-}
-
-
-// Functie om de keuzeballonnetjes te verbergen
-function hideChoiceBalloons() {
-    const chatbotInput = document.getElementById("chatbot-input");
-    chatbotInput.classList.remove("hide-input");  // Toon de inputbalk opnieuw
-
-    const choiceBalloons = document.getElementById("choice-balloons");
-    choiceBalloons.style.display = "none";
-}
-
-
-// Event Listeners voor de keuzeballonnetjes
-document.getElementById("ask-another-question").addEventListener("click", function() {
-    hideChoiceBalloons();
-    
-    // Stuur automatisch een bericht namens de gebruiker
-    const chatContent = document.getElementById("chatbot-content");
-    chatContent.innerHTML += `<div class="message-container user-container"><div class="message-sender user">U:</div><div class="user-message">Ik wil nog een vraag stellen</div></div>`;
-    chatContent.scrollTop = chatContent.scrollHeight;
-
-    // Stuur na een seconde een bericht namens de chatbot en schakel de invoer in voordat de chatbot de volgende vraag stelt
-    setTimeout(() => {
-        toggleInputState("enable");
-        typeBotMessage("Wat is je nieuwe vraag?");
-    }, 1000);
-});
-
-document.getElementById("close-chatbot").addEventListener("click", function() {
-    closeChat();
-});
-
-
 // Aanroepen wanneer de pagina laadt
 preloadImages();
 
 
 })();  // Deze lijn sluit de IIFE correct af
-});  
-
-
-
-
-
-
+});
