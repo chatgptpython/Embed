@@ -2,8 +2,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Voeg CSP meta tag toe
     var cspMetaTag = document.createElement('meta');
     cspMetaTag.httpEquiv = "Content-Security-Policy";
-    cspMetaTag.content = "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; img-src 'self' https://raw.githubusercontent.com; style-src 'self' 'https://fonts.googleapis.com'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' [Uw Backend URL]; object-src 'none'; frame-src 'none';";
+    // Update de CSP-regels hieronder volgens uw bronnen
+    cspMetaTag.content = "default-src 'self';" +
+        "script-src 'self' https://cdn.jsdelivr.net https://chatbot-4ef5.onrender.com;" +
+        "img-src 'self' https://github.com https://assets-global.website-files.com;" +
+        "style-src 'self' 'https://fonts.googleapis.com' 'unsafe-inline';" +
+        "font-src 'self' https://fonts.gstatic.com;" +
+        "connect-src 'self' https://chatbot-4ef5.onrender.com;" +
+        "object-src 'none';" +
+        "frame-src 'none';";
     document.getElementsByTagName('head')[0].appendChild(cspMetaTag);
+
 
 
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
