@@ -1,18 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Voeg CSP meta tag toe
+    // Dynamisch toevoegen van de CSP meta tag
     var cspMetaTag = document.createElement('meta');
     cspMetaTag.httpEquiv = "Content-Security-Policy";
-    cspMetaTag.content = 
-        "default-src 'self';" +
-        "script-src 'self' 'https://cdn.jsdelivr.net' 'https://chatbot-4ef5.onrender.com';" +
-        "img-src 'self' 'https://raw.githubusercontent.com' 'https://github.com' 'https://assets-global.website-files.com';" +
-        "style-src 'self' 'https://fonts.googleapis.com' 'unsafe-inline';" +
-        "font-src 'self' 'https://fonts.gstatic.com';" +
-        "connect-src 'self' 'https://chatbot-4ef5.onrender.com';" +
-        "object-src 'none';" +
-        "frame-src 'none';";
+    // Definieer hier uw CSP-regels
+    cspMetaTag.content = "default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://raw.githubusercontent.com; font-src 'self' https://fonts.gstatic.com;";
     document.getElementsByTagName('head')[0].appendChild(cspMetaTag);
-    
+
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
@@ -23,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     linkElement.rel = 'stylesheet';
     linkElement.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap';
     document.getElementsByTagName('head')[0].appendChild(linkElement);
-   
+
     var css = `
 <style>
             body {
