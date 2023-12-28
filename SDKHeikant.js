@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Dynamisch toevoegen van de CSP meta tag
     var cspMetaTag = document.createElement('meta');
     cspMetaTag.httpEquiv = "Content-Security-Policy";
-    // Bijgewerkte CSP-regels met toevoeging voor afbeeldingen van GitHub
-    cspMetaTag.content = "default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://raw.githubusercontent.com https://github.com; font-src 'self' https://fonts.gstatic.com;";
+    // Bijgewerkte CSP-regels met toevoeging voor chatwize API en afbeeldingen van GitHub
+    cspMetaTag.content = "default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://raw.githubusercontent.com https://github.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://chatbot-4ef5.onrender.com;";
     document.getElementsByTagName('head')[0].appendChild(cspMetaTag);
 
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
