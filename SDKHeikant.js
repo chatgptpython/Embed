@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Voeg CSP meta tag toe
     var cspMetaTag = document.createElement('meta');
     cspMetaTag.httpEquiv = "Content-Security-Policy";
-    // Pas de CSP-regels hier aan volgens uw behoeften
-    cspMetaTag.content = "default-src 'self';" +
+    cspMetaTag.content = 
+        "default-src 'self';" +
         "script-src 'self' 'https://cdn.jsdelivr.net' 'https://chatbot-4ef5.onrender.com';" +
         "img-src 'self' 'https://raw.githubusercontent.com' 'https://github.com' 'https://assets-global.website-files.com';" +
         "style-src 'self' 'https://fonts.googleapis.com' 'unsafe-inline';" +
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "object-src 'none';" +
         "frame-src 'none';";
     document.getElementsByTagName('head')[0].appendChild(cspMetaTag);
-
+    
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
