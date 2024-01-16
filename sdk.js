@@ -710,7 +710,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </span>
                     <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
+                <span id="close-chat">×</span>
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
@@ -1189,13 +1189,32 @@ function displaySourceLinksAsBubbles(links) {
 
 
     
-
 // Aanroepen wanneer de pagina laadt
 document.addEventListener("DOMContentLoaded", function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Initialize chat functie aanroepen met backendUrl en tenantId
     initializeChat(backendUrl, tenantId);
+
+    // Voeg een event listener toe aan de sluitknop
+    const closeChatButton = document.getElementById("close-chat");
+    if (closeChatButton) {
+        closeChatButton.addEventListener("click", closeChat);
+    }
+
+    // Voeg een event listener toe aan het chat-icoon
+    const chatbotIcon = document.getElementById("chatbot-icon");
+    if (chatbotIcon) {
+        chatbotIcon.addEventListener("click", toggleChat);
+    }
+
+    // Voeg een event listener toe aan de tekst sluitknop
+    const chatbotTextClose = document.getElementById("chatbot-text-close");
+    if (chatbotTextClose) {
+        chatbotTextClose.addEventListener("click", closeChatText);
+    }
 });
 
 
