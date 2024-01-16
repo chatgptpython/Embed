@@ -1191,6 +1191,11 @@ function displaySourceLinksAsBubbles(links) {
     
 // Aanroepen wanneer de pagina laadt
 document.addEventListener("DOMContentLoaded", function() {
+    // Voeg een event listener toe aan het chat-icoon
+    const chatbotIcon = document.getElementById("chatbot-icon");
+    if (chatbotIcon) {
+        chatbotIcon.addEventListener("click", toggleChat);
+    }
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
