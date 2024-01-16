@@ -1,16 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Voeg CSP meta tag toe
-    var cspMetaTag = document.createElement('meta');
-    cspMetaTag.httpEquiv = "Content-Security-Policy";
-    // Pas de CSP-regels hier aan volgens uw behoeften
-    cspMetaTag.content = "default-src 'self'; script-src 'self'; img-src 'self' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'";
-    document.getElementsByTagName('head')[0].appendChild(cspMetaTag);
-
     // Dynamisch toevoegen van de viewport meta tag en Google Fonts
     var metaTag = document.createElement('meta');
     metaTag.name = "viewport";
     metaTag.content = "width=device-width, initial-scale=1.0";
     document.getElementsByTagName('head')[0].appendChild(metaTag);
+
 
     var linkElement = document.createElement('link');
     linkElement.rel = 'stylesheet';
@@ -723,10 +717,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
-            </div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Nieuwe vraag stellen</button>
-                <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
