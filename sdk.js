@@ -736,12 +736,6 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-        // Nu voeg je de event listeners toe, direct na het toevoegen van de HTML
-    document.getElementById("close-chat").addEventListener("click", closeChat);
-    document.getElementById("send-message").addEventListener("click", sendMessage);
-    document.getElementById("chatbot-text-close").addEventListener("click", closeChatText);
-    document.getElementById("chatbot-icon").addEventListener("click", toggleChat);
-
 
 
     (function() {
