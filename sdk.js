@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-   // HTML toevoegen
+     // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -710,22 +710,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     </span>
                     <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
+                <span id="close-chat">×</span>
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
+                <button id="send-message" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
                 <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
+            <span id="chatbot-text-close">×</span>
             <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
+        <div id="chatbot-icon">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
@@ -735,6 +735,13 @@ document.addEventListener("DOMContentLoaded", function() {
    var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
+
+        // Nu voeg je de event listeners toe, direct na het toevoegen van de HTML
+    document.getElementById("close-chat").addEventListener("click", closeChat);
+    document.getElementById("send-message").addEventListener("click", sendMessage);
+    document.getElementById("chatbot-text-close").addEventListener("click", closeChatText);
+    document.getElementById("chatbot-icon").addEventListener("click", toggleChat);
+
 
 
     (function() {
