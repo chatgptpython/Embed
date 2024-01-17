@@ -686,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
     </style>
     `;
-   var style = document.createElement('style');
+    var style = document.createElement('style');
     style.type = 'text/css';
     if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -694,7 +694,8 @@ document.addEventListener("DOMContentLoaded", function() {
         style.appendChild(document.createTextNode(css));
     }
     document.head.appendChild(style);
-    // HTML toevoegen
+
+   // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -709,26 +710,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     </span>
                     <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
-                <span id="close-chat">×</span>
+                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button id="send-message-button" class="send-icon"></button>
+                <button onclick="sendMessage()" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
                 <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-close">×</span>
+            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
             <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
-        <div id="chatbot-icon">
+        <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-
 
 
 
@@ -1189,37 +1189,13 @@ function displaySourceLinksAsBubbles(links) {
 
 
     
+
 // Aanroepen wanneer de pagina laadt
 document.addEventListener("DOMContentLoaded", function() {
-    // Voeg een event listener toe aan het chat-icoon
-    const chatbotIcon = document.getElementById("chatbot-icon");
-    if (chatbotIcon) {
-        chatbotIcon.addEventListener("click", toggleChat);
-    }
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
-
-    // Initialize chat functie aanroepen met backendUrl en tenantId
     initializeChat(backendUrl, tenantId);
-
-    // Voeg een event listener toe aan de sluitknop
-    const closeChatButton = document.getElementById("close-chat");
-    if (closeChatButton) {
-        closeChatButton.addEventListener("click", closeChat);
-    }
-
-    // Voeg een event listener toe aan het chat-icoon
-    const chatbotIcon = document.getElementById("chatbot-icon");
-    if (chatbotIcon) {
-        chatbotIcon.addEventListener("click", toggleChat);
-    }
-
-    // Voeg een event listener toe aan de tekst sluitknop
-    const chatbotTextClose = document.getElementById("chatbot-text-close");
-    if (chatbotTextClose) {
-        chatbotTextClose.addEventListener("click", closeChatText);
-    }
 });
 
 
@@ -1284,3 +1260,4 @@ preloadImages();
 
 })();  // Deze lijn sluit de IIFE correct af
 });
+
