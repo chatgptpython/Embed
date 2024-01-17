@@ -1013,6 +1013,12 @@ if (closeButton) {
     closeButton.addEventListener('click', closeChat);
 }
 
+window.closeChatText = function() {
+    const chatText = document.getElementById("chatbot-text");
+    chatText.style.display = "none";  // Verberg de chattekst
+};        
+
+
 window.onload = function() {
     // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
     initializeChat();
