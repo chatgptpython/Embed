@@ -999,11 +999,19 @@ window.toggleChat = function() {
     }
 };
 
-window.closeChatText = function() {
-    const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none";  // Verberg de chattekst
-};        
+// Functie om het chatvenster te sluiten
+function closeChat() {
+    var chatbotElement = document.getElementById('chatbot');
+    if (chatbotElement) {
+        chatbotElement.style.display = 'none'; // Verbergt het chatvenster
+    }
+}
 
+// Voeg event listener toe aan het kruisje
+var closeButton = document.getElementById('close-chat');
+if (closeButton) {
+    closeButton.addEventListener('click', closeChat);
+}
 
 window.onload = function() {
     // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
