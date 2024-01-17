@@ -686,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
     </style>
     `;
-    var style = document.createElement('style');
+   var style = document.createElement('style');
     style.type = 'text/css';
     if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -1009,23 +1009,7 @@ window.onload = function() {
     initializeChat();
 };
 
-// Event listener toevoegen aan de send-message-button
-document.addEventListener('DOMContentLoaded', function() {
-    var sendButton = document.getElementById('send-message-button');
-    if (sendButton) {
-        sendButton.addEventListener('click', sendMessage);
-    }
 
-    var chatbotIcon = document.getElementById('chatbot-icon');
-    if (chatbotIcon) {
-        chatbotIcon.addEventListener('click', toggleChat);
-    }
-
-    var chatbotTextClose = document.getElementById('chatbot-text-close');
-    if (chatbotTextClose) {
-        chatbotTextClose.addEventListener('click', closeChatText);
-    }
-});
 
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
