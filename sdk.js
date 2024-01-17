@@ -694,8 +694,7 @@ document.addEventListener("DOMContentLoaded", function() {
         style.appendChild(document.createTextNode(css));
     }
     document.head.appendChild(style);
-
-   // HTML toevoegen
+    // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -715,20 +714,21 @@ document.addEventListener("DOMContentLoaded", function() {
             <div id="chatbot-content"></div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
+                <button id="send-message-button" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
                 <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
+            <span id="chatbot-text-close">×</span>
             <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
+        <div id="chatbot-icon">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
+
 
 
 
@@ -1009,7 +1009,23 @@ window.onload = function() {
     initializeChat();
 };
 
+// Event listener toevoegen aan de send-message-button
+document.addEventListener('DOMContentLoaded', function() {
+    var sendButton = document.getElementById('send-message-button');
+    if (sendButton) {
+        sendButton.addEventListener('click', sendMessage);
+    }
 
+    var chatbotIcon = document.getElementById('chatbot-icon');
+    if (chatbotIcon) {
+        chatbotIcon.addEventListener('click', toggleChat);
+    }
+
+    var chatbotTextClose = document.getElementById('chatbot-text-close');
+    if (chatbotTextClose) {
+        chatbotTextClose.addEventListener('click', closeChatText);
+    }
+});
 
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
