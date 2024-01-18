@@ -738,6 +738,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
+
     (function() {
     // Functies om een unieke ID te genereren en te beheren in een cookie
     function generateUniqueId() {
@@ -969,6 +972,12 @@ window.initializeChat = async function() {
     // Haal de kleur op en pas deze toe
     await fetchAndApplyColor();
 };
+
+    // Voeg event listener toe aan het ronde icoontje om de chat te openen/sluiten
+    var chatIcon = document.getElementById('chatbot-icon');
+    if (chatIcon) {
+        chatIcon.addEventListener('click', window.toggleChat);
+    }
 
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
