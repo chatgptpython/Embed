@@ -999,10 +999,6 @@ window.toggleChat = function() {
     }
 };
 
-var div = document.createElement('div');
-div.innerHTML = html;
-document.body.appendChild(div);
-
 // Functie om het chatvenster te sluiten
 function closeChat() {
     var chatbotElement = document.getElementById('chatbot');
@@ -1011,28 +1007,10 @@ function closeChat() {
     }
 }
 
-// Functie om het chatvenster te tonen/verbergen
-function toggleChat() {
-    var chatbotElement = document.getElementById('chatbot');
-    if (chatbotElement) {
-        if (chatbotElement.style.display === 'none') {
-            chatbotElement.style.display = 'block'; // Toont het chatvenster
-        } else {
-            chatbotElement.style.display = 'none'; // Verbergt het chatvenster
-        }
-    }
-}
-
 // Voeg event listener toe aan het kruisje
 var closeButton = document.getElementById('close-chat');
 if (closeButton) {
     closeButton.addEventListener('click', closeChat);
-}
-
-// Voeg event listener toe aan het chat icoon
-var chatIcon = document.getElementById('chatbot-icon');
-if (chatIcon) {
-    chatIcon.addEventListener('click', toggleChat);
 }
 
 window.closeChatText = function() {
