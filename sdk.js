@@ -736,43 +736,7 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
-    // Voeg de nieuwe JavaScript-code hier in, net na de HTML-invoeging
-    var chatbot = document.getElementById('chatbot');
-    var chatbotIcon = document.getElementById('chatbot-icon');
-    var chatbotText = document.getElementById('chatbot-text');
-    var chatbotTextClose = document.getElementById('chatbot-text-close');
-    var closeButton = document.getElementById('close-chat');
 
-    // Functie om de chatbot-widget te openen
-    function openChatbot() {
-        chatbot.classList.add('visible');
-        chatbotIcon.classList.add('cross');
-        chatbotText.style.display = 'none';
-    }
-
-    // Functie om de chatbot-widget te sluiten
-    function closeChatbot() {
-        chatbot.classList.remove('visible');
-        chatbotIcon.classList.remove('cross');
-        chatbotText.style.display = 'block';
-    }
-
-    // Event listeners om de chatbot te openen en te sluiten
-    chatbotIcon.addEventListener('click', function() {
-        if (chatbot.classList.contains('visible')) {
-            closeChatbot();
-        } else {
-            openChatbot();
-        }
-    });
-
-    closeButton.addEventListener('click', function() {
-        closeChatbot();
-    });
-
-    chatbotTextClose.addEventListener('click', function() {
-        chatbotText.style.display = 'none';
-    });
 
     (function() {
     // Functies om een unieke ID te genereren en te beheren in een cookie
@@ -1304,7 +1268,43 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
+    // Voeg de nieuwe JavaScript-code hier in, net na de HTML-invoeging
+    var chatbot = document.getElementById('chatbot');
+    var chatbotIcon = document.getElementById('chatbot-icon');
+    var chatbotText = document.getElementById('chatbot-text');
+    var chatbotTextClose = document.getElementById('chatbot-text-close');
+    var closeButton = document.getElementById('close-chat');
 
+    // Functie om de chatbot-widget te openen
+    function openChatbot() {
+        chatbot.classList.add('visible');
+        chatbotIcon.classList.add('cross');
+        chatbotText.style.display = 'none';
+    }
+
+    // Functie om de chatbot-widget te sluiten
+    function closeChatbot() {
+        chatbot.classList.remove('visible');
+        chatbotIcon.classList.remove('cross');
+        chatbotText.style.display = 'block';
+    }
+
+    // Event listeners om de chatbot te openen en te sluiten
+    chatbotIcon.addEventListener('click', function() {
+        if (chatbot.classList.contains('visible')) {
+            closeChatbot();
+        } else {
+            openChatbot();
+        }
+    });
+
+    closeButton.addEventListener('click', function() {
+        closeChatbot();
+    });
+
+    chatbotTextClose.addEventListener('click', function() {
+        chatbotText.style.display = 'none';
+    });
 
 
 // Aanroepen wanneer de pagina laadt
