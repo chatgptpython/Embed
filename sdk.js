@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-   // HTML toevoegen
+     // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -710,31 +710,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     </span>
                     <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
-                <span id="close-chat" onclick="closeChat()">×</span>
+                <span id="close-chat">×</span>
             </header>
             <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <div id="choice-balloons" style="display: none;">
-                <button id="ask-another-question">Nieuwe vraag stellen</button>
-                <button id="close-chatbot">Afsluiten</button>
-            </div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button onclick="sendMessage()" class="send-icon"></button>
+                <button id="send-message" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
                 <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
+            <span id="chatbot-text-close">×</span>
             <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
-        <div id="chatbot-icon" onclick="toggleChat()">
+        <div id="chatbot-icon">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
@@ -744,6 +735,7 @@ document.addEventListener("DOMContentLoaded", function() {
    var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
+
 
 
     (function() {
@@ -1007,6 +999,20 @@ window.toggleChat = function() {
     }
 };
 
+// Functie om het chatvenster te sluiten
+function closeChat() {
+    var chatbotElement = document.getElementById('chatbot');
+    if (chatbotElement) {
+        chatbotElement.style.display = 'none'; // Verbergt het chatvenster
+    }
+}
+
+// Voeg event listener toe aan het kruisje
+var closeButton = document.getElementById('close-chat');
+if (closeButton) {
+    closeButton.addEventListener('click', closeChat);
+}
+
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";  // Verberg de chattekst
@@ -1262,6 +1268,44 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
+
+    // Voeg de nieuwe JavaScript-code hier in, net na de HTML-invoeging
+    var chatbot = document.getElementById('chatbot');
+    var chatbotIcon = document.getElementById('chatbot-icon');
+    var chatbotText = document.getElementById('chatbot-text');
+    var chatbotTextClose = document.getElementById('chatbot-text-close');
+    var closeButton = document.getElementById('close-chat');
+
+    // Functie om de chatbot-widget te openen
+    function openChatbot() {
+        chatbot.classList.add('visible');
+        chatbotIcon.classList.add('cross');
+        chatbotText.style.display = 'none';
+    }
+
+    // Functie om de chatbot-widget te sluiten
+    function closeChatbot() {
+        chatbot.classList.remove('visible');
+        chatbotIcon.classList.remove('cross');
+        chatbotText.style.display = 'block';
+    }
+
+    // Event listeners om de chatbot te openen en te sluiten
+    chatbotIcon.addEventListener('click', function() {
+        if (chatbot.classList.contains('visible')) {
+            closeChatbot();
+        } else {
+            openChatbot();
+        }
+    });
+
+    closeButton.addEventListener('click', function() {
+        closeChatbot();
+    });
+
+    chatbotTextClose.addEventListener('click', function() {
+        chatbotText.style.display = 'none';
+    });
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
