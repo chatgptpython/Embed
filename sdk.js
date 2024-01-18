@@ -985,57 +985,46 @@ window.initializeChat = async function() {
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
-    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
+    const chatText = document.getElementById("chatbot-text");
 
-    if (chatbot.style.display === "none" || chatbot.style.display === "") {
+    // Toggle de 'open' class om de weergave van de chatbot en het icoon te beheren
+    if (chatbot.classList.contains("open")) {
+        chatbot.classList.remove("open");
+        icon.classList.remove('cross');
+        chatText.style.display = "block"; // Toon de tekst opnieuw wanneer de chat gesloten wordt
+    } else {
         document.querySelector("#chatbot-title").innerText = cachedTitle;
         if (firstTimeOpen) {
-            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            typeWelcomeMessage(cachedWelcomeMessage);
             firstTimeOpen = false;
         }
-        chatbot.style.display = "flex";
-        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
-
-        setTimeout(function() {
-            chatbot.classList.add("visible");
-        }, 50);
-
+        chatbot.classList.add("open");
         icon.classList.add('cross');
-    } else {
-        chatbot.classList.remove("visible");
-        setTimeout(function() {
-            chatbot.style.display = "none";
-        }, 500);
-        icon.classList.remove('cross');
-        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
+        chatText.style.display = "none"; // Verberg de tekst wanneer de chat geopend wordt
     }
 };
 
-// Functie om het chatvenster te sluiten
+// Verbeterde functie om het chatvenster te sluiten
 function closeChat() {
-    var chatbotElement = document.getElementById('chatbot');
-    if (chatbotElement) {
-        chatbotElement.style.display = 'none'; // Verbergt het chatvenster
-    }
+    const chatbot = document.getElementById('chatbot');
+    const icon = document.getElementById("chatbot-icon");
+    const chatText = document.getElementById("chatbot-text");
+
+    chatbot.classList.remove("open");
+    icon.classList.remove('cross');
+    chatText.style.display = "block"; // Toon de chat tekst weer
 }
 
-// Voeg event listener toe aan het kruisje
+// Event listener toevoegen aan het kruisje
 var closeButton = document.getElementById('close-chat');
 if (closeButton) {
     closeButton.addEventListener('click', closeChat);
 }
 
-window.closeChatText = function() {
-    const chatText = document.getElementById("chatbot-text");
-    chatText.style.display = "none";  // Verberg de chattekst
-};        
-
-
 window.onload = function() {
     // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
     initializeChat();
 };
-
 
 
 // Functie om de chattekst getypt weer te geven
