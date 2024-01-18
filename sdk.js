@@ -1324,7 +1324,7 @@ function typeBotMessage(messageText, callback) {
             sendMessage();
         }
     });
-});
+
 // Aanroepen wanneer de pagina laadt
 preloadImages();
 
