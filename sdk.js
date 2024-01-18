@@ -1268,17 +1268,15 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
+    // Voeg de nieuwe JavaScript-code hier in, net na de HTML-invoeging
     var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
     var chatbotTextClose = document.getElementById('chatbot-text-close');
     var closeButton = document.getElementById('close-chat');
-    var sendMessageButton = document.getElementById('send-message');
-    var userInput = document.getElementById('user-input');
 
     // Functie om de chatbot-widget te openen
     function openChatbot() {
-        chatbot.style.display = 'block';
         chatbot.classList.add('visible');
         chatbotIcon.classList.add('cross');
         chatbotText.style.display = 'none';
@@ -1286,44 +1284,28 @@ function typeBotMessage(messageText, callback) {
 
     // Functie om de chatbot-widget te sluiten
     function closeChatbot() {
-        chatbot.style.display = 'none';
         chatbot.classList.remove('visible');
         chatbotIcon.classList.remove('cross');
         chatbotText.style.display = 'block';
     }
 
-    // Functie om een bericht te versturen
-    function sendMessage() {
-        var userMessage = userInput.value.trim();
-        if (userMessage) {
-            var chatContent = document.getElementById('chatbot-content');
-            chatContent.innerHTML += '<div class="user-message">' + userMessage + '</div>';
-            userInput.value = '';
-            chatContent.scrollTop = chatContent.scrollHeight;
-        }
-    }
-
-    // Event listeners
+    // Event listeners om de chatbot te openen en te sluiten
     chatbotIcon.addEventListener('click', function() {
-        if (chatbot.style.display === 'none' || chatbot.style.display === '') {
-            openChatbot();
-        } else {
+        if (chatbot.classList.contains('visible')) {
             closeChatbot();
+        } else {
+            openChatbot();
         }
     });
 
-    closeButton.addEventListener('click', closeChatbot);
+    closeButton.addEventListener('click', function() {
+        closeChatbot();
+    });
+
     chatbotTextClose.addEventListener('click', function() {
         chatbotText.style.display = 'none';
     });
-    sendMessageButton.addEventListener('click', sendMessage);
 
-    userInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            sendMessage();
-        }
-    });
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
