@@ -934,15 +934,6 @@ function updateColor(color) {
     }
 }
 
-    // Functies voor chatbot-interacties
-    function toggleChat() {
-        const chatbot = document.getElementById("chatbot");
-        if (chatbot.style.display === "none" || chatbot.style.display === "") {
-            chatbot.style.display = "flex";
-        } else {
-            chatbot.style.display = "none";
-        }
-    }
 
 
 // Helper functie om hex naar RGB te converteren
