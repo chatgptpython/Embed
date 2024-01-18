@@ -1268,7 +1268,7 @@ function typeBotMessage(messageText, callback) {
         }
     }, 25);
 }
-    // Voeg de nieuwe JavaScript-code hier in, net na de HTML-invoeging
+
     var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
@@ -1289,19 +1289,18 @@ function typeBotMessage(messageText, callback) {
         chatbotText.style.display = 'block';
     }
 
-    // Event listeners om de chatbot te openen en te sluiten
-    chatbotIcon.addEventListener('click', function() {
+    // Gecentraliseerde functie om de chatbot te wisselen tussen open en gesloten
+    function toggleChat() {
         if (chatbot.classList.contains('visible')) {
             closeChatbot();
         } else {
             openChatbot();
         }
-    });
+    }
 
-    closeButton.addEventListener('click', function() {
-        closeChatbot();
-    });
-
+    // Event listeners om de chatbot te openen en te sluiten
+    chatbotIcon.addEventListener('click', toggleChat);
+    closeButton.addEventListener('click', toggleChat);
     chatbotTextClose.addEventListener('click', function() {
         chatbotText.style.display = 'none';
     });
