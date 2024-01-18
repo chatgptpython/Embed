@@ -736,6 +736,12 @@ document.addEventListener("DOMContentLoaded", function() {
     div.innerHTML = html;
     document.body.appendChild(div);
 
+    document.getElementById("close-chat").addEventListener("click", closeChat);
+    document.getElementById("send-message").addEventListener("click", sendMessage);
+    document.getElementById("chatbot-text-close").addEventListener("click", closeChatText);
+    document.getElementById("chatbot-icon").addEventListener("click", toggleChat);
+
+
 
 
     (function() {
@@ -951,12 +957,16 @@ function hexToRgb(hex) {
     } : null;
 }
 
-
-
+// Functie om het chatvenster te sluiten
+function closeChat() {
+    var chatbotElement = document.getElementById('chatbot');
+    if (chatbotElement) {
+        chatbotElement.style.display = 'none';
+    }
+}
 
 // Functie om de kleur van het chat-icoon aan te passen
 function updateChatIconColor(color) {
-    // Pas de kleur van het chat-icoon toe
     const chatIcon = document.querySelector('#chatbot-icon');
     if (chatIcon) {
         chatIcon.style.background = color;
