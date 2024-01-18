@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-     // HTML toevoegen
+   // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -710,22 +710,31 @@ document.addEventListener("DOMContentLoaded", function() {
                     </span>
                     <div class="subtitle">Jouw virtuele assistent</div>
                 </div>
-                <span id="close-chat">×</span>
+                <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
+            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div id="choice-balloons" style="display: none;">
+                <button id="ask-another-question">Nieuwe vraag stellen</button>
+                <button id="close-chatbot">Afsluiten</button>
+            </div>
             <div id="chatbot-input">
                 <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
-                <button id="send-message" class="send-icon"></button>
+                <button onclick="sendMessage()" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
                 <a href="https://www.chatwize.co" target="_blank" rel="noopener noreferrer">Powered by Chatwize</a>
             </div>
         </div>
         <div id="chatbot-text">
-            <span id="chatbot-text-close">×</span>
+            <span id="chatbot-text-close" onclick="closeChatText()">×</span>
             <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
-        <div id="chatbot-icon">
+        <div id="chatbot-icon" onclick="toggleChat()">
             <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
@@ -735,10 +744,6 @@ document.addEventListener("DOMContentLoaded", function() {
    var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
-
-
-
-
 
 
     (function() {
@@ -973,12 +978,6 @@ window.initializeChat = async function() {
     await fetchAndApplyColor();
 };
 
-    // Voeg event listener toe aan het ronde icoontje om de chat te openen/sluiten
-    var chatIcon = document.getElementById('chatbot-icon');
-    if (chatIcon) {
-        chatIcon.addEventListener('click', window.toggleChat);
-    }
-
 window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
@@ -1007,20 +1006,6 @@ window.toggleChat = function() {
         chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
     }
 };
-
-// Functie om het chatvenster te sluiten
-function closeChat() {
-    var chatbotElement = document.getElementById('chatbot');
-    if (chatbotElement) {
-        chatbotElement.style.display = 'none'; // Verbergt het chatvenster
-    }
-}
-
-// Voeg event listener toe aan het kruisje
-var closeButton = document.getElementById('close-chat');
-if (closeButton) {
-    closeButton.addEventListener('click', closeChat);
-}
 
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
