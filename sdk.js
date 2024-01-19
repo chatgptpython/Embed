@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
 
-                
+                        
         #chatbot {
             position: fixed;
             bottom: 95px !important;
@@ -29,13 +29,36 @@ document.addEventListener("DOMContentLoaded", function() {
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
-            display: none;
-            flex-direction: column;
+            display: flex; /* Gewijzigd */
+            flex-direction: column; /* Gewijzigd */
             opacity: 0;
-            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
             z-index: 10000;
             background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+        }
+        
+        #chatbot-content {
+            flex: 1; /* Gewijzigd */
+            overflow-y: auto; /* Gewijzigd */
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #chatbot-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            height: 50px;
+            border-radius: 25px;
+            background-color: transparent;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         #chatbot-icon {
@@ -262,31 +285,30 @@ document.addEventListener("DOMContentLoaded", function() {
     box-sizing: border-box; /* Inclusief padding en border in de breedte */
 }
 
-/* Stijl voor het tekstgebied binnen de chatbalk */
 #chatbot-input textarea {
-    flex-grow: 1; /* Neemt beschikbare ruimte in beslag */
-    height: 40px; /* Vaste hoogte */
-    border-radius: 20px; /* Ronde hoeken */
+    flex-grow: 1;
+    height: 40px;
+    border-radius: 20px;
     border: 1px solid #ddd;
-    padding: 5px 15px; /* Padding aan binnenkant */
-    margin: 5px 10px 5px 0; /* Margin rondom het tekstveld */
+    padding: 5px 15px;
+    margin: 5px 10px 5px 0;
     font-size: 1em;
-    resize: none; /* Geen mogelijkheid om te vergroten/verkleinen */
-    outline: none; /* Geen focus-omlijning */
-    background-color: #f9f9f9; /* Achtergrondkleur van het tekstveld */
+    resize: none;
+    outline: none;
+    background-color: #f9f9f9;
 }
 
-/* Stijl voor de verzendknop */
 #chatbot-input .send-icon {
     width: 30px;
-    height: 30px; /* Vaste afmetingen van de knop */
-    margin: auto 0; /* Automatische marge voor verticale centrering */
+    height: 30px;
+    margin: auto 0;
     background-image: url('https://github.com/chatgptpython/embed/blob/main/send.png?raw=true');
     background-size: cover;
     cursor: pointer;
     border: none;
     background-color: transparent;
 }
+
 
 /* Hover-effect voor de verzendknop */
 #chatbot-input .send-icon:hover {
