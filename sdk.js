@@ -1024,7 +1024,25 @@ window.onload = function() {
     initializeChat();
 };
 
-
+// Functie om de chattekst getypt weer te geven
+function typeChatTextMessage() {
+    const chatTextContent = document.getElementById("chatbot-text-content");
+    const messageText = "Stel hier uw vraag";
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            chatTextContent.textContent += messageText[index];
+            index++;
+        } else {
+            clearInterval(typingInterval);
+            
+            // Voeg de click event listener hier toe, nadat de boodschap volledig is getypt
+            chatTextContent.addEventListener('click', function() {
+                toggleChat();
+            });
+        }
+    }, 50);
+}
 
 
 
@@ -1158,19 +1176,6 @@ window.sendMessage = function() {
             });
         }, // Functie om de chattekst getypt weer te geven
 
-function typeChatTextMessage() {
-    const chatTextContent = document.getElementById("chatbot-text-content");
-    const messageText = "Stel hier uw vraag";
-    let index = 0;
-    let typingInterval = setInterval(() => {
-        if (index < messageText.length) {
-            chatTextContent.textContent += messageText[index];
-            index++;
-        } else {
-            clearInterval(typingInterval);
-        }
-    }, 50);
-}
 
 
 
