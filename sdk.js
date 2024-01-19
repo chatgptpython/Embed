@@ -1258,23 +1258,46 @@ function typeBotMessage(messageText, callback) {
 }
 
 
-   var chatbot = document.getElementById('chatbot');
+   document.addEventListener("DOMContentLoaded", function() {
+    var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
     var chatbotTextClose = document.getElementById('chatbot-text-close');
     var closeButton = document.getElementById('close-chat');
+    var isWelcomeMessageShown = false; // Houdt bij of het welkomstbericht al is getoond
 
     // Functie om de chatbot-widget te openen
     function openChatbot() {
-        chatbot.style.display = 'block'; // Zorg ervoor dat de chatbot zichtbaar wordt
+        chatbot.style.display = 'block';
         chatbot.classList.add('visible');
         chatbotIcon.classList.add('cross');
         chatbotText.style.display = 'none';
+
+        // Toon het welkomstbericht als het nog niet is getoond
+        if (!isWelcomeMessageShown) {
+            typeWelcomeMessage();
+            isWelcomeMessageShown = true;
+        }
+    }
+
+    // Functie om het welkomstbericht te typen
+    function typeWelcomeMessage() {
+        const chatContent = document.getElementById('chatbot-content');
+        const messageText = 'Welkom bij onze chat service!';
+        let index = 0;
+        let typingInterval = setInterval(() => {
+            if (index < messageText.length) {
+                chatContent.textContent += messageText[index];
+                index++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 50);
     }
 
     // Functie om de chatbot-widget te sluiten
     function closeChatbot() {
-        chatbot.style.display = 'none'; // Verberg de chatbot
+        chatbot.style.display = 'none';
         chatbot.classList.remove('visible');
         chatbotIcon.classList.remove('cross');
         chatbotText.style.display = 'block';
