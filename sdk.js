@@ -1269,7 +1269,7 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-    // Voeg de nieuwe JavaScript-code hier in, net na de HTML-invoeging
+document.addEventListener('DOMContentLoaded', function () {
     var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
@@ -1306,6 +1306,7 @@ function typeBotMessage(messageText, callback) {
     chatbotTextClose.addEventListener('click', function() {
         chatbotText.style.display = 'none';
     });
+
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
