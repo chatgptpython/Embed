@@ -1257,54 +1257,104 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
+var chatbot = document.getElementById('chatbot');
+var chatbotIcon = document.getElementById('chatbot-icon');
+var chatbotText = document.getElementById('chatbot-text');
+var chatbotTextClose = document.getElementById('chatbot-text-close');
+var closeButton = document.getElementById('close-chat');
+let isWelcomeMessageShown = false; // Houdt bij of het welkomstbericht al is getoond
 
-   var chatbot = document.getElementById('chatbot');
-   var chatbotIcon = document.getElementById('chatbot-icon');
-   var chatbotText = document.getElementById('chatbot-text');
-   var chatbotTextClose = document.getElementById('chatbot-text-close');
-   var closeButton = document.getElementById('close-chat');
-   let isWelcomeMessageShown = false; // Houdt bij of het welkomstbericht al is getoond
-   
-   function toggleChat() {
-       if (chatbot.style.display === 'none' || chatbot.style.display === '') {
-           chatbot.style.display = 'block';
-           chatbot.classList.add('visible');
-           chatbotIcon.classList.add('cross');
-           chatbotText.style.display = 'none';
-   
-           if (!isWelcomeMessageShown) {
-               typeWelcomeMessage();
-               isWelcomeMessageShown = true;
-           }
-       } else {
-           chatbot.style.display = 'none';
-           chatbot.classList.remove('visible');
-           chatbotIcon.classList.remove('cross');
-           chatbotText.style.display = 'block';
-       }
-   }
-   
-   // Functie om het welkomstbericht te typen
-   function typeWelcomeMessage() {
-       const chatContent = document.getElementById('chatbot-content');
-       const messageText = 'Welkom bij onze chat service!';
-       let index = 0;
-       let typingInterval = setInterval(() => {
-           if (index < messageText.length) {
-               chatContent.textContent += messageText[index];
-               index++;
-           } else {
-               clearInterval(typingInterval);
-           }
-       }, 50);
-   }
-   
-   // Event listeners om de chatbot te openen en te sluiten
-   chatbotIcon.addEventListener('click', toggleChat);
-   closeButton.addEventListener('click', toggleChat);
-   chatbotTextClose.addEventListener('click', function() {
-       chatbotText.style.display = 'none';
-   });
+function toggleChat() {
+    if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+        chatbot.style.display = 'block';
+        chatbot.classList.add('visible');
+        chatbotIcon.classList.add('cross');
+        chatbotText.style.display = 'none';
+
+        if (!isWelcomeMessageShown) {
+            typeWelcomeMessage(); // Roep typeWelcomeMessage aan
+            isWelcomeMessageShown = true;
+        }
+    } else {
+        chatbot.style.display = 'none';
+        chatbot.classList.remove('visible');
+        chatbotIcon.classList.remove('cross');
+        chatbotText.style.display = 'block';
+    }
+}
+
+// Voeg een event listener toe aan de tekstballon
+chatbotText.addEventListener('click', toggleChat);
+
+// Behoud de bestaande event listeners
+chatbotIcon.addEventListener('click', toggleChat);
+closeButton.addEventListener('click', toggleChat);
+chatbotTextClose.addEventListener('click', function() {
+    chatbotText.style.display = 'none';
+});
+
+// typeWelcomeMessage functie
+window.typeWelcomeMessage = async function() {
+    // Elementen ophalen
+    const chatContent = document.getElementById("chatbot-content");
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "message-container bot-container";
+    chatContent.appendChild(messageContainer);
+
+    // Avatar voor de bot instellen
+    const botAvatar = document.createElement("img");
+    botAvatar.src = "https://github.com/chatgptpython/embed/blob/main/robot-assistant.png?raw=true";
+    botAvatar.alt = "Bot Avatar";
+    botAvatar.className = "bot-avatar";
+    messageContainer.appendChild(botAvatar);
+
+    // Container voor het welkomstbericht
+    let messageElem = document.createElement("div");
+    messageElem.className = "bot-message";
+    messageElem.style.borderTopLeftRadius = "0"; // Maak de linkerbovenhoek hoekig
+    messageContainer.appendChild(messageElem);
+
+    // URL en Tenant ID ophalen uit de script tag
+    const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
+    const backendUrl = scriptElement.getAttribute('data-backend-url');
+    const tenantId = scriptElement.getAttribute('data-tenant-id');
+
+    // Valideer backendUrl en tenantId
+    if (!backendUrl || !tenantId) {
+        console.error('Backend URL of Tenant ID is niet gedefinieerd.');
+        messageElem.textContent = "Er is een fout opgetreden. Probeer het opnieuw.";
+        return;
+    }
+
+    // Probeert het welkomstbericht op te halen
+    let messageText = '';
+    try {
+        const response = await fetch(`${backendUrl}/${tenantId}/get_welcome_message`);
+        if (!response.ok) {
+            throw new Error(`Server response status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (!data || !data.welcome_message) {
+            throw new Error("Welkomstbericht is niet gevonden in de response.");
+        }
+        messageText = data.welcome_message; // Stelt het welkomstbericht in
+    } catch (error) {
+        console.error("Error bij het ophalen van het welkomstbericht: ", error);
+        messageText = "Standaard welkomstbericht als backup"; // Fallback bericht
+    }
+
+    // Start de typ-animatie voor het welkomstbericht
+    let index = 0;
+    let typingInterval = setInterval(() => {
+        if (index < messageText.length) {
+            messageElem.textContent += messageText[index];
+            index++;
+            chatContent.scrollTop = chatContent.scrollHeight;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 25);
+};
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
