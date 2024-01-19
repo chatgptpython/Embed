@@ -1270,7 +1270,6 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-    // Elementen selecteren
     var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
@@ -1279,6 +1278,7 @@ function typeBotMessage(messageText, callback) {
 
     // Functie om de chatbot-widget te openen
     function openChatbot() {
+        chatbot.style.display = 'block'; // Zorg ervoor dat de chatbot zichtbaar wordt
         chatbot.classList.add('visible');
         chatbotIcon.classList.add('cross');
         chatbotText.style.display = 'none';
@@ -1286,6 +1286,7 @@ function typeBotMessage(messageText, callback) {
 
     // Functie om de chatbot-widget te sluiten
     function closeChatbot() {
+        chatbot.style.display = 'none'; // Verberg de chatbot
         chatbot.classList.remove('visible');
         chatbotIcon.classList.remove('cross');
         chatbotText.style.display = 'block';
@@ -1293,10 +1294,10 @@ function typeBotMessage(messageText, callback) {
 
     // Event listeners om de chatbot te openen en te sluiten
     chatbotIcon.addEventListener('click', function() {
-        if (chatbot.classList.contains('visible')) {
-            closeChatbot();
-        } else {
+        if (chatbot.style.display === 'none' || chatbot.style.display === '') {
             openChatbot();
+        } else {
+            closeChatbot();
         }
     });
 
@@ -1307,6 +1308,7 @@ function typeBotMessage(messageText, callback) {
     chatbotTextClose.addEventListener('click', function() {
         chatbotText.style.display = 'none';
     });
+
 
 
 
