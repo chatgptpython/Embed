@@ -970,40 +970,36 @@ window.initializeChat = async function() {
     await fetchAndApplyColor();
 };
 
-// Gecentraliseerde functie om de chatbot-widget te wisselen tussen open en gesloten
-function toggleChat() {
+window.toggleChat = function() {
     const chatbot = document.getElementById("chatbot");
     const icon = document.getElementById("chatbot-icon");
-    const chatText = document.getElementById("chatbot-text");
+    const chatText = document.getElementById("chatbot-text");  // Referentie naar de nieuwe chat tekst
 
     if (chatbot.style.display === "none" || chatbot.style.display === "") {
-        // Open de chatbot-widget
+        document.querySelector("#chatbot-title").innerText = cachedTitle;
+        if (firstTimeOpen) {
+            typeWelcomeMessage(cachedWelcomeMessage);  // Gebruik de gecachte welkomstboodschap
+            firstTimeOpen = false;
+        }
         chatbot.style.display = "flex";
-        chatText.style.opacity = "0";
+        chatText.style.opacity = "0";  // Verberg de tekst wanneer de chat geopend wordt
+
         setTimeout(function() {
             chatbot.classList.add("visible");
         }, 50);
+
         icon.classList.add('cross');
     } else {
-        // Sluit de chatbot-widget
         chatbot.classList.remove("visible");
         setTimeout(function() {
             chatbot.style.display = "none";
         }, 500);
         icon.classList.remove('cross');
-        chatText.style.opacity = "1";
+        chatText.style.opacity = "1";  // Toon de tekst opnieuw wanneer de chat gesloten wordt
     }
-}
+};
 
-// Event listeners voor het openen en sluiten van de chatbot
-document.getElementById('chatbot-icon').addEventListener('click', toggleChat);
-document.getElementById('close-chat').addEventListener('click', toggleChat);
-document.getElementById('chatbot-text-close').addEventListener('click', function() {
-    document.getElementById('chatbot-text').style.display = 'none';
-});
 
-// Roep de functie aan om de getypte chattekst weer te geven
-typeChatTextMessage();
 
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
@@ -1018,7 +1014,7 @@ window.onload = function() {
 
 
 
-// Functie om de chattekst getypt weer te geven en event listener toe te voegen
+// Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
     const chatTextContent = document.getElementById("chatbot-text-content");
     const messageText = "Stel hier uw vraag";
@@ -1029,7 +1025,11 @@ function typeChatTextMessage() {
             index++;
         } else {
             clearInterval(typingInterval);
-            chatTextContent.addEventListener('click', toggleChat);
+            
+            // Voeg de click event listener hier toe, nadat de boodschap volledig is getypt
+            chatTextContent.addEventListener('click', function() {
+                toggleChat();
+            });
         }
     }, 50);
 }
