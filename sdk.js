@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-     // HTML toevoegen
+   // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
@@ -732,10 +732,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
    var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
-
 
 
     (function() {
@@ -999,20 +999,6 @@ window.toggleChat = function() {
     }
 };
 
-// Functie om het chatvenster te sluiten
-function closeChat() {
-    var chatbotElement = document.getElementById('chatbot');
-    if (chatbotElement) {
-        chatbotElement.style.display = 'none'; // Verbergt het chatvenster
-    }
-}
-
-// Voeg event listener toe aan het kruisje
-var closeButton = document.getElementById('close-chat');
-if (closeButton) {
-    closeButton.addEventListener('click', closeChat);
-}
-
 window.closeChatText = function() {
     const chatText = document.getElementById("chatbot-text");
     chatText.style.display = "none";  // Verberg de chattekst
@@ -1023,6 +1009,8 @@ window.onload = function() {
     // Zorg ervoor dat de pagina volledig is geladen voordat initializeChat wordt aangeroepen
     initializeChat();
 };
+
+
 
 // Functie om de chattekst getypt weer te geven
 function typeChatTextMessage() {
@@ -1043,8 +1031,6 @@ function typeChatTextMessage() {
         }
     }, 50);
 }
-
-
 
 // Aanroepen met een vertraging van 3 seconden nadat de pagina is geladen
 setTimeout(typeChatTextMessage, 3000);
@@ -1174,10 +1160,9 @@ window.sendMessage = function() {
                 toggleInputState("enable");
                 isBotTyping = false;
             });
-        }, // Functie om de chattekst getypt weer te geven
-
-
-
+        }, 500);
+    }
+};
 
 function displaySourceLinksAsBubbles(links) {
     const chatContent = document.getElementById("chatbot-content");
@@ -1270,7 +1255,8 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-    var chatbot = document.getElementById('chatbot');
+
+   var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
     var chatbotTextClose = document.getElementById('chatbot-text-close');
@@ -1309,16 +1295,16 @@ function typeBotMessage(messageText, callback) {
         chatbotText.style.display = 'none';
     });
 
-
-
-
-
-
 // Aanroepen wanneer de pagina laadt
 preloadImages();
 
 
 })();  // Deze lijn sluit de IIFE correct af
 });
+
+
+
+
+
 
 
