@@ -1194,7 +1194,7 @@ function displaySourceLinksAsBubbles(links) {
     
 
 // Aanroepen wanneer de pagina laadt
-
+document.addEventListener("DOMContentLoaded", function() {
     const scriptElement = document.querySelector('script[data-backend-url][data-tenant-id]');
     const backendUrl = scriptElement.getAttribute('data-backend-url');
     const tenantId = scriptElement.getAttribute('data-tenant-id');
