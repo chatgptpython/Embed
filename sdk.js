@@ -18,25 +18,23 @@ document.addEventListener("DOMContentLoaded", function() {
             background-color: #ffffff;
         }
 
-                
         #chatbot {
-            position: fixed;
-            bottom: 95px !important;
-            right: 30px;
-            width: 420px;
-            height: 640px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-            display: none;
-            flex-direction: column;
-            opacity: 0;
-            transform: translateY(30px);  /* Chatbot begint 30 pixels onder de eindpositie */
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;  /* 0.5 seconden animatie */
-            z-index: 10000;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
-        }
+        position: fixed;
+        bottom: 95px !important;
+        right: 30px;
+        width: 420px;
+        height: 640px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        display: flex; /* Maak dit een flex container */
+        flex-direction: column; /* Stapel kinderen verticaal */
+        z-index: 10000;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        transform: translateY(30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
 
         #chatbot-icon {
             transform: scale(0.8); 
@@ -224,13 +222,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 #chatbot-content {
-    flex: 1;
-    overflow-y: auto;
+    flex-grow: 1; /* Laat dit element de beschikbare ruimte innemen */
+    overflow-y: auto; /* Voeg scroll toe indien nodig */
     padding: 15px;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Zachte en subtiele gradiënt */
-    color: #333;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse; /* Laatste berichten onderaan */
 }
 
 .message-container {
