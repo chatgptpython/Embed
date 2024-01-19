@@ -1259,43 +1259,52 @@ function typeBotMessage(messageText, callback) {
 
 
    var chatbot = document.getElementById('chatbot');
-    var chatbotIcon = document.getElementById('chatbot-icon');
-    var chatbotText = document.getElementById('chatbot-text');
-    var chatbotTextClose = document.getElementById('chatbot-text-close');
-    var closeButton = document.getElementById('close-chat');
-
-    // Functie om de chatbot-widget te openen
-    function openChatbot() {
-        chatbot.style.display = 'block'; // Zorg ervoor dat de chatbot zichtbaar wordt
-        chatbot.classList.add('visible');
-        chatbotIcon.classList.add('cross');
-        chatbotText.style.display = 'none';
-    }
-
-    // Functie om de chatbot-widget te sluiten
-    function closeChatbot() {
-        chatbot.style.display = 'none'; // Verberg de chatbot
-        chatbot.classList.remove('visible');
-        chatbotIcon.classList.remove('cross');
-        chatbotText.style.display = 'block';
-    }
-
-    // Event listeners om de chatbot te openen en te sluiten
-    chatbotIcon.addEventListener('click', function() {
-        if (chatbot.style.display === 'none' || chatbot.style.display === '') {
-            openChatbot();
-        } else {
-            closeChatbot();
-        }
-    });
-
-    closeButton.addEventListener('click', function() {
-        closeChatbot();
-    });
-
-    chatbotTextClose.addEventListener('click', function() {
-        chatbotText.style.display = 'none';
-    });
+   var chatbotIcon = document.getElementById('chatbot-icon');
+   var chatbotText = document.getElementById('chatbot-text');
+   var chatbotTextClose = document.getElementById('chatbot-text-close');
+   var closeButton = document.getElementById('close-chat');
+   let isWelcomeMessageShown = false; // Houdt bij of het welkomstbericht al is getoond
+   
+   function toggleChat() {
+       if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+           chatbot.style.display = 'block';
+           chatbot.classList.add('visible');
+           chatbotIcon.classList.add('cross');
+           chatbotText.style.display = 'none';
+   
+           if (!isWelcomeMessageShown) {
+               typeWelcomeMessage();
+               isWelcomeMessageShown = true;
+           }
+       } else {
+           chatbot.style.display = 'none';
+           chatbot.classList.remove('visible');
+           chatbotIcon.classList.remove('cross');
+           chatbotText.style.display = 'block';
+       }
+   }
+   
+   // Functie om het welkomstbericht te typen
+   function typeWelcomeMessage() {
+       const chatContent = document.getElementById('chatbot-content');
+       const messageText = 'Welkom bij onze chat service!';
+       let index = 0;
+       let typingInterval = setInterval(() => {
+           if (index < messageText.length) {
+               chatContent.textContent += messageText[index];
+               index++;
+           } else {
+               clearInterval(typingInterval);
+           }
+       }, 50);
+   }
+   
+   // Event listeners om de chatbot te openen en te sluiten
+   chatbotIcon.addEventListener('click', toggleChat);
+   closeButton.addEventListener('click', toggleChat);
+   chatbotTextClose.addEventListener('click', function() {
+       chatbotText.style.display = 'none';
+   });
 
 // Aanroepen wanneer de pagina laadt
 preloadImages();
