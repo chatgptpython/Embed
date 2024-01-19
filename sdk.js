@@ -1265,7 +1265,7 @@ function typeBotMessage(messageText, callback) {
     }, 25);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+    // Elementen selecteren
     var chatbot = document.getElementById('chatbot');
     var chatbotIcon = document.getElementById('chatbot-icon');
     var chatbotText = document.getElementById('chatbot-text');
