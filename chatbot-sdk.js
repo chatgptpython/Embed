@@ -695,8 +695,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
-          
-    var html = `
+              
+     var html = `
         <div id="chatbot">
             <header>
                 <div class="icon-container">
@@ -737,7 +737,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <span role="img" aria-label="chat">💬</span> <!-- Vervangen door witte chat emoji -->
         </div>
     `;
-
+    
+    
 
 
    var div = document.createElement('div');
