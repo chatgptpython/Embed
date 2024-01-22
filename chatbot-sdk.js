@@ -429,6 +429,20 @@ document.addEventListener("DOMContentLoaded", function() {
     cursor: pointer;
 }
 
+#user-input {
+    font-size: 14px; /* Geschikte lettergrootte voor leesbaarheid */
+    font-family: 'Arial', sans-serif; /* Strak, modern lettertype */
+    color: #333; /* Kleur van de ingevoerde tekst */
+    border: 1px solid #ccc; /* Subtiele rand */
+    background-color: #f9f9f9; /* Zachte achtergrondkleur */
+    padding: 10px; /* Evenwichtige padding rondom */
+    line-height: 1.5; /* Ruimte tussen regels voor betere leesbaarheid */
+    border-radius: 4px; /* Zacht afgeronde hoeken */
+    resize: none; /* Voorkomt dat de gebruiker de grootte van het tekstgebied kan aanpassen */
+    width: 100%; /* Zorgt ervoor dat het tekstgebied de volledige breedte inneemt */
+    box-sizing: border-box; /* Inclusief padding en border in de totale breedte en hoogte */
+}
+
 #user-input::placeholder {
     font-family: 'Arial', sans-serif; /* Gebruik een strak en modern lettertype */
     color: #888; /* Een subtiele, niet te opvallende kleur */
