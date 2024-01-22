@@ -175,16 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
     height: 50px;  /* Verhoogd naar 50px */
 }
 
-.online-indicator {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: green;
-    border-radius: 50%;
-    border: 2px solid white;
-    bottom: 5px;  /* Aanpassen voor verticale positie */
-    right: 8px;  /* Nog iets meer naar links */
-}
+
 
 
 
@@ -436,6 +427,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 #chatbot-text-content {
     cursor: pointer;
+}
+
+#user-input::placeholder {
+    font-family: 'Arial', sans-serif; /* Gebruik een strak en modern lettertype */
+    color: #888; /* Een subtiele, niet te opvallende kleur */
+    font-size: 14px; /* Een geschikte lettergrootte voor leesbaarheid */
+    opacity: 1; /* Zorgt ervoor dat de placeholder volledig zichtbaar is */
+    font-style: normal; /* Normale stijl in plaats van cursief voor een strakke look */
 }
 
 #choice-balloons {
