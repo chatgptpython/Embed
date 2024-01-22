@@ -695,12 +695,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.head.appendChild(style);
 
+      
    // HTML toevoegen
     var html = `
         <div id="chatbot">
             <header>
                 <div class="icon-container">
-                    <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png">
+                    <span role="img" aria-label="chat">💬</span> <!-- Vervangen door witte chat emoji -->
                 </div>
                 <div id="chatbot-title-container">
                     <span id="chatbot-title">
