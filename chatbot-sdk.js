@@ -430,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 
-#user-input::placeholder {
+#user-input112::placeholder {
     font-family: 'Arial', sans-serif; /* Gebruik een strak en modern lettertype */
     color: #888; /* Een subtiele, niet te opvallende kleur */
     font-size: 14px; /* Een geschikte lettergrootte voor leesbaarheid */
@@ -722,7 +722,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button id="close-chatbot">Afsluiten</button>
             </div>
             <div id="chatbot-input">
-                <textarea id="user-input" rows="1" placeholder="Typ je vraag hier..."></textarea>
+                <textarea id="user-input112" rows="1" placeholder="Typ je vraag hier..."></textarea>
                 <button onclick="sendMessage()" class="send-icon"></button>
             </div>
             <div id="chatbot-powered">
@@ -1060,7 +1060,7 @@ window.closeChat = function() {
 
 
     window.toggleInputState = function(state) {
-        const userInput = document.getElementById("user-input");
+        const userInput = document.getElementById("user-input112");
         const sendButton = document.querySelector("#chatbot-input button");
         if (state === "disable") {
             userInput.disabled = true;
@@ -1074,7 +1074,7 @@ window.closeChat = function() {
 window.sendMessage = function() {
     if (isBotTyping) return;
 
-    const userInput = document.getElementById("user-input");
+    const userInput = document.getElementById("user-input112");
     const chatContent = document.getElementById("chatbot-content");
 
     // Verkrijg de tenant ID en backend URL van het script-element
@@ -1208,7 +1208,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // De input-elementen activeren voor event-handling
-    document.getElementById("user-input").onkeyup = function(event) {
+    document.getElementById("user-input112").onkeyup = function(event) {
         handleKeyUp(event);
     };
 
