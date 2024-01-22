@@ -696,7 +696,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
               
-     var html = `
+    var html = `
         <div id="chatbot">
             <header>
                 <div class="icon-container">
@@ -712,7 +712,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span id="close-chat" onclick="closeChat()">×</span>
             </header>
             <div id="chatbot-content"></div>
-            <div class="loader-container" style="display: none;">
+            <div class="loader-container" style="display: none;">  <!-- De nieuwe loader, die standaard verborgen is -->
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -731,13 +731,13 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div id="chatbot-text">
             <span id="chatbot-text-close" onclick="closeChatText()">×</span>
-            <span id="chatbot-text-content"></span>
+            <span id="chatbot-text-content"></span> <!-- Dit is waar de getypte tekst zal verschijnen -->
         </div>
         <div id="chatbot-icon" onclick="toggleChat()">
-            <span role="img" aria-label="chat">💬</span> <!-- Vervangen door witte chat emoji -->
+            <img src="https://raw.githubusercontent.com/chatgptpython/embed/main/chat.png" alt="Chat">
         </div>
     `;
-    
+
     
 
 
