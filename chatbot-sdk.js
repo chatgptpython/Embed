@@ -17,8 +17,16 @@ document.addEventListener("DOMContentLoaded", function() {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
         }
-
-                
+    
+        #chatbot-title, .subtitle, .user-message, .bot-message, #user-input112, #chatbot-text-content {
+            font-family: 'Roboto', sans-serif !important; /* Gebruik van het Roboto-lettertype voor een strakkere look */
+            font-size: 0.9em !important; /* Verkleining van de tekstgrootte */
+        }
+    
+        #user-input112::placeholder {
+            font-family: 'Roboto', sans-serif !important;
+            font-size: 0.8em !important; /* Nog kleinere tekstgrootte voor de placeholder */
+        }            
         #chatbot {
             position: fixed;
             bottom: 95px !important;
